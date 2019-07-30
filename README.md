@@ -3,8 +3,8 @@
 Project for Pentalog's Estival Experience
 
 Members:
-    Bucur Sebastian
-    Bularca Alexandru
-    Grigor Teodor
-    Pavel Bogdan
-    Vulcanean Ionel
+    *Bucur Sebastian
+    *Bularca Alexandru
+    *Grigor Teodor
+    *Pavel Bogdan
+    *Vulcanean Ionel
