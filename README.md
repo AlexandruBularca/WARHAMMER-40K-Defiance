@@ -9,6 +9,3 @@ Members:
     Grigor Teodor  
     Pavel Bogdan  
     Vulcanean Ionel  
-
-acesta e un test
-
