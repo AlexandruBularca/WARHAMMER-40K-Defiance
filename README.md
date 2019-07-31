@@ -6,7 +6,7 @@ Project for Pentalog's Estival Experience
 
 * Bucur Sebastian  (@TheLegendWeeb)  
 * Bularca Alexandru (@AlexandruBularca)  
-* Grigor Teodor (@GrigorTeodor)  
+* Grigor Teodor (@TeodorHMX1)  
 * Pavel Bogdan (@pavelbogdan71)  
 * Vulcanean Ionel  (@Ionel14)
 
