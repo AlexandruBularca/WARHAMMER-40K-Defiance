@@ -1,0 +1,50 @@
+body{
+    margin:1%;
+    float:bottom-right;
+    background:black;
+}
+#playwindow{
+    width: 60%;
+    min-height: 1px;
+    height: 60vh;
+    content: "\200B";
+    border:1px solid black;
+    float:right;
+    padding:0;
+    margin:0;
+    border-spacing: 0;
+}
+#pw-tabs{
+    width:100.3%;
+    margin:-1px;
+    /* margin:0; */
+    padding:0;
+    /* border:1px solid black; */
+    border-spacing: 0;
+    background-color:grey;
+    height:8%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+#pw-tab{
+    margin:0;
+    padding:0   ;
+    border:1px solid black;
+    border-spacing: 0;
+    text-align: center;
+    /* height:50%; */
+    /* background-color:red */
+}
+#mainplaywindow{
+    margin:0;
+    background-color:white;
+    content: "\200B";
+    height:92.3%;
+}
+#tabtxt{
+    /* height:auto; */
+    font-size:100;
+    /* background:black; */
+    padding:0;
+    margin:0;
+}
