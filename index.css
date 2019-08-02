@@ -8,7 +8,6 @@ body{
     min-height: 1px;
     height: 70vh;
     content: "\200B";
-    border:1px solid black;
     float:right;
     padding:0;
     margin:0;
@@ -50,8 +49,8 @@ body{
     margin:0;
 }
 #text-window{
-    border: 4px double;
-    border-color:black;
+    /* border: 4px double; */
+    /* border-color:black; */
     background:lightgrey;
     float:left;
     min-height:1px;
@@ -63,21 +62,7 @@ body{
 #TextTitle{
     text-align:center;
 }
-/* #StatusW {
-  
-    background-color:black;
-    padding:0px;
-    margin:0px;
-    border: 2px solid dodgerblue;
-    color: white;
-    float: right;
-    min-height:0;
-    right:1vh;
-    bottom: 1%;
-    height:2%;
-    position: absolute;
-    width:60%;
-} */
+
 #StatusW{
     background:lightgrey;
     float:right;
