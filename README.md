@@ -1,4 +1,5 @@
-# EE-Warhammer-game
+# WARHAMMER 40K
+## DEFIANCE
 
 Project for Pentalog's Estival Experience
 
