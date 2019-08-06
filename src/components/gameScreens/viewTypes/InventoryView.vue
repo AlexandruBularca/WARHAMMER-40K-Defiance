@@ -228,13 +228,13 @@ export default {
 
 .inventory-left {
     height: 100%;
-    width: 60%;
+    width: 55%;
     float: left;
 }
 
 .inventory-changer {
     height: 100%;
-    width: 40%;
+    width: 45%;
     float: right;
 }
 
@@ -305,13 +305,13 @@ export default {
     position:relative;
     top:50%;
     left:20%;
-    transform:translate(-20%,-50%);
+    transform:translate(-30%,-50%);
     float:left;
 }
 
 .middleSlot {
     position: relative;
-    top:50%;
+    top:40%;
     left:50%;
     transform:translate(-50%,-50%);    
 }
@@ -321,7 +321,7 @@ export default {
     top:50%;
     right:20%;
     float:right;
-    transform:translate(20%,-50%);    
+    transform:translate(30%,-50%);    
 }
 
 .knife {
