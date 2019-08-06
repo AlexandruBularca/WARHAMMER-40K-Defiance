@@ -31,10 +31,7 @@ export default {
         var cpy_text_to_be_showed=this.text_to_be_showed;
         var cpy_text_present=[];
         for(var letter in cpy_text_to_be_showed){
-            setTimeout(function(){
-                this.text_present;
-                console.log(cpy_text_present+"_");
-            },900);
+            this.text_present=letter;
         }
       }
     },
