@@ -3,21 +3,21 @@
         <div class="inventory">
             <div class="inventory-left">
                 <div class="armorHolder">
-                    <div class="armor">
+                    <div class="armor" v-on:click="armorClicked()">
                     </div>
                 </div>
                 <div class="weapons">
                     <div class="firstRow">
                         <div class="weaponSlot leftSlot">
-                            <div class="knife"/>
+                            <div class="knife" v-on:click="knifeClicked()"/>
                         </div>
                         <div class="weaponSlot rightSlot">
-                            <div class="sword"/>
+                            <div class="sword" v-on:click="swordClicked()"/>
                         </div>
                     </div>
                     <div class="secondRow">
                         <div class="weaponSlot middleSlot">
-                            <div class="gun"/>
+                            <div class="gun" v-on:click="gunClicked()"/>
                         </div>
                     </div>
                 </div>
@@ -27,6 +27,7 @@
                     <div class="itemChangerTitle">
                         {{ itemToBeChanged }}
                     </div>
+                    <div class="item-decoration"/>
                 </div>
             </div>
         </div>
@@ -77,14 +78,26 @@
 <script>
 export default {
     name: 'Inventory',
-    data: {
-        return: {
+    data() {
+        return {
             itemToBeChanged: 'armor',
         }
     },
     methods: {
         showMap() {
             this.$store.commit('showMap')
+        },
+        armorClicked() {
+            this.itemToBeChanged = 'armor'
+        },
+        knifeClicked() {
+            this.itemToBeChanged = 'knife'
+        },
+        swordClicked() {
+            this.itemToBeChanged = 'sword'
+        },
+        gunClicked() {
+            this.itemToBeChanged = 'gun'
         },
     } 
 }
@@ -255,6 +268,27 @@ export default {
     border: 6px solid rgb(90, 34, 1);
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(90, 34, 1, 0.671), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.itemChangerTitle {
+    text-align: center;
+    padding-top: 5%;
+    color: rgba(255, 255, 255, 0.74);
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.item-decoration {
+
+    width: 90%;
+    height: 0%;
+    background-color: rgb(75, 27, 0);
+    border: 3px solid rgb(90, 34, 1);
+    border-radius: 5px;
+    position: relative;
+    left: 50%;
+    transform:translate(-50%,50%);
+
 }
 
 .armorHolder {
