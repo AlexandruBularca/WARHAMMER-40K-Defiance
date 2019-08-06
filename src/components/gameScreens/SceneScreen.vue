@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Inventory from './sceneItems/Inventory.vue'
+import Inventory from './viewTypes/Inventory.vue'
 export default {
     name: 'SceneScreen', 
     components: {
@@ -13,7 +13,8 @@ export default {
     },
     computed: {
         gameScreen() {
-            return this.$store.state.gameScreen
+            //return this.$store.state.gameScreen
+            return 'inventoryScreen';
         }
     }
 }
