@@ -24,7 +24,9 @@
             </div>
             <div class="inventory-changer">
                 <div class="inventoryChgHolder">
-                    
+                    <div class="itemChangerTitle">
+                        {{ itemToBeChanged }}
+                    </div>
                 </div>
             </div>
         </div>
@@ -74,7 +76,12 @@
 
 <script>
 export default {
-    name: 'Inventory', 
+    name: 'Inventory',
+    data: {
+        return: {
+            itemToBeChanged: 'armor',
+        }
+    },
     methods: {
         showMap() {
             this.$store.commit('showMap')
