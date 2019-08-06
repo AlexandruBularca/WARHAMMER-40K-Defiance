@@ -4,6 +4,14 @@
             <div class="inventory-left">
                 <div class="armorHolder">
                     <div class="armor" v-on:click="armorClicked()">
+                        <div class="armorAction" v-if="showArmorUpItems">
+                            <div class="armorUpgrade item1" v-on:click="item1()">
+                                
+                            </div>
+                            <div class="armorUpgrade item2" v-on:click="item2()">
+                                
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="weapons">
@@ -80,7 +88,8 @@ export default {
     name: 'Inventory',
     data() {
         return {
-            itemToBeChanged: 'armor',
+            itemToBeChanged: 'armor - item1',
+            showArmorUpPanel: false,
         }
     },
     methods: {
@@ -88,7 +97,7 @@ export default {
             this.$store.commit('showMap')
         },
         armorClicked() {
-            this.itemToBeChanged = 'armor'
+            this.showArmorUpPanel = !this.showArmorUpPanel
         },
         knifeClicked() {
             this.itemToBeChanged = 'knife'
@@ -99,7 +108,18 @@ export default {
         gunClicked() {
             this.itemToBeChanged = 'gun'
         },
-    } 
+        item1() {
+            this.itemToBeChanged = 'armor - item1'
+        },
+        item2() {
+            this.itemToBeChanged = 'armor - item2'
+        },
+    },
+    computed: {
+        showArmorUpItems() {
+            return this.showArmorUpPanel
+        }
+    }
 }
 </script>
 
@@ -284,13 +304,14 @@ export default {
 }
 
 .item-decoration {
-    width: 90%;
+    width: 80%;
     height: 0%;
     background-color: rgb(75, 27, 0);
     border: 3px solid rgb(90, 34, 1);
     border-radius: 5px;
     position: relative;
     left: 50%;
+    top: 1%;
     transform:translate(-50%,50%);
 }
 
@@ -314,6 +335,37 @@ export default {
 
 .armor:hover {
     cursor: pointer;
+}
+
+.armorAction {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(2, 2, 2, 0.432);
+}
+
+.armorUpgrade {
+    width:30%;
+    height:30%;
+    background-color: rgb(75, 27, 0);
+    border: 6px solid rgb(90, 34, 1);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(90, 34, 1, 0.671), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.item1 {
+    position:relative;
+    top:50%;
+    left:20%;
+    transform:translate(-20%,-50%);
+    float:left;
+}
+
+.item2 {
+    position:relative;
+    top:50%;
+    right:20%;
+    float:right;
+    transform:translate(20%,-50%); 
 }
 
 .weapons {
