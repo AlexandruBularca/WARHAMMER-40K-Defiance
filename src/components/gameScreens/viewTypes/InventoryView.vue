@@ -76,7 +76,7 @@
             </div>
 
             <div class="mapHolder" v-on:click="showMap()">
-                <div class="miniMap"/>
+                <div class="miniMap" v-bind:style="asyncMiniMap"/>
                 <div class="currentUserLocation"/>
             </div>
         </div>
@@ -90,6 +90,10 @@ export default {
         return {
             itemToBeChanged: 'armor - item1',
             showArmorUpPanel: false,
+            userPosX: this.$store.state.Map.location.x,
+            userPosY: this.$store.state.Map.location.y,
+            transX: 78.2,
+            transY: 104.1,
         }
     },
     methods: {
@@ -118,6 +122,11 @@ export default {
     computed: {
         showArmorUpItems() {
             return this.showArmorUpPanel
+        },
+        asyncMiniMap: function () {
+            return {
+                transform: 'translate(' + this.transX + '%, ' + this.transY +'%) scale(4)',
+            }
         }
     }
 }
@@ -173,7 +182,6 @@ export default {
     background-image: url("./../../../assets/img/map.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    transform: translate(79%, 50%)  scale(4);
     float: left;
 }
 
