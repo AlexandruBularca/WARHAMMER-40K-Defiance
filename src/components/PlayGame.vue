@@ -31,36 +31,7 @@ export default {
             percent: 0
         }
     },
-    methods: {
-        newThreatLvl(newPercent) {
-            this.percent = newPercent
-        }
-        
-    },
-    computed: {
-        currentHealth() {
-            return this.$store.state.currentHeroHealth
-        },
-        maxHealth() {
-            return this.$store.state.currentHeroMaxHealth
-        },
-        currentThreatLvl() {
-            return this.$store.state.currentThreatLevel
-        },
-        maxThreatLvl() {
-            return this.$store.state.maxThreatLevel
-        },
-        calculateHealthBar() {
-            return {
-                width: (this.currentHealth/this.maxHealth)*100 + '%'
-            }
-        },
-        calculateThreatLvlBar() {
-            return {
-                width: (this.currentThreatLvl/this.maxThreatLvl)*100 + '%'
-            }
-        }
-    }
+    
 
     
 }
