@@ -101,6 +101,8 @@ export default {
     height: 100%;
     background-color: bisque;
     content: url(https://cdn5.f-cdn.com/files/download/40944658/2cc427.jpg);
+    transform: translate(-7%,0%) scale(1.3);
+    transform-origin: 50% 50%;
 }
 
 .imgAvatar:hover {
