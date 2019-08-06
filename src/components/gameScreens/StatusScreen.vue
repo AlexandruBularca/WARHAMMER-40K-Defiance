@@ -1,7 +1,7 @@
 <template>
         <div class="leftMenu">
 
-            <div class="imgAvatarHolder" v-on:click="inventoryInteraction('inventoryScreen')">
+            <div class="imgAvatarHolder" v-on:click="inventoryInteraction()">
                 <div class="imgAvatar"/>
             </div>
 
@@ -68,7 +68,6 @@ export default {
         inventoryInteraction() {
             this.$store.commit('inventoryInteraction')
         },
-        
     } 
 }
 </script>

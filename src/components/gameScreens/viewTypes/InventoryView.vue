@@ -61,7 +61,7 @@
 
             </div>
 
-            <div class="mapHolder">
+            <div class="mapHolder" v-on:click="showMap()">
                 <div class="miniMap"/>
                 <div class="currentUserLocation"/>
             </div>
@@ -71,7 +71,12 @@
 
 <script>
 export default {
-    name: 'Inventory'  
+    name: 'Inventory', 
+    methods: {
+        showMap() {
+            this.$store.commit('showMap')
+        },
+    } 
 }
 </script>
 
@@ -113,13 +118,17 @@ export default {
     overflow: hidden;  
 }
 
+.mapHolder:hover {
+    cursor: pointer;
+}
+
 .miniMap {
     height: 100%;
     width: 100%;
     background-image: url("./../../../assets/img/map.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    transform: translate(-45%, 30%)  scale(4);
+    transform: translate(79%, 50%)  scale(4);
     float: left;
 }
 
@@ -231,6 +240,10 @@ export default {
     height: 56%;
 }
 
+.armor:hover {
+    cursor: pointer;
+}
+
 .weapons {
     width: 100%;
     height: 44%;
@@ -253,6 +266,10 @@ export default {
     border: 6px solid rgb(90, 34, 1);
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(90, 34, 1, 0.671), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.weaponSlot:hover {
+    cursor: pointer;
 }
 
 .leftSlot {

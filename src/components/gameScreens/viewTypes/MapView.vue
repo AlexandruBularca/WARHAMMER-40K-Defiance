@@ -1,6 +1,6 @@
 <template>
     <div class="mapHolder">
-
+        <div class="currentUserLocation"/>
     </div>
 </template>
 
@@ -23,6 +23,17 @@ export default {
     border-width: 4px;
     border-style: solid;
     margin-left: 26vw;
+}
+
+.currentUserLocation {
+    height: 20px;
+    width: 20px;
+    background-color: #e910108f;
+    border-radius:50%;
+    box-shadow: 0 0 0 5px #fd843e85;
+    position:relative;
+    top:36.5%;
+    left:29.5%;
 }
 
 </style>

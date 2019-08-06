@@ -45,8 +45,11 @@ const data = new Vuex.Store({
       } else {
         this.state.gameScreen = "mapScreen";
       }
-      console.log(this.state.inventory.shown);
-      console.log(this.state.gameScreen);
+    },
+
+    showMap() {
+      this.state.gameScreen = "mapScreen";
+      this.state.inventory.shown = false;
     }
   }
 })
