@@ -21,7 +21,7 @@ export default {
 
 .terminalHolder {
     background-color: rgb(44, 44, 44);
-    height: 76.9vh;
+    height: 77.2vh;
     width: 25vw;
     border-color: rgb(184, 184, 184);
     border-width: 4px;
