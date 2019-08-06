@@ -1,8 +1,8 @@
 <template>
     <div>
-        <InventoryView v-show="gameScreen == 'inventoryScreen'"/>
-        <CombatView v-show="gameScreen == 'combatScreen'"/>
-        <MapView v-show="gameScreen == 'mapScreen'"/>
+        <InventoryView v-if="gameScreen == 'inventoryScreen'"/>
+        <CombatView v-else-if="gameScreen == 'combatScreen'"/>
+        <MapView v-else-if="gameScreen == 'mapScreen'"/>
     </div>
 </template>
 

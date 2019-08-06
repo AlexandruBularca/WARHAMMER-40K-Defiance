@@ -22,8 +22,10 @@
                     </div>
                 </div>
             </div>
-            <!-- Here is the item changer holder-->
             <div class="inventory-changer">
+                <div class="inventoryChgHolder">
+                    
+                </div>
             </div>
         </div>
         <div class="infoPanel">
@@ -230,10 +232,22 @@ export default {
     float: left;
 }
 
-.inventory-right {
+.inventory-changer {
     height: 100%;
     width: 40%;
     float: right;
+}
+
+.inventoryChgHolder {
+    width: 90%;
+    height: 90%;
+    position:relative;
+    background-color: rgb(75, 27, 0);
+    top:50%;
+    transform:translate(0%,-50%);
+    border: 6px solid rgb(90, 34, 1);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(90, 34, 1, 0.671), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .armorHolder {

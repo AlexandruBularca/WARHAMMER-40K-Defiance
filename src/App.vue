@@ -1,7 +1,7 @@
 <template>
   <div class="app">
-    <HomeScreen v-show="currentView == 'homeScreen'"/>
-    <PlayGame v-show="currentView == 'playGame'"/>
+    <HomeScreen v-if="currentView == 'homeScreen'"/>
+    <PlayGame v-else-if="currentView == 'playGame'"/>
   </div>
 </template>
 
