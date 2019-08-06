@@ -1,8 +1,12 @@
 # inquisitor
 
-- [x] Open a pull request
-- [ ] Open a pull request
-- [ ] Open a pull request
+- [ ] Create the Game Interface
+- [x] Create the Status Panel
+- [ ] Create the Terminal
+- [ ] Create the InventoryScreen
+    - [ ] Create the InventoryScreen
+- [ ] Create the CombatScreen
+- [ ] Create the MapScreen
 
 
 ## Project setup
