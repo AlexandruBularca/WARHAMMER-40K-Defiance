@@ -5,7 +5,7 @@
 - [x] Create the Terminal
     - [ ] create the terminal writing script
 - [x] Create the InventoryScreen
-    - [ ] the possibility to interact with the items from iventory
+    - [x] the possibility to interact with the items from iventory
     - [ ] the mini-map should show the user location
     - [ ] the stats panel should be live-view from items
 - [ ] Create the CombatScreen
