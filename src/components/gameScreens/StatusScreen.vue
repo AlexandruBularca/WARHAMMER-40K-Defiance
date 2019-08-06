@@ -1,20 +1,19 @@
 <template>
         <div class="leftMenu">
 
-            <div class="imgAvatar">
+            <div class="imgAvatar" v-on:click="inventoryInteraction()">
             </div>
 
-            
-            <div class="healthBar">
-
+            <div class="healthBarOutline">
+                <div class="healthBar" v-bind:style="calculateHealthBar"/>
             </div>
 
-            <div class="ammoBar">
-
+            <div class="ammoBarOutline">
+                <div class="ammoBar" v-bind:style="calculateAmmoBar"/>
             </div>
 
-            <div class="threatLvl">
-
+            <div class="threatLvlOutline">
+                <div class="threatLvl" v-bind:style="calculateThreatBar"/>
             </div>
 
         </div>
@@ -25,9 +24,50 @@ export default {
     name: 'SceneScreen',
     data () {
         return {
-
         }
-    },   
+    },
+    computed: {
+        currentHealth() {
+            return this.$store.state.Hero.hp
+        },
+        maxHealth() {
+            return this.$store.state.Hero.maxHp
+        },
+        calculateHealthBar() {
+            return {
+                width: (this.currentHealth/this.maxHealth)*100 + '%'
+            }
+        },
+
+        currentAmmo() {
+            return this.$store.state.Ammo.ammo
+        },
+        maxAmmo() {
+            return this.$store.state.Ammo.maxAmmo
+        },
+        calculateAmmoBar() {
+            return {
+                width: (this.currentAmmo/this.maxAmmo)*100 + '%'
+            }
+        },
+
+        currentThreat() {
+            return this.$store.state.Threat.threat
+        },
+        maxThreat() {
+            return this.$store.state.Threat.maxThreat
+        },
+        calculateThreatBar() {
+            return {
+                width: (this.currentThreat/this.maxThreat)*100 + '%'
+            }
+        },
+    },
+    methods: {
+        inventoryInteraction: function() {
+            this.$store.commit('inventoryInteraction');
+        }
+    } 
 }
 </script>
 
@@ -58,43 +98,64 @@ export default {
     cursor: pointer;
 }
 
-.healthBar {
+.healthBarOutline {
+    background-color: rgba(231, 35, 35, 0.384);
     width: 15vw;
     height: 4vh;
     clip-path: polygon(5% 0%, 0% 0%, 100% 0, 100% 100%, 0% 100%);
-    background-color: rgb(223, 35, 35);
-    border-top: 2px solid rgb(255, 255, 255);
-    border-right: 2px solid rgb(255, 255, 255);
-    border-bottom: 2px solid rgb(255, 255, 255);
+    border-top: 2px solid rgb(255, 2, 2);
+    border-right: 2px solid rgb(255, 0, 0);
+    border-bottom: 2px solid rgb(255, 0, 0);
     left: 9.4vw;
     top: 1.2vh;
     position: relative;
 }
 
-.ammoBar {
+.healthBar {
+    background-color: rgb(231, 35, 35);
+    height: 4vh;
+    width: 100%;
+    clip-path: polygon(5% 0%, 0% 0%, 100% 0, 100% 100%, 0% 100%);
+}
+
+.ammoBarOutline {
+    background-color: rgba(165, 102, 8, 0.205);
     width: 15.9vw;
     height: 4vh;
     clip-path: polygon(5% 0%, 0% 0%, 100% 0, 100% 100%, 0% 100%);
-    background-color: rgb(97, 43, 27);
-    border-top: 2px solid rgb(255, 255, 255);
-    border-right: 2px solid rgb(255, 255, 255);
-    border-bottom: 2px solid rgb(255, 255, 255);
+    border-top: 2px solid rgb(165, 102, 8);
+    border-right: 2px solid rgb(165, 102, 8);
+    border-bottom: 2px solid rgb(165, 102, 8);
     left: 8.5vw;
     top: 2.1vh;
     position: relative;
 }
 
-.threatLvl {
+.ammoBar {
+    background-color: rgb(165, 102, 8);
+    height: 4vh;
+    width: 90%;
+    clip-path: polygon(5% 0%, 0% 0%, 100% 0, 100% 100%, 0% 100%);
+}
+
+.threatLvlOutline {
+    background-color: rgba(35, 104, 231, 0.171);
     width: 16.8vw;
     height: 4vh;
     clip-path: polygon(5% 0%, 0% 0%, 100% 0, 100% 100%, 0% 100%);
-    background-color: rgb(35, 87, 231);
-    border-top: 2px solid rgb(255, 255, 255);
-    border-right: 2px solid rgb(255, 255, 255);
-    border-bottom: 2px solid rgb(255, 255, 255);
+    border-top: 2px solid rgb(35, 104, 231);
+    border-right: 2px solid rgb(35, 104, 231);
+    border-bottom: 2px solid rgb(35, 104, 231);
     left: 7.6vw;
     top: 3vh;
     position: relative;
+}
+
+.threatLvl {
+    background-color: rgb(35, 104, 231);
+    height: 4vh;
+    width: 0%;
+    clip-path: polygon(5% 0%, 0% 0%, 100% 0, 100% 100%, 0% 100%);
 }
 
 </style>

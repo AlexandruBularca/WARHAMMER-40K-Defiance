@@ -21,7 +21,6 @@ export default {
         SceneScreen,
         StatusScreen,
         TerminalScreen
-
     },
     props: {
         msg: String

@@ -4,16 +4,31 @@ Vue.use(Vuex)
 
 const data = new Vuex.Store({
   state: {
+    inventory: {
+        shown: false,
+    },
     currentView: 'homeScreen',
     currentViewOptions: ['homeScreen', 'playGame'],
+    gameScreen: 'inventoryScreen',
 
     // Hero Stats
-    currentHeroHealth: 100,
-    currentHeroMaxHealth: 100,
+    Hero: {
+      hp: 100,
+      maxHp: 100
+    },
+
+    //Ammo
+    Ammo: {
+      ammo: 100,
+      maxAmmo: 100,
+    },
     
     //Threat Level
-    currentThreatLevel: 32,
-    maxThreatLevel: 100,
+    Threat: {
+      threat: 0,
+      maxThreat: 100,
+    },
+
   },
   getters: {
 
@@ -21,6 +36,17 @@ const data = new Vuex.Store({
   mutations: {
     changeView(state, view) {
       return state.currentView = view
+    },
+
+    inventoryInteraction() {
+      this.state.inventory.shown = !this.state.inventory.shown;
+      if (this.state.inventory.shown) {
+        this.state.inventory.gameScreen = "inventoryScreen";
+      } else {
+        this.state.inventory.gameScreen = "null";
+      }
+      console.log(this.state.inventory.shown);
+      console.log(this.state.inventory.gameScreen);
     }
   }
 })
