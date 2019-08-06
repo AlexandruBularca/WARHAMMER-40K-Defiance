@@ -105,6 +105,8 @@ export default {
 
 <style scoped>
 
+@import url('https://fonts.googleapis.com/css?family=Lacquer|Saira+Stencil+One|Righteous&display=swap');
+
 .inventoryHolder {
     background-color: rgb(49, 49, 49);
     height: 97vh;
@@ -173,6 +175,7 @@ export default {
     padding: 10px;
     text-align:center;
     color: rgb(255, 255, 255);
+    font-family: 'Righteous', cursive;
 }
 
 .titlePBItem {
@@ -183,6 +186,7 @@ export default {
     left:10%;
     transform: translate(-10%,-50%);
     color: rgb(255, 255, 255);
+    font-family: 'Righteous', cursive;
 }
 
 .pbHolder {
@@ -274,12 +278,12 @@ export default {
     text-align: center;
     padding-top: 5%;
     color: rgba(255, 255, 255, 0.74);
-    font-size: 24px;
+    font-size: 26px;
     text-transform: uppercase;
+    font-family: 'Righteous', cursive;
 }
 
 .item-decoration {
-
     width: 90%;
     height: 0%;
     background-color: rgb(75, 27, 0);
@@ -288,7 +292,6 @@ export default {
     position: relative;
     left: 50%;
     transform:translate(-50%,50%);
-
 }
 
 .armorHolder {
