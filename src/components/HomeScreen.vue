@@ -1,0 +1,86 @@
+<template>
+  <div class="background disable-selection">
+    <div class="intro">
+        <h1>WARHAMMER<br>40K DEFIANCE</h1>
+        <div class='button' v-on:click="changeView('playGame')">PLAY</div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+    name: 'HomeScreen',
+    props: {},
+    computed: {},
+    methods: {
+      changeView(view) {
+        this.$store.commit('changeView', view)
+      }
+    }
+}
+</script>
+
+
+<style scoped>
+
+@import url('https://fonts.googleapis.com/css?family=Lacquer|Saira+Stencil+One&display=swap');
+
+.background{
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../assets/img/bg_home_screen.jpg");
+    background-repeat: no-repeat;
+    background-size:100vw 100vh;
+}
+
+.disable-selection {
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer */
+  -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+  -webkit-user-select: none; /* Chrome, Safari, and Opera */
+  -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+}
+
+h1 {
+    font-family: 'Lacquer', sans-serif;
+    font-size:4.5em;
+    text-shadow: 4px 4px grey,5px 5px rgb(54, 53, 53);  
+    text-align: center;
+}
+
+.button{
+   position:absolute;
+    left:17%;
+    font-size:40px;
+    font-family: 'Saira Stencil One', cursive;
+    width:50%;
+    border-radius:25px;
+    box-shadow:2px 2px 2px 2px #3d3533;
+    background-color:#b35900;
+    border-color:black;
+    cursor: pointer;
+    text-align: center;
+}
+
+.button:hover{
+    background-color:black;
+    color:rgb(211, 106, 8);
+}
+
+h1:hover{
+    color:rgb(105, 81, 63);
+    -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: black;
+}
+
+.intro{
+    position: absolute;
+    width:auto;
+    height: auto;
+    left:50%;
+    top:40%;
+    transform:translate(-50%,-40%);
+    
+}
+
+</style>
