@@ -1,7 +1,8 @@
 <template>
         <div class="leftMenu">
 
-            <div class="imgAvatar" v-on:click="inventoryInteraction('inventoryScreen')">
+            <div class="imgAvatarHolder" v-on:click="inventoryInteraction('inventoryScreen')">
+                <div class="imgAvatar"/>
             </div>
 
             <div class="healthBarOutline">
@@ -83,16 +84,31 @@ export default {
     border-style: solid;
 }
 
-.imgAvatar {
+.imgAvatarHolder {
     width: 9vw;
     height: 15.3vh;
+    background-color: aqua;
     clip-path: polygon(0% 0%, 0% 0%, 100% 0, 72% 100%, 0% 100%);
-    background-color: rgb(231, 35, 156);
     /**border-top: 2px solid rgb(255, 255, 255);
     border-left: 2px solid rgb(255, 255, 255);
     border-bottom: 2px solid rgb(255, 255, 255);*/
     margin: 1.2vh;
     float: left;
+}
+
+.imgAvatar {
+    width: 100%;
+    height: 100%;
+    background-color: bisque;
+    /**
+    clip-path: polygon(0% 0%, 0% 0%, 100% 0, 72% 100%, 0% 100%);
+    background-image: url('https://cdn5.f-cdn.com/files/download/40944658/2cc427.jpg');
+    background-size: 100% 100%;
+    border-top: 2px solid rgb(255, 255, 255);
+    border-left: 2px solid rgb(255, 255, 255);
+    border-bottom: 2px solid rgb(255, 255, 255);
+    margin: 1.2vh;
+    float: left;*/
 }
 
 .imgAvatar:hover {
