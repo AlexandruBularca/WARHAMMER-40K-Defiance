@@ -61,7 +61,8 @@
 
             </div>
 
-            <div class="map">
+            <div class="mapHolder">
+                <div class="miniMap"/>
             </div>
         </div>
     </div>
@@ -100,6 +101,21 @@ export default {
 .stats {
     height: 60%;
     width: 100%;
+}
+
+.mapHolder {
+    height: 39.6%;
+    width: 99%;
+    border-top: 4px solid rgb(184, 184, 184);
+    border-left: 4px solid rgb(184, 184, 184);
+}
+
+.miniMap {
+    height: 100%;
+    width: 100%;
+    background-image: url("./../../../assets/img/map.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 .titleHolder {

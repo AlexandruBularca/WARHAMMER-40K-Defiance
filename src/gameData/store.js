@@ -9,7 +9,7 @@ const data = new Vuex.Store({
     },
     currentView: 'homeScreen',
     currentViewOptions: ['homeScreen', 'playGame'],
-    gameScreen: 'inventoryScreen',
+    gameScreen: 'mapScreen',
 
     // Hero Stats
     Hero: {
@@ -41,12 +41,12 @@ const data = new Vuex.Store({
     inventoryInteraction() {
       this.state.inventory.shown = !this.state.inventory.shown;
       if (this.state.inventory.shown) {
-        this.state.inventory.gameScreen = "inventoryScreen";
+        this.state.gameScreen = "inventoryScreen";
       } else {
-        this.state.inventory.gameScreen = "null";
+        this.state.gameScreen = "mapScreen";
       }
       console.log(this.state.inventory.shown);
-      console.log(this.state.inventory.gameScreen);
+      console.log(this.state.gameScreen);
     }
   }
 })
