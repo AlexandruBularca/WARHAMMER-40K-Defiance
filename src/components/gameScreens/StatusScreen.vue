@@ -100,15 +100,7 @@ export default {
     width: 100%;
     height: 100%;
     background-color: bisque;
-    /**
-    clip-path: polygon(0% 0%, 0% 0%, 100% 0, 72% 100%, 0% 100%);
-    background-image: url('https://cdn5.f-cdn.com/files/download/40944658/2cc427.jpg');
-    background-size: 100% 100%;
-    border-top: 2px solid rgb(255, 255, 255);
-    border-left: 2px solid rgb(255, 255, 255);
-    border-bottom: 2px solid rgb(255, 255, 255);
-    margin: 1.2vh;
-    float: left;*/
+    content: url(https://cdn5.f-cdn.com/files/download/40944658/2cc427.jpg);
 }
 
 .imgAvatar:hover {
