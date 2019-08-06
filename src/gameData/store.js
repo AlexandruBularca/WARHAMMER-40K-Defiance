@@ -29,6 +29,14 @@ const data = new Vuex.Store({
       maxThreat: 100,
     },
 
+    //Map details
+    Map: {
+      location: {
+        x: 0,
+        y: 0,
+      },
+    }
+
   },
   getters: {
 
