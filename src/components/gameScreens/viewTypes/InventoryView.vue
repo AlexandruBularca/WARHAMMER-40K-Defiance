@@ -88,7 +88,7 @@ export default {
     name: 'Inventory',
     data() {
         return {
-            itemToBeChanged: 'armor - item1',
+            itemToBeChanged: 'chest-plate',
             showArmorUpPanel: false,
             userPosX: this.$store.state.Map.locationMiniMap.x,
             userPosY: this.$store.state.Map.locationMiniMap.y,
@@ -113,10 +113,10 @@ export default {
             this.itemToBeChanged = 'gun'
         },
         item1() {
-            this.itemToBeChanged = 'armor - item1'
+            this.itemToBeChanged = 'chest-plate'
         },
         item2() {
-            this.itemToBeChanged = 'armor - item2'
+            this.itemToBeChanged = 'kneeplates'
         },
     },
     computed: {
