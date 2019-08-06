@@ -1,35 +1,57 @@
 <template>
 
     <div class="terminalHolder">
-            
+        <!-- <vue-typer text='Vue component that simulates a user typing, selecting, and erasing text!'
+        
+        ></vue-typer> -->
+        <p class="terminal_text">{{text_present}}</p>
     </div>
 
 </template>
 
 <script>
+import { VueTyper } from 'vue-typer'
+import { setTimeout } from 'timers';
+
+
+
 export default {
-    name: 'SceneScreen',
-    data () {
+    name: 'TerminalScreen',
+    components:{
+        VueTyper
+    },
+    data(){
         return {
-        tab: null,
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-        icons: false,
-        centered: false,
-        grow: true,
-        vertical: false,
-        prevIcon: false,
-        nextIcon: false,
-        right: false,
-        tabs: 3,
+            text_present:[],
+            text_to_be_showed:"wew man this is totally cool,like really cool beans bro...",
         }
-    },   
+    },  
+    methods:{
+      showtext:function(){
+        var cpy_text_to_be_showed=this.text_to_be_showed;
+        var cpy_text_present=[];
+        for(var letter in cpy_text_to_be_showed){
+            setTimeout(function(){
+                this.text_present;
+                console.log(cpy_text_present+"_");
+            },900);
+        }
+      }
+    },
+    watch:{
+        text_to_be_showed:function(){
+            console.log("foo");
+            this.showtext();
+        }
+    }
 }
 </script>
-
-<style scoped>
-
+<style>
+.vue-typer .custom.char.typed {
+  color: #ffffff;
+}
 .terminalHolder {
-    background-color: rgb(44, 44, 44);
+    background-color: rgb(0, 0, 0);
     height: 76.9vh;
     width: 25vw;
     border-color: rgb(184, 184, 184);
@@ -37,5 +59,11 @@ export default {
     border-style: solid;
     margin-top: 1vh;
 }
-
+.terminal_text{
+    color:rgb(241, 241, 241);
+    overflow-wrap: break-word;
+    padding:10px;
+    padding-top:0px;
+    font-family:"Roboto Mono";
+}
 </style>

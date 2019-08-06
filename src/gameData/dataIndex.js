@@ -4,9 +4,12 @@ Vue.use(Vuex)
 
 const data = new Vuex.Store({
   state: {
-    currentView: 'homeScreen',
+    currentView: 'playGame',
+    // changed current view to playGame for the porpose of testing
     currentViewOptions: ['homeScreen', 'playGame'],
 
+    SceneScreen_curr: "disconect",
+    SceneScreen_options: ["disconect"],
     // Hero Stats
     currentHeroHealth: 100,
     currentHeroMaxHealth: 100,
