@@ -1,12 +1,20 @@
 <template>
     <div class="mapHolder">
         <div class="currentUserLocation"/>
+        <div class="buttonsHolder">
+            <button class="btnAttack" v-on:click="showCombatView()">Attack</button>
+        </div>      
     </div>
 </template>
 
 <script>
 export default {
-    name: 'Map',
+    name: 'Map', 
+    methods: {
+        showCombatView() {
+            this.$store.commit('combatMode')
+        },
+    } 
 }
 </script>
 
@@ -34,6 +42,71 @@ export default {
     position:relative;
     top:36.5%;
     left:29.5%;
+}
+
+.buttonsHolder {
+    height: 10%;
+    width: 80%;
+    position: relative;
+    top: 87%;
+    left: 50%;
+    transform: translate(-50%,0%);
+}   
+
+.btnSearch {
+    width: 160px;
+    height: 45px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+
+.btnSearch:hover {
+    background-color: rgb(0, 0, 0);
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+    color: #fff;
+    transform: translate(-50%, -20%);
+}   
+
+.btnAttack {
+    width: 160px;
+    height: 45px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+
+.btnAttack:hover {
+    background-color: rgb(0, 0, 0);
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+    color: #fff;
+    transform: translate(-50%, -20%);
 }
 
 </style>

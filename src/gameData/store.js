@@ -50,6 +50,11 @@ const data = new Vuex.Store({
     showMap() {
       this.state.gameScreen = "mapScreen";
       this.state.inventory.shown = false;
+    },
+
+    combatMode() {
+      this.state.gameScreen = "combatScreen";
+      this.state.inventory.shown = false;
     }
   }
 })

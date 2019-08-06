@@ -13,7 +13,7 @@ export default {
 <style scoped>
 
 .combatHolder {
-    background-color: rgb(233, 18, 18);
+    background-color: rgb(255, 255, 255);
     height: 97vh;
     width: 72.5vw;
     border-color: rgb(184, 184, 184);
