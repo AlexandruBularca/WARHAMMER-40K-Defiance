@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="pbHolder">
-                    <div class="title">
+                    <div class="titlePBItem">
                         STR
                     </div>
                     <div class="progressBarOutlineStr">
@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="pbHolder">
-                    <div class="title">
+                    <div class="titlePBItem">
                         DEX
                     </div>
                     <div class="progressBarOutlineDex">
@@ -51,7 +51,7 @@
                 </div>
 
                 <div class="pbHolder">
-                    <div class="title">
+                    <div class="titlePBItem">
                         CON
                     </div>
                     <div class="progressBarOutlineCon">
@@ -152,7 +152,7 @@ export default {
     color: rgb(255, 255, 255);
 }
 
-.title {
+.titlePBItem {
     float: left;
     font-size: 20px;
     position:relative;
