@@ -1,12 +1,18 @@
 # inquisitor
 
-- [ ] Create the Game Interface
+- [x] Create the Game Interface
 - [x] Create the Status Panel
-- [ ] Create the Terminal
-- [ ] Create the InventoryScreen
-    - [ ] Create the InventoryScreen
+- [x] Create the Terminal
+    - [ ] create the terminal writing script
+- [x] Create the InventoryScreen
+    - [ ] the possibility to interact with the items from iventory
+    - [ ] the mini-map should show the user location
+    - [ ] the stats panel should be live-view from items
 - [ ] Create the CombatScreen
-- [ ] Create the MapScreen
+    - [ ] the combat screen should have the buttons
+- [x] Create the MapScreen
+    - [ ] the map screen should pin the user location
+    - [ ] buttons for searching and attacking
 
 
 ## Project setup
