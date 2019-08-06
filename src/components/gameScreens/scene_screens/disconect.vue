@@ -1,5 +1,5 @@
 <template>
-    <p class="fukc">fuk</p>
+    <p class="fukc">&lt;DISCONECTED &gt;</p>
 </template>
 <script>
 export default {
@@ -10,6 +10,7 @@ export default {
 .fukc{
     color:white;
     text-align:center;
+    font-size:100%;
 }
 </style>
 

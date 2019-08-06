@@ -13,7 +13,7 @@
 import { VueTyper } from 'vue-typer'
 import { setTimeout } from 'timers';
 
-
+var i=0;
 
 export default {
     name: 'TerminalScreen',
@@ -22,22 +22,30 @@ export default {
     },
     data(){
         return {
-            text_present:[],
+            text_present:"",
             text_to_be_showed:"wew man this is totally cool,like really cool beans bro...",
         }
     },  
     methods:{
-      showtext:function(){
-        var cpy_text_to_be_showed=this.text_to_be_showed;
-        var cpy_text_present=[];
-        for(var letter in cpy_text_to_be_showed){
-            this.text_present=letter;
-        }
+      showtext(){
+        var temp_text_present=[];
+        // for(var letter in this.text_to_be_showed){
+        //     console.log(this.text_to_be_showed[letter]);
+        //     temp_text_present.push(this.text_to_be_showed[letter]);
+        //     this.text_present=temp_text_present.join("");
+        //     setTimeout(function(){console.log("foo")},200);
+        // }
+        setTimeout(()=>{
+            console.log("asd");
+            i++;
+            if(i<10){
+                this.showtext()
+            }
+        },1000);
       }
     },
     watch:{
         text_to_be_showed:function(){
-            console.log("foo");
             this.showtext();
         }
     }
