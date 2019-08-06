@@ -63,6 +63,7 @@
 
             <div class="mapHolder">
                 <div class="miniMap"/>
+                <div class="currentUserLocation"/>
             </div>
         </div>
     </div>
@@ -108,6 +109,8 @@ export default {
     width: 99%;
     border-top: 4px solid rgb(184, 184, 184);
     border-left: 4px solid rgb(184, 184, 184);
+    display: inline-block; /* change the default display type to inline-block */
+    overflow: hidden;  
 }
 
 .miniMap {
@@ -116,6 +119,20 @@ export default {
     background-image: url("./../../../assets/img/map.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    transform: translate(-45%, 30%)  scale(4);
+    float: left;
+}
+
+.currentUserLocation {
+    height: 20px;
+    width: 20px;
+    background-color: #e910108f;
+    border-radius:50%;
+    box-shadow: 0 0 0 5px #fd843e85;
+    position:relative;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
 }
 
 .titleHolder {
