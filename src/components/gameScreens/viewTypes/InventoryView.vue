@@ -2,8 +2,9 @@
     <div class="inventoryHolder">
         <div class="inventory">
             <div class="inventory-left">
-                <div class="armor">
-
+                <div class="armorHolder">
+                    <div class="armor">
+                    </div>
                 </div>
                 <div class="weapons">
                     <div class="firstRow">
@@ -235,9 +236,22 @@ export default {
     float: right;
 }
 
-.armor {
+.armorHolder {
     width: 100%;
-    height: 56%;
+    height: 52%;
+}
+
+.armor {
+    width: 80%;
+    height: 80%;
+    position:relative;
+    background-color: rgb(75, 27, 0);
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    border: 6px solid rgb(90, 34, 1);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(90, 34, 1, 0.671), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .armor:hover {
@@ -246,7 +260,7 @@ export default {
 
 .weapons {
     width: 100%;
-    height: 44%;
+    height: 48%;
 }
 
 .firstRow {
@@ -263,6 +277,7 @@ export default {
 .weaponSlot {
     width: 16vh;
     height: 16vh;
+    background-color: rgb(75, 27, 0);
     border: 6px solid rgb(90, 34, 1);
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(90, 34, 1, 0.671), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
