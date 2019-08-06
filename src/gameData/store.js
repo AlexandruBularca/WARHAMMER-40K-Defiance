@@ -32,8 +32,12 @@ const data = new Vuex.Store({
     //Map details
     Map: {
       location: {
-        x: 22.5,
-        y: 29.5,
+        x: 36.5,
+        y: 29.3,
+      },
+      locationMiniMap: {
+        x: 79.0,
+        y: 50.0,
       },
     }
 

@@ -90,8 +90,8 @@ export default {
         return {
             itemToBeChanged: 'armor - item1',
             showArmorUpPanel: false,
-            userPosX: this.$store.state.Map.location.x,
-            userPosY: this.$store.state.Map.location.y,
+            userPosX: this.$store.state.Map.locationMiniMap.x,
+            userPosY: this.$store.state.Map.locationMiniMap.y,
             transX: 78.2,
             transY: 104.1,
         }
@@ -125,7 +125,7 @@ export default {
         },
         asyncMiniMap: function () {
             return {
-                transform: 'translate(' + this.transX + '%, ' + this.transY +'%) scale(4)',
+                transform: 'translate(' + this.userPosX + '%, ' + this.userPosY +'%) scale(4)',
             }
         }
     }
