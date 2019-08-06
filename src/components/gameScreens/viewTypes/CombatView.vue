@@ -13,7 +13,9 @@ export default {
 <style scoped>
 
 .combatHolder {
-    background-color: rgb(255, 255, 255);
+    background-image: url('https://media.giphy.com/media/WM0nXdhOxCRQQ/giphy.gif');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     height: 97vh;
     width: 72.5vw;
     border-color: rgb(184, 184, 184);
