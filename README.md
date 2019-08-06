@@ -1,5 +1,10 @@
 # inquisitor
 
+- [x] Open a pull request
+- [ ] Open a pull request
+- [ ] Open a pull request
+
+
 ## Project setup
 ```
 npm install
