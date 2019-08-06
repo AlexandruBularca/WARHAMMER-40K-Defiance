@@ -1,20 +1,23 @@
 <template>
     <div>
-        <Inventory v-show="gameScreen == 'inventoryScreen'"/>
+        <InventoryView v-show="gameScreen == 'inventoryScreen'"/>
+        <CombatView v-show="gameScreen == 'combatScreen'"/>
     </div>
 </template>
 
 <script>
-import Inventory from './viewTypes/Inventory.vue'
+import InventoryView from './viewTypes/InventoryView.vue'
+import CombatView from './viewTypes/CombatView.vue'
+
 export default {
     name: 'SceneScreen', 
     components: {
-        Inventory,
+        InventoryView,
+        CombatView,
     },
     computed: {
         gameScreen() {
-            //return this.$store.state.gameScreen
-            return 'inventoryScreen';
+            return this.$store.state.gameScreen
         }
     }
 }
