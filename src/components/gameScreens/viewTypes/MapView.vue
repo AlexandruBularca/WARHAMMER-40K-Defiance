@@ -2,7 +2,7 @@
     <div class="mapHolder">
         <div class="currentUserLocation"/>
         <div class="buttonsHolder">
-            <button class="btnAttack" v-on:click="showCombatView()">Attack</button>
+            <button class="btnAttack" v-on:click="showCombatView()">Search</button>
         </div>      
     </div>
 </template>
