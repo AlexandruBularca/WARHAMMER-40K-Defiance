@@ -32,8 +32,12 @@
           <div class="itemChangerTitle disable-selection">{{ itemToBeChanged }}</div>
           <div class="item-decoration" />
           <div class="itemsChanger">
-            <div class="templateItem disable-selection" v-for="item of itemsToBeRenderd">
-                <div class="itemHolderView">
+            <div class="templateItem disable-selection" v-for="item of itemsToBeRenderd"
+            v-on:click="itemRenderClicked(item.selected, item.title, item.model)" >
+                <div class="itemHolderView" v-if="!item.selected">
+                    {{item.title}}
+                </div>
+                <div class="itemHolderViewSelected" v-else-if="item.selected">
                     {{item.title}}
                 </div>
             </div>
@@ -100,6 +104,12 @@ export default {
       legplateSelected: this.$store.state.legplate.selectedLegplate,
       legplatesAvailable: this.$store.state.legplate.legplates,
       itemsTypeToBeRendered: 'chestplates',
+      itemClicked: {
+          isSelected: null,
+          title: null,
+          types: null,
+          model: null,
+      },
     };
   },
   methods: {
@@ -134,6 +144,13 @@ export default {
     item2() {
       this.itemToBeChanged = "legplates";
       this.itemsTypeToBeRendered = 'legplates';
+    },
+    itemRenderClicked(isSelected, title, model) {
+      this.itemClicked.isSelected = isSelected;
+      this.itemClicked.title = title;
+      this.itemClicked.types = this.itemsTypeToBeRendered;
+      this.itemClicked.model = model;
+      this.$store.commit('itemFromInventoryClicked', this.itemClicked);
     }
   },
   computed: {
@@ -584,6 +601,7 @@ export default {
     margin-top: 10px;
     text-align: center;
     vertical-align: middle;
+    cursor: pointer;
 }
 
 .itemHolderView {
@@ -595,6 +613,18 @@ export default {
     transform:translate(-50%,-50%);
     font-family: "Righteous", cursive;
     color: rgba(255, 255, 255, 0.74);
+    text-transform: uppercase;
+}
+
+.itemHolderViewSelected {
+    height: 90%;
+    width: 90%;
+    position: relative;
+    top:70%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-family: "Righteous", cursive;
+    color: rgb(221, 193, 32);
     text-transform: uppercase;
 }
 

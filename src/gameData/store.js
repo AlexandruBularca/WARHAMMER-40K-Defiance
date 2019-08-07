@@ -53,17 +53,21 @@ const data = new Vuex.Store({
       selectedKnife: 'knife_lvl1',
       knives: [
         {
-          item: 'knife_lvl1',
+          model: 'knife_lvl1',
           title: 'knife lvl 1',
+          selected: true,
         }, { 
-          item: 'knife_lvl2',
+          model: 'knife_lvl2',
           title: 'knife lvl 2',
+          selected: false,
         }, { 
-          item: 'knife_lvl3',
+          model: 'knife_lvl3',
           title: 'knife lvl 3',
+          selected: false,
         }, { 
-          item: 'knife_lvl4',
+          model: 'knife_lvl4',
           title: 'knife lvl 4',
+          selected: false,
         },
       ]
     },
@@ -72,23 +76,29 @@ const data = new Vuex.Store({
       selectedGun: 'gun_lvl1',
       guns: [
         {
-          item: 'gun_lvl1',
+          model: 'gun_lvl1',
           title: 'gun lvl 1',
+          selected: true,
         }, { 
-          item: 'gun_lvl2',
+          model: 'gun_lvl2',
           title: 'gun lvl 2',
+          selected: false,
         }, { 
-          item: 'gun_lvl3',
+          model: 'gun_lvl3',
           title: 'gun lvl 3',
+          selected: false,
         }, { 
-          item: 'gun_lvl4',
+          model: 'gun_lvl4',
           title: 'gun lvl 4',
+          selected: false,
         }, { 
-          item: 'gun_lvl5',
+          model: 'gun_lvl5',
           title: 'gun lvl 5',
+          selected: false,
         }, { 
-          item: 'gun_lvl6',
+          model: 'gun_lvl6',
           title: 'gun lvl 6',
+          selected: false,
         },
       ]
     },
@@ -97,11 +107,13 @@ const data = new Vuex.Store({
       selectedSword: 'sword_lvl1',
       swords: [
         {
-          item: 'sword_lvl1',
+          model: 'sword_lvl1',
           title: 'sword lvl 1',
+          selected: true,
         }, { 
-          item: 'sword_lvl2',
+          model: 'sword_lvl2',
           title: 'sword lvl 2',
+          selected: false,
         },
       ]
     },
@@ -110,11 +122,13 @@ const data = new Vuex.Store({
       selectedChestplate: 'chestplate_lvl1',
       chestplates: [
         {
-          item: 'chestplate_lvl1',
+          model: 'chestplate_lvl1',
           title: 'chestplate lvl 1',
+          selected: true,
         }, { 
-          item: 'chestplate_lvl2',
+          model: 'chestplate_lvl2',
           title: 'chestplate lvl 2',
+          selected: false,
         },
       ]
     },
@@ -123,11 +137,13 @@ const data = new Vuex.Store({
       selectedLegplate: 'legplate_lvl1',
       legplates: [
         {
-          item: 'legplate_lvl1',
+          model: 'legplate_lvl1',
           title: 'legplate lvl 1',
+          selected: true,
         }, { 
-          item: 'legplate_lvl2',
+          model: 'legplate_lvl2',
           title: 'legplate lvl 2',
+          selected: false,
         },
       ]
     }
@@ -186,7 +202,21 @@ const data = new Vuex.Store({
 
     enemy1Attackhero () {
       this.state.hero.hp = this.state.hero.hp -this.state.enemy.attack;
-    }
+    },
+
+    itemFromInventoryClicked(type, item) {
+      if (!item.isSelected) {
+        if (item.types === 'knives') {
+          this.state.knife.selectedKnife = item.model;
+          console.log(this.state.knife.selectedKnife);
+        } else if (item.types === 'guns') {
+        } else if (item.types === 'swords') {
+        } else if (item.types === 'chestplates') {
+        } else if (item.types === 'legplates') {
+        }
+      }
+    },
+
   }
 })
 
