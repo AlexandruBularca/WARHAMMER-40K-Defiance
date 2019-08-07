@@ -4,28 +4,46 @@
             <div class="firstRowEnemyStatus">
                 <div class="holderEnemyStatus col1">
                     <div class="enemyStatusStyle">
+                        <div class="progressBarOutlineStr">
+                            <div class="progressBarStr" />
+                        </div>
                     </div>
                 </div>
                 <div class="holderEnemyStatus col2">
                     <div class="enemyStatusStyle">
+                        <div class="progressBarOutlineStr">
+                            <div class="progressBarStr" />
+                        </div>
                     </div>
                 </div>
                 <div class="holderEnemyStatus col3">
                     <div class="enemyStatusStyle">
+                        <div class="progressBarOutlineStr">
+                            <div class="progressBarStr" />
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="secondRowEnemyStatus">
                 <div class="holderEnemyStatus col1">
                     <div class="enemyStatusStyle">
+                        <div class="progressBarOutlineStr">
+                            <div class="progressBarStr" />
+                        </div>
                     </div>
                 </div>
                 <div class="holderEnemyStatus col2">
                     <div class="enemyStatusStyle">
+                        <div class="progressBarOutlineStr">
+                            <div class="progressBarStr" />
+                        </div>
                     </div>
                 </div>
                 <div class="holderEnemyStatus col3">
                     <div class="enemyStatusStyle">
+                        <div class="progressBarOutlineStr">
+                            <div class="progressBarStr" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -147,10 +165,42 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 20px;
-    background-color: rgba(61, 4, 167, 0.493);
-    border: 6px solid rgba(34, 1, 95, 0.575);
+}
+
+.enemyStatusStyle:hover {
+    width: 90%;
+    height: 70%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.493);
+    border: 6px solid rgba(0, 0, 0, 0.575);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.671),
         0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.progressBarOutlineStr {
+    width: 70%;
+    height: 50%;
+    background-color: rgba(255, 0, 0, 0.329);
+    position: relative;
+    top: 50%;
+    left: 5%;
+    border-radius: 10px;
+    transform: translate(0%, -50%);
+    float: left;
+    border: 2px solid rgb(255, 0, 0);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.671),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.progressBarStr {
+    border-radius: 5px;
+    background-color: rgb(255, 0, 0);
+    height: 100%;
+    width: 90%;
 }
 
 .firstRowEnemyStatus {
