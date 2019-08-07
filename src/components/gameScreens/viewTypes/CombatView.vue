@@ -10,7 +10,13 @@
                 </div>
             </div>
             <div class="enemiesCharacterHolder">
-                <div class="enemyCharacterAvatar" >
+                <div class="enemyCharacterAvatar enemy1" >
+                    <img class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
+                </div>
+                <div class="enemyCharacterAvatar enemy2" >
+                    <img class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
+                </div>
+                <div class="enemyCharacterAvatar enemy3" >
                     <img class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
                 </div>
             </div>
@@ -41,27 +47,6 @@
                 </div>
             </div>
         </div>
-        <!--
-        <div class="inner">
-                <progress class="enemyPoz" 
-                :value="this.$store.state.enemy1.hp"
-                :max="this.$store.state.enemy1.maxhp" >
-                </progress>
-
-            <div class="AvatarHeroCombat" >
-                <img class="SizeHero"  src="./../../../assets/img/character_avatar.png">
-            </div>
-
-            <div class="AvatarEnemyCombat">
-                <img class="SizeEnemy"  src="./../../../assets/img/ChaosCultistPlaceholder.jpg">
-            </div>
-
-            <div class="buttonsblock">
-                <button class=knifeAttack @click="heroKnifeAttack">Knife Attack</button>
-                <button class=swordAttack @click="heroSwordAttack">Sword Attack</button>
-                <button class=gunAttack @click="heroGunAttack">Gun Attack</button> 
-            </div>
-        </div>-->
     </div>
 </template>
 
@@ -126,14 +111,26 @@ export default {
     position: relative;
     top: 50%;
     left: 5%;
+    float: left;
 }
 
 .enemyCharacterAvatar {
     height: 30%;
     width: 20%;
     position: relative;
-    top: 50%;
-    left: 5%;
+    top: -50%;
+}
+
+.enemy3 {
+    left: 70%;    
+}
+
+.enemy2 {
+    left: 80%;    
+}
+
+.enemy1 {
+    left: 90%;    
 }
 
 .enemiesCharacterHolder {
