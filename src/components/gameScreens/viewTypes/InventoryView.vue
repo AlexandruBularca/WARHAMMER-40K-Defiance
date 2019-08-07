@@ -32,7 +32,7 @@
           <div class="itemChangerTitle disable-selection">{{ itemToBeChanged }}</div>
           <div class="item-decoration" />
           <div class="itemsChanger">
-            <div class="templateItem" v-for="item of itemsToBeRenderd">
+            <div class="templateItem disable-selection" v-for="item of itemsToBeRenderd">
                 <div class="itemHolderView">
                     {{item.title}}
                 </div>
@@ -42,7 +42,7 @@
       </div>
     </div>
     <div class="infoPanel">
-        <p class="miniMapText">MINIMAP</p>
+        <p class="miniMapText disable-selection">MINIMAP</p>
       <div class="stats">
         <div class="titleHolder disable-selection">
           <h1 class="statsH1">Stats</h1>
