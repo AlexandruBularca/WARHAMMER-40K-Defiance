@@ -421,52 +421,6 @@ export default {
     color:rgb(134, 12, 12);
 }
 
-.swordAttack {
-    color: yellow;
-    height: 9vh;
-    width: 15vw;
-    float: bottom;
-    background-color: rgb(134, 12, 12);
-    border: 0; 
-    margin: 1vw;
-    font-size: 17px;
-}
-
-.gunAttack {
-    color: yellow;
-    height: 9vh;
-    width: 15vw;
-    float: bottom;
-    background-color: rgb(134, 12, 12);
-    border: 0; 
-    margin: 1vw;
-    font-size: 17px;
-}
-
-.buttonsblock {
-    height: 31vh;
-    float:bottom; 
-    background-color: aqua;
-    visibility: hidden;
-}
-
-.inner {
-    padding-top: 45%;
-}
-
-.AvatarHeroCombat
-{
-    float: left;
-    float: top;
-    height: 28%;
-    width: 10%;
-    position:absolute;
-    top:50%;
-    left:33%;
-    transform:translate(-35%,-50%);
-
-}
-
 .keepCharacterRatio {
     max-width:100%;
     max-height:100%;
@@ -474,27 +428,4 @@ export default {
     height: auto;
 }
 
-.AvatarEnemyCombat{
-    float: right;
-    float: top;
-    height: 28%;
-    width: 10%;
-    position:absolute;
-    top:50%;
-    right:3%;
-    transform:translate(-35%,-50%);
-}
-
-.SizeEnemy {
-    height: 100%;
-    width: 100%;
-}
-
-.enemyPoz {
-    float: right;
-    float: top;
-    bottom: 70%;
-    right: 7%;
-    position: absolute;
-}
 </style>
