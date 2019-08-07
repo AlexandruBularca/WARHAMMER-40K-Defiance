@@ -9,7 +9,7 @@
                 </div>
                 <div class="button btnCol2">
                     <div class="buttonText">
-                        Knife Attack
+                        Sword Attack
                     </div>
                 </div>
             </div>
@@ -21,7 +21,7 @@
                 </div>
                 <div class="button btnCol2">
                     <div class="buttonText">
-                        Gun Attack
+                        Retreat!
                     </div>
                 </div>
             </div>
