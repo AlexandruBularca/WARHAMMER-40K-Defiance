@@ -379,7 +379,7 @@ export default {
   left: 20%;
   transform: translate(-20%, -50%);
   float: left;
-  background-image: url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game.v1/src/assets/img/inventory_armor_top.png");
+  background-image: url("./../../../assets/img/inventory_armor_top.png");
   background-size: 80%;
   background-repeat: no-repeat;
   background-position: center;
@@ -391,7 +391,7 @@ export default {
   right: 20%;
   float: right;
   transform: translate(20%, -50%);
-  background-image: url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game.v1/src/assets/img/inventory_armor_bottom.png");
+  background-image: url("./../../../assets/img/inventory_armor_bottom.png");
   background-size: 40%;
   background-repeat: no-repeat;
   background-position: center;
@@ -452,7 +452,7 @@ export default {
 .knife {
   width: 100%;
   height: 100%;
-  background-image: url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game.v1/src/assets/img/knife_lvl1.png");
+  background-image: url("./../../../assets/img/knife_lvl1.png");
   background-size: 80%;
   background-repeat: no-repeat;
   background-position: center;
@@ -464,7 +464,7 @@ export default {
   width: 100%;
   height: 100%;
   position: relative;
-  background-image: url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game.v1/src/assets/img/sword_lvl1.png");
+  background-image: url("./../../../assets/img/sword_lvl1.png");
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -475,7 +475,7 @@ export default {
 .gun {
   width: 100%;
   height: 100%;
-  background-image: url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game.v1/src/assets/img/BoltPistol.png");
+  background-image: url("./../../../assets/img/BoltPistol.png");
   background-size: 80%;
   background-repeat: no-repeat;
   background-position: center;
@@ -483,7 +483,7 @@ export default {
 .armorItem {
   width: 100%;
   height: 100%;
-  background-image: url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game.v1/src/assets/img/inventory_armor_whole.png");
+  background-image: url("./../../../assets/img/inventory_armor_whole.png");
   background-size: 70%;
   background-repeat: no-repeat;
   background-position: center;
