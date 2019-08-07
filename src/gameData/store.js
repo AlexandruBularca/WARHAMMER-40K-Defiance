@@ -208,7 +208,13 @@ const data = new Vuex.Store({
       if (!item.isSelected) {
         if (item.types === 'knives') {
           this.state.knife.selectedKnife = item.model;
-          console.log(this.state.knife.selectedKnife);
+          for(let i=0; i<this.state.knife.knives.length; i++) {
+            if(this.state.knife.knives[i].model === item.model) {
+              this.state.knife.knives[i].selected = true;
+            } else {
+              this.state.knife.knives[i].selected = false;
+            }
+          }
         } else if (item.types === 'guns') {
         } else if (item.types === 'swords') {
         } else if (item.types === 'chestplates') {
