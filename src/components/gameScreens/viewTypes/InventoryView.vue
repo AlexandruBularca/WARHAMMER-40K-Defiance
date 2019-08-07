@@ -32,7 +32,7 @@
             </div>
             <div class="inventory-changer">
                 <div class="inventoryChgHolder">
-                    <div class="itemChangerTitle">
+                    <div class="itemChangerTitle disable-selection">
                         {{ itemToBeChanged }}
                     </div>
                     <div class="item-decoration"/>
@@ -42,12 +42,12 @@
         <div class="infoPanel">
             <div class="stats">
 
-                <div class="titleHolder">
-                    <h1>Stats</h1>
+                <div class="titleHolder disable-selection">
+                    <h1 class="statsH1">Stats</h1>
                 </div>
 
                 <div class="pbHolder">
-                    <div class="titlePBItem">
+                    <div class="titlePBItem disable-selection">
                         STR
                     </div>
                     <div class="progressBarOutlineStr">
@@ -56,7 +56,7 @@
                 </div>
 
                 <div class="pbHolder">
-                    <div class="titlePBItem">
+                    <div class="titlePBItem disable-selection">
                         DEX
                     </div>
                     <div class="progressBarOutlineDex">
@@ -65,17 +65,11 @@
                 </div>
 
                 <div class="pbHolder">
-                    <div class="titlePBItem">
+                    <div class="titlePBItem disable-selection">
                         CON
                     </div>
                     <div class="progressBarOutlineCon">
                         <div class="progressBarCon"/>
-                    </div>
-                </div>
-
-                <div class="pbHolder">
-                    <div class="progressBarOutline">
-                        <div class="progressBar"/>
                     </div>
                 </div>
 
@@ -169,6 +163,10 @@ export default {
     width: 100%;
 }
 
+.statsH1 {
+    font-size: 3em;
+}
+
 .mapHolder {
     height: 39.6%;
     width: 99%;
@@ -208,24 +206,27 @@ export default {
     height: 10%;
     padding: 10px;
     text-align:center;
-    color: rgb(255, 255, 255);
     font-family: 'Bangers', cursive;
     font-weight: bold;
+    color: rgba(255, 255, 255, 0.74);
     -webkit-text-stroke-width: 0.8px;
     -webkit-text-stroke-color: rgb(51, 51, 51);
+    text-shadow: 0 0 20px rgb(75, 27, 0);
+    margin-bottom: 60px;
 }
 
 .titlePBItem {
     float: left;
-    font-size: 20px;
+    font-size: 24px;
     position:relative;
     top:50%;
     left:10%;
     transform: translate(-10%,-50%);
-    color: rgb(255, 255, 255);
+    color: rgb(136, 50, 1);
     font-family: 'Permanent Marker', cursive;
-    -webkit-text-stroke-width: 0.8px;
-    -webkit-text-stroke-color: rgb(51, 51, 51);
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: rgb(75, 27, 0);
+    text-shadow: 0 0 20px rgb(75, 27, 0);
 }
 
 .pbHolder {
@@ -236,12 +237,15 @@ export default {
 
 .progressBarOutlineStr {
     width: 70%;
-    height: 100%;
+    height: 75%;
     background-color: rgba(255, 0, 0, 0.329);
-    border: 2px solid rgb(255, 0, 0);
     position:relative;
     top:0px;
     float: right;
+    border: 3px solid rgb(90, 34, 1);
+    padding: 1px;
+    outline: solid 3px rgb(75, 27, 0);
+    box-shadow: 0 4px 8px 0 rgba(90, 34, 1, 0.671), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .progressBarStr {
@@ -252,12 +256,15 @@ export default {
 
 .progressBarOutlineDex {
     width: 70%;
-    height: 100%;
+    height: 75%;
     background-color: rgba(17, 0, 255, 0.329);
-    border: 2px solid rgb(17, 0, 255);
     position:relative;
     top:0px;
     float: right;
+    border: 3px solid rgb(90, 34, 1);
+    padding: 1px;
+    outline: solid 3px rgb(75, 27, 0);
+    box-shadow: 0 4px 8px 0 rgba(90, 34, 1, 0.671), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .progressBarDex {
@@ -268,32 +275,19 @@ export default {
 
 .progressBarOutlineCon {
     width: 70%;
-    height: 100%;
+    height: 75%;
     background-color: rgba(204, 0, 255, 0.329);
-    border: 2px solid rgb(204, 0, 255);
     position:relative;
     top:0px;
     float: right;
+    border: 3px solid rgb(90, 34, 1);
+    padding: 1px;
+    outline: solid 3px rgb(75, 27, 0);
+    box-shadow: 0 4px 8px 0 rgba(90, 34, 1, 0.671), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .progressBarCon {
     background-color: rgb(204, 0, 255);
-    height: 100%;
-    width: 90%;
-}
-
-.progressBarOutline {
-    width: 90%;
-    height: 70%;
-    background-color: rgba(0, 255, 34, 0.329);
-    border: 2px solid rgb(0, 0, 0);
-    position:relative;
-    top:0px;
-    float: right;
-}
-
-.progressBar {
-    background-color: rgb(0, 255, 34);
     height: 100%;
     width: 90%;
 }
@@ -469,6 +463,14 @@ export default {
 .gun {
     width: 100%;
     height: 100%;
+}
+
+.disable-selection {
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer */
+  -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+  -webkit-user-select: none; /* Chrome, Safari, and Opera */
+  -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
 }
 
 </style>
