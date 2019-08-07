@@ -455,12 +455,22 @@ export default {
   width: 100%;
   height: 100%;
   position: relative;
-  background-image:url();
+  background-image:url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game.v1/src/assets/img/PowerSword.png");
+    background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-transform: rotate(310deg);
+  -moz-transform: rotate(310deg);
 }
 
 .gun {
   width: 100%;
   height: 100%;
+   background-image:url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game.v1/src/assets/img/BoltPistol.png");
+    background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+ 
 }
 
 .disable-selection {
