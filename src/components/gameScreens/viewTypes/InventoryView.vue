@@ -452,7 +452,7 @@ export default {
 .knife {
     width: 100%;
     height: 100%;
-    background-image:url('./../../../assets/img/Knifes2.png');
+    background-image:url('./../../../assets/img/Knives2.png');
 }
 
 .sword {
