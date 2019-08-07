@@ -2,14 +2,24 @@
     <div class="combatHolder">
         <div class="buttonsHolder">
             <div class="firstRowButtons">
-                <div class="button">
+                <div class="button btnCol1">
+                    <div class="buttonText">
+                        Knife Attack
+                    </div>
+                </div>
+                <div class="button btnCol2">
                     <div class="buttonText">
                         Knife Attack
                     </div>
                 </div>
             </div>
             <div class="secondRowButtons">
-                <div class="button">
+                <div class="button btnCol1">
+                    <div class="buttonText">
+                        Gun Attack
+                    </div>
+                </div>
+                <div class="button btnCol2">
                     <div class="buttonText">
                         Gun Attack
                     </div>
@@ -95,14 +105,39 @@ export default {
 }
 
 .button {
-    width: 20%;
+    width: 24%;
     height: 50%;
-    background-color: rgb(50, 133, 201);
-    position: relative;
-    top: 50%;
-    transform: translate(0, -50%);
+    background-color: rgb(50, 201, 50);
+    text-align: center;
 }
 
+.buttonText {
+    width: 90%;
+    height: 20%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.btnCol1 {
+    float: left;
+    position: relative;
+    top: 50%;
+    left: 25%;
+    transform: translate(-25%, -50%);
+}
+
+.btnCol2 {
+    float: right;
+    position: relative;
+    top: 50%;
+    right: 25%;
+    transform: translate(25%, -50%);
+}
 
 
 .knifeAttack
