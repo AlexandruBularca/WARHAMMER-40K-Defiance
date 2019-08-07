@@ -42,6 +42,7 @@
       </div>
     </div>
     <div class="infoPanel">
+        <p class="miniMapText">MINIMAP</p>
       <div class="stats">
         <div class="titleHolder disable-selection">
           <h1 class="statsH1">Stats</h1>
@@ -199,6 +200,23 @@ export default {
 
 .statsH1 {
   font-size: 3em;
+  float: left;
+}
+
+.miniMapText {
+  float: left;
+  position: relative;
+  top:55%;
+  left:50%;
+  transform:translate(-50%,-55%);
+  font-family: "Bangers", cursive;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.74);
+  -webkit-text-stroke-width: 0.8px;
+  -webkit-text-stroke-color: rgb(51, 51, 51);
+  text-shadow: 0 0 20px rgb(75, 27, 0);
+  font-size:2.5em;
+  margin:0;
 }
 
 .mapHolder {
