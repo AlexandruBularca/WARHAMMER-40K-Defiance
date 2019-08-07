@@ -42,6 +42,12 @@ const data = new Vuex.Store({
         y: 50.0,
       },
     },
+    //Enemy
+    enemy1: {
+      hp: 50,
+      maxhp: 50,
+      attack: 30
+    },
 
     knife: {
       selectedKnife: 'knife_lvl1',
@@ -161,6 +167,25 @@ const data = new Vuex.Store({
     },
     change_terminal_send_show(state,text_to_change){
       return state.terminal_send_show= text_to_change
+    },
+
+    heroKnifeAttack() {
+      this.state.enemy1.hp = this.state.enemy1.hp - this.state.hero.knifeAttack;
+      this.commit('enemy1Attackhero');
+      },
+      
+    heroSwordAttack() {
+      this.state.enemy1.hp = this.state.enemy1.hp - this.state.hero.swordAttack;
+      this.commit('enemy1Attackhero');
+    },
+
+    heroGunAttack() {
+      this.state.enemy1.hp = this.state.enemy1.hp - this.state.hero.gunAttack;
+      this.commit('enemy1Attackhero');
+    },
+
+    enemy1Attackhero () {
+      this.state.hero.hp = this.state.hero.hp -this.state.enemy.attack;
     }
   }
 })
