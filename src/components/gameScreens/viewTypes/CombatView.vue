@@ -4,7 +4,16 @@
 
         </div>
         <div class="charactersHolder">
-
+            <div class="myCharacterHolder">
+                <div class="myCharacterAvatar" >
+                    <img class="keepCharacterRatio"  src="./../../../assets/img/character_avatar.png">
+                </div>
+            </div>
+            <div class="enemiesCharacterHolder">
+                <div class="AvatarEnemyCombat" >
+                    <img class="keepCharacterRatio"  src="./../../../assets/img/character_avatar.png">
+                </div>
+            </div>
         </div>
         <div class="buttonsHolder">
             <div class="firstRowButtons">
@@ -96,12 +105,32 @@ export default {
     width: 100%;
     height: 20%;
     position: relative;
+    background-color: rgb(217, 255, 0);
 }
 
 .charactersHolder {
     width: 100%;
     height: 58%;
     position: relative;
+}
+
+.myCharacterHolder {
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+
+.myCharacterAvatar {
+    height: 30%;
+    width: 20%;
+    position: relative;
+    top: 50%;
+    left: 5%;
+}
+
+.enemiesCharacterHolder {
+    width: 100%;
+    height: 100%;
 }
 
 .buttonsHolder {
@@ -333,9 +362,11 @@ export default {
 
 }
 
-.SizeHero {
-    height: 100%;
-    width: 100%;
+.keepCharacterRatio {
+    max-width:100%;
+    max-height:100%;
+    width: auto;
+    height: auto;
 }
 
 .AvatarEnemyCombat{
