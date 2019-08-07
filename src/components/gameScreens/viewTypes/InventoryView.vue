@@ -172,6 +172,9 @@ export default {
 @import url("https://fonts.googleapis.com/css?family=Permanent+Marker|Lacquer|Bangers|Righteous&display=swap");
 
 .inventoryHolder {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvr3rti-ASIdQxfPpRBT54WAcf7w_MBZ7fg8cv1htra_v03r26");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   background-color: rgb(133, 84, 84);
   height: 97vh;
   width: 72.5vw;
