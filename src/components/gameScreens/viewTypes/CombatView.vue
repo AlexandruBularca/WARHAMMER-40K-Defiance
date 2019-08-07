@@ -1,12 +1,5 @@
 <template>
     <div class="combatHolder">
-        <div class="buttonsHolder">
-            <div class="firstRowButtons">
-            </div>
-            <div class="secondRowButtons">
-            </div>
-        </div>
-        <!--
         <div class="inner">
                 <progress class="enemyPoz" 
                 :value="this.$store.state.enemy1.hp"
@@ -14,7 +7,7 @@
                 </progress>
 
             <div class="AvatarHeroCombat" >
-                <img class="SizeHero"  src="./../../../assets/img/character_avatar.png">
+                <img class="SizeHero"  src="./../../../assets/img/inqqq.jpg">
             </div>
 
             <div class="AvatarEnemyCombat">
@@ -25,8 +18,8 @@
                 <button class=knifeAttack @click="heroKnifeAttack">Knife Attack</button>
                 <button class=swordAttack @click="heroSwordAttack">Sword Attack</button>
                 <button class=gunAttack @click="heroGunAttack">Gun Attack</button> 
-            </div>
-        </div>-->
+            </div>        
+        </div>
     </div>
 </template>
 
@@ -64,27 +57,6 @@ export default {
     border-style: solid;
     margin-left: 26vw;
 }
-
-.buttonsHolder {
-    width: 100%;
-    height: 30%;
-    position: relative;
-    top: 70%;
-}
-
-.firstRowButtons {
-    width: 100%;
-    height: 50%;
-    background-color: rgb(89, 0, 255);
-}
-
-.secondRowButtons {
-    width: 100%;
-    height: 50%;
-    background-color: rgb(255, 174, 0);
-}
-
-
 
 .knifeAttack
 {
@@ -136,8 +108,6 @@ export default {
 .buttonsblock {
     height: 31vh;
     float:bottom; 
-    background-color: aqua;
-    visibility: hidden;
 }
 
 .inner {
