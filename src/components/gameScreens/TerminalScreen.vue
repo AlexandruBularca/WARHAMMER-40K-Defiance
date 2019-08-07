@@ -97,11 +97,11 @@ export default {
     overflow-wrap: break-word;
     padding:10px;
     padding-top:0px;
-    /* font-family:"Roboto Mono"; */
-    font-family: "FelinaT26Gothic"
+    font-family:"Roboto Mono";
+    /* font-family: "FelinaT26Gothic" */
 }
-@font-face{
+/* @font-face{
     font-family:"FelinaT26Gothic";
-    src:url("./src/assets/fonts/FelinaT26_Gothic_Regular.woff") format("woff");
-}
+    src:url("../../assets/fonts/FelinaT26_Gothic_Regular.woff") format("woff");
+} */
 </style>
