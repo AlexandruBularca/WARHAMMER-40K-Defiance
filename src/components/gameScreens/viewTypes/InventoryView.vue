@@ -460,6 +460,14 @@ export default {
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.armorUpgrade:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.493);
+  border: 6px solid rgba(255, 255, 255, 0.199);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.671),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .item1 {
   position: relative;
   top: 50%;
@@ -511,6 +519,10 @@ export default {
 
 .weaponSlot:hover {
   cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.493);
+  border: 6px solid rgba(255, 255, 255, 0.199);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.671),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .leftSlot {
@@ -604,6 +616,15 @@ export default {
     cursor: pointer;
 }
 
+.templateItem:hover {
+  height: 40px;
+  width: 90%;
+  background-color: rgba(255, 255, 255, 0.493);
+  border: 6px solid rgba(255, 255, 255, 0.199);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.671),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .itemHolderView {
     height: 90%;
     width: 90%;
@@ -624,7 +645,7 @@ export default {
     left:50%;
     transform:translate(-50%,-50%);
     font-family: "Righteous", cursive;
-    color: rgb(221, 193, 32);
+    color: rgba(209, 230, 19, 0.712);
     text-transform: uppercase;
 }
 
