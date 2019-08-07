@@ -75,7 +75,7 @@ export default {
   name: "Inventory",
   data() {
     return {
-      itemToBeChanged: "chest-plate",
+      itemToBeChanged: "chestplate",
       showArmorUpPanel: false,
       userPosX: this.$store.state.Map.locationMiniMap.x,
       userPosY: this.$store.state.Map.locationMiniMap.y,
