@@ -172,7 +172,7 @@ export default {
 @import url("https://fonts.googleapis.com/css?family=Permanent+Marker|Lacquer|Bangers|Righteous&display=swap");
 
 .inventoryHolder {
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvr3rti-ASIdQxfPpRBT54WAcf7w_MBZ7fg8cv1htra_v03r26");
+  background-image: url("https://static.vecteezy.com/system/resources/previews/000/130/901/non_2x/old-paper-vector-texture-background.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-color: rgb(133, 84, 84);
@@ -182,6 +182,8 @@ export default {
   border-width: 4px;
   border-style: solid;
   margin-left: 26vw;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.37);
+  
 }
 
 .inventory {
