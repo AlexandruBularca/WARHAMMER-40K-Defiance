@@ -3,18 +3,30 @@
         <div class="enemyStatsHolder">
             <div class="firstRowEnemyStatus">
                 <div class="holderEnemyStatus col1">
+                    <div class="enemyStatusStyle">
+                    </div>
                 </div>
                 <div class="holderEnemyStatus col2">
+                    <div class="enemyStatusStyle">
+                    </div>
                 </div>
                 <div class="holderEnemyStatus col3">
+                    <div class="enemyStatusStyle">
+                    </div>
                 </div>
             </div>
             <div class="secondRowEnemyStatus">
                 <div class="holderEnemyStatus col1">
+                    <div class="enemyStatusStyle">
+                    </div>
                 </div>
                 <div class="holderEnemyStatus col2">
+                    <div class="enemyStatusStyle">
+                    </div>
                 </div>
                 <div class="holderEnemyStatus col3">
+                    <div class="enemyStatusStyle">
+                    </div>
                 </div>
             </div>
         </div>
@@ -96,10 +108,12 @@ export default {
 </script>
 
 <style scoped>
+
 @import url("https://fonts.googleapis.com/css?family=Righteous&display=swap");
 
 .combatHolder {
     background-image: url("./../../../assets/img/combackground2.jpg");
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.247);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     height: 97vh;
@@ -114,7 +128,6 @@ export default {
     width: 100%;
     height: 20%;
     position: relative;
-    background-color: rgb(217, 255, 0);
 }
 
 .holderEnemyStatus {
@@ -123,8 +136,21 @@ export default {
     position: relative;
     top: 50%;
     transform: translate(0%, -50%);
-    background-color: black;
     float: left;
+}
+
+.enemyStatusStyle {
+    width: 90%;
+    height: 70%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    background-color: rgba(61, 4, 167, 0.493);
+    border: 6px solid rgba(34, 1, 95, 0.575);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.671),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .firstRowEnemyStatus {
