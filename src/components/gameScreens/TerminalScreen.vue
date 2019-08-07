@@ -10,44 +10,72 @@
 </template>
 
 <script>
-import { VueTyper } from 'vue-typer'
-import { setTimeout } from 'timers';
+
+import { setTimeout, clearTimeout } from 'timers';
+import {mapGetters} from "vuex";
 
 var i=0;
-
+var temp_text_present=[];
 export default {
     name: 'TerminalScreen',
     components:{
-        VueTyper
     },
     data(){
         return {
             text_present:"",
             text_to_be_showed:"wew man this is totally cool,like really cool beans bro...",
+            scroll_speed:40,
+            rec:0,
+            // reset:0
+            // send_to_store:null
         }
     },  
     methods:{
       showtext(){
-        var temp_text_present=[];
         // for(var letter in this.text_to_be_showed){
         //     console.log(this.text_to_be_showed[letter]);
         //     temp_text_present.push(this.text_to_be_showed[letter]);
         //     this.text_present=temp_text_present.join("");
         //     setTimeout(function(){console.log("foo")},200);
         // }
-        setTimeout(()=>{
-            console.log("asd");
+        this.rec=setTimeout(()=>{
+            temp_text_present.push(this.text_to_be_showed[i]);
+            console.log(i);
+            var unders="_";
+            if(i%30<=15){
+                unders="";
+            }
+            this.text_present=temp_text_present.join("")+unders;
             i++;
-            if(i<10){
+            if(this.text_to_be_showed.length){
                 this.showtext()
             }
-        },1000);
-      }
+        },this.scroll_speed);
+      },
+      reset_timer(){
+          clearTimeout(this.rec);
+      },
+    //   function_send_to_storage(){
+    //       this.$store.commit('change_terminal_send_show', this.send_to_store);
+    //   }
     },
     watch:{
         text_to_be_showed:function(){
+            i=0;
+            // clearTimeout(this.rec);
+            this.reset_timer()
+            temp_text_present=[];
             this.showtext();
+        },
+        send_to_store:function(){
+            this.function_send_to_storage();
+        },
+        terminal_show:function(){
+            this.text_to_be_showed=this.terminal_show;
         }
+    },
+    computed:{
+        ...mapGetters(["terminal_show"]),
     }
 }
 </script>
