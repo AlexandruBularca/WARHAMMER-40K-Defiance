@@ -95,24 +95,24 @@
         </div>
         <div class="buttonsHolder">
             <div class="firstRowButtons">
-                <div class="button btnCol1 knifeBtn">
+                <div class="button btnCol1 knifeBtn" v-on:click="actionKnifeAtk()">
                     <div class="buttonText">
                         Knife Attack
                     </div>
                 </div>
-                <div class="button btnCol2 swordBtn">
+                <div class="button btnCol2 swordBtn" v-on:click="actionSwordAtk()">
                     <div class="buttonText">
                         Sword Attack
                     </div>
                 </div>
             </div>
             <div class="secondRowButtons">
-                <div class="button btnCol1 gunBtn">
+                <div class="button btnCol1 gunBtn" v-on:click="actionGunAtk()">
                     <div class="buttonText">
                         Gun Attack
                     </div>
                 </div>
-                <div class="button btnCol2 retreatBtn">
+                <div class="button btnCol2 retreatBtn" v-on:click="actionRetreat()">
                     <div class="buttonText">
                         Retreat!
                     </div>
@@ -137,6 +137,20 @@ export default {
         };
     },
     methods: {
+        actionKnifeAtk() {
+            
+        },
+        actionSwordAtk() {
+            
+        },
+        actionGunAtk() {
+            
+        },
+        actionRetreat() {
+            this.$store.commit('showMap')
+        },
+
+        //made by Ionel and Sebi
         enemy1Attackhero () {
             this.$store.commit("enemy1Attackhero");
         },
