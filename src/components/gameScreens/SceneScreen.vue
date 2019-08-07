@@ -3,6 +3,7 @@
         <InventoryView v-if="gameScreen == 'inventoryScreen'"/>
         <CombatView v-else-if="gameScreen == 'combatScreen'"/>
         <MapView v-else-if="gameScreen == 'mapScreen'"/>
+        <disconect v-else-if="gameScreen=='disconectScreen'"/>
     </div>
 </template>
 
@@ -10,6 +11,7 @@
 import InventoryView from './viewTypes/InventoryView.vue'
 import CombatView from './viewTypes/CombatView.vue'
 import MapView from './viewTypes/MapView.vue'
+import disconect from "./viewTypes/disconect.vue"
 
 export default {
     name: 'SceneScreen', 
@@ -17,6 +19,7 @@ export default {
         InventoryView,
         CombatView,
         MapView,
+        disconect
     },
     computed: {
         gameScreen() {
