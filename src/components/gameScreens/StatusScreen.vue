@@ -99,9 +99,9 @@ export default {
     width: 100%;
     height: 100%;
     background-color: bisque;
-    content: url(https://cdn5.f-cdn.com/files/download/40944658/2cc427.jpg);
-    transform: translate(-7%, 2%) scale(1.3);
+    content: url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game.v1/src/assets/img/head%20.jpg");
     transform-origin: 50% 50%;
+    background-size:cover;
 }
 
 .imgAvatar:hover {
