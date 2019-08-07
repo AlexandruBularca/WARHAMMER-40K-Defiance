@@ -3,9 +3,9 @@
     <div class="inventory">
       <div class="inventory-left">
         <div class="armorHolder">
-          <div class="armor" v-on:click="armorClicked()">
-            <div class="armorItem" v-if="!showArmorUpItems" />
-            <div class="armorAction" v-else-if="showArmorUpItems">
+          <div class="armor">
+            <div class="armorItem" v-if="!showArmorUpItems" v-on:click="showArmorItems()" />
+            <div class="armorAction" v-else-if="showArmorUpItems" v-on:click="hideArmorItems()">
               <div class="armorUpgrade item1" v-on:click="item1()"></div>
               <div class="armorUpgrade item2" v-on:click="item2()"></div>
             </div>
@@ -87,17 +87,23 @@ export default {
     showMap() {
       this.$store.commit("showMap");
     },
-    armorClicked() {
-      this.showArmorUpPanel = !this.showArmorUpPanel;
+    showArmorItems() {
+      this.showArmorUpPanel = true;
+    },
+    hideArmorItems() {
+      this.showArmorUpPanel = true;
     },
     knifeClicked() {
       this.itemToBeChanged = "knife";
+      this.showArmorUpPanel = false;
     },
     swordClicked() {
       this.itemToBeChanged = "sword";
+      this.showArmorUpPanel = false;
     },
     gunClicked() {
       this.itemToBeChanged = "gun";
+      this.showArmorUpPanel = false;
     },
     item1() {
       this.itemToBeChanged = "chestplate";
