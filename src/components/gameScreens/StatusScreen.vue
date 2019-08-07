@@ -99,7 +99,7 @@ export default {
     width: 100%;
     height: 100%;
     background-color: bisque;
-    content: url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game.v1/src/assets/img/head%20.jpg");
+    content: url("./../../assets/img/head.jpg");
     transform-origin: 50% 50%;
     background-size:cover;
 }
