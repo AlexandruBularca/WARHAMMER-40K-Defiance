@@ -100,10 +100,10 @@ export default {
       this.itemToBeChanged = "gun";
     },
     item1() {
-      this.itemToBeChanged = "chest-plate";
+      this.itemToBeChanged = "chestplate";
     },
     item2() {
-      this.itemToBeChanged = "kneeplates";
+      this.itemToBeChanged = "legplates";
     }
   },
   computed: {
