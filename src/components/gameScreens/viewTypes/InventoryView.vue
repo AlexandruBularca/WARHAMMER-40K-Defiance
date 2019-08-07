@@ -176,10 +176,10 @@ export default {
           "translate(" + this.userPosX + "%, " + this.userPosY + "%) scale(4)"
       };
     },
-    showSelectedKnife: function () {
+    showSelectedKnife() {
         return {
-
-        }
+          'background-image': 'url("' + 'https://images.wallpaperscraft.com/image/palm_tree_night_net_145379_1280x720.jpg' + '")'
+        };
     }
   },
 };
