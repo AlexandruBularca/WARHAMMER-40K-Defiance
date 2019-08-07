@@ -379,6 +379,10 @@ export default {
   left: 20%;
   transform: translate(-20%, -50%);
   float: left;
+  background-image: url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game.v1/src/assets/img/inventory_armor_top.png");
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .item2 {
@@ -387,6 +391,10 @@ export default {
   right: 20%;
   float: right;
   transform: translate(20%, -50%);
+  background-image: url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game.v1/src/assets/img/inventory_armor_bottom.png");
+  background-size: 40%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .weapons {
