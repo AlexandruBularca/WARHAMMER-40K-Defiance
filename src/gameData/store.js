@@ -16,7 +16,12 @@ const data = new Vuex.Store({
     // Hero Stats
     Hero: {
       hp: 100,
-      maxHp: 100
+      maxHp: 100,
+      chestplate: 'chestplate_lvl1',
+      legplate: 'legplate_lvl1',
+      knife: 'knife_lvl1',
+      sword: 'sword_lvl1',
+      gun: 'gun_lvl1',
     },
 
     //Ammo
@@ -208,6 +213,7 @@ const data = new Vuex.Store({
       if (!item.isSelected) {
         if (item.types === 'knives') {
           this.state.knife.selectedKnife = item.model;
+          this.state.Hero.knife = item.model;
           for(let i=0; i<this.state.knife.knives.length; i++) {
             if(this.state.knife.knives[i].model === item.model) {
               this.state.knife.knives[i].selected = true;
@@ -217,6 +223,7 @@ const data = new Vuex.Store({
           }
         } else if (item.types === 'guns') {
           this.state.gun.selectedGun = item.model;
+          this.state.Hero.gun = item.model;
           for(let i=0; i<this.state.gun.guns.length; i++) {
             if(this.state.gun.guns[i].model === item.model) {
               this.state.gun.guns[i].selected = true;
@@ -226,6 +233,7 @@ const data = new Vuex.Store({
           }
         } else if (item.types === 'swords') {
           this.state.sword.selectedSword = item.model;
+          this.state.Hero.sword = item.model;
           for(let i=0; i<this.state.sword.swords.length; i++) {
             if(this.state.sword.swords[i].model === item.model) {
               this.state.sword.swords[i].selected = true;
@@ -235,6 +243,7 @@ const data = new Vuex.Store({
           }
         } else if (item.types === 'chestplates') {
           this.state.chestplate.selectedChestplate = item.model;
+          this.state.Hero.chestplate = item.model;
           for(let i=0; i<this.state.chestplate.chestplates.length; i++) {
             if(this.state.chestplate.chestplates[i].model === item.model) {
               this.state.chestplate.chestplates[i].selected = true;
@@ -244,6 +253,7 @@ const data = new Vuex.Store({
           }
         } else if (item.types === 'legplates') {
           this.state.legplate.selectedLegplate = item.model;
+          this.state.Hero.legplate = item.model;
           for(let i=0; i<this.state.legplate.legplates.length; i++) {
             if(this.state.legplate.legplates[i].model === item.model) {
               this.state.legplate.legplates[i].selected = true;
