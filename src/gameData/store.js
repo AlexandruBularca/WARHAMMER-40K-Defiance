@@ -41,6 +41,89 @@ const data = new Vuex.Store({
         x: 79.0,
         y: 50.0,
       },
+    },
+
+    knife: {
+      selectedKnife: 'knife_lvl1',
+      knives: [
+        {
+          item: 'knife_lvl1',
+          title: 'knife lvl 1',
+        }, { 
+          item: 'knife_lvl2',
+          title: 'knife lvl 2',
+        }, { 
+          item: 'knife_lvl3',
+          title: 'knife lvl 3',
+        }, { 
+          item: 'knife_lvl4',
+          title: 'knife lvl 4',
+        },
+      ]
+    },
+
+    gun: {
+      selectedGun: 'gun_lvl1',
+      guns: [
+        {
+          item: 'gun_lvl1',
+          title: 'gun lvl 1',
+        }, { 
+          item: 'gun_lvl2',
+          title: 'gun lvl 2',
+        }, { 
+          item: 'gun_lvl3',
+          title: 'gun lvl 3',
+        }, { 
+          item: 'gun_lvl4',
+          title: 'gun lvl 4',
+        }, { 
+          item: 'gun_lvl5',
+          title: 'gun lvl 5',
+        }, { 
+          item: 'gun_lvl6',
+          title: 'gun lvl 6',
+        },
+      ]
+    },
+
+    sword: {
+      selectedSword: 'sword_lvl1',
+      swords: [
+        {
+          item: 'sword_lvl1',
+          title: 'sword lvl 1',
+        }, { 
+          item: 'sword_lvl2',
+          title: 'sword lvl 2',
+        },
+      ]
+    },
+
+    chestplate: {
+      selectedChestplate: 'chestplate_lvl1',
+      chestplates: [
+        {
+          item: 'chestplate_lvl1',
+          title: 'chestplate lvl 1',
+        }, { 
+          item: 'chestplate_lvl2',
+          title: 'chestplate lvl 2',
+        },
+      ]
+    },
+
+    legplate: {
+      selectedLegplate: 'legplate_lvl1',
+      legplates: [
+        {
+          item: 'legplate_lvl1',
+          title: 'legplate lvl 1',
+        }, { 
+          item: 'legplate_lvl2',
+          title: 'legplate lvl 2',
+        },
+      ]
     }
 
   },
