@@ -2,8 +2,18 @@
     <div class="combatHolder">
         <div class="buttonsHolder">
             <div class="firstRowButtons">
+                <div class="button">
+                    <div class="buttonText">
+                        Knife Attack
+                    </div>
+                </div>
             </div>
             <div class="secondRowButtons">
+                <div class="button">
+                    <div class="buttonText">
+                        Gun Attack
+                    </div>
+                </div>
             </div>
         </div>
         <!--
@@ -82,6 +92,15 @@ export default {
     width: 100%;
     height: 50%;
     background-color: rgb(255, 174, 0);
+}
+
+.button {
+    width: 20%;
+    height: 50%;
+    background-color: rgb(50, 133, 201);
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
 }
 
 
