@@ -2,7 +2,7 @@
     <div class="combatHolder disable-selection">
         <div class="enemyStatsHolder">
             <div class="firstRowEnemyStatus">
-                <div class="holderEnemyStatus col1">
+                <div class="holderEnemyStatus col1" v-if="isAvailableEnemy5">
                     <div class="enemyStatusStyle">
                         <div class="progressBarOutlineStr">
                             <div class="progressBarStr" />
@@ -12,7 +12,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="holderEnemyStatus col2">
+                <div class="holderEnemyStatus col2" v-if="isAvailableEnemy3">
                     <div class="enemyStatusStyle">
                         <div class="progressBarOutlineStr">
                             <div class="progressBarStr" />
@@ -22,7 +22,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="holderEnemyStatus col3">
+                <div class="holderEnemyStatus col3" v-if="isAvailableEnemy1">
                     <div class="enemyStatusStyle">
                         <div class="progressBarOutlineStr">
                             <div class="progressBarStr" />
@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="secondRowEnemyStatus">
-                <div class="holderEnemyStatus col1">
+                <div class="holderEnemyStatus col1" v-if="isAvailableEnemy6">
                     <div class="enemyStatusStyle">
                         <div class="progressBarOutlineStr">
                             <div class="progressBarStr" />
@@ -44,7 +44,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="holderEnemyStatus col2">
+                <div class="holderEnemyStatus col2" v-if="isAvailableEnemy4">
                     <div class="enemyStatusStyle">
                         <div class="progressBarOutlineStr">
                             <div class="progressBarStr" />
@@ -54,7 +54,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="holderEnemyStatus col3">
+                <div class="holderEnemyStatus col3" v-if="isAvailableEnemy2">
                     <div class="enemyStatusStyle">
                         <div class="progressBarOutlineStr">
                             <div class="progressBarStr" />
@@ -73,22 +73,22 @@
                 </div>
             </div>
             <div class="enemiesCharacterHolder">
-                <div class="enemyCharacterAvatar row1 enemy1" >
+                <div class="enemyCharacterAvatar row1 enemy1" v-if="isAvailableEnemy1">
                     <img class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
                 </div>
-                <div class="enemyCharacterAvatar row1 enemy2" >
+                <div class="enemyCharacterAvatar row1 enemy2" v-if="isAvailableEnemy2">
                     <img class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
                 </div>
-                <div class="enemyCharacterAvatar row1 enemy3" >
+                <div class="enemyCharacterAvatar row1 enemy3" v-if="isAvailableEnemy3">
                     <img class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
                 </div>
-                <div class="enemyCharacterAvatar enemy4" >
+                <div class="enemyCharacterAvatar enemy4" v-if="isAvailableEnemy4">
                     <img class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
                 </div>
-                <div class="enemyCharacterAvatar enemy5" >
+                <div class="enemyCharacterAvatar enemy5" v-if="isAvailableEnemy5">
                     <img class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
                 </div>
-                <div class="enemyCharacterAvatar enemy6" >
+                <div class="enemyCharacterAvatar enemy6" v-if="isAvailableEnemy6">
                     <img class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
                 </div>
             </div>
@@ -126,20 +126,50 @@
 import { METHODS } from 'http';
 export default {
     name: 'Combat',
+    data() {
+        return {
+            availableEnemy1: this.$store.state.Combat.enemy1,
+            availableEnemy2: this.$store.state.Combat.enemy2,
+            availableEnemy3: this.$store.state.Combat.enemy3,
+            availableEnemy4: this.$store.state.Combat.enemy4,
+            availableEnemy5: this.$store.state.Combat.enemy5,
+            availableEnemy6: this.$store.state.Combat.enemy6,
+        };
+    },
     methods: {
-    enemy1Attackhero () {
-        this.$store.commit("enemy1Attackhero");
+        enemy1Attackhero () {
+            this.$store.commit("enemy1Attackhero");
+        },
+        heroKnifeAttack () {
+            this.$store.commit("heroKnifeAttack")
+        },
+        heroSwordAttack() {
+            this.$store.commit("heroSwordAttack")
+        },
+        heroGunAttack() {
+            this.$store.commit("heroGunAttack")
+        }
     },
-    heroKnifeAttack () {
-        this.$store.commit("heroKnifeAttack")
-    },
-    heroSwordAttack() {
-        this.$store.commit("heroSwordAttack")
-    },
-    heroGunAttack() {
-        this.$store.commit("heroGunAttack")
+    computed: {  
+        isAvailableEnemy1() {
+            return this.availableEnemy1;
+        },
+        isAvailableEnemy2() {
+            return this.availableEnemy2;
+        },
+        isAvailableEnemy3() {
+            return this.availableEnemy3;
+        },
+        isAvailableEnemy4() {
+            return this.availableEnemy4;
+        },
+        isAvailableEnemy5() {
+            return this.availableEnemy5;
+        },
+        isAvailableEnemy6() {
+            return this.availableEnemy6;
+        },
     }
-}
 };
 </script>
 
