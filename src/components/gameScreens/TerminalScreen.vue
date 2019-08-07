@@ -40,7 +40,7 @@ export default {
         // }
         this.rec=setTimeout(()=>{
             temp_text_present.push(this.text_to_be_showed[i]);
-            console.log(i);
+            // console.log(i);
             var unders="_";
             if(i%30<=15){
                 unders="";
