@@ -3,7 +3,7 @@
         <InventoryView v-if="gameScreen == 'inventoryScreen'"/>
         <CombatView v-else-if="gameScreen == 'combatScreen'"/>
         <MapView v-else-if="gameScreen == 'mapScreen'"/>
-        <disconect v-else-if="gameScreen=='disconectScreen'"/>
+        <disconect v-else-if="gameScreen=='disconect'"/>
     </div>
 </template>
 
