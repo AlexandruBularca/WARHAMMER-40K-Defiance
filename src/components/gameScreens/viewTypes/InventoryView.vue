@@ -134,7 +134,7 @@ export default {
 
 <style scoped>
 
-@import url('https://fonts.googleapis.com/css?family=Lacquer|Saira+Stencil+One|Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Lacquer|Bangers|Righteous&display=swap');
 
 .inventoryHolder {
     background-color: rgb(49, 49, 49);
@@ -203,7 +203,10 @@ export default {
     padding: 10px;
     text-align:center;
     color: rgb(255, 255, 255);
-    font-family: 'Righteous', cursive;
+    font-family: 'Bangers', cursive;
+    font-weight: bold;
+    -webkit-text-stroke-width: 0.8px;
+    -webkit-text-stroke-color: black;
 }
 
 .titlePBItem {
@@ -214,7 +217,9 @@ export default {
     left:10%;
     transform: translate(-10%,-50%);
     color: rgb(255, 255, 255);
-    font-family: 'Righteous', cursive;
+    font-family: 'Permanent Marker', cursive;
+    -webkit-text-stroke-width: 0.8px;
+    -webkit-text-stroke-color: black;
 }
 
 .pbHolder {
