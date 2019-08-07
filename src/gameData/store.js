@@ -42,6 +42,17 @@ const data = new Vuex.Store({
         y: 50.0,
       },
     },
+
+    //Enemies from combat
+    Combat: {
+      enemy1: true,
+      enemy2: true,
+      enemy3: false,
+      enemy4: false,
+      enemy5: false,
+      enemy6: false,
+    },
+
     //Enemy
     enemy1: {
       hp: 50,
