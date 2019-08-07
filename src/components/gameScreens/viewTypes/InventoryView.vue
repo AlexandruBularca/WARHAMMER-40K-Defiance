@@ -443,7 +443,7 @@ export default {
 .knife {
   width: 100%;
   height: 100%;
-  background-image: url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game.v1/src/assets/img/Knives2.png");
+  background-image: url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game.v1/src/assets/img/knife_lvl1.png");
   background-size: 80%;
   background-repeat: no-repeat;
   background-position: center;
@@ -455,7 +455,7 @@ export default {
   width: 100%;
   height: 100%;
   position: relative;
-  background-image:url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game.v1/src/assets/img/PowerSword.png");
+  background-image:url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game.v1/src/assets/img/sword_lvl1.png");
     background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
