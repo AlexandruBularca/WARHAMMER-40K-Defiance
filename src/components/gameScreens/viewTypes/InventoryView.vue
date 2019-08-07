@@ -238,18 +238,18 @@ export default {
 .progressBarOutlineStr {
     width: 70%;
     height: 75%;
-    background-color: rgba(255, 0, 0, 0.329);
+    background-color: rgba(105, 42, 0, 0.329);
     position:relative;
     top:0px;
     float: right;
     border: 3px solid rgb(90, 34, 1);
-    padding: 1px;
+    padding: 0.1px;
     outline: solid 3px rgb(75, 27, 0);
     box-shadow: 0 4px 8px 0 rgba(90, 34, 1, 0.671), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .progressBarStr {
-    background-color: rgb(231, 35, 35);
+    background-color: rgb(105, 42, 0);
     height: 100%;
     width: 90%;
 }
@@ -257,18 +257,18 @@ export default {
 .progressBarOutlineDex {
     width: 70%;
     height: 75%;
-    background-color: rgba(17, 0, 255, 0.329);
+    background-color: rgba(105, 42, 0, 0.329);
     position:relative;
     top:0px;
     float: right;
     border: 3px solid rgb(90, 34, 1);
-    padding: 1px;
+    padding: 0.1px;
     outline: solid 3px rgb(75, 27, 0);
     box-shadow: 0 4px 8px 0 rgba(90, 34, 1, 0.671), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .progressBarDex {
-    background-color: rgb(17, 0, 255);
+    background-color: rgb(105, 42, 0);
     height: 100%;
     width: 90%;
 }
@@ -276,18 +276,18 @@ export default {
 .progressBarOutlineCon {
     width: 70%;
     height: 75%;
-    background-color: rgba(204, 0, 255, 0.329);
+    background-color: rgba(105, 42, 0, 0.329);
     position:relative;
     top:0px;
     float: right;
     border: 3px solid rgb(90, 34, 1);
-    padding: 1px;
+    padding: 0.2px;
     outline: solid 3px rgb(75, 27, 0);
     box-shadow: 0 4px 8px 0 rgba(90, 34, 1, 0.671), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .progressBarCon {
-    background-color: rgb(204, 0, 255);
+    background-color: rgb(105, 42, 0);
     height: 100%;
     width: 90%;
 }
