@@ -4,7 +4,8 @@
       <div class="inventory-left">
         <div class="armorHolder">
           <div class="armor" v-on:click="armorClicked()">
-            <div class="armorAction" v-if="showArmorUpItems">
+            <div class="armorItem" v-if="!showArmorUpItems" />
+            <div class="armorAction" v-else-if="showArmorUpItems">
               <div class="armorUpgrade item1" v-on:click="item1()"></div>
               <div class="armorUpgrade item2" v-on:click="item2()"></div>
             </div>
@@ -455,8 +456,8 @@ export default {
   width: 100%;
   height: 100%;
   position: relative;
-  background-image:url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game.v1/src/assets/img/sword_lvl1.png");
-    background-size: 100%;
+  background-image: url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game.v1/src/assets/img/sword_lvl1.png");
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
   -webkit-transform: rotate(310deg);
@@ -466,11 +467,18 @@ export default {
 .gun {
   width: 100%;
   height: 100%;
-   background-image:url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game.v1/src/assets/img/BoltPistol.png");
-    background-size: 80%;
+  background-image: url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game.v1/src/assets/img/BoltPistol.png");
+  background-size: 80%;
   background-repeat: no-repeat;
   background-position: center;
- 
+}
+.armorItem {
+  width: 100%;
+  height: 100%;
+  background-image: url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game.v1/src/assets/img/inventory_armor_whole.png");
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .disable-selection {
