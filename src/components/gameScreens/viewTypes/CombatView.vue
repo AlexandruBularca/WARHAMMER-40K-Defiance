@@ -1,7 +1,22 @@
 <template>
     <div class="combatHolder disable-selection">
         <div class="enemyStatsHolder">
-
+            <div class="firstRowEnemyStatus">
+                <div class="holderEnemyStatus col1">
+                </div>
+                <div class="holderEnemyStatus col2">
+                </div>
+                <div class="holderEnemyStatus col3">
+                </div>
+            </div>
+            <div class="secondRowEnemyStatus">
+                <div class="holderEnemyStatus col1">
+                </div>
+                <div class="holderEnemyStatus col2">
+                </div>
+                <div class="holderEnemyStatus col3">
+                </div>
+            </div>
         </div>
         <div class="charactersHolder">
             <div class="myCharacterHolder">
@@ -10,13 +25,22 @@
                 </div>
             </div>
             <div class="enemiesCharacterHolder">
-                <div class="enemyCharacterAvatar enemy1" >
+                <div class="enemyCharacterAvatar row1 enemy1" >
                     <img class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
                 </div>
-                <div class="enemyCharacterAvatar enemy2" >
+                <div class="enemyCharacterAvatar row1 enemy2" >
                     <img class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
                 </div>
-                <div class="enemyCharacterAvatar enemy3" >
+                <div class="enemyCharacterAvatar row1 enemy3" >
+                    <img class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
+                </div>
+                <div class="enemyCharacterAvatar enemy4" >
+                    <img class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
+                </div>
+                <div class="enemyCharacterAvatar enemy5" >
+                    <img class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
+                </div>
+                <div class="enemyCharacterAvatar enemy6" >
                     <img class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
                 </div>
             </div>
@@ -93,6 +117,38 @@ export default {
     background-color: rgb(217, 255, 0);
 }
 
+.holderEnemyStatus {
+    width: 30%;
+    height: 80%;
+    position: relative;
+    top: 50%;
+    transform: translate(0%, -50%);
+    background-color: black;
+    float: left;
+}
+
+.firstRowEnemyStatus {
+    width: 100%;
+    height: 50%;
+}
+
+.secondRowEnemyStatus {
+    width: 100%;
+    height: 50%;
+}
+
+.col1 {
+    left: 1%;
+}
+
+.col2 {
+    left: 5%;
+}
+
+.col3 {
+    left: 9%;
+}
+
 .charactersHolder {
     width: 100%;
     height: 58%;
@@ -118,7 +174,25 @@ export default {
     height: 30%;
     width: 20%;
     position: relative;
-    top: -50%;
+}
+
+.row1 {
+    top: -40%;
+}
+
+.enemy6 {
+    left: 65%;
+    top: -110%;
+}
+
+.enemy5 {
+    left: 75%;  
+    top: -80%;
+}
+
+.enemy4 {
+    left: 85%;
+    top: -60%;    
 }
 
 .enemy3 {
