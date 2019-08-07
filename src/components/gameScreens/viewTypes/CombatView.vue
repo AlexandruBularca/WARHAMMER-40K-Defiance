@@ -7,6 +7,9 @@
                         <div class="progressBarOutlineStr">
                             <div class="progressBarStr" />
                         </div>
+                        <div class="holderAvatarStatusEnemy">
+                            <img class="keepCharacterRatio statusEnemyImage"  src="./../../../assets/img/enemy_holder_default_status.png">
+                        </div>
                     </div>
                 </div>
                 <div class="holderEnemyStatus col2">
@@ -14,12 +17,18 @@
                         <div class="progressBarOutlineStr">
                             <div class="progressBarStr" />
                         </div>
+                        <div class="holderAvatarStatusEnemy">
+                            <img class="keepCharacterRatio statusEnemyImage"  src="./../../../assets/img/enemy_holder_default_status.png">
+                        </div>
                     </div>
                 </div>
                 <div class="holderEnemyStatus col3">
                     <div class="enemyStatusStyle">
                         <div class="progressBarOutlineStr">
                             <div class="progressBarStr" />
+                        </div>
+                        <div class="holderAvatarStatusEnemy">
+                            <img class="keepCharacterRatio statusEnemyImage"  src="./../../../assets/img/enemy_holder_default_status.png">
                         </div>
                     </div>
                 </div>
@@ -30,6 +39,9 @@
                         <div class="progressBarOutlineStr">
                             <div class="progressBarStr" />
                         </div>
+                        <div class="holderAvatarStatusEnemy">
+                            <img class="keepCharacterRatio statusEnemyImage"  src="./../../../assets/img/enemy_holder_default_status.png">
+                        </div>
                     </div>
                 </div>
                 <div class="holderEnemyStatus col2">
@@ -37,12 +49,18 @@
                         <div class="progressBarOutlineStr">
                             <div class="progressBarStr" />
                         </div>
+                        <div class="holderAvatarStatusEnemy">
+                            <img class="keepCharacterRatio statusEnemyImage"  src="./../../../assets/img/enemy_holder_default_status.png">
+                        </div>
                     </div>
                 </div>
                 <div class="holderEnemyStatus col3">
                     <div class="enemyStatusStyle">
                         <div class="progressBarOutlineStr">
                             <div class="progressBarStr" />
+                        </div>
+                        <div class="holderAvatarStatusEnemy">
+                            <img class="keepCharacterRatio statusEnemyImage"  src="./../../../assets/img/enemy_holder_default_status.png">
                         </div>
                     </div>
                 </div>
@@ -181,6 +199,26 @@ export default {
         0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.holderAvatarStatusEnemy {
+    width: 15%;
+    height: 70%; 
+    background-color: rgba(255, 255, 255, 0.534);
+    position: relative;
+    top: 50%;
+    right: 5%;
+    transform: translate(0%, -50%);
+    float: right;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.671),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.statusEnemyImage {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .progressBarOutlineStr {
     width: 70%;
     height: 50%;
@@ -188,8 +226,8 @@ export default {
     position: relative;
     top: 50%;
     left: 5%;
-    border-radius: 10px;
     transform: translate(0%, -50%);
+    border-radius: 10px;
     float: left;
     border: 2px solid rgb(255, 0, 0);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.671),
@@ -200,7 +238,7 @@ export default {
     border-radius: 5px;
     background-color: rgb(255, 0, 0);
     height: 100%;
-    width: 90%;
+    width: 100%;
 }
 
 .firstRowEnemyStatus {
