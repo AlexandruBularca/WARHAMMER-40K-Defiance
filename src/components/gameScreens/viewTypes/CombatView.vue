@@ -2,7 +2,7 @@
     <div class="combatHolder">
         <div class="buttonsHolder">
             <div class="firstRowButtons">
-                <div class="button btnCol1">
+                <div class="button btnCol1 knifeBtn">
                     <div class="buttonText">
                         Knife Attack
                     </div>
@@ -95,25 +95,46 @@ export default {
 .firstRowButtons {
     width: 100%;
     height: 50%;
-    background-color: rgb(89, 0, 255);
 }
 
 .secondRowButtons {
     width: 100%;
     height: 50%;
-    background-color: rgb(255, 174, 0);
 }
 
 .button {
     width: 24%;
     height: 50%;
-    background-color: rgb(50, 201, 50);
+    border-radius: 20px;
+    background-color: rgba(206, 20, 20, 0.493);
+    border: 6px solid rgba(107, 3, 3, 0.199);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.671),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
+}
+
+.knifeBtn {
+    background-color: rgba(199, 241, 11, 0.774);
+    border: 6px solid rgba(96, 117, 2, 0.199);
+    box-shadow: 0 4px 8px 0 rgba(71, 122, 13, 0.671),
+        0 6px 20px 0 rgba(139, 223, 43, 0.19);
+}
+
+.button:hover {
+  background-color: rgba(255, 255, 255, 0.493);
+  border: 6px solid rgba(255, 255, 255, 0.199);
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.671),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.knifeBtn:hover {
+    color: rgb(127, 231, 9);
 }
 
 .buttonText {
     width: 90%;
-    height: 20%;
+    height: 40%;
     position: relative;
     top: 50%;
     left: 50%;
@@ -121,6 +142,7 @@ export default {
     text-transform: uppercase;
     overflow: hidden;
     white-space: nowrap;
+    font-size: 24px;
 }
 
 .btnCol1 {
