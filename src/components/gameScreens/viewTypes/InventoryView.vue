@@ -206,7 +206,7 @@ export default {
     font-family: 'Bangers', cursive;
     font-weight: bold;
     -webkit-text-stroke-width: 0.8px;
-    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-color: rgb(51, 51, 51);
 }
 
 .titlePBItem {
@@ -219,7 +219,7 @@ export default {
     color: rgb(255, 255, 255);
     font-family: 'Permanent Marker', cursive;
     -webkit-text-stroke-width: 0.8px;
-    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-color: rgb(51, 51, 51);
 }
 
 .pbHolder {
