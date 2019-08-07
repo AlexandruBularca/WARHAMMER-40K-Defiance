@@ -73,6 +73,12 @@
                     </div>
                 </div>
 
+                <div class="pbHolder">
+                    <div class="progressBarOutline">
+                        <div class="progressBar"/>
+                    </div>
+                </div>
+
             </div>
 
             <div class="mapHolder" v-on:click="showMap()">
@@ -137,7 +143,7 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Lacquer|Bangers|Righteous&display=swap');
 
 .inventoryHolder {
-    background-color: rgb(49, 49, 49);
+    background-color: rgb(133, 84, 84);
     height: 97vh;
     width: 72.5vw;
     border-color: rgb(184, 184, 184);
@@ -272,6 +278,22 @@ export default {
 
 .progressBarCon {
     background-color: rgb(204, 0, 255);
+    height: 100%;
+    width: 90%;
+}
+
+.progressBarOutline {
+    width: 90%;
+    height: 70%;
+    background-color: rgba(0, 255, 34, 0.329);
+    border: 2px solid rgb(0, 0, 0);
+    position:relative;
+    top:0px;
+    float: right;
+}
+
+.progressBar {
+    background-color: rgb(0, 255, 34);
     height: 100%;
     width: 90%;
 }
