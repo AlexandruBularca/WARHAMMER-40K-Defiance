@@ -1,5 +1,11 @@
 <template>
     <div class="combatHolder disable-selection">
+        <div class="enemyStatsHolder">
+
+        </div>
+        <div class="charactersHolder">
+
+        </div>
         <div class="buttonsHolder">
             <div class="firstRowButtons">
                 <div class="button btnCol1 knifeBtn">
@@ -86,11 +92,22 @@ export default {
     margin-left: 26vw;
 }
 
+.enemyStatsHolder {
+    width: 100%;
+    height: 20%;
+    position: relative;
+}
+
+.charactersHolder {
+    width: 100%;
+    height: 58%;
+    position: relative;
+}
+
 .buttonsHolder {
     width: 100%;
     height: 22%;
     position: relative;
-    top: 78%;
 }
 
 .firstRowButtons {
