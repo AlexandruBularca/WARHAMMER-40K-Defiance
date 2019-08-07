@@ -14,7 +14,7 @@
         <div class="weapons">
           <div class="firstRow">
             <div class="weaponSlot leftSlot">
-              <div class="knife" v-on:click="knifeClicked()" />
+              <div class="knife" v-bind:style="showSelectedKnife" v-on:click="knifeClicked()" />
             </div>
             <div class="weaponSlot rightSlot">
               <div class="sword" v-on:click="swordClicked()" />
@@ -31,6 +31,13 @@
         <div class="inventoryChgHolder">
           <div class="itemChangerTitle disable-selection">{{ itemToBeChanged }}</div>
           <div class="item-decoration" />
+          <div class="itemsChanger">
+            <div class="templateItem" v-for="item of itemsToBeRenderd">
+                <div class="itemHolderView">
+                    {{item.title}}
+                </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -80,7 +87,18 @@ export default {
       userPosX: this.$store.state.Map.locationMiniMap.x,
       userPosY: this.$store.state.Map.locationMiniMap.y,
       transX: 78.2,
-      transY: 104.1
+      transY: 104.1,
+      knifeSelected: this.$store.state.knife.selectedKnife,
+      knivesAvailable: this.$store.state.knife.knives,
+      gunSelected: this.$store.state.gun.selectedGun,
+      gunsAvailable: this.$store.state.gun.guns,
+      swordSelected: this.$store.state.sword.selectedSword,
+      swordsAvailable: this.$store.state.sword.swords,
+      chestplateSelected: this.$store.state.chestplate.selectedChestplate,
+      chestplatesAvailable: this.$store.state.chestplate.chestplates,
+      legplateSelected: this.$store.state.legplate.selectedLegplate,
+      legplatesAvailable: this.$store.state.legplate.legplates,
+      itemsTypeToBeRendered: 'chestplates',
     };
   },
   methods: {
@@ -96,23 +114,41 @@ export default {
     knifeClicked() {
       this.itemToBeChanged = "knife";
       this.showArmorUpPanel = false;
+      this.itemsTypeToBeRendered = 'knives';
     },
     swordClicked() {
       this.itemToBeChanged = "sword";
       this.showArmorUpPanel = false;
+      this.itemsTypeToBeRendered = 'swords';
     },
     gunClicked() {
       this.itemToBeChanged = "gun";
       this.showArmorUpPanel = false;
+      this.itemsTypeToBeRendered = 'guns';
     },
     item1() {
       this.itemToBeChanged = "chestplate";
+      this.itemsTypeToBeRendered = 'chestplates';
     },
     item2() {
       this.itemToBeChanged = "legplates";
+      this.itemsTypeToBeRendered = 'legplates';
     }
   },
   computed: {
+    itemsToBeRenderd() {
+        if (this.itemsTypeToBeRendered === 'knives') {
+            return this.knivesAvailable
+        } else if (this.itemsTypeToBeRendered === 'guns') {
+            return this.gunsAvailable
+        } else if (this.itemsTypeToBeRendered === 'swords') {
+            return this.swordsAvailable
+        } else if (this.itemsTypeToBeRendered === 'chestplates') {
+            return this.chestplatesAvailable
+        } else if (this.itemsTypeToBeRendered === 'legplates') {
+            return this.legplatesAvailable
+        }
+    },
     showArmorUpItems() {
       return this.showArmorUpPanel;
     },
@@ -121,8 +157,13 @@ export default {
         transform:
           "translate(" + this.userPosX + "%, " + this.userPosY + "%) scale(4)"
       };
+    },
+    showSelectedKnife: function () {
+        return {
+
+        }
     }
-  }
+  },
 };
 </script>
 
@@ -486,6 +527,7 @@ export default {
   background-repeat: no-repeat;
   background-position: center;
 }
+
 .armorItem {
   width: 100%;
   height: 100%;
@@ -495,6 +537,44 @@ export default {
   background-position: center;
 }
 
+.itemsChanger {
+  width: 95%;
+  height: 83%;
+  position: relative;
+  top:25%;
+  left:50%;
+  transform:translate(-50%,-25%);
+}
+
+.templateItem {
+    height: 40px;
+    width: 90%;
+    background-color: rgb(75, 27, 0);
+    border: 6px solid rgb(90, 34, 1);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(90, 34, 1, 0.671),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
+    top:0%;
+    left:50%;
+    transform:translate(-50%,0%);
+    margin-top: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.itemHolderView {
+    height: 90%;
+    width: 90%;
+    position: relative;
+    top:70%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-family: "Righteous", cursive;
+    color: rgba(255, 255, 255, 0.74);
+    text-transform: uppercase;
+}
+
 .disable-selection {
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* Internet Explorer */
@@ -502,4 +582,5 @@ export default {
   -webkit-user-select: none; /* Chrome, Safari, and Opera */
   -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
 }
+
 </style>
