@@ -10,8 +10,8 @@
                 </div>
             </div>
             <div class="enemiesCharacterHolder">
-                <div class="AvatarEnemyCombat" >
-                    <img class="keepCharacterRatio"  src="./../../../assets/img/character_avatar.png">
+                <div class="enemyCharacterAvatar" >
+                    <img class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
                 </div>
             </div>
         </div>
