@@ -128,6 +128,14 @@ export default {
     left: 5%;
 }
 
+.enemyCharacterAvatar {
+    height: 30%;
+    width: 20%;
+    position: relative;
+    top: 50%;
+    left: 5%;
+}
+
 .enemiesCharacterHolder {
     width: 100%;
     height: 100%;
