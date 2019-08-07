@@ -216,9 +216,41 @@ const data = new Vuex.Store({
             }
           }
         } else if (item.types === 'guns') {
+          this.state.gun.selectedGun = item.model;
+          for(let i=0; i<this.state.gun.guns.length; i++) {
+            if(this.state.gun.guns[i].model === item.model) {
+              this.state.gun.guns[i].selected = true;
+            } else {
+              this.state.gun.guns[i].selected = false;
+            }
+          }
         } else if (item.types === 'swords') {
+          this.state.sword.selectedSword = item.model;
+          for(let i=0; i<this.state.sword.swords.length; i++) {
+            if(this.state.sword.swords[i].model === item.model) {
+              this.state.sword.swords[i].selected = true;
+            } else {
+              this.state.sword.swords[i].selected = false;
+            }
+          }
         } else if (item.types === 'chestplates') {
+          this.state.chestplate.selectedChestplate = item.model;
+          for(let i=0; i<this.state.chestplate.chestplates.length; i++) {
+            if(this.state.chestplate.chestplates[i].model === item.model) {
+              this.state.chestplate.chestplates[i].selected = true;
+            } else {
+              this.state.chestplate.chestplates[i].selected = false;
+            }
+          }
         } else if (item.types === 'legplates') {
+          this.state.legplate.selectedLegplate = item.model;
+          for(let i=0; i<this.state.legplate.legplates.length; i++) {
+            if(this.state.legplate.legplates[i].model === item.model) {
+              this.state.legplate.legplates[i].selected = true;
+            } else {
+              this.state.legplate.legplates[i].selected = false;
+            }
+          }
         }
       }
     },
