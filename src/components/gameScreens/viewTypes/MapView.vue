@@ -32,7 +32,7 @@ export default {
               pin_margins = 7;
             }
             return {
-                'box-shadow': '0 0 0 5px ' + bg_shadow,
+                'box-shadow': '0 0 0 4px ' + bg_shadow,
                 'background-color': bg_color,
                 'width': pin_size + 'px',
                 'height': pin_size + 'px',
