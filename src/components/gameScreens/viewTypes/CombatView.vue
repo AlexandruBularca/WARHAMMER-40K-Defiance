@@ -267,11 +267,17 @@ export default {
                 elEnemySelectedAvatar.className = 'enemySelectedAvatar keepCharacterRatio';
             }
 
-        },        
+        },
+        heroAttacked() {
+            if (this.$store.state.terminalTutorialItem > 4){
+                this.$store.state.terminal_send_show = this.$store.state.terminal_send_show + "hero attacked\n";
+            }
+        },     
         heroKnifeAttack() {
             var atkHero = this.$store.state.Hero.str + this.$store.state.chestplate.str + this.$store.state.legplate.str +
                 this.$store.state.knife.str;
             this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - atkHero;
+            this.heroAttacked();
             if(this.enemies[this.selected_enemy].hp < 0) {
                 this.enemyKilled();
             }
@@ -281,6 +287,7 @@ export default {
             var atkHero = this.$store.state.Hero.str + this.$store.state.chestplate.str + this.$store.state.legplate.str +
                 this.$store.state.sword.str;
             this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - atkHero;
+            this.heroAttacked();
             if(this.enemies[this.selected_enemy].hp < 0) {
                 this.enemyKilled();
             }
@@ -290,6 +297,7 @@ export default {
             var atkHero = this.$store.state.Hero.str + this.$store.state.chestplate.str + this.$store.state.legplate.str +
                 this.$store.state.gun.str;
             this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - atkHero;
+            this.heroAttacked();
             if(this.enemies[this.selected_enemy].hp < 0) {
                 this.enemyKilled();
             }
