@@ -13,6 +13,15 @@ const data = new Vuex.Store({
 
     terminal_send_show:"",
 
+    // 0 - not showed
+    terminalTutorialItem: 0,
+    tutorialMessages: {
+      initialMapMessage: 0,
+      initialCombatViewMessage: 0,
+      initialBattleWonMessage: 0,
+      initialInventoryMessage: 0,
+      messageNewLocations: 0,
+    },
     welcomeMessageShowed: false,
     tutorialGearUpItemsInventoryShowed: false,
     tutorialBattleWon: false,
