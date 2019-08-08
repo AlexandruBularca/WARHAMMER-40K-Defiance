@@ -21,9 +21,10 @@ export default {
         return {
             text_present:"",
             text_to_be_showed: this.$store.state.terminal_send_show,
-            text_to_be_added: this.$store.state.textToBeAdded,
+            textToBeAdded: this.$store.state.textToBeAdded,
             terminalTutorialItem: this.$store.state.terminalTutorialItem,
             scroll_speed:40,
+            scroll_speed_add:20,
             rec:0,
             // reset:0
             // send_to_store:null
@@ -82,44 +83,27 @@ export default {
         //     setTimeout(function(){console.log("foo")},200);
         // }
         this.rec=setTimeout(()=>{
-            temp_text_present.push(this.text_to_be_showed[i]);
+            temp_text_present.push(this.textToBeAddedToCMD[i]);
             var elem = document.getElementById('trmHolder');
+            elem.scrollTop = elem.scrollHeight;
             var unders="_";
             if(i%30<=15){
                 unders="";
             }
-            if(this.terminalTutorialItem === 0 && this.text_to_be_showed[i+1]==='<' && this.text_to_be_showed[i+2]==='<') {
-                this.scroll_speed = 0;
-            }
-            this.text_present=temp_text_present.join("") + unders;
+            this.text_present = temp_text_present.join("") + unders;
             i++;
-            if(this.text_to_be_showed.length){
-                this.showtext()
+            if(this.textToBeAddedToCMD.length){
+                console.log(this.text_present.length, this.textToBeAddedToCMD.length);
+                this.addText()
             }
-            if(this.text_present === this.text_to_be_showed) {
-                elem.scrollTop = elem.scrollHeight;
-                if (this.currentTutorialNumber === 0) {
-                    this.$store.state.tutorialMessages.initialMapMessage = 2;
-                    this.$store.state.terminalTutorialItem = 1;
-                } else if (this.currentTutorialNumber === 1) {
-                    this.$store.state.tutorialMessages.initialCombatViewMessage = 2;
-                    this.$store.state.terminalTutorialItem = 2;
-                } else if (this.currentTutorialNumber === 2) {
-                    this.$store.state.tutorialMessages.initialBattleWonMessage = 2;
-                    this.$store.state.terminalTutorialItem = 3;
-                } else if (this.currentTutorialNumber === 3) {
-                    this.$store.state.tutorialMessages.initialInventoryMessage = 2;
-                    this.$store.state.terminalTutorialItem = 4;
-                } else if (this.currentTutorialNumber === 4) {
-                    this.$store.state.tutorialMessages.messageNewLocations = 2;
-                    this.$store.state.terminalTutorialItem = 5;
-                }
-                this.reset_timer();
-            }
-        },this.scroll_speed);
+        },this.scroll_speed_add);
       },
       reset_timer(){
           this.scroll_speed = 40;
+          clearTimeout(this.rec);
+      },
+      reset_timer_add(){
+          this.scroll_speed_add = 20;
           clearTimeout(this.rec);
       },
     //   function_send_to_storage(){
@@ -136,26 +120,29 @@ export default {
             }
             this.showtext();
         },
-        text_to_be_added:function(){
-            console.log(this.text_to_be_added + "2");
+        textToBeAddedToCMD:function(){
             i=0;
-            this.reset_timer();
-            if(!this.$store.state.addTerminalType) {
-                temp_text_present=[];
-            }
+            this.reset_timer_add();
             this.addText();
         },
         send_to_store:function(){
             this.function_send_to_storage();
         },
         terminal_show:function(){
-            this.text_to_be_showed = this.terminal_show;
-            this.text_to_be_added = this.terminal_show;
+            if(this.$store.addTerminalType) {
+            console.log("here");
+                this.textToBeAdded = this.terminal_show;
+            } else {
+                this.text_to_be_showed = this.terminal_show;
+            }
         }
     },
     computed:{
         currentTutorialNumber() {
             return this.$store.state.terminalTutorialItem
+        },
+        textToBeAddedToCMD() {
+            return this.$store.state.textToBeAdded
         },
         ...mapGetters(["terminal_show"]),
     },
