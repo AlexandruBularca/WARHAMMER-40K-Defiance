@@ -73,8 +73,9 @@ export default {
             this.$store.state.inventorySelectedItems.chestplate = this.$store.state.chestplate.selectedChestplateImg;
             this.$store.state.inventorySelectedItems.legplate = this.$store.state.legplate.selectedLegplateImg;
             this.$store.commit('inventoryInteraction')
-            if(this.$store.state.tutorialGearUpItemsInventoryShowed) {
+            if(!this.$store.state.tutorialGearUpItemsInventoryShowed) {
                 this.$store.state.tutorialGearUpItemsInventoryShowed = true;
+                this.$store.state.terminal_send_show = "let's gear up";
             }
         },
     } 
