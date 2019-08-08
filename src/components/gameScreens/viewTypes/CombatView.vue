@@ -210,7 +210,7 @@ export default {
             while(i<mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies.length && !found) {
                 var enemy_change="enemy"+(parseInt(i)+1);
 
-                if(this.enemies[enemy_change].hp !== 0) {
+                if(this.enemies[enemy_change].hp !== 0 && this.enemies[enemy_change].hp !== null) {
                     found = true;
 
                     this.selected_enemy = enemy_change;
@@ -301,15 +301,23 @@ export default {
 
           get_curr_enemies(){
             for (var enemy in mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies){
-                var enemy_change="enemy"+(parseInt(enemy)+1);
-                console.log(enemy_change);
-                this.enemies[enemy_change].max_hp = enemy_list[mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies[enemy]].max_hp;
-                this.enemies[enemy_change].hp = enemy_list[mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies[enemy]].max_hp;
-                this.enemies[enemy_change].attack = enemy_list[mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies[enemy]].attack_power;
-                var elAddImg = document.getElementById("enemySrc"+(parseInt(enemy)+1));
-                elAddImg.src = enemy_list[mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies[enemy]].sprite;
-                var elAddImgStats = document.getElementById("enemyImgStat"+(parseInt(enemy)+1));
-                elAddImgStats.src = enemy_list[mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies[enemy]].spriteStat;
+                if (mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies[enemy] !== 'noEnemy') {
+                    var enemy_change="enemy"+(parseInt(enemy)+1);
+                    this.enemies[enemy_change].max_hp = enemy_list[mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies[enemy]].max_hp;
+                    this.enemies[enemy_change].hp = enemy_list[mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies[enemy]].max_hp;
+                    this.enemies[enemy_change].attack = enemy_list[mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies[enemy]].attack_power;
+                    var elAddImg = document.getElementById("enemySrc"+(parseInt(enemy)+1));
+                    elAddImg.src = enemy_list[mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies[enemy]].sprite;
+                    var elAddImgStats = document.getElementById("enemyImgStat"+(parseInt(enemy)+1));
+                    elAddImgStats.src = enemy_list[mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies[enemy]].spriteStat;
+                } else {
+                    var elAddImg = document.getElementById("enemy"+(parseInt(enemy)+1));
+                    elAddImg.style.opacity = 0;
+                    elAddImg.style.pointerEvents = "none";
+                //'opacity': '0.4',
+                //'pointer-events': 'none',
+
+                }
             }
           },
         change_enemy(){
