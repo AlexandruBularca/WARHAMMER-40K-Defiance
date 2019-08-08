@@ -3,9 +3,9 @@
         <div class="enemyStatsHolder">
             <div class="firstRowEnemyStatus">
                 <div class="holderEnemyStatus col1" v-if="isAvailableEnemy5">
-                    <div class="enemyStatusStyle">
+                    <div class="enemyStatusStyle" tabindex="1" v-on:click="selected_enemy='enemy1'">
                         <div class="progressBarOutlineStr">
-                            <div class="progressBarStr" />
+                            <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy1.hp/this.enemies.enemy1.max_hp)*100 + '%' }" />
                         </div>
                         <div class="holderAvatarStatusEnemy">
                             <img class="keepCharacterRatio statusEnemyImage"  src="./../../../assets/img/enemy_holder_default_status.png">
@@ -13,9 +13,9 @@
                     </div>
                 </div>
                 <div class="holderEnemyStatus col2" v-if="isAvailableEnemy3">
-                    <div class="enemyStatusStyle">
+                    <div class="enemyStatusStyle" tabindex="1" v-on:click="selected_enemy='enemy2'">
                         <div class="progressBarOutlineStr">
-                            <div class="progressBarStr" />
+                            <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy2.hp/this.enemies.enemy2.max_hp)*100 + '%' }" />
                         </div>
                         <div class="holderAvatarStatusEnemy">
                             <img class="keepCharacterRatio statusEnemyImage"  src="./../../../assets/img/enemy_holder_default_status.png">
@@ -23,9 +23,9 @@
                     </div>
                 </div>
                 <div class="holderEnemyStatus col3" v-if="isAvailableEnemy1">
-                    <div class="enemyStatusStyle">
+                    <div class="enemyStatusStyle" tabindex="1" v-on:click="selected_enemy='enemy3'">
                         <div class="progressBarOutlineStr">
-                            <div class="progressBarStr" />
+                            <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy3.hp/this.enemies.enemy3.max_hp)*100 + '%' }" />
                         </div>
                         <div class="holderAvatarStatusEnemy">
                             <img class="keepCharacterRatio statusEnemyImage"  src="./../../../assets/img/enemy_holder_default_status.png">
@@ -35,9 +35,9 @@
             </div>
             <div class="secondRowEnemyStatus">
                 <div class="holderEnemyStatus col1" v-if="isAvailableEnemy6">
-                    <div class="enemyStatusStyle">
+                    <div class="enemyStatusStyle" tabindex="1" v-on:click="selected_enemy='enemy4'">
                         <div class="progressBarOutlineStr">
-                            <div class="progressBarStr" />
+                            <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy4.hp/this.enemies.enemy4.max_hp)*100 + '%' }" />
                         </div>
                         <div class="holderAvatarStatusEnemy">
                             <img class="keepCharacterRatio statusEnemyImage"  src="./../../../assets/img/enemy_holder_default_status.png">
@@ -45,9 +45,9 @@
                     </div>
                 </div>
                 <div class="holderEnemyStatus col2" v-if="isAvailableEnemy4">
-                    <div class="enemyStatusStyle">
+                    <div class="enemyStatusStyle" tabindex="1" v-on:click="selected_enemy='enemy5'">
                         <div class="progressBarOutlineStr">
-                            <div class="progressBarStr" />
+                            <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy5.hp/this.enemies.enemy5.max_hp)*100 + '%' }" />
                         </div>
                         <div class="holderAvatarStatusEnemy">
                             <img class="keepCharacterRatio statusEnemyImage"  src="./../../../assets/img/enemy_holder_default_status.png">
@@ -55,9 +55,9 @@
                     </div>
                 </div>
                 <div class="holderEnemyStatus col3" v-if="isAvailableEnemy2">
-                    <div class="enemyStatusStyle">
+                    <div class="enemyStatusStyle" tabindex="1" v-on:click="selected_enemy='enemy6'">
                         <div class="progressBarOutlineStr">
-                            <div class="progressBarStr" />
+                            <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy6.hp/this.enemies.enemy6.max_hp)*100 + '%' }" />
                         </div>
                         <div class="holderAvatarStatusEnemy">
                             <img class="keepCharacterRatio statusEnemyImage"  src="./../../../assets/img/enemy_holder_default_status.png">
@@ -95,19 +95,19 @@
         </div>
         <div class="buttonsHolder">
             <div class="firstRowButtons">
-                <div class="button btnCol1 knifeBtn" v-on:click="actionKnifeAtk()">
+                <div class="button btnCol1 knifeBtn" v-on:click="heroKnifeAttack()">
                     <div class="buttonText">
                         Knife Attack
                     </div>
                 </div>
-                <div class="button btnCol2 swordBtn" v-on:click="actionSwordAtk()">
+                <div class="button btnCol2 swordBtn" v-on:click="heroSwordAttack()">
                     <div class="buttonText">
                         Sword Attack
                     </div>
                 </div>
             </div>
             <div class="secondRowButtons">
-                <div class="button btnCol1 gunBtn" v-on:click="actionGunAtk()">
+                <div class="button btnCol1 gunBtn" v-on:click="heroGunAttack()">
                     <div class="buttonText">
                         Gun Attack
                     </div>
@@ -120,69 +120,161 @@
             </div>
         </div>
     </div>
+
 </template>
 
 <script>
 import { METHODS } from 'http';
+import enemy_list from "../../../assets/json/enemy_list.json"
 export default {
     name: 'Combat',
     data() {
         return {
-            availableEnemy1: this.$store.state.Combat.enemy1,
-            availableEnemy2: this.$store.state.Combat.enemy2,
-            availableEnemy3: this.$store.state.Combat.enemy3,
-            availableEnemy4: this.$store.state.Combat.enemy4,
-            availableEnemy5: this.$store.state.Combat.enemy5,
-            availableEnemy6: this.$store.state.Combat.enemy6,
+            ENEMY_LIST:enemy_list,
+            selected_enemy:"enemy1",
+            Combat: {
+                enemy1: true,
+                enemy2: true,
+                enemy3: true,
+                enemy4: true,
+                enemy5: true,
+                enemy6: true,
+            },
+            enemies:{
+                enemy1:{
+                    max_hp:null,
+                    hp:null,
+                    attack:null
+                },
+                enemy2:{
+                    max_hp:null,
+                    hp:null,
+                    attack:null
+                },
+                enemy3:{
+                    max_hp:null,
+                    hp:null,
+                    attack:null
+                },
+                enemy4:{
+                    max_hp:null,
+                    hp:null,
+                    attack:null
+                },
+                enemy5:{
+                    max_hp:null,
+                    hp:null,
+                    attack:null
+                },
+                enemy6:{
+                    max_hp:null,
+                    hp:null,
+                    attack:null
+                },
+            }
+            //Enemy
+            // enemy1: {
+            // maxhp: 50,
+            // hp: 50,
+            // attack: 10
+            // },
+
+            // enemy2: {
+            // hp: 50,
+            // maxhp: 50,
+            // attack: 10
+            // },
+
+            // enemy3: {
+            // hp: 50,
+            // maxhp: 50,
+            // attack: 10
+            // },
+            
+            // enemy4: {
+            // hp: 50,
+            // maxhp: 50,
+            // attack: 10
+            // },
+
+            // enemy5: {
+            // hp: 50,
+            // maxhp: 50,
+            // attack: 10
+            // },
+
+            // enemy6: {
+            // hp: 50,
+            // maxhp: 50,
+            // attack: 10
+            // },
         };
     },
     methods: {
-        actionKnifeAtk() {
-            
-        },
-        actionSwordAtk() {
-            
-        },
-        actionGunAtk() {
-            
-        },
         actionRetreat() {
             this.$store.commit('showMap')
         },
 
         //made by Ionel and Sebi
-        enemy1Attackhero () {
-            this.$store.commit("enemy1Attackhero");
-        },
-        heroKnifeAttack () {
-            this.$store.commit("heroKnifeAttack")
-        },
-        heroSwordAttack() {
-            this.$store.commit("heroSwordAttack")
-        },
-        heroGunAttack() {
-            this.$store.commit("heroGunAttack")
+        
+        heroKnifeAttack() {
+            console.log(this.enemies[this.selected_enemy].hp - this.$store.state.Hero.knifeAttack);
+            this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - this.$store.state.Hero.knifeAttack;
+         },
+      
+         heroSwordAttack() {
+            this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - this.$store.state.Hero.swordAttack;
+             console.log(this.enemies.enemy1.hp);
+         },
+
+         heroGunAttack() {
+            this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - this.$store.state.Hero.gunAttack;
+            console.log(this.enemies.enemy1.hp);
+          },
+
+         enemy1Attackhero () {
+           this.$store.state.Hero.hp = this.$store.state.Hero.hp -this.enemies[this.selected_enemy].attack;
+          },
+
+          get_curr_enemies(){
+            for (var enemy in this.$store.state.curr_enemies){
+                // var i=this.$store.state.curr_enemies.indexOf(enemy)+1;
+                var enemy_change="enemy"+(parseInt(enemy)+1);
+                // console.log(enemy_change);
+                // console.log(this.enemies["enemy1"]);
+                // console.log(this.enemies[enemy_change]);
+                this.enemies[enemy_change].max_hp = this.ENEMY_LIST[this.$store.state.curr_enemies[enemy]].max_hp;
+                this.enemies[enemy_change].hp = this.ENEMY_LIST[this.$store.state.curr_enemies[enemy]].max_hp;
+                this.enemies[enemy_change].attack = this.ENEMY_LIST[this.$store.state.curr_enemies[enemy]].attack_power;
+            }
+          },
+        change_enemy(){
+            this.selected_enemy="enemy2";
+            console.log("aadada");
         }
     },
     computed: {  
         isAvailableEnemy1() {
-            return this.availableEnemy1;
+            return this.Combat.enemy1;
         },
         isAvailableEnemy2() {
-            return this.availableEnemy2;
+            return this.Combat.enemy2;
         },
         isAvailableEnemy3() {
-            return this.availableEnemy3;
+            return this.Combat.enemy3;
         },
         isAvailableEnemy4() {
-            return this.availableEnemy4;
+            return this.Combat.enemy4;
         },
         isAvailableEnemy5() {
-            return this.availableEnemy5;
+            return this.Combat.enemy5;
         },
         isAvailableEnemy6() {
-            return this.availableEnemy6;
+            return this.Combat.enemy6;
         },
+    },
+    mounted(){
+        this.get_curr_enemies();
     }
 };
 </script>
