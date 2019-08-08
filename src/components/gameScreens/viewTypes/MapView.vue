@@ -21,10 +21,9 @@ export default {
       return {
         top: x + "%",
         left: y + "%"
-      };
-    }
-  },
-  data() {
+      }
+    },
+    data() {
     return {
       userPosX: mapLocationsJson.location_1.location.x,
       userPosY: mapLocationsJson.location_1.location.y,
