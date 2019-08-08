@@ -1,6 +1,6 @@
 <template>
     <div class="combatHolder disable-selection">
-        <div class="enemyStatsHolder">
+        <div class="enemyStatsHolder" v-bind:style="touchable(initialCombatMessage)">
             <div class="firstRowEnemyStatus">
                 <div class="holderEnemyStatus col1" v-if="isAvailableEnemy5">
                     <div id="enemy1" class="enemyStatusStyle enemySelected" tabindex="1" v-on:click="onEnemeySelected('enemy1')">
@@ -93,7 +93,7 @@
                 </div>
             </div>
         </div>
-        <div class="buttonsHolder">
+        <div class="buttonsHolder" v-bind:style="touchable(initialCombatMessage)">
             <div class="firstRowButtons">
                 <div class="button btnCol1 knifeBtn" v-on:click="heroKnifeAttack()">
                     <div class="buttonText">
@@ -176,6 +176,18 @@ export default {
         };
     },
     methods: {
+        touchable(shouldShow) {
+            if (shouldShow !== 2) {
+              return {
+                'opacity': '0.4',
+                'pointer-events': 'none',
+              }
+            } else {
+              return {
+                'opacity': '1',
+              }
+            }
+        },
         selectAvatarEnemy(enemyNo) {
             var elEnemySelectedAvatar = document.getElementById('enemySrc' + enemyNo);
             if(elEnemySelectedAvatar) {
@@ -214,10 +226,13 @@ export default {
                 }
             }
 
-            if(i === this.$store.state.curr_enemies.length && !this.$store.state.tutorialBattleWon) {
+            if(i === this.$store.state.curr_enemies.length && this.$store.state.tutorialMessages.initialBattleWonMessage === 0) {
+                this.$store.state.tutorialMessages.initialBattleWonMessage = 1;
                 this.$store.state.terminal_send_show = this.messageBattleWon;
                 this.$store.state.tutorialBattleWon = true;
                 mapLocationsJson.locations[2].available = true;
+                mapLocationsJson.locations[3].available = true;
+                mapLocationsJson.locations[4].available = true;
             }
 
         },
@@ -295,7 +310,10 @@ export default {
             this.selected_enemy="enemy2";
         }
     },
-    computed: {  
+    computed: {
+        initialCombatMessage() {
+            return this.$store.state.tutorialMessages.initialCombatViewMessage
+        },
         isAvailableEnemy1() {
             return this.Combat.enemy1;
         },
@@ -318,7 +336,8 @@ export default {
     mounted: function () {
         this.get_curr_enemies();
         this.$nextTick(function () {
-            if(!this.$store.state.tutorialBattleWon) {
+            if(this.$store.state.tutorialMessages.initialCombatViewMessage === 0) {
+                this.$store.state.tutorialMessages.initialCombatViewMessage = 1;
                 this.$store.state.terminal_send_show = "Inquisitor: The condition of the planet is even worse than I feared. According to the logs the local PDF divisions have been fully killed three days ago - surprising they lasted that long.\n\nCultists: Blood for the Blood! Skulls for the Skull Throne! \n\n Inquisitor: Chaos filth...";
             }
         })
