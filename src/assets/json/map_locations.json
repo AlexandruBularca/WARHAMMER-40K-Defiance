@@ -4,7 +4,7 @@
             "id": "loc1",
             "x": 42.5,
             "y": 46.3,
-            "mapEnemies": ["scavanger","scavanger","scavanger","scavanger","scavanger","scavanger"],
+            "mapEnemies": ["noEnemy","scavanger","noEnemy","scavanger","noEnemy","scavanger"],
             "available": true
         },{
             "id": "loc2",
@@ -52,14 +52,14 @@
             "id": "loc9",
             "x": 31.8,
             "y": 52.3,
-            "mapEnemies": ["cultist","cultist","cultist","cultist","cultist","scavanger"],
+            "mapEnemies": ["cultist","noEnemy","cultist","cultist","cultist","scavanger"],
             "available": false
         },{
             "id": "loc10",
             "x": 52.7,
             "y": 61.5,
-            "mapEnemies": ["cultist","cultist","scavanger","scavanger","scavanger","scavanger"],
-            "available": false
+            "mapEnemies": ["cultist","cultist","scavanger","noEnemy","scavanger","scavanger"],
+            "available": true
         }
     ],
 
