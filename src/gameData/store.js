@@ -15,8 +15,8 @@ const data = new Vuex.Store({
 
     // Hero Stats
     Hero: {
-      hp: 100,
-      maxHp: 100,
+      hp: 500,
+      maxHp: 500,
       chestplate: 'ch1',
       legplate: 'lg1',
       knife: 'kn1',
@@ -215,6 +215,7 @@ const data = new Vuex.Store({
           }
           this.state.inventorySelectedItems.legplate = item.model;
         }
+        this.state.Hero.maxHp = this.state.Hero.con + this.state.chestplate.con + this.state.legplate.con;
     },
 
   }
