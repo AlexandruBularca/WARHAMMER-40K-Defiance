@@ -89,7 +89,7 @@
                     <img id="enemySrc2" class="keepCharacterRatio">
                 </div>
                 <div id="enemy1Avatar" class="enemyCharacterAvatar enemy6" v-if="isAvailableEnemy6">
-                    <img id="enemySrc1" class="keepCharacterRatio">
+                    <img id="enemySrc1" class="enemySelectedAvatar keepCharacterRatio">
                 </div>
             </div>
         </div>
@@ -176,6 +176,12 @@ export default {
         };
     },
     methods: {
+        selectAvatarEnemy(enemyNo) {
+            var elEnemySelectedAvatar = document.getElementById('enemySrc' + enemyNo);
+            if(elEnemySelectedAvatar) {
+                elEnemySelectedAvatar.className = 'enemySelectedAvatar keepCharacterRatio';
+            }
+        },
         enemyKilled() {
             this.enemies[this.selected_enemy].hp = 0;
             var i = 0;
@@ -201,6 +207,7 @@ export default {
                     if(el) {
                         el.className = 'enemyStatusStyle enemySelected';
                     }
+                    this.selectAvatarEnemy(parseInt(i)+1);
 
                 } else {
                     i++;
@@ -218,15 +225,30 @@ export default {
             this.$store.commit('showMap')
         },
         onEnemeySelected(newEnemySelected) {
-            var elDeadEnemy = document.getElementById(this.selected_enemy);
-            if(elDeadEnemy) {
-                elDeadEnemy.className = 'enemyStatusStyle';
+
+            var enemyNoOld = this.selected_enemy[this.selected_enemy.length-1];
+            var enemyNoNew = newEnemySelected[newEnemySelected.length-1];
+
+            this.selected_enemy = 'enemy' + enemyNoNew;
+
+            var elEnemySelected = document.getElementById('enemy' + enemyNoOld);
+            if(elEnemySelected) {
+                elEnemySelected.className = 'enemyStatusStyle';
             }
-            this.selected_enemy = newEnemySelected;
-            elDeadEnemy = document.getElementById(this.selected_enemy);
-            if(elDeadEnemy) {
-                elDeadEnemy.className = 'enemyStatusStyle enemySelected';
+            var elEnemySelectedAvatar = document.getElementById('enemySrc' + enemyNoOld);
+            if(elEnemySelectedAvatar) {
+                elEnemySelectedAvatar.className = 'keepCharacterRatio';
             }
+
+            elEnemySelected = document.getElementById('enemy' + enemyNoNew);
+            if(elEnemySelected) {
+                elEnemySelected.className = 'enemyStatusStyle enemySelected';
+            }
+            elEnemySelectedAvatar = document.getElementById('enemySrc' + enemyNoNew);
+            if(elEnemySelectedAvatar) {
+                elEnemySelectedAvatar.className = 'enemySelectedAvatar keepCharacterRatio';
+            }
+
         },        
         heroKnifeAttack() {
             var atkHero = this.$store.state.Hero.str + this.$store.state.chestplate.str + this.$store.state.legplate.str +
@@ -458,30 +480,30 @@ export default {
 }
 
 .enemy6 {
-    left: 65%;
-    top: -110%;
+    left: 48%;
+    top: -115%;
 }
 
 .enemy5 {
-    left: 75%;  
-    top: -80%;
+    left: 62%;  
+    top: -85%;
 }
 
 .enemy4 {
-    left: 85%;
-    top: -60%;    
+    left: 77%;
+    top: -65%;    
 }
 
 .enemy3 {
-    left: 70%;    
+    left: 55%;    
 }
 
 .enemy2 {
-    left: 80%;    
+    left: 70%;    
 }
 
 .enemy1 {
-    left: 90%;    
+    left: 85%;    
 }
 
 .enemiesCharacterHolder {
@@ -696,5 +718,12 @@ export default {
 .hideEnemyAvatar {
     z-index: -1;
 }
+
+.enemySelectedAvatar {
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.38);
+    background-color: #00000063;
+}
+
 
 </style>
