@@ -12,6 +12,7 @@ const data = new Vuex.Store({
     gameScreen: 'mapScreen',
 
     terminal_send_show:"",
+    textToBeAdded:"",
     addTerminalType: false,
 
     // 0 - not showed
