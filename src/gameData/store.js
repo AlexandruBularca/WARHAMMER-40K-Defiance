@@ -18,8 +18,8 @@ const data = new Vuex.Store({
 
     // Hero Stats
     Hero: {
-      hp: 100,
-      maxHp: 100,
+      hp: 500,
+      maxHp: 500,
       chestplate: 'ch1',
       legplate: 'lg1',
       knife: 'kn1',
@@ -27,7 +27,16 @@ const data = new Vuex.Store({
       gun: 'gu1',
       knifeAttack: 25,
       swordAttack: 50,
-      gunAttack: 50
+      gunAttack: 50,
+      str: 170,
+      dex: 150,
+      con: 200
+    },
+
+    stats: {
+      str: 1000,
+      dex: 1000,
+      con: 1000,
     },
 
     //Ammo
@@ -55,29 +64,52 @@ const data = new Vuex.Store({
     },
 
 
+    inventorySelectedItems: {
+      knife: 'knife_lvl1',
+      sword: 'sword_lvl1',
+      gun: 'gun_lvl1',
+      chestplate: 'chestplate_lvl1',
+      legplate: 'legplate_lvl1'
+    },
+
     knife: {
       selectedKnife: 'kn1',
-      selectedKnifeImg: 'knife_lvl1'
+      selectedKnifeImg: 'knife_lvl1',
+      str: 100,
+      dex: 40,
+      con: 30
     },
 
     gun: {
       selectedGun: 'gu1',
-      selectedGunImg: 'gun_lvl1'
+      selectedGunImg: 'gun_lvl1',
+      str: 100,
+      dex: 52,
+      con: 21
     },
 
     sword: {
       selectedSword: 'sw1',
-      selectedSwordImg: 'sword_lvl1'
+      selectedSwordImg: 'sword_lvl1',
+      str: 179,
+      dex: 21,
+      con: 19
     },
 
     chestplate: {
       selectedChestplate: 'ch1',
-      selectedChestplateImg: 'chestplate_lvl1'
+      selectedChestplateImg: 'chestplate_lvl1',
+      str: 50,
+      dex: 150,
+      con: 200
     },
 
     legplate: {
       selectedLegplate: 'lg1',
-      selectedLegplateImg: 'legplate_lvl1'
+      selectedLegplateImg: 'legplate_lvl1',
+      str: 20,
+      dex: 75,
+      con: 100
     }
 
   },
@@ -134,26 +166,57 @@ const data = new Vuex.Store({
 
     itemFromInventoryClicked(type, item) {
         if (item.types === 'knives') {
-          this.state.knife.selectedKnife = item.id;
-          this.state.knife.selectedKnifeImg = item.model;
-          this.state.Hero.knife = item.id;
+          if(item.model !== 'coming_soon') {
+            this.state.knife.selectedKnife = item.id;
+            this.state.knife.selectedKnifeImg = item.model;
+            this.state.knife.str = item.str;
+            this.state.knife.dex = item.dex;
+            this.state.knife.con = item.con;
+            this.state.Hero.knife = item.id;
+          }
+          this.state.inventorySelectedItems.knife = item.model;
         } else if (item.types === 'guns') {
-          this.state.gun.selectedGun = item.id;
-          this.state.gun.selectedGunImg = item.model;
-          this.state.Hero.gun = item.id;
+          if(item.model !== 'coming_soon') {
+            this.state.gun.selectedGun = item.id;
+            this.state.gun.selectedGunImg = item.model;
+            this.state.gun.str = item.str;
+            this.state.gun.dex = item.dex;
+            this.state.gun.con = item.con;
+            this.state.Hero.gun = item.id;
+          }
+          this.state.inventorySelectedItems.gun = item.model;
         } else if (item.types === 'swords') {
-          this.state.sword.selectedSword = item.id;
-          this.state.sword.selectedSwordImg = item.model;
-          this.state.Hero.sword = item.id;
+          if(item.model !== 'coming_soon') {
+            this.state.sword.selectedSword = item.id;
+            this.state.sword.selectedSwordImg = item.model;
+            this.state.sword.str = item.str;
+            this.state.sword.dex = item.dex;
+            this.state.sword.con = item.con;
+            this.state.Hero.sword = item.id;
+          }
+          this.state.inventorySelectedItems.sword = item.model;
         } else if (item.types === 'chestplates') {
-          this.state.chestplate.selectedChestplate = item.id;
-          this.state.chestplate.selectedChestplateImg = item.model;
-          this.state.Hero.chestplate = item.id;
+          if(item.model !== 'coming_soon') {
+            this.state.chestplate.selectedChestplate = item.id;
+            this.state.chestplate.selectedChestplateImg = item.model;
+            this.state.chestplate.str = item.str;
+            this.state.chestplate.dex = item.dex;
+            this.state.chestplate.con = item.con;
+            this.state.Hero.chestplate = item.id;
+          }
+          this.state.inventorySelectedItems.chestplate = item.model;
         } else if (item.types === 'legplates') {
-          this.state.legplate.selectedLegplate = item.id;
-          this.state.legplate.selectedLegplateImg = item.model;
-          this.state.Hero.legplate = item.id;
+          if(item.model !== 'coming_soon') {
+            this.state.legplate.selectedLegplate = item.id;
+            this.state.legplate.selectedLegplateImg = item.model;
+            this.state.legplate.str = item.str;
+            this.state.legplate.dex = item.dex;
+            this.state.legplate.con = item.con;
+            this.state.Hero.legplate = item.id;
+          }
+          this.state.inventorySelectedItems.legplate = item.model;
         }
+        this.state.Hero.maxHp = this.state.Hero.con + this.state.chestplate.con + this.state.legplate.con;
     },
 
   }

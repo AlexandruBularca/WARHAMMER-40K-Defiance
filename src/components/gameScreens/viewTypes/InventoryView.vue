@@ -33,7 +33,8 @@
           <div class="item-decoration" />
           <div class="itemsChanger">
             <div class="templateItem disable-selection" v-for="item of itemsToBeRenderd"
-            v-on:click="itemRenderClicked(item.selected, item.title, item.model, item.id)" v-bind:key="item.id">
+            v-on:click="itemRenderClicked(item.selected, item.title, item.model, item.id,
+              item.str, item.dex, item.con)" v-bind:key="item.id">
                 <div class="itemHolderView" v-if="item.selected !== 'true'">
                     {{item.title}}
                 </div>
@@ -55,21 +56,21 @@
         <div class="pbHolder">
           <div class="titlePBItem disable-selection">STR</div>
           <div class="progressBarOutlineStr">
-            <div class="progressBarStr" />
+            <div class="progressBarStr" v-bind:style="calculateStrBar" />
           </div>
         </div>
 
         <div class="pbHolder">
           <div class="titlePBItem disable-selection">DEX</div>
           <div class="progressBarOutlineDex">
-            <div class="progressBarDex" />
+            <div class="progressBarDex" v-bind:style="calculateDexBar" />
           </div>
         </div>
 
         <div class="pbHolder">
           <div class="titlePBItem disable-selection">CON</div>
           <div class="progressBarOutlineCon">
-            <div class="progressBarCon" />
+            <div class="progressBarCon" v-bind:style="calculateConBar" />
           </div>
         </div>
       </div>
@@ -102,6 +103,7 @@ export default {
       legplatesAvailable: itemsJson.legplate,
       itemsTypeToBeRendered: 'chestplates',
       selectedKnife: this.$store.state.knife.selectedKnifeImg,
+      weaponSlotSelected: 'knife',
       itemClicked: {
           isSelected: null,
           title: null,
@@ -109,6 +111,9 @@ export default {
           model: null,
           id: null,
           jsonFiles: itemsJson,
+          str: 0,
+          dex: 0,
+          con: 0,
       },
     };
   },
@@ -124,16 +129,19 @@ export default {
     },
     knifeClicked() {
       this.itemToBeChanged = "knife";
+      this.weaponSlotSelected = "knife";
       this.showArmorUpPanel = false;
       this.itemsTypeToBeRendered = 'knives';
     },
     swordClicked() {
       this.itemToBeChanged = "sword";
+      this.weaponSlotSelected = "sword";
       this.showArmorUpPanel = false;
       this.itemsTypeToBeRendered = 'swords';
     },
     gunClicked() {
       this.itemToBeChanged = "gun";
+      this.weaponSlotSelected = "gun";
       this.showArmorUpPanel = false;
       this.itemsTypeToBeRendered = 'guns';
     },
@@ -145,57 +153,123 @@ export default {
       this.itemToBeChanged = "legplates";
       this.itemsTypeToBeRendered = 'legplates';
     },
-    itemRenderClicked(isSelected, title, model, id) {
-      this.itemClicked.isSelected = isSelected;
-      this.itemClicked.title = title;
-      this.itemClicked.types = this.itemsTypeToBeRendered;
-      this.itemClicked.model = model;
-      this.itemClicked.id = id;
-      this.$store.commit('itemFromInventoryClicked', this.itemClicked);
-      if (this.itemClicked.types === 'knives') {
-        for(let i=0; i<itemsJson.knife.length; i++) {
-          if(itemsJson.knife[i].id === id) {
-            itemsJson.knife[i].selected = "true";
-          } else {
-            itemsJson.knife[i].selected = "false";
+    itemRenderClicked(isSelected, title, model, id, str, dex, con) {
+        this.itemClicked.model = model;
+        this.itemClicked.isSelected = isSelected;
+        this.itemClicked.title = title;
+        this.itemClicked.types = this.itemsTypeToBeRendered;
+        this.itemClicked.id = id;
+        this.itemClicked.str = str;
+        this.itemClicked.dex = dex;
+        this.itemClicked.con = con;
+        this.$store.commit('itemFromInventoryClicked', this.itemClicked);
+        if (this.itemClicked.types === 'knives' && model !== 'coming_soon') {
+          for(let i=0; i<itemsJson.knife.length; i++) {
+            if(itemsJson.knife[i].id === id) {
+              itemsJson.knife[i].selected = "true";
+            } else {
+              itemsJson.knife[i].selected = "false";
+            }
+          }
+        } else if (this.itemClicked.types === 'guns' && model !== 'coming_soon') {
+          for(let i=0; i<itemsJson.gun.length; i++) {
+            if(itemsJson.gun[i].id === id) {
+              itemsJson.gun[i].selected = "true";
+            } else {
+              itemsJson.gun[i].selected = "false";
+            }
+          }
+        } else if (this.itemClicked.types === 'swords' && model !== 'coming_soon') {
+          for(let i=0; i<itemsJson.sword.length; i++) {
+            if(itemsJson.sword[i].id === id) {
+              itemsJson.sword[i].selected = "true";
+            } else {
+              itemsJson.sword[i].selected = "false";
+            }
+          }
+        } else if (this.itemClicked.types === 'chestplates' && model !== 'coming_soon') {
+          for(let i=0; i<itemsJson.chestplate.length; i++) {
+            if(itemsJson.chestplate[i].id === id) {
+              itemsJson.chestplate[i].selected = "true";
+            } else {
+              itemsJson.chestplate[i].selected = "false";
+            }
+          }
+        } else if (this.itemClicked.types === 'legplates' && model !== 'coming_soon') {
+          for(let i=0; i<itemsJson.legplate.length; i++) {
+            if(itemsJson.legplate[i].id === id) {
+              itemsJson.legplate[i].selected = "true";
+            } else {
+              itemsJson.legplate[i].selected = "false";
+            }
           }
         }
-      } else if (this.itemClicked.types === 'guns') {
-        for(let i=0; i<itemsJson.gun.length; i++) {
-          if(itemsJson.gun[i].id === id) {
-            itemsJson.gun[i].selected = "true";
-          } else {
-            itemsJson.gun[i].selected = "false";
-          }
-        }
-      } else if (this.itemClicked.types === 'swords') {
-        for(let i=0; i<itemsJson.sword.length; i++) {
-          if(itemsJson.sword[i].id === id) {
-            itemsJson.sword[i].selected = "true";
-          } else {
-            itemsJson.sword[i].selected = "false";
-          }
-        }
-      } else if (this.itemClicked.types === 'chestplates') {
-        for(let i=0; i<itemsJson.chestplate.length; i++) {
-          if(itemsJson.chestplate[i].id === id) {
-            itemsJson.chestplate[i].selected = "true";
-          } else {
-            itemsJson.chestplate[i].selected = "false";
-          }
-        }
-      } else if (this.itemClicked.types === 'legplates') {
-        for(let i=0; i<itemsJson.legplate.length; i++) {
-          if(itemsJson.legplate[i].id === id) {
-            itemsJson.legplate[i].selected = "true";
-          } else {
-            itemsJson.legplate[i].selected = "false";
-          }
-        }
-      }
     }
   },
   computed: {
+    currentStr() {
+      if (this.weaponSlotSelected === 'knife') {
+        return this.$store.state.Hero.str + this.$store.state.chestplate.str + this.$store.state.legplate.str +
+          this.$store.state.knife.str
+      } else if (this.weaponSlotSelected === 'sword') {
+        return this.$store.state.Hero.str + this.$store.state.chestplate.str + this.$store.state.legplate.str +
+          this.$store.state.sword.str
+      } else if (this.weaponSlotSelected === 'gun') {
+        return this.$store.state.Hero.str + this.$store.state.chestplate.str + this.$store.state.legplate.str +
+          this.$store.state.gun.str
+      }
+      return 0
+    },
+    maxStr() {
+      return this.$store.state.stats.str
+    },
+    calculateStrBar() {
+      return {
+        width: (this.currentStr/this.maxStr)*100 + '%'
+      }
+    },
+    currentDex() {
+      if (this.weaponSlotSelected === 'knife') {
+        return this.$store.state.Hero.dex + this.$store.state.chestplate.dex + this.$store.state.legplate.dex +
+          this.$store.state.knife.dex
+      } else if (this.weaponSlotSelected === 'sword') {
+        return this.$store.state.Hero.dex + this.$store.state.chestplate.dex + this.$store.state.legplate.dex +
+          this.$store.state.sword.dex
+      } else if (this.weaponSlotSelected === 'gun') {
+        return this.$store.state.Hero.dex + this.$store.state.chestplate.dex + this.$store.state.legplate.dex +
+          this.$store.state.gun.dex
+      }
+      return 0
+    },
+    maxDex() {
+      return this.$store.state.stats.dex
+    },
+    calculateDexBar() {
+      return {
+        width: (this.currentDex/this.maxDex)*100 + '%'
+      }
+    },
+    currentCon() {
+      if (this.weaponSlotSelected === 'knife') {
+        return this.$store.state.Hero.con + this.$store.state.chestplate.con + this.$store.state.legplate.con +
+          this.$store.state.knife.con
+      } else if (this.weaponSlotSelected === 'sword') {
+        return this.$store.state.Hero.con + this.$store.state.chestplate.con + this.$store.state.legplate.con +
+          this.$store.state.sword.con
+      } else if (this.weaponSlotSelected === 'gun') {
+        return this.$store.state.Hero.con + this.$store.state.chestplate.con + this.$store.state.legplate.con +
+          this.$store.state.gun.con
+      }
+      return 0
+    },
+    maxCon() {
+      return this.$store.state.stats.con
+    },
+    calculateConBar() {
+      return {
+        width: (this.currentCon/this.maxCon)*100 + '%'
+      }
+    },
     itemsToBeRenderd() {
         if (this.itemsTypeToBeRendered === 'knives') {
             return this.knivesAvailable
@@ -221,27 +295,27 @@ export default {
     },
     showSelectedChestplate() {
         return {
-          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/primary/src/assets/img/' + this.$store.state.chestplate.selectedChestplateImg + '.png")'
+          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/primary/src/assets/img/' + this.$store.state.inventorySelectedItems.chestplate + '.png")'
         };
     },
     showSelectedLegplate() {
         return {
-          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/primary/src/assets/img/' + this.$store.state.legplate.selectedLegplateImg + '.png")'
+          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/primary/src/assets/img/' + this.$store.state.inventorySelectedItems.legplate + '.png")'
         };
     },
     showSelectedKnife() {
         return {
-          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/primary/src/assets/img/' + this.$store.state.knife.selectedKnifeImg + '.png")'
+          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/primary/src/assets/img/' + this.$store.state.inventorySelectedItems.knife + '.png")'
         };
     },
     showSelectedSword() {
         return {
-          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/primary/src/assets/img/' + this.$store.state.sword.selectedSwordImg + '.png")'
+          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/primary/src/assets/img/' + this.$store.state.inventorySelectedItems.sword + '.png")'
         };
     },
     showSelectedGun() {
         return {
-          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/primary/src/assets/img/' + this.$store.state.gun.selectedGunImg + '.png")'
+          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/primary/src/assets/img/' + this.$store.state.inventorySelectedItems.gun + '.png")'
         };
     }
   },
