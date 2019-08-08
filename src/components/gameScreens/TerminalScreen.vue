@@ -76,6 +76,14 @@ export default {
     },
     computed:{
         ...mapGetters(["terminal_show"]),
+    },
+    mounted: function () {
+        this.$nextTick(function () {
+            if(!this.$store.state.welcomeMessageShowed) {
+                this.$store.state.terminal_send_show = "wfabag  wrwy rwr f";
+                this.$store.state.welcomeMessageShowed = true;
+            }
+        })
     }
 }
 </script>
