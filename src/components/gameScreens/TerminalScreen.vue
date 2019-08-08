@@ -23,7 +23,7 @@ export default {
     data(){
         return {
             text_present:"",
-            text_to_be_showed:"wew man this is totally cool,like really cool beans bro...",
+            text_to_be_showed: this.$store.state.terminal_send_show,
             scroll_speed:40,
             rec:0,
             // reset:0
