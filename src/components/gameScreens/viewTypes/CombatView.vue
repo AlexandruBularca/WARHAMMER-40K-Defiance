@@ -234,14 +234,16 @@ export default {
                 mapLocationsJson.locations[4].available = true;
                 mapLocationsJson.locations[8].available = true;
             } else if(i === mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies.length) { 
-                this.$store.state.terminal_send_show = "Battle Won!";
-                this.$store.commit('showMap')
                 this.$store.state.addTerminalType = false;
+                this.$store.state.terminal_send_show = "Battle Won!";
+                this.$store.commit('showMap');
             }
 
         },
         actionRetreat() {
-            this.$store.commit('showMap')
+            this.$store.commit('showMap');
+            this.$store.state.addTerminalType = false;
+            this.$store.state.terminal_send_show = "Retreated from battle";
         },
         onEnemeySelected(newEnemySelected) {
 
