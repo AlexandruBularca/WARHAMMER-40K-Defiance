@@ -124,7 +124,6 @@
 </template>
 
 <script>
-import { METHODS } from 'http';
 import enemy_list from "./../../../assets/json/enemy_list.json"
 export default {
     name: 'Combat',
@@ -186,7 +185,7 @@ export default {
                 elDeadEnemy.className = 'enemyStatusStyle';
             }
             this.selected_enemy = newEnemySelected;
-            var elDeadEnemy = document.getElementById(this.selected_enemy);
+            elDeadEnemy = document.getElementById(this.selected_enemy);
             if(elDeadEnemy) {
                 elDeadEnemy.className = 'enemyStatusStyle enemySelected';
             }
