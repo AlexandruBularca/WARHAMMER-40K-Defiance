@@ -1,6 +1,7 @@
 <template>
   <div class="mapHolder">
-    <div class="currentUserLocation" v-bind:style="locateTheUser(item.x, item.y)" v-for="item of mapLocations"></div>
+    <div class="currentUserLocation" v-bind:style="locateTheUser(item.x, item.y, item.available)" v-for="item of mapLocations"
+        v-bind:key="item.id"></div>
     <div class="buttonsHolder">
       <button class="btnAttack" v-on:click="showCombatView()">Search</button>
     </div>
@@ -16,8 +17,18 @@ export default {
             this.$store.state.terminal_send_show = "";
             this.$store.commit('combatMode')
         },
-        locateTheUser(x, y) {
+        locateTheUser(x, y, available) {
+            var bg_color, bg_shadow;
+            if (available) {
+                bg_color = "#34c70e";
+                bg_shadow = "#85dd6e";
+            } else {
+                bg_color = "#f40808"
+                bg_shadow = "#f75252";
+            }
             return {
+                'box-shadow': '0 0 0 5px ' + bg_shadow,
+                'background-color': bg_color,
                 top: x + "%",
                 left: y + "%"
             }
