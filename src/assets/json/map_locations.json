@@ -4,7 +4,7 @@
             "id": "loc1",
             "x": 42.5,
             "y": 46.3,
-            "mapEnemies": ["scavanger","scavanger","scavanger","scavanger","cultist","scavanger"],
+            "mapEnemies": ["scavanger","scavanger","scavanger","scavanger","scavanger","scavanger"],
             "available": true
         },{
             "id": "loc2",
