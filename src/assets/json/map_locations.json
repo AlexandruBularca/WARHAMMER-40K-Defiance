@@ -26,6 +26,11 @@
             "x": 35.5,
             "y": 60.3,
             "available": false
+        },{
+            "id": "loc6",
+            "x": 71.5,
+            "y": 41.4,
+            "available": false
         }
     ],
 
