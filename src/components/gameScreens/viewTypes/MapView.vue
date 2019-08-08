@@ -18,7 +18,7 @@ export default {
         pinLocationSelected(x, y) {
           var elEnemySelectedAvatar = document.getElementById('loc2');
           if(elEnemySelectedAvatar) {
-              console.log(x, y);
+              //console.log(x, y);
               elEnemySelectedAvatar.className = '';
           }
         },
