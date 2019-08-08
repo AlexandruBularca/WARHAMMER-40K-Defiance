@@ -1,11 +1,11 @@
 {
     "cultist":{
-        "max_hp":50,
+        "max_hp":1000,
         "attack_power":50,
         "sprite":"../../../assets/img/enemy_holder_default.png"
     },
     "scavanger":{
-        "max_hp":25,
+        "max_hp":500,
         "attack_power":60,
         "sprite":""
     }
