@@ -219,9 +219,9 @@ export default {
                 var enemy_change="enemy"+(parseInt(enemy)+1);
                 //console.log(enemy_change);
                 //console.log(this.enemies[enemy_change]);
-                this.enemies[enemy_change].max_hp = this.ENEMY_LIST[this.$store.state.curr_enemies[enemy]].max_hp;
-                this.enemies[enemy_change].hp = enemy_list['cultist'].max_hp;
-                this.enemies[enemy_change].attack = this.ENEMY_LIST[this.$store.state.curr_enemies[enemy]].attack_power;
+                this.enemies[enemy_change].max_hp = enemy_list[this.$store.state.curr_enemies[enemy]].max_hp;
+                this.enemies[enemy_change].hp = enemy_list[this.$store.state.curr_enemies[enemy]].max_hp;
+                this.enemies[enemy_change].attack = enemy_list[this.$store.state.curr_enemies[enemy]].attack_power;
             }
           },
         change_enemy(){
