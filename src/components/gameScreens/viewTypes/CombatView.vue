@@ -74,22 +74,22 @@
             </div>
             <div class="enemiesCharacterHolder">
                 <div id="enemy6Avatar" class="enemyCharacterAvatar row1 enemy1" v-if="isAvailableEnemy1">
-                    <img id="enemySrc6" class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
+                    <img id="enemySrc6" class="keepCharacterRatio">
                 </div>
                 <div id="enemy5Avatar" class="enemyCharacterAvatar row1 enemy2" v-if="isAvailableEnemy2">
-                    <img id="enemySrc5" class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
+                    <img id="enemySrc5" class="keepCharacterRatio">
                 </div>
                 <div id="enemy4Avatar" class="enemyCharacterAvatar row1 enemy3" v-if="isAvailableEnemy3">
-                    <img id="enemySrc4" class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
+                    <img id="enemySrc4" class="keepCharacterRatio">
                 </div>
                 <div id="enemy3Avatar" class="enemyCharacterAvatar enemy4" v-if="isAvailableEnemy4">
-                    <img id="enemySrc3" class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
+                    <img id="enemySrc3" class="keepCharacterRatio">
                 </div>
                 <div id="enemy2Avatar" class="enemyCharacterAvatar enemy5" v-if="isAvailableEnemy5">
-                    <img id="enemySrc2" class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
+                    <img id="enemySrc2" class="keepCharacterRatio">
                 </div>
                 <div id="enemy1Avatar" class="enemyCharacterAvatar enemy6" v-if="isAvailableEnemy6">
-                    <img id="enemySrc1" class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
+                    <img id="enemySrc1" class="keepCharacterRatio">
                 </div>
             </div>
         </div>
