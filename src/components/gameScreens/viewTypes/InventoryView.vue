@@ -33,7 +33,7 @@
           <div class="item-decoration" />
           <div class="itemsChanger">
             <div class="templateItem disable-selection" v-for="item of itemsToBeRenderd"
-            v-on:click="itemRenderClicked(item.selected, item.title, item.model)" v-bind:key="item.model">
+            v-on:click="itemRenderClicked(item.selected, item.title, item.model, item.id)" v-bind:key="item.id">
                 <div class="itemHolderView" v-if="!item.selected">
                     {{item.title}}
                 </div>
@@ -104,6 +104,7 @@ export default {
           title: null,
           types: null,
           model: null,
+          id: null,
       },
     };
   },
@@ -140,11 +141,12 @@ export default {
       this.itemToBeChanged = "legplates";
       this.itemsTypeToBeRendered = 'legplates';
     },
-    itemRenderClicked(isSelected, title, model) {
+    itemRenderClicked(isSelected, title, model, id) {
       this.itemClicked.isSelected = isSelected;
       this.itemClicked.title = title;
       this.itemClicked.types = this.itemsTypeToBeRendered;
       this.itemClicked.model = model;
+      this.itemClicked.id = id;
       this.$store.commit('itemFromInventoryClicked', this.itemClicked);
     }
   },
@@ -174,27 +176,27 @@ export default {
     },
     showSelectedChestplate() {
         return {
-          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/selectable_invenotry/src/assets/img/' + this.$store.state.chestplate.selectedChestplate + '.png")'
+          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/selectable_invenotry/src/assets/img/' + this.$store.state.chestplate.selectedChestplateImg + '.png")'
         };
     },
     showSelectedLegplate() {
         return {
-          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/selectable_invenotry/src/assets/img/' + this.$store.state.legplate.selectedLegplate + '.png")'
+          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/selectable_invenotry/src/assets/img/' + this.$store.state.legplate.selectedLegplateImg + '.png")'
         };
     },
     showSelectedKnife() {
         return {
-          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/selectable_invenotry/src/assets/img/' + this.$store.state.knife.selectedKnife + '.png")'
+          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/selectable_invenotry/src/assets/img/' + this.$store.state.knife.selectedKnifeImg + '.png")'
         };
     },
     showSelectedSword() {
         return {
-          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/selectable_invenotry/src/assets/img/' + this.$store.state.sword.selectedSword + '.png")'
+          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/selectable_invenotry/src/assets/img/' + this.$store.state.sword.selectedSwordImg + '.png")'
         };
     },
     showSelectedGun() {
         return {
-          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/selectable_invenotry/src/assets/img/' + this.$store.state.gun.selectedGun + '.png")'
+          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/selectable_invenotry/src/assets/img/' + this.$store.state.gun.selectedGunImg + '.png")'
         };
     }
   },
