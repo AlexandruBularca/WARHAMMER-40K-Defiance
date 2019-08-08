@@ -163,7 +163,7 @@ export default {
         this.itemClicked.dex = dex;
         this.itemClicked.con = con;
         this.$store.commit('itemFromInventoryClicked', this.itemClicked);
-        if (this.itemClicked.types === 'knives') {
+        if (this.itemClicked.types === 'knives' && model !== 'coming_soon') {
           for(let i=0; i<itemsJson.knife.length; i++) {
             if(itemsJson.knife[i].id === id) {
               itemsJson.knife[i].selected = "true";
@@ -171,7 +171,7 @@ export default {
               itemsJson.knife[i].selected = "false";
             }
           }
-        } else if (this.itemClicked.types === 'guns') {
+        } else if (this.itemClicked.types === 'guns' && model !== 'coming_soon') {
           for(let i=0; i<itemsJson.gun.length; i++) {
             if(itemsJson.gun[i].id === id) {
               itemsJson.gun[i].selected = "true";
@@ -179,7 +179,7 @@ export default {
               itemsJson.gun[i].selected = "false";
             }
           }
-        } else if (this.itemClicked.types === 'swords') {
+        } else if (this.itemClicked.types === 'swords' && model !== 'coming_soon') {
           for(let i=0; i<itemsJson.sword.length; i++) {
             if(itemsJson.sword[i].id === id) {
               itemsJson.sword[i].selected = "true";
@@ -187,7 +187,7 @@ export default {
               itemsJson.sword[i].selected = "false";
             }
           }
-        } else if (this.itemClicked.types === 'chestplates') {
+        } else if (this.itemClicked.types === 'chestplates' && model !== 'coming_soon') {
           for(let i=0; i<itemsJson.chestplate.length; i++) {
             if(itemsJson.chestplate[i].id === id) {
               itemsJson.chestplate[i].selected = "true";
@@ -195,7 +195,7 @@ export default {
               itemsJson.chestplate[i].selected = "false";
             }
           }
-        } else if (this.itemClicked.types === 'legplates') {
+        } else if (this.itemClicked.types === 'legplates' && model !== 'coming_soon') {
           for(let i=0; i<itemsJson.legplate.length; i++) {
             if(itemsJson.legplate[i].id === id) {
               itemsJson.legplate[i].selected = "true";
