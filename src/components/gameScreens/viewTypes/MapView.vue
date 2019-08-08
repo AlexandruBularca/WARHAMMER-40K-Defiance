@@ -1,8 +1,6 @@
 <template>
   <div class="mapHolder">
-    <div class="locations">
-      <div class="currentUserLocation" v-for="item in mapLocationsJson">{{item.location}}</div>
-    </div>
+    <div class="currentUserLocation" v-bind:style="locateTheUser" v-for="item of mapLocations"></div>
     <div class="buttonsHolder">
       <button class="btnAttack" v-on:click="showCombatView()">Search</button>
     </div>
@@ -21,7 +19,8 @@ export default {
   data() {
     return {
       userPosX: mapLocationsJson.location_1.location.x,
-      userPosY: mapLocationsJson.location_1.location.y
+      userPosY: mapLocationsJson.location_1.location.y,
+      mapLocations: mapLocationsJson.locations,
     };
   },
   computed: {
