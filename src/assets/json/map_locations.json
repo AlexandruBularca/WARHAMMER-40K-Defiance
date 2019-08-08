@@ -32,9 +32,14 @@
             "y": 41.6,
             "available": false
         },{
-            "id": "loc6",
+            "id": "loc7",
             "x": 66.5,
             "y": 63.8,
+            "available": false
+        },{
+            "id": "loc8",
+            "x": 61.1,
+            "y": 21.0,
             "available": false
         }
     ],
