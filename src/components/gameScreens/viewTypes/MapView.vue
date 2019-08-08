@@ -1,6 +1,6 @@
 <template>
   <div class="mapHolder">
-    <div class="currentUserLocation" v-bind:style="locateTheUser" v-for="item of mapLocations"></div>
+    <div class="currentUserLocation" v-bind:style="locateTheUser(item.x, item.y)" v-for="item of mapLocations"></div>
     <div class="buttonsHolder">
       <button class="btnAttack" v-on:click="showCombatView()">Search</button>
     </div>
@@ -14,6 +14,12 @@ export default {
   methods: {
     showCombatView() {
       this.$store.commit("combatMode");
+    },
+    locateTheUser(x, y) {
+      return {
+        top: x + "%",
+        left: y + "%"
+      };
     }
   },
   data() {
@@ -22,14 +28,6 @@ export default {
       userPosY: mapLocationsJson.location_1.location.y,
       mapLocations: mapLocationsJson.locations,
     };
-  },
-  computed: {
-    locateTheUser: function() {
-      return {
-        top: this.userPosX + "%",
-        left: this.userPosY + "%"
-      };
-    }
   }
 };
 </script>
@@ -46,17 +44,16 @@ export default {
   border-width: 4px;
   border-style: solid;
   margin-left: 26vw;
-}
-.locations {
   position: relative;
 }
+
 .currentUserLocation {
   height: 20px;
   width: 20px;
   background-color: #e910108f;
   border-radius: 50%;
   box-shadow: 0 0 0 5px #fd843e85;
-  position: relative;
+  position: absolute;
 }
 
 .buttonsHolder {
