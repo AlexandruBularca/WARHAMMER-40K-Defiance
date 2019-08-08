@@ -41,6 +41,11 @@
             "x": 61.1,
             "y": 21.0,
             "available": false
+        },{
+            "id": "loc8",
+            "x": 31.8,
+            "y": 21.0,
+            "available": false
         }
     ],
 
