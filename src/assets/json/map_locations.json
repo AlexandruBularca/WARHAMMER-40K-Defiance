@@ -1,0 +1,52 @@
+{
+    "location_1": {
+        "location": {
+            "x": 42.5,
+            "y": 46.3
+        },
+        "locationMiniMap": {
+            "x": 79.0,
+            "y": 50.0
+        }
+    },
+    "location_2": {
+        "location": {
+            "x": 36.5,
+            "y": 29.3
+        },
+        "locationMiniMap": {
+            "x": 79.0,
+            "y": 50.0
+        }
+    },
+    "location_3": {
+        "location": {
+            "x": 51.5,
+            "y": 40.3
+        },
+        "locationMiniMap": {
+            "x": 79.0,
+            "y": 50.0
+        }
+    },
+    "location_4": {
+        "location": {
+            "x": 45.5,
+            "y": 52.3
+        },
+        "locationMiniMap": {
+            "x": 79.0,
+            "y": 50.0
+        }
+    },
+    "location_5": {
+        "location": {
+            "x": 35.5,
+            "y": 60.3
+        },
+        "locationMiniMap": {
+            "x": 79.0,
+            "y": 50.0
+        }
+    }
+}
