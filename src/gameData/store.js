@@ -93,15 +93,15 @@ const data = new Vuex.Store({
           title: 'gun lvl 3',
           selected: false,
         }, { 
-          model: 'gun_lvl4',
+          model: 'coming_soon',
           title: 'gun lvl 4',
           selected: false,
         }, { 
-          model: 'gun_lvl5',
+          model: 'coming_soon',
           title: 'gun lvl 5',
           selected: false,
         }, { 
-          model: 'gun_lvl6',
+          model: 'coming_soon',
           title: 'gun lvl 6',
           selected: false,
         },
@@ -131,7 +131,7 @@ const data = new Vuex.Store({
           title: 'chestplate lvl 1',
           selected: true,
         }, { 
-          model: 'chestplate_lvl2',
+          model: 'coming_soon',
           title: 'chestplate lvl 2',
           selected: false,
         },
@@ -146,7 +146,7 @@ const data = new Vuex.Store({
           title: 'legplate lvl 1',
           selected: true,
         }, { 
-          model: 'legplate_lvl2',
+          model: 'coming_soon',
           title: 'legplate lvl 2',
           selected: false,
         },
