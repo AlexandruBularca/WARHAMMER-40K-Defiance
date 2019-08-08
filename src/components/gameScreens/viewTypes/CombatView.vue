@@ -112,7 +112,7 @@
                         Gun Attack
                     </div>
                 </div>
-                <div class="button btnCol2 retreatBtn" v-on:click="actionRetreat()">
+                <div class="button btnCol2 retreatBtn" id="btnRetreat" v-on:click="actionRetreat()">
                     <div class="buttonText">
                         Retreat!
                     </div>
@@ -314,9 +314,6 @@ export default {
                     elAddImg = document.getElementById("enemy"+(parseInt(enemy)+1));
                     elAddImg.style.opacity = 0;
                     elAddImg.style.pointerEvents = "none";
-                //'opacity': '0.4',
-                //'pointer-events': 'none',
-
                 }
             }
           },
@@ -355,6 +352,13 @@ export default {
                 this.$store.state.terminal_send_show = "Inquisitor: The condition of the planet is even worse than I feared. According to the logs the local PDF divisions have been fully killed three days ago - surprising they lasted that long.\n\nCultists: Blood for the Blood! Skulls for the Skull Throne! \n\n Inquisitor: Chaos filth...";
             }
         })
+        
+        if(this.$store.state.terminalTutorialItem < 4) {
+            var elAddImg = document.getElementById('btnRetreat');
+            elAddImg.style.pointerEvents = "none";
+            elAddImg.style.opacity = 0.4;
+        }
+                
     }
 };
 </script>
