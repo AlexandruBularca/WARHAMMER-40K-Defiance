@@ -119,7 +119,18 @@ export default {
   },
   methods: {
     showMap() {
-      this.$store.commit("showMap");
+      if(this.$store.state.terminalTutorialItem === 4 && this.$store.state.tutorialMessages.messageNewLocations === 0) {
+        this.$store.state.inventorySelectedItems.knife = this.$store.state.knife.selectedKnifeImg;
+        this.$store.state.inventorySelectedItems.gun = this.$store.state.gun.selectedGunImg;
+        this.$store.state.inventorySelectedItems.sword = this.$store.state.sword.selectedSwordImg;
+        this.$store.state.inventorySelectedItems.chestplate = this.$store.state.chestplate.selectedChestplateImg;
+        this.$store.state.inventorySelectedItems.legplate = this.$store.state.legplate.selectedLegplateImg;
+        this.$store.commit("showMap");
+        this.$store.state.tutorialMessages.messageNewLocations = 1;
+        this.$store.state.terminal_send_show = "It looks like you have unlocked new locations!\nChoose the location where do you want to fight!\n\nKeep in mind that the green locations are unlocked and the red ones will be unlocked while you keep progressing.";
+      } else if (this.$store.state.terminalTutorialItem > 4){
+        this.$store.commit("showMap");
+      }
     },
     showArmorItems() {
       this.showArmorUpPanel = true;
