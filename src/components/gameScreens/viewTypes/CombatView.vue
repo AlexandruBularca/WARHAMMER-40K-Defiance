@@ -271,17 +271,17 @@ export default {
             }
 
         },
-        heroAttacked() {
+        heroAttacked(heroPower) {
             if (this.$store.state.terminalTutorialItem > 4){
                 this.$store.state.addTerminalType = true;
-                this.$store.state.terminal_send_show = this.$store.state.terminal_send_show + "\nhero attacked";
+                this.$store.state.textToBeAdded = "Inquisitor took " + heroPower + "dmg\n";
             }
         },     
         heroKnifeAttack() {
             var atkHero = this.$store.state.Hero.str + this.$store.state.chestplate.str + this.$store.state.legplate.str +
                 this.$store.state.knife.str;
             this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - atkHero;
-            this.heroAttacked();
+            this.heroAttacked(atkHero);
             if(this.enemies[this.selected_enemy].hp < 0) {
                 this.enemyKilled();
             }
@@ -291,7 +291,7 @@ export default {
             var atkHero = this.$store.state.Hero.str + this.$store.state.chestplate.str + this.$store.state.legplate.str +
                 this.$store.state.sword.str;
             this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - atkHero;
-            this.heroAttacked();
+            this.heroAttacked(atkHero);
             if(this.enemies[this.selected_enemy].hp < 0) {
                 this.enemyKilled();
             }
@@ -301,7 +301,7 @@ export default {
             var atkHero = this.$store.state.Hero.str + this.$store.state.chestplate.str + this.$store.state.legplate.str +
                 this.$store.state.gun.str;
             this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - atkHero;
-            this.heroAttacked();
+            this.heroAttacked(atkHero);
             if(this.enemies[this.selected_enemy].hp < 0) {
                 this.enemyKilled();
             }
