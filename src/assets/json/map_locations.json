@@ -26,6 +26,7 @@
             "id": "loc5",
             "x": 32.2,
             "y": 67.3,
+            "mapEnemies": ["cultist","scavanger","scavanger","cultist","scavanger","cultist"],
             "available": false
         },{
             "id": "loc6",
