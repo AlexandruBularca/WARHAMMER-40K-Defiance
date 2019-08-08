@@ -34,7 +34,6 @@ export default {
       showtext(){
         this.rec=setTimeout(()=>{
             temp_text_present.push(this.text_to_be_showed[i]);
-            var elem = document.getElementById('trmHolder');
             var unders="_";
             if(i%30<=15){
                 unders="";
@@ -48,7 +47,6 @@ export default {
                 this.showtext()
             }
             if(this.text_present === this.text_to_be_showed) {
-                elem.scrollTop = elem.scrollHeight;
                 if (this.currentTutorialNumber === 0) {
                     this.$store.state.tutorialMessages.initialMapMessage = 2;
                     this.$store.state.terminalTutorialItem = 1;
@@ -72,8 +70,7 @@ export default {
       addText(){
         this.rec=setTimeout(()=>{
             temp_text_present.push(this.textToBeAddedToCMD[i]);
-            var elem = document.getElementById('trmHolder');
-            elem.scrollTop = elem.scrollHeight;
+            //var elem = document.getElementById('trmHolder');
             var unders="_";
             if(i%30<=15){
                 unders="";
@@ -81,10 +78,11 @@ export default {
             this.text_present = temp_text_present.join("") + unders;
             i++;
             if(this.textToBeAddedToCMD.length){
-                if(i>=this.textToBeAddedToCMD.length) {
-                    
+                if(i !== this.textToBeAddedToCMD.length) {
+                    this.addText();
+                } else {
+                    //elem.scrollTop = elem.scrollHeight;
                 }
-                this.addText()
             }
         },this.scroll_speed_add);
       },
