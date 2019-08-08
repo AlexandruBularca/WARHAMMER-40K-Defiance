@@ -132,7 +132,6 @@ const data = new Vuex.Store({
     },
 
     itemFromInventoryClicked(type, item) {
-      if (!item.isSelected) {
         if (item.types === 'knives') {
           this.state.knife.selectedKnife = item.id;
           this.state.knife.selectedKnifeImg = item.model;
@@ -154,7 +153,6 @@ const data = new Vuex.Store({
           this.state.legplate.selectedLegplateImg = item.model;
           this.state.Hero.legplate = item.id;
         }
-      }
     },
 
   }

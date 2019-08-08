@@ -101,6 +101,7 @@ export default {
       chestplatesAvailable: itemsJson.chestplate,
       legplatesAvailable: itemsJson.legplate,
       itemsTypeToBeRendered: 'chestplates',
+      selectedKnife: this.$store.state.knife.selectedKnifeImg,
       itemClicked: {
           isSelected: null,
           title: null,
