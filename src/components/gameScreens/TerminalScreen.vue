@@ -1,6 +1,6 @@
 <template>
 
-    <div class="terminalHolder">
+    <div class="terminalHolder" id="trmHolder">
         <p class="terminal_text">{{text_present}}</p>
     </div>
 
@@ -21,6 +21,7 @@ export default {
         return {
             text_present:"",
             text_to_be_showed: this.$store.state.terminal_send_show,
+            textToBeAdded: this.$store.state.textToBeAdded,
             terminalTutorialItem: this.$store.state.terminalTutorialItem,
             scroll_speed:40,
             rec:0,
@@ -38,6 +39,7 @@ export default {
         // }
         this.rec=setTimeout(()=>{
             temp_text_present.push(this.text_to_be_showed[i]);
+            var elem = document.getElementById('trmHolder');
             var unders="_";
             if(i%30<=15){
                 unders="";
@@ -51,6 +53,51 @@ export default {
                 this.showtext()
             }
             if(this.text_present === this.text_to_be_showed) {
+                elem.scrollTop = elem.scrollHeight;
+                if (this.currentTutorialNumber === 0) {
+                    this.$store.state.tutorialMessages.initialMapMessage = 2;
+                    this.$store.state.terminalTutorialItem = 1;
+                } else if (this.currentTutorialNumber === 1) {
+                    this.$store.state.tutorialMessages.initialCombatViewMessage = 2;
+                    this.$store.state.terminalTutorialItem = 2;
+                } else if (this.currentTutorialNumber === 2) {
+                    this.$store.state.tutorialMessages.initialBattleWonMessage = 2;
+                    this.$store.state.terminalTutorialItem = 3;
+                } else if (this.currentTutorialNumber === 3) {
+                    this.$store.state.tutorialMessages.initialInventoryMessage = 2;
+                    this.$store.state.terminalTutorialItem = 4;
+                } else if (this.currentTutorialNumber === 4) {
+                    this.$store.state.tutorialMessages.messageNewLocations = 2;
+                    this.$store.state.terminalTutorialItem = 5;
+                }
+                this.reset_timer();
+            }
+        },this.scroll_speed);
+      },
+      addText(){
+        // for(var letter in this.text_to_be_showed){
+        //     console.log(this.text_to_be_showed[letter]);
+        //     temp_text_present.push(this.text_to_be_showed[letter]);
+        //     this.text_present=temp_text_present.join("");
+        //     setTimeout(function(){console.log("foo")},200);
+        // }
+        this.rec=setTimeout(()=>{
+            temp_text_present.push(this.text_to_be_showed[i]);
+            var elem = document.getElementById('trmHolder');
+            var unders="_";
+            if(i%30<=15){
+                unders="";
+            }
+            if(this.terminalTutorialItem === 0 && this.text_to_be_showed[i+1]==='<' && this.text_to_be_showed[i+2]==='<') {
+                this.scroll_speed = 0;
+            }
+            this.text_present=temp_text_present.join("") + unders;
+            i++;
+            if(this.text_to_be_showed.length){
+                this.showtext()
+            }
+            if(this.text_present === this.text_to_be_showed) {
+                elem.scrollTop = elem.scrollHeight;
                 if (this.currentTutorialNumber === 0) {
                     this.$store.state.tutorialMessages.initialMapMessage = 2;
                     this.$store.state.terminalTutorialItem = 1;
@@ -84,16 +131,32 @@ export default {
             i=0;
             // clearTimeout(this.rec);
             this.reset_timer();
+            var oldTxtSize = this.text_present.length;
+            var newTxtSize = this.text_to_be_showed.length - oldTxtSize;
+            //console.log('oldTxtSize', oldTxtSize, 'newTxtSize', newTxtSize);
+            //console.log(this.text_to_be_showed.substr(this.text_present.length).length);
+            console.log(this.text_to_be_showed.substr(this.text_present.length));
+            //console.log(this.text_to_be_showed.length);
             if(!this.$store.state.addTerminalType) {
                 temp_text_present=[];
             }
             this.showtext();
+        },
+        textToBeAdded:function(){
+            console.log('new');
+            i=0;
+            this.reset_timer();
+            if(!this.$store.state.addTerminalType) {
+                temp_text_present=[];
+            }
+            this.addText(textToBeAdded);
         },
         send_to_store:function(){
             this.function_send_to_storage();
         },
         terminal_show:function(){
             this.text_to_be_showed=this.terminal_show;
+            //this.textToBeAdded=this.terminal_show;
         }
     },
     computed:{
