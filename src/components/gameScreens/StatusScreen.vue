@@ -75,7 +75,7 @@ export default {
             this.$store.commit('inventoryInteraction')
             if(!this.$store.state.tutorialGearUpItemsInventoryShowed) {
                 this.$store.state.tutorialGearUpItemsInventoryShowed = true;
-                this.$store.state.terminal_send_show = "let's gear up";
+                this.$store.state.terminal_send_show = "On the right side you can see the stats panel.\n\nIt indicates the overall strength, dexterity and constitution";
             }
         },
     } 
