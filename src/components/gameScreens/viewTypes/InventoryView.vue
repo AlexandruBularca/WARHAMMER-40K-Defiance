@@ -178,7 +178,7 @@ export default {
     },
     showSelectedKnife() {
         return {
-          'background-image': 'url("' + 'https://images.wallpaperscraft.com/image/palm_tree_night_net_145379_1280x720.jpg' + '")'
+          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/selectable_invenotry/src/assets/img/' + this.$store.state.knife.selectedKnife + '.png")'
         };
     }
   },
