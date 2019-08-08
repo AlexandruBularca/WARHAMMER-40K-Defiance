@@ -3,7 +3,7 @@
         <div class="enemyStatsHolder">
             <div class="firstRowEnemyStatus">
                 <div class="holderEnemyStatus col1" v-if="isAvailableEnemy5">
-                    <div id="enemy1" class="enemyStatusStyle enemySelected" tabindex="1" v-on:click="selected_enemy='enemy1'">
+                    <div id="enemy1" class="enemyStatusStyle enemySelected" tabindex="1" v-on:click="onEnemeySelected('enemy1')">
                         <div class="progressBarOutlineStr">
                             <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy1.hp/this.enemies.enemy1.max_hp)*100 + '%' }" />
                         </div>
@@ -13,7 +13,7 @@
                     </div>
                 </div>
                 <div class="holderEnemyStatus col2" v-if="isAvailableEnemy3">
-                    <div id="enemy2" class="enemyStatusStyle" tabindex="1" v-on:click="selected_enemy='enemy2'">
+                    <div id="enemy2" class="enemyStatusStyle" tabindex="1" v-on:click="onEnemeySelected('enemy2')">
                         <div class="progressBarOutlineStr">
                             <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy2.hp/this.enemies.enemy2.max_hp)*100 + '%' }" />
                         </div>
@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="holderEnemyStatus col3" v-if="isAvailableEnemy1">
-                    <div id="enemy3" class="enemyStatusStyle" tabindex="1" v-on:click="selected_enemy='enemy3'">
+                    <div id="enemy3" class="enemyStatusStyle" tabindex="1" v-on:click="onEnemeySelected('enemy3')">
                         <div class="progressBarOutlineStr">
                             <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy3.hp/this.enemies.enemy3.max_hp)*100 + '%' }" />
                         </div>
@@ -35,7 +35,7 @@
             </div>
             <div class="secondRowEnemyStatus">
                 <div class="holderEnemyStatus col1" v-if="isAvailableEnemy6">
-                    <div id="enemy4" class="enemyStatusStyle" tabindex="1" v-on:click="selected_enemy='enemy4'">
+                    <div id="enemy4" class="enemyStatusStyle" tabindex="1" v-on:click="onEnemeySelected('enemy4')">
                         <div class="progressBarOutlineStr">
                             <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy4.hp/this.enemies.enemy4.max_hp)*100 + '%' }" />
                         </div>
@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="holderEnemyStatus col2" v-if="isAvailableEnemy4">
-                    <div id="enemy5" class="enemyStatusStyle" tabindex="1" v-on:click="selected_enemy='enemy5'">
+                    <div id="enemy5" class="enemyStatusStyle" tabindex="1" v-on:click="onEnemeySelected('enemy5')">
                         <div class="progressBarOutlineStr">
                             <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy5.hp/this.enemies.enemy5.max_hp)*100 + '%' }" />
                         </div>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="holderEnemyStatus col3" v-if="isAvailableEnemy2">
-                    <div id="enemy6" class="enemyStatusStyle" tabindex="1" v-on:click="selected_enemy='enemy6'">
+                    <div id="enemy6" class="enemyStatusStyle" tabindex="1" v-on:click="onEnemeySelected('enemy6')">
                         <div class="progressBarOutlineStr">
                             <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy6.hp/this.enemies.enemy6.max_hp)*100 + '%' }" />
                         </div>
@@ -73,22 +73,22 @@
                 </div>
             </div>
             <div class="enemiesCharacterHolder">
-                <div class="enemyCharacterAvatar row1 enemy1" v-if="isAvailableEnemy1">
+                <div id="enemy6Avatar" class="enemyCharacterAvatar row1 enemy1" v-if="isAvailableEnemy1">
                     <img class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
                 </div>
-                <div class="enemyCharacterAvatar row1 enemy2" v-if="isAvailableEnemy2">
+                <div id="enemy5Avatar" class="enemyCharacterAvatar row1 enemy2" v-if="isAvailableEnemy2">
                     <img class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
                 </div>
-                <div class="enemyCharacterAvatar row1 enemy3" v-if="isAvailableEnemy3">
+                <div id="enemy4Avatar" class="enemyCharacterAvatar row1 enemy3" v-if="isAvailableEnemy3">
                     <img class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
                 </div>
-                <div class="enemyCharacterAvatar enemy4" v-if="isAvailableEnemy4">
+                <div id="enemy3Avatar" class="enemyCharacterAvatar enemy4" v-if="isAvailableEnemy4">
                     <img class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
                 </div>
-                <div class="enemyCharacterAvatar enemy5" v-if="isAvailableEnemy5">
+                <div id="enemy2Avatar" class="enemyCharacterAvatar enemy5" v-if="isAvailableEnemy5">
                     <img class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
                 </div>
-                <div class="enemyCharacterAvatar enemy6" v-if="isAvailableEnemy6">
+                <div id="enemy1Avatar" class="enemyCharacterAvatar enemy6" v-if="isAvailableEnemy6">
                     <img class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
                 </div>
             </div>
@@ -178,6 +178,18 @@ export default {
         actionRetreat() {
             this.$store.commit('showMap')
         },
+        onEnemeySelected(newEnemySelected) {
+
+            var elDeadEnemy = document.getElementById(this.selected_enemy);
+            if(elDeadEnemy) {
+                elDeadEnemy.className = 'enemyStatusStyle';
+            }
+            this.selected_enemy = newEnemySelected;
+            var elDeadEnemy = document.getElementById(this.selected_enemy);
+            if(elDeadEnemy) {
+                elDeadEnemy.className = 'enemyStatusStyle enemySelected';
+            }
+        },
 
         //made by Ionel and Sebi
         
@@ -189,10 +201,15 @@ export default {
                 this.enemies[this.selected_enemy].hp = 0;
                 var i = 0;
                 var found = false;
-                
-                var el = document.getElementById(this.selected_enemy);
-                if(el) {
-                    el.className = 'enemyStatusStyle';
+
+                var elDeadEnemy = document.getElementById(this.selected_enemy);
+                if(elDeadEnemy) {
+                    elDeadEnemy.className = 'enemyStatusStyle';
+                }
+
+                var elDeadEnemyAvatar = document.getElementById(this.selected_enemy + 'Avatar');
+                if(elDeadEnemyAvatar) {
+                    elDeadEnemyAvatar.className = 'hideEnemyAvatar enemyCharacterAvatar';
                 }
 
                 while(i<this.$store.state.curr_enemies.length && !found) {
@@ -200,7 +217,7 @@ export default {
 
                     if(this.enemies[enemy_change].hp !== 0) {
                         found = true;
-                        
+
                         this.selected_enemy = enemy_change;
 
                         var el = document.getElementById(enemy_change);
@@ -223,11 +240,30 @@ export default {
                 this.enemies[this.selected_enemy].hp = 0;
                 var i = 0;
                 var found = false;
+
+                var elDeadEnemy = document.getElementById(this.selected_enemy);
+                if(elDeadEnemy) {
+                    elDeadEnemy.className = 'enemyStatusStyle';
+                }
+
+                var elDeadEnemyAvatar = document.getElementById(this.selected_enemy + 'Avatar');
+                if(elDeadEnemyAvatar) {
+                    elDeadEnemyAvatar.className = 'hideEnemyAvatar enemyCharacterAvatar';
+                }
+
                 while(i<this.$store.state.curr_enemies.length && !found) {
                     var enemy_change="enemy"+(parseInt(i)+1);
+
                     if(this.enemies[enemy_change].hp !== 0) {
-                        this.selected_enemy = enemy_change;
                         found = true;
+
+                        this.selected_enemy = enemy_change;
+
+                        var el = document.getElementById(enemy_change);
+                        if(el) {
+                            el.className = 'enemyStatusStyle enemySelected';
+                        }
+
                     } else {
                         i++;
                     }
@@ -243,11 +279,30 @@ export default {
                 this.enemies[this.selected_enemy].hp = 0;
                 var i = 0;
                 var found = false;
+
+                var elDeadEnemy = document.getElementById(this.selected_enemy);
+                if(elDeadEnemy) {
+                    elDeadEnemy.className = 'enemyStatusStyle';
+                }
+
+                var elDeadEnemyAvatar = document.getElementById(this.selected_enemy + 'Avatar');
+                if(elDeadEnemyAvatar) {
+                    elDeadEnemyAvatar.className = 'hideEnemyAvatar enemyCharacterAvatar';
+                }
+
                 while(i<this.$store.state.curr_enemies.length && !found) {
                     var enemy_change="enemy"+(parseInt(i)+1);
+
                     if(this.enemies[enemy_change].hp !== 0) {
-                        this.selected_enemy = enemy_change;
                         found = true;
+
+                        this.selected_enemy = enemy_change;
+
+                        var el = document.getElementById(enemy_change);
+                        if(el) {
+                            el.className = 'enemyStatusStyle enemySelected';
+                        }
+
                     } else {
                         i++;
                     }
@@ -685,6 +740,10 @@ export default {
     max-height:100%;
     width: auto;
     height: auto;
+}
+
+.hideEnemyAvatar {
+    z-index: -1;
 }
 
 </style>
