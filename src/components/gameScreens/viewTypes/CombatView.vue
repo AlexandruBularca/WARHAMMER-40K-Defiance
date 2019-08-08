@@ -95,7 +95,7 @@
         </div>
         <div class="buttonsHolder" v-bind:style="touchable(initialCombatMessage)">
             <div class="firstRowButtons">
-                <div class="button btnCol1 knifeBtn" v-bind:style="newTurn(actionTurn)" v-on:click="heroKnifeAttack()">
+                <div class="button btnCol1 knifeBtn" v-bind:style="newTurnFind(actionTurn)" v-on:click="heroKnifeAttack()">
                     <div class="buttonText">
                         Knife Attack
                     </div>
@@ -178,6 +178,19 @@ export default {
         };
     },
     methods: {
+        newTurnFind(turnNo) {
+            if(turnNo % 2 === 1) {
+                return {
+                    'opacity': '1',
+                }
+            } else {
+                console.log('enemy turn');
+                return {
+                    'opacity': '0.4',
+                    'pointer-events': 'none',
+                }
+            }
+        },
         newTurn(turnNo) {
             if(turnNo % 2 === 1) {
                 return {
