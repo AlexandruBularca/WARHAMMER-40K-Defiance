@@ -119,6 +119,10 @@ const data = new Vuex.Store({
           model: 'sword_lvl2',
           title: 'sword lvl 2',
           selected: false,
+        },, { 
+          model: 'sword_lvl3',
+          title: 'sword lvl 3',
+          selected: false,
         },
       ]
     },
