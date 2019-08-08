@@ -6,8 +6,8 @@
           <div class="armor">
             <div class="armorItem" v-if="!showArmorUpItems" v-on:click="showArmorItems()" />
             <div class="armorAction" v-else-if="showArmorUpItems" v-on:click="hideArmorItems()">
-              <div class="armorUpgrade item1" v-on:click="item1()"></div>
-              <div class="armorUpgrade item2" v-on:click="item2()"></div>
+              <div class="armorUpgrade item1" v-bind:style="showSelectedChestplate" v-on:click="item1()"></div>
+              <div class="armorUpgrade item2"  v-bind:style="showSelectedLegplate" v-on:click="item2()"></div>
             </div>
           </div>
         </div>
@@ -17,12 +17,12 @@
               <div class="knife" v-bind:style="showSelectedKnife" v-on:click="knifeClicked()" />
             </div>
             <div class="weaponSlot rightSlot">
-              <div class="sword" v-on:click="swordClicked()" />
+              <div class="sword" v-bind:style="showSelectedSword" v-on:click="swordClicked()" />
             </div>
           </div>
           <div class="secondRow">
             <div class="weaponSlot middleSlot">
-              <div class="gun" v-on:click="gunClicked()" />
+              <div class="gun" v-bind:style="showSelectedGun" v-on:click="gunClicked()" />
             </div>
           </div>
         </div>
@@ -33,7 +33,7 @@
           <div class="item-decoration" />
           <div class="itemsChanger">
             <div class="templateItem disable-selection" v-for="item of itemsToBeRenderd"
-            v-on:click="itemRenderClicked(item.selected, item.title, item.model)" >
+            v-on:click="itemRenderClicked(item.selected, item.title, item.model)" v-bind:key="item.model">
                 <div class="itemHolderView" v-if="!item.selected">
                     {{item.title}}
                 </div>
@@ -93,15 +93,10 @@ export default {
       userPosY: this.$store.state.Map.locationMiniMap.y,
       transX: 78.2,
       transY: 104.1,
-      knifeSelected: this.$store.state.knife.selectedKnife,
       knivesAvailable: this.$store.state.knife.knives,
-      gunSelected: this.$store.state.gun.selectedGun,
       gunsAvailable: this.$store.state.gun.guns,
-      swordSelected: this.$store.state.sword.selectedSword,
       swordsAvailable: this.$store.state.sword.swords,
-      chestplateSelected: this.$store.state.chestplate.selectedChestplate,
       chestplatesAvailable: this.$store.state.chestplate.chestplates,
-      legplateSelected: this.$store.state.legplate.selectedLegplate,
       legplatesAvailable: this.$store.state.legplate.legplates,
       itemsTypeToBeRendered: 'chestplates',
       itemClicked: {
@@ -166,6 +161,7 @@ export default {
         } else if (this.itemsTypeToBeRendered === 'legplates') {
             return this.legplatesAvailable
         }
+        return null
     },
     showArmorUpItems() {
       return this.showArmorUpPanel;
@@ -176,9 +172,29 @@ export default {
           "translate(" + this.userPosX + "%, " + this.userPosY + "%) scale(4)"
       };
     },
+    showSelectedChestplate() {
+        return {
+          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/selectable_invenotry/src/assets/img/' + this.$store.state.chestplate.selectedChestplate + '.png")'
+        };
+    },
+    showSelectedLegplate() {
+        return {
+          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/selectable_invenotry/src/assets/img/' + this.$store.state.legplate.selectedLegplate + '.png")'
+        };
+    },
     showSelectedKnife() {
         return {
           'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/selectable_invenotry/src/assets/img/' + this.$store.state.knife.selectedKnife + '.png")'
+        };
+    },
+    showSelectedSword() {
+        return {
+          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/selectable_invenotry/src/assets/img/' + this.$store.state.sword.selectedSword + '.png")'
+        };
+    },
+    showSelectedGun() {
+        return {
+          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/selectable_invenotry/src/assets/img/' + this.$store.state.gun.selectedGun + '.png")'
         };
     }
   },
@@ -474,7 +490,6 @@ export default {
   left: 20%;
   transform: translate(-20%, -50%);
   float: left;
-  background-image: url("./../../../assets/img/inventory_armor_top.png");
   background-size: 80%;
   background-repeat: no-repeat;
   background-position: center;
@@ -486,7 +501,6 @@ export default {
   right: 20%;
   float: right;
   transform: translate(20%, -50%);
-  background-image: url("./../../../assets/img/inventory_armor_bottom.png");
   background-size: 40%;
   background-repeat: no-repeat;
   background-position: center;
@@ -551,7 +565,6 @@ export default {
 .knife {
   width: 100%;
   height: 100%;
-  background-image: url("./../../../assets/img/knife_lvl1.png");
   background-size: 80%;
   background-repeat: no-repeat;
   background-position: center;
@@ -563,7 +576,6 @@ export default {
   width: 100%;
   height: 100%;
   position: relative;
-  background-image: url("./../../../assets/img/sword_lvl1.png");
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -574,7 +586,6 @@ export default {
 .gun {
   width: 100%;
   height: 100%;
-  background-image: url("./../../../assets/img/BoltPistol.png");
   background-size: 80%;
   background-repeat: no-repeat;
   background-position: center;

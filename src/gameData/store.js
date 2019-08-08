@@ -182,10 +182,6 @@ const data = new Vuex.Store({
       this.state.gameScreen = "combatScreen";
       this.state.inventory.shown = false;
     },
-
-    changeView(state, view) {
-      return state.currentView = view
-    },
     change_terminal_send_show(state,text_to_change){
       return state.terminal_send_show= text_to_change
     },
