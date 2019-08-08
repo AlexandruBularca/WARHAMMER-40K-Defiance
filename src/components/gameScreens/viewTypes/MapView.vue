@@ -1,8 +1,10 @@
 <template>
-  <div class="mapHolder">
-    <div class="currentUserLocation" v-bind:style="locateTheUser(item.x, item.y, item.available)" v-for="item of mapLocations"
-        v-bind:key="item.id"></div>
-    <div class="buttonsHolder">
+  <div class="mapHolder" v-bind:style="overlay(canShowLocations)">
+    <div v-if="canShowLocations === 2">
+      <div class="currentUserLocation" v-bind:style="locateTheUser(item.x, item.y, item.available)" v-for="item of mapLocations"
+          v-bind:key="item.id"/>
+    </div>
+    <div v-if="canShowLocations === 2" class="buttonsHolder">
       <button class="btnAttack" v-on:click="showCombatView()">Search</button>
     </div>
   </div>
@@ -41,11 +43,27 @@ export default {
                 left: y + "%"
             }
         },
+        overlay(shouldShow) {
+            if (shouldShow !== 2) {
+              return {
+                'box-shadow': 'inset 0 0 0 1000px rgba(0, 0, 0, 0.8)',
+              }
+            } else {
+              return {
+                'box-shadow': 'inset 0 0 0 1000px rgba(0, 0, 0, 0)',
+              }
+            }
+        },
     },
     data() {
       return {
         mapLocations: mapLocationsJson.locations,
       };
+    },
+    computed: {
+      canShowLocations() {
+        return this.$store.state.tutorialMessages.initialMapMessage
+      }
     }
 };
 </script>
