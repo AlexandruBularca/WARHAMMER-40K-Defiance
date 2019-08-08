@@ -21,7 +21,6 @@ export default {
         return {
             text_present:"",
             text_to_be_showed: this.$store.state.terminal_send_show,
-            addTerminalType: this.$store.state.addTerminalType,
             terminalTutorialItem: this.$store.state.terminalTutorialItem,
             scroll_speed:40,
             rec:0,
@@ -85,7 +84,7 @@ export default {
             i=0;
             // clearTimeout(this.rec);
             this.reset_timer();
-            if(!this.addTerminalType) {
+            if(!this.$store.state.addTerminalType) {
                 temp_text_present=[];
             }
             this.showtext();
@@ -120,6 +119,7 @@ export default {
 }
 
 .terminalHolder {
+    overflow: auto;
     background-color: rgb(0, 0, 0);
     height: 76.9vh;
     width: 25vw;
