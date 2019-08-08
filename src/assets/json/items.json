@@ -16,7 +16,7 @@
             "selected": "false",
             "str": 70,
             "dex": 250,
-            "con": 400
+            "con": 250
         }
     ],
     "legplate": [
@@ -27,7 +27,7 @@
             "selected": "true",
             "str": 20,
             "dex": 75,
-            "con": 0
+            "con": 100
         },
         {
             "id": "lg2",
