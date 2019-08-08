@@ -215,20 +215,17 @@ export default {
 
           get_curr_enemies(){
             for (var enemy in this.$store.state.curr_enemies){
-                // var i=this.$store.state.curr_enemies.indexOf(enemy)+1;
-                //var enemy_change="enemy"+(parseInt(enemy)+1);
+                 var i=this.$store.state.curr_enemies.indexOf(enemy)+1;
+                var enemy_change="enemy"+(parseInt(enemy)+1);
                 //console.log(enemy_change);
                 //console.log(this.enemies[enemy_change]);
-                //this.enemies[enemy_change].max_hp = this.ENEMY_LIST[this.$store.state.curr_enemies[enemy]].max_hp;
-                //this.enemies[enemy_change].hp = enemy_list['cultist'].max_hp;
-                //this.enemies[enemy_change].attack = this.ENEMY_LIST[this.$store.state.curr_enemies[enemy]].attack_power;
-                //console.log(this.enemies["enemy1"]);
-                console.log(enemy_list);
+                this.enemies[enemy_change].max_hp = this.ENEMY_LIST[this.$store.state.curr_enemies[enemy]].max_hp;
+                this.enemies[enemy_change].hp = enemy_list['cultist'].max_hp;
+                this.enemies[enemy_change].attack = this.ENEMY_LIST[this.$store.state.curr_enemies[enemy]].attack_power;
             }
           },
         change_enemy(){
             this.selected_enemy="enemy2";
-            console.log("aadada");
         }
     },
     computed: {  
