@@ -220,15 +220,25 @@ export default {
         heroKnifeAttack() {
             console.log(this.enemies[this.selected_enemy].hp - this.$store.state.Hero.knifeAttack);
             this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - this.$store.state.Hero.knifeAttack;
+            if(this.enemies[this.selected_enemy].hp < 0) {
+                this.enemies[this.selected_enemy].hp = 0;
+            }
+            console.log(this.enemies[this.selected_enemy].hp);
          },
       
          heroSwordAttack() {
             this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - this.$store.state.Hero.swordAttack;
-             console.log(this.enemies.enemy1.hp);
+            if(this.enemies[this.selected_enemy].hp < 0) {
+                this.enemies[this.selected_enemy].hp = 0;
+            }
+            console.log(this.enemies.enemy1.hp);
          },
 
          heroGunAttack() {
             this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - this.$store.state.Hero.gunAttack;
+            if(this.enemies[this.selected_enemy].hp < 0) {
+                this.enemies[this.selected_enemy].hp = 0;
+            }
             console.log(this.enemies.enemy1.hp);
           },
 
