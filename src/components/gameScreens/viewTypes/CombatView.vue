@@ -233,6 +233,7 @@ export default {
 
                 if(i === this.$store.state.curr_enemies.length) {
                     this.$store.state.terminal_send_show = this.messageBattleWon;
+                    this.$store.state.tutorialBattleWon = true;
                 }
             }
          },
@@ -276,6 +277,7 @@ export default {
 
                 if(i === this.$store.state.curr_enemies.length) {
                     this.$store.state.terminal_send_show = this.messageBattleWon;
+                    this.$store.state.tutorialBattleWon = true;
                 }
             }
          },
@@ -319,6 +321,7 @@ export default {
 
                 if(i === this.$store.state.curr_enemies.length) {
                     this.$store.state.terminal_send_show = this.messageBattleWon;
+                    this.$store.state.tutorialBattleWon = true;
                 }
             }
           },
