@@ -154,56 +154,56 @@ export default {
       this.itemsTypeToBeRendered = 'legplates';
     },
     itemRenderClicked(isSelected, title, model, id, str, dex, con) {
-      this.itemClicked.isSelected = isSelected;
-      this.itemClicked.title = title;
-      this.itemClicked.types = this.itemsTypeToBeRendered;
-      this.itemClicked.model = model;
-      this.itemClicked.id = id;
-      this.itemClicked.str = str;
-      this.itemClicked.dex = dex;
-      this.itemClicked.con = con;
-      this.$store.commit('itemFromInventoryClicked', this.itemClicked);
-      if (this.itemClicked.types === 'knives') {
-        for(let i=0; i<itemsJson.knife.length; i++) {
-          if(itemsJson.knife[i].id === id) {
-            itemsJson.knife[i].selected = "true";
-          } else {
-            itemsJson.knife[i].selected = "false";
+        this.itemClicked.model = model;
+        this.itemClicked.isSelected = isSelected;
+        this.itemClicked.title = title;
+        this.itemClicked.types = this.itemsTypeToBeRendered;
+        this.itemClicked.id = id;
+        this.itemClicked.str = str;
+        this.itemClicked.dex = dex;
+        this.itemClicked.con = con;
+        this.$store.commit('itemFromInventoryClicked', this.itemClicked);
+        if (this.itemClicked.types === 'knives') {
+          for(let i=0; i<itemsJson.knife.length; i++) {
+            if(itemsJson.knife[i].id === id) {
+              itemsJson.knife[i].selected = "true";
+            } else {
+              itemsJson.knife[i].selected = "false";
+            }
+          }
+        } else if (this.itemClicked.types === 'guns') {
+          for(let i=0; i<itemsJson.gun.length; i++) {
+            if(itemsJson.gun[i].id === id) {
+              itemsJson.gun[i].selected = "true";
+            } else {
+              itemsJson.gun[i].selected = "false";
+            }
+          }
+        } else if (this.itemClicked.types === 'swords') {
+          for(let i=0; i<itemsJson.sword.length; i++) {
+            if(itemsJson.sword[i].id === id) {
+              itemsJson.sword[i].selected = "true";
+            } else {
+              itemsJson.sword[i].selected = "false";
+            }
+          }
+        } else if (this.itemClicked.types === 'chestplates') {
+          for(let i=0; i<itemsJson.chestplate.length; i++) {
+            if(itemsJson.chestplate[i].id === id) {
+              itemsJson.chestplate[i].selected = "true";
+            } else {
+              itemsJson.chestplate[i].selected = "false";
+            }
+          }
+        } else if (this.itemClicked.types === 'legplates') {
+          for(let i=0; i<itemsJson.legplate.length; i++) {
+            if(itemsJson.legplate[i].id === id) {
+              itemsJson.legplate[i].selected = "true";
+            } else {
+              itemsJson.legplate[i].selected = "false";
+            }
           }
         }
-      } else if (this.itemClicked.types === 'guns') {
-        for(let i=0; i<itemsJson.gun.length; i++) {
-          if(itemsJson.gun[i].id === id) {
-            itemsJson.gun[i].selected = "true";
-          } else {
-            itemsJson.gun[i].selected = "false";
-          }
-        }
-      } else if (this.itemClicked.types === 'swords') {
-        for(let i=0; i<itemsJson.sword.length; i++) {
-          if(itemsJson.sword[i].id === id) {
-            itemsJson.sword[i].selected = "true";
-          } else {
-            itemsJson.sword[i].selected = "false";
-          }
-        }
-      } else if (this.itemClicked.types === 'chestplates') {
-        for(let i=0; i<itemsJson.chestplate.length; i++) {
-          if(itemsJson.chestplate[i].id === id) {
-            itemsJson.chestplate[i].selected = "true";
-          } else {
-            itemsJson.chestplate[i].selected = "false";
-          }
-        }
-      } else if (this.itemClicked.types === 'legplates') {
-        for(let i=0; i<itemsJson.legplate.length; i++) {
-          if(itemsJson.legplate[i].id === id) {
-            itemsJson.legplate[i].selected = "true";
-          } else {
-            itemsJson.legplate[i].selected = "false";
-          }
-        }
-      }
     }
   },
   computed: {
@@ -295,27 +295,27 @@ export default {
     },
     showSelectedChestplate() {
         return {
-          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/primary/src/assets/img/' + this.$store.state.chestplate.selectedChestplateImg + '.png")'
+          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/primary/src/assets/img/' + this.$store.state.inventorySelectedItems.chestplate + '.png")'
         };
     },
     showSelectedLegplate() {
         return {
-          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/primary/src/assets/img/' + this.$store.state.legplate.selectedLegplateImg + '.png")'
+          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/primary/src/assets/img/' + this.$store.state.inventorySelectedItems.legplate + '.png")'
         };
     },
     showSelectedKnife() {
         return {
-          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/primary/src/assets/img/' + this.$store.state.knife.selectedKnifeImg + '.png")'
+          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/primary/src/assets/img/' + this.$store.state.inventorySelectedItems.knife + '.png")'
         };
     },
     showSelectedSword() {
         return {
-          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/primary/src/assets/img/' + this.$store.state.sword.selectedSwordImg + '.png")'
+          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/primary/src/assets/img/' + this.$store.state.inventorySelectedItems.sword + '.png")'
         };
     },
     showSelectedGun() {
         return {
-          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/primary/src/assets/img/' + this.$store.state.gun.selectedGunImg + '.png")'
+          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/primary/src/assets/img/' + this.$store.state.inventorySelectedItems.gun + '.png")'
         };
     }
   },
