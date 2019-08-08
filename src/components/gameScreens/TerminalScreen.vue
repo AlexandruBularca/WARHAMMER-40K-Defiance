@@ -93,6 +93,9 @@ export default {
             this.text_present = temp_text_present.join("") + unders;
             i++;
             if(this.textToBeAddedToCMD.length){
+                if(i>=this.textToBeAddedToCMD.length) {
+                    console.log('bug');
+                }
                 console.log(i, this.textToBeAddedToCMD.length);
                 this.addText()
             }
