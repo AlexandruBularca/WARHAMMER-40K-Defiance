@@ -103,6 +103,7 @@ export default {
       legplatesAvailable: itemsJson.legplate,
       itemsTypeToBeRendered: 'chestplates',
       selectedKnife: this.$store.state.knife.selectedKnifeImg,
+      weaponSlotSelected: 'knife',
       itemClicked: {
           isSelected: null,
           title: null,
@@ -128,16 +129,19 @@ export default {
     },
     knifeClicked() {
       this.itemToBeChanged = "knife";
+      this.weaponSlotSelected = "knife";
       this.showArmorUpPanel = false;
       this.itemsTypeToBeRendered = 'knives';
     },
     swordClicked() {
       this.itemToBeChanged = "sword";
+      this.weaponSlotSelected = "sword";
       this.showArmorUpPanel = false;
       this.itemsTypeToBeRendered = 'swords';
     },
     gunClicked() {
       this.itemToBeChanged = "gun";
+      this.weaponSlotSelected = "gun";
       this.showArmorUpPanel = false;
       this.itemsTypeToBeRendered = 'guns';
     },
@@ -204,8 +208,17 @@ export default {
   },
   computed: {
     currentStr() {
-      return this.$store.state.Hero.str + this.$store.state.chestplate.str + this.$store.state.legplate.str +
-        this.$store.state.knife.str
+      if (this.weaponSlotSelected === 'knife') {
+        return this.$store.state.Hero.str + this.$store.state.chestplate.str + this.$store.state.legplate.str +
+          this.$store.state.knife.str
+      } else if (this.weaponSlotSelected === 'sword') {
+        return this.$store.state.Hero.str + this.$store.state.chestplate.str + this.$store.state.legplate.str +
+          this.$store.state.sword.str
+      } else if (this.weaponSlotSelected === 'gun') {
+        return this.$store.state.Hero.str + this.$store.state.chestplate.str + this.$store.state.legplate.str +
+          this.$store.state.gun.str
+      }
+      return 0
     },
     maxStr() {
       return this.$store.state.stats.str
@@ -216,8 +229,17 @@ export default {
       }
     },
     currentDex() {
-      return this.$store.state.Hero.dex + this.$store.state.chestplate.dex + this.$store.state.legplate.dex +
-        this.$store.state.knife.dex
+      if (this.weaponSlotSelected === 'knife') {
+        return this.$store.state.Hero.dex + this.$store.state.chestplate.dex + this.$store.state.legplate.dex +
+          this.$store.state.knife.dex
+      } else if (this.weaponSlotSelected === 'sword') {
+        return this.$store.state.Hero.dex + this.$store.state.chestplate.dex + this.$store.state.legplate.dex +
+          this.$store.state.sword.dex
+      } else if (this.weaponSlotSelected === 'gun') {
+        return this.$store.state.Hero.dex + this.$store.state.chestplate.dex + this.$store.state.legplate.dex +
+          this.$store.state.gun.dex
+      }
+      return 0
     },
     maxDex() {
       return this.$store.state.stats.dex
@@ -228,8 +250,17 @@ export default {
       }
     },
     currentCon() {
-      return this.$store.state.Hero.con + this.$store.state.chestplate.con + this.$store.state.legplate.con +
-        this.$store.state.knife.con
+      if (this.weaponSlotSelected === 'knife') {
+        return this.$store.state.Hero.con + this.$store.state.chestplate.con + this.$store.state.legplate.con +
+          this.$store.state.knife.con
+      } else if (this.weaponSlotSelected === 'sword') {
+        return this.$store.state.Hero.con + this.$store.state.chestplate.con + this.$store.state.legplate.con +
+          this.$store.state.sword.con
+      } else if (this.weaponSlotSelected === 'gun') {
+        return this.$store.state.Hero.con + this.$store.state.chestplate.con + this.$store.state.legplate.con +
+          this.$store.state.gun.con
+      }
+      return 0
     },
     maxCon() {
       return this.$store.state.stats.con
