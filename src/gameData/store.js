@@ -16,7 +16,12 @@ const data = new Vuex.Store({
     // Hero Stats
     Hero: {
       hp: 100,
-      maxHp: 100
+      maxHp: 100,
+      chestplate: 'ch1',
+      legplate: 'lg1',
+      knife: 'kn1',
+      sword: 'sw1',
+      gun: 'gu1',
     },
 
     //Ammo
@@ -50,84 +55,126 @@ const data = new Vuex.Store({
     },
 
     knife: {
-      selectedKnife: 'knife_lvl1',
+      selectedKnife: 'kn1',
+      selectedKnifeImg: 'knife_lvl1',
       knives: [
         {
-          item: 'knife_lvl1',
+          id: 'kn1',
+          model: 'knife_lvl1',
           title: 'knife lvl 1',
+          selected: true,
         }, { 
-          item: 'knife_lvl2',
+          id: 'kn2',
+          model: 'knife_lvl2',
           title: 'knife lvl 2',
+          selected: false,
         }, { 
-          item: 'knife_lvl3',
+          id: 'kn3',
+          model: 'coming_soon',
           title: 'knife lvl 3',
+          selected: false,
         }, { 
-          item: 'knife_lvl4',
+          id: 'kn4',
+          model: 'coming_soon',
           title: 'knife lvl 4',
+          selected: false,
         },
       ]
     },
 
     gun: {
-      selectedGun: 'gun_lvl1',
+      selectedGun: 'gu1',
+      selectedGunImg: 'gun_lvl1',
       guns: [
         {
-          item: 'gun_lvl1',
+          id: 'gu1',
+          model: 'gun_lvl1',
           title: 'gun lvl 1',
+          selected: true,
         }, { 
-          item: 'gun_lvl2',
+          id: 'gu2',
+          model: 'gun_lvl2',
           title: 'gun lvl 2',
+          selected: false,
         }, { 
-          item: 'gun_lvl3',
+          id: 'gu3',
+          model: 'gun_lvl3',
           title: 'gun lvl 3',
+          selected: false,
         }, { 
-          item: 'gun_lvl4',
+          id: 'gu4',
+          model: 'coming_soon',
           title: 'gun lvl 4',
+          selected: false,
         }, { 
-          item: 'gun_lvl5',
+          id: 'gu5',
+          model: 'coming_soon',
           title: 'gun lvl 5',
+          selected: false,
         }, { 
-          item: 'gun_lvl6',
+          id: 'gu6',
+          model: 'coming_soon',
           title: 'gun lvl 6',
+          selected: false,
         },
       ]
     },
 
     sword: {
-      selectedSword: 'sword_lvl1',
+      selectedSword: 'sw1',
+      selectedSwordImg: 'sword_lvl1',
       swords: [
         {
-          item: 'sword_lvl1',
+          id: 'sw1',
+          model: 'sword_lvl1',
           title: 'sword lvl 1',
+          selected: true,
         }, { 
-          item: 'sword_lvl2',
+          id: 'sw2',
+          model: 'sword_lvl2',
           title: 'sword lvl 2',
+          selected: false,
+        }, { 
+          id: 'sw3',
+          model: 'sword_lvl3',
+          title: 'sword lvl 3',
+          selected: false,
         },
       ]
     },
 
     chestplate: {
-      selectedChestplate: 'chestplate_lvl1',
+      selectedChestplate: 'ch1',
+      selectedChestplateImg: 'chestplate_lvl1',
       chestplates: [
         {
-          item: 'chestplate_lvl1',
+          id: 'ch1',
+          model: 'chestplate_lvl1',
           title: 'chestplate lvl 1',
+          selected: true,
         }, { 
-          item: 'chestplate_lvl2',
+          id: 'ch2',
+          model: 'coming_soon',
           title: 'chestplate lvl 2',
+          selected: false,
         },
       ]
     },
 
     legplate: {
-      selectedLegplate: 'legplate_lvl1',
+      selectedLegplate: 'lg1',
+      selectedLegplateImg: 'legplate_lvl1',
       legplates: [
         {
-          item: 'legplate_lvl1',
+          id: 'lg1',
+          model: 'legplate_lvl1',
           title: 'legplate lvl 1',
+          selected: true,
         }, { 
-          item: 'legplate_lvl2',
+          id: 'lg2',
+          model: 'coming_soon',
           title: 'legplate lvl 2',
+          selected: false,
         },
       ]
     }
@@ -161,10 +208,6 @@ const data = new Vuex.Store({
       this.state.gameScreen = "combatScreen";
       this.state.inventory.shown = false;
     },
-
-    changeView(state, view) {
-      return state.currentView = view
-    },
     change_terminal_send_show(state,text_to_change){
       return state.terminal_send_show= text_to_change
     },
@@ -186,7 +229,69 @@ const data = new Vuex.Store({
 
     enemy1Attackhero () {
       this.state.hero.hp = this.state.hero.hp -this.state.enemy.attack;
-    }
+    },
+
+    itemFromInventoryClicked(type, item) {
+      if (!item.isSelected) {
+        if (item.types === 'knives') {
+          this.state.knife.selectedKnife = item.id;
+          this.state.knife.selectedKnifeImg = item.model;
+          this.state.Hero.knife = item.id;
+          for(let i=0; i<this.state.knife.knives.length; i++) {
+            if(this.state.knife.knives[i].id === item.id) {
+              this.state.knife.knives[i].selected = true;
+            } else {
+              this.state.knife.knives[i].selected = false;
+            }
+          }
+        } else if (item.types === 'guns') {
+          this.state.gun.selectedGun = item.id;
+          this.state.gun.selectedGunImg = item.model;
+          this.state.Hero.gun = item.id;
+          for(let i=0; i<this.state.gun.guns.length; i++) {
+            if(this.state.gun.guns[i].id === item.id) {
+              this.state.gun.guns[i].selected = true;
+            } else {
+              this.state.gun.guns[i].selected = false;
+            }
+          }
+        } else if (item.types === 'swords') {
+          this.state.sword.selectedSword = item.id;
+          this.state.sword.selectedSwordImg = item.model;
+          this.state.Hero.sword = item.id;
+          for(let i=0; i<this.state.sword.swords.length; i++) {
+            if(this.state.sword.swords[i].id === item.id) {
+              this.state.sword.swords[i].selected = true;
+            } else {
+              this.state.sword.swords[i].selected = false;
+            }
+          }
+        } else if (item.types === 'chestplates') {
+          this.state.chestplate.selectedChestplate = item.id;
+          this.state.chestplate.selectedChestplateImg = item.model;
+          this.state.Hero.chestplate = item.id;
+          for(let i=0; i<this.state.chestplate.chestplates.length; i++) {
+            if(this.state.chestplate.chestplates[i].id === item.id) {
+              this.state.chestplate.chestplates[i].selected = true;
+            } else {
+              this.state.chestplate.chestplates[i].selected = false;
+            }
+          }
+        } else if (item.types === 'legplates') {
+          this.state.legplate.selectedLegplate = item.id;
+          this.state.legplate.selectedLegplateImg = item.model;
+          this.state.Hero.legplate = item.id;
+          for(let i=0; i<this.state.legplate.legplates.length; i++) {
+            if(this.state.legplate.legplates[i].id === item.id) {
+              this.state.legplate.legplates[i].selected = true;
+            } else {
+              this.state.legplate.legplates[i].selected = false;
+            }
+          }
+        }
+      }
+    },
+
   }
 })
 
