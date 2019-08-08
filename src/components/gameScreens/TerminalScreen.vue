@@ -1,9 +1,6 @@
 <template>
 
     <div class="terminalHolder">
-        <!-- <vue-typer text='Vue component that simulates a user typing, selecting, and erasing text!'
-        
-        ></vue-typer> -->
         <p class="terminal_text">{{text_present}}</p>
     </div>
 
@@ -24,6 +21,7 @@ export default {
         return {
             text_present:"",
             text_to_be_showed: this.$store.state.terminal_send_show,
+            addTerminalType: this.$store.state.addTerminalType,
             terminalTutorialItem: this.$store.state.terminalTutorialItem,
             scroll_speed:40,
             rec:0,
@@ -86,8 +84,10 @@ export default {
         text_to_be_showed:function(){
             i=0;
             // clearTimeout(this.rec);
-            this.reset_timer()
-            temp_text_present=[];
+            this.reset_timer();
+            if(!this.addTerminalType) {
+                temp_text_present=[];
+            }
             this.showtext();
         },
         send_to_store:function(){
