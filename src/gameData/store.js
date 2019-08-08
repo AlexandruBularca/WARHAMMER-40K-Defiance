@@ -246,7 +246,7 @@ const data = new Vuex.Store({
           }
         } else if (item.types === 'guns') {
           this.state.gun.selectedGun = item.id;
-          this.state.knife.selectedGunImg = item.model;
+          this.state.gun.selectedGunImg = item.model;
           this.state.Hero.gun = item.id;
           for(let i=0; i<this.state.gun.guns.length; i++) {
             if(this.state.gun.guns[i].id === item.id) {
@@ -257,7 +257,7 @@ const data = new Vuex.Store({
           }
         } else if (item.types === 'swords') {
           this.state.sword.selectedSword = item.id;
-          this.state.knife.selectedSwordImg = item.model;
+          this.state.sword.selectedSwordImg = item.model;
           this.state.Hero.sword = item.id;
           for(let i=0; i<this.state.sword.swords.length; i++) {
             if(this.state.sword.swords[i].id === item.id) {
@@ -268,7 +268,7 @@ const data = new Vuex.Store({
           }
         } else if (item.types === 'chestplates') {
           this.state.chestplate.selectedChestplate = item.id;
-          this.state.knife.selectedChestplateImg = item.model;
+          this.state.chestplate.selectedChestplateImg = item.model;
           this.state.Hero.chestplate = item.id;
           for(let i=0; i<this.state.chestplate.chestplates.length; i++) {
             if(this.state.chestplate.chestplates[i].id === item.id) {
@@ -279,7 +279,7 @@ const data = new Vuex.Store({
           }
         } else if (item.types === 'legplates') {
           this.state.legplate.selectedLegplate = item.id;
-          this.state.knife.selectedLegplateImg = item.model;
+          this.state.legplate.selectedLegplateImg = item.model;
           this.state.Hero.legplate = item.id;
           for(let i=0; i<this.state.legplate.legplates.length; i++) {
             if(this.state.legplate.legplates[i].id === item.id) {
