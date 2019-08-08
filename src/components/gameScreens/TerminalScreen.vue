@@ -32,12 +32,6 @@ export default {
     },  
     methods:{
       showtext(){
-        // for(var letter in this.text_to_be_showed){
-        //     console.log(this.text_to_be_showed[letter]);
-        //     temp_text_present.push(this.text_to_be_showed[letter]);
-        //     this.text_present=temp_text_present.join("");
-        //     setTimeout(function(){console.log("foo")},200);
-        // }
         this.rec=setTimeout(()=>{
             temp_text_present.push(this.text_to_be_showed[i]);
             var elem = document.getElementById('trmHolder');
@@ -76,12 +70,6 @@ export default {
         },this.scroll_speed);
       },
       addText(){
-        // for(var letter in this.text_to_be_showed){
-        //     console.log(this.text_to_be_showed[letter]);
-        //     temp_text_present.push(this.text_to_be_showed[letter]);
-        //     this.text_present=temp_text_present.join("");
-        //     setTimeout(function(){console.log("foo")},200);
-        // }
         this.rec=setTimeout(()=>{
             temp_text_present.push(this.textToBeAddedToCMD[i]);
             var elem = document.getElementById('trmHolder');
@@ -94,9 +82,8 @@ export default {
             i++;
             if(this.textToBeAddedToCMD.length){
                 if(i>=this.textToBeAddedToCMD.length) {
-                    console.log('bug');
+                    
                 }
-                console.log(i, this.textToBeAddedToCMD.length);
                 this.addText()
             }
         },this.scroll_speed_add);
@@ -133,7 +120,6 @@ export default {
         },
         terminal_show:function(){
             if(this.$store.addTerminalType) {
-            console.log("here");
                 this.textToBeAdded = this.terminal_show;
             } else {
                 this.text_to_be_showed = this.terminal_show;
