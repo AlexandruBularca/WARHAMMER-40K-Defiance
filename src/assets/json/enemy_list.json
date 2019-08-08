@@ -11,6 +11,12 @@
         "sprite":"https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/combined_stats_with_combat/src/assets/img/enemy_combatant_scavanger.png",
         "spriteStat":"https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/combined_stats_with_combat/src/assets/img/enemy_combatant_scavanger_stats.png"
     },
+    "tech_priest":{
+        "max_hp":1500,
+        "attack_power":120,
+        "sprite":"https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/combined_stats_with_combat/src/assets/img/enemy_combatant_tech_priest.png",
+        "spriteStat":"https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/combined_stats_with_combat/src/assets/img/enemy_combatant_tech_priest_stats.png"
+    },
     "noEnemy":{
         "max_hp":0,
         "attack_power":0,
