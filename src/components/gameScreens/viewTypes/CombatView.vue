@@ -184,7 +184,9 @@ export default {
                     'opacity': '1',
                 }
             } else {
-                console.log('enemy turn');
+                setTimeout(function () {
+                    this.turn++;
+                }, 1000);
                 return {
                     'opacity': '0.4',
                     'pointer-events': 'none',
@@ -277,25 +279,27 @@ export default {
             var enemyNoOld = this.selected_enemy[this.selected_enemy.length-1];
             var enemyNoNew = newEnemySelected[newEnemySelected.length-1];
 
-            this.selected_enemy = 'enemy' + enemyNoNew;
+            //if(this.enemies[enemyNoNew].hp !== 0) {
+                this.selected_enemy = 'enemy' + enemyNoNew;
 
-            var elEnemySelected = document.getElementById('enemy' + enemyNoOld);
-            if(elEnemySelected) {
-                elEnemySelected.className = 'enemyStatusStyle';
-            }
-            var elEnemySelectedAvatar = document.getElementById('enemySrc' + enemyNoOld);
-            if(elEnemySelectedAvatar) {
-                elEnemySelectedAvatar.className = 'keepCharacterRatio';
-            }
+                var elEnemySelected = document.getElementById('enemy' + enemyNoOld);
+                if(elEnemySelected) {
+                    elEnemySelected.className = 'enemyStatusStyle';
+                }
+                var elEnemySelectedAvatar = document.getElementById('enemySrc' + enemyNoOld);
+                if(elEnemySelectedAvatar) {
+                    elEnemySelectedAvatar.className = 'keepCharacterRatio';
+                }
 
-            elEnemySelected = document.getElementById('enemy' + enemyNoNew);
-            if(elEnemySelected) {
-                elEnemySelected.className = 'enemyStatusStyle enemySelected';
-            }
-            elEnemySelectedAvatar = document.getElementById('enemySrc' + enemyNoNew);
-            if(elEnemySelectedAvatar) {
-                elEnemySelectedAvatar.className = 'enemySelectedAvatar keepCharacterRatio';
-            }
+                elEnemySelected = document.getElementById('enemy' + enemyNoNew);
+                if(elEnemySelected) {
+                    elEnemySelected.className = 'enemyStatusStyle enemySelected';
+                }
+                elEnemySelectedAvatar = document.getElementById('enemySrc' + enemyNoNew);
+                if(elEnemySelectedAvatar) {
+                    elEnemySelectedAvatar.className = 'enemySelectedAvatar keepCharacterRatio';
+                }
+            //}            
 
         },
         heroAttacked(heroPower, weapon) {
