@@ -24,6 +24,7 @@ export default {
         return {
             text_present:"",
             text_to_be_showed: this.$store.state.terminal_send_show,
+            terminalTutorialItem: this.$store.state.terminalTutorialItem,
             scroll_speed:40,
             rec:0,
             // reset:0
@@ -40,19 +41,46 @@ export default {
         // }
         this.rec=setTimeout(()=>{
             temp_text_present.push(this.text_to_be_showed[i]);
-            // console.log(i);
             var unders="_";
             if(i%30<=15){
                 unders="";
             }
-            this.text_present=temp_text_present.join("")+unders;
+            if(this.terminalTutorialItem === 0 && this.text_to_be_showed[i+1]==='<' && this.text_to_be_showed[i+2]==='<') {
+                this.scroll_speed = 0;
+            }
+            this.text_present=temp_text_present.join("") + unders;
             i++;
             if(this.text_to_be_showed.length){
                 this.showtext()
             }
+            if(this.text_present === this.text_to_be_showed) {
+                if (this.currentTutorialNumber === 0) {
+                    this.$store.state.tutorialMessages.initialMapMessage = 2;
+                    this.$store.state.terminalTutorialItem = 1;
+                    console.log('initial message map ended');
+                } else if (this.currentTutorialNumber === 1) {
+                    this.$store.state.tutorialMessages.initialCombatViewMessage = 2;
+                    this.$store.state.terminalTutorialItem = 2;
+                    console.log('initial message combat view ended');
+                } else if (this.currentTutorialNumber === 2) {
+                    this.$store.state.tutorialMessages.initialBattleWonMessage = 2;
+                    this.$store.state.terminalTutorialItem = 3;
+                    console.log('initial message combat won ended');
+                } else if (this.currentTutorialNumber === 3) {
+                    this.$store.state.tutorialMessages.initialInventoryMessage = 2;
+                    this.$store.state.terminalTutorialItem = 4;
+                    console.log('initial message inventory gear-up ended');
+                } else if (this.currentTutorialNumber === 4) {
+                    this.$store.state.tutorialMessages.messageNewLocations = 2;
+                    this.$store.state.terminalTutorialItem = 5;
+                    console.log('initial message inventory gear-up ended');
+                }
+                this.reset_timer();
+            }
         },this.scroll_speed);
       },
       reset_timer(){
+          this.scroll_speed = 40;
           clearTimeout(this.rec);
       },
     //   function_send_to_storage(){
@@ -75,22 +103,27 @@ export default {
         }
     },
     computed:{
+        currentTutorialNumber() {
+            return this.$store.state.terminalTutorialItem
+        },
         ...mapGetters(["terminal_show"]),
     },
     mounted: function () {
         this.$nextTick(function () {
-            if(!this.$store.state.welcomeMessageShowed) {
-                this.$store.state.terminal_send_show = "Iquisitor's Log:\n\n    You have been summoned to this Forge World because it has fallen to chaotic coruption 16 days ago.\n    Your mission is to find the source of its downfall so that our holy Chamber Militant can purge it within the very hearth of it's corruption. As of now they are transitioning through the Warp.\n   If the corruption of the planet goes too far then our Order will be forced to employ the final solution, Exterminatus.\n    The location of the Exterminatus Fleet is currently classified until further notice.\n\n    For the Emperor!";
-                this.$store.state.welcomeMessageShowed = true;
+            if(this.$store.state.tutorialMessages.initialMapMessage === 0) {
+                this.$store.state.tutorialMessages.initialMapMessage = 1;
+                this.$store.state.terminal_send_show = "Inquisitor's Log:\n\n    You have been summoned to this Forge World because it has fallen to chaotic coruption 16 days ago.\n    Your mission is to find the source of its downfall so that our holy Chamber Militant can purge it within the very hearth of it's corruption. As of now they are transitioning through the Warp.\n   If the corruption of the planet goes too far then our Order will be forced to employ the final solution, Exterminatus.\n    The location of the Exterminatus Fleet is currently classified until further notice.\n\n    For the Emperor!\n\n<<press 'SEARCH' to find an enemy>>";
             }
         })
     }
 }
 </script>
 <style>
+
 .vue-typer .custom.char.typed {
   color: #ffffff;
 }
+
 .terminalHolder {
     background-color: rgb(0, 0, 0);
     height: 76.9vh;
@@ -100,6 +133,7 @@ export default {
     border-style: solid;
     margin-top: 1vh;
 }
+
 .terminal_text{
     color:rgb(241, 241, 241);
     overflow-wrap: break-word;
@@ -109,8 +143,10 @@ export default {
     white-space: pre-line;
     /* font-family: "FelinaT26Gothic" */
 }
+
 /* @font-face{
     font-family:"FelinaT26Gothic";
     src:url("../../assets/fonts/FelinaT26_Gothic_Regular.woff") format("woff");
-} */
+}*/
+
 </style>
