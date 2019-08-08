@@ -16,20 +16,20 @@ export default {
             this.$store.state.terminal_send_show = "";
             this.$store.commit('combatMode')
         },
-    },
-    locateTheUser(x, y) {
-      return {
-        top: x + "%",
-        left: y + "%"
-      }
+        locateTheUser(x, y) {
+            return {
+                top: x + "%",
+                left: y + "%"
+            }
+        },
     },
     data() {
-    return {
-      userPosX: mapLocationsJson.location_1.location.x,
-      userPosY: mapLocationsJson.location_1.location.y,
-      mapLocations: mapLocationsJson.locations,
-    };
-  }
+        return {
+        userPosX: mapLocationsJson.location_1.location.x,
+        userPosY: mapLocationsJson.location_1.location.y,
+        mapLocations: mapLocationsJson.locations,
+        };
+    }
 };
 </script>
 
