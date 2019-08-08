@@ -395,6 +395,8 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 20px;
+    outline: 0;
+    outline: none;
 }
 
 .enemyStatusStyle:hover {
