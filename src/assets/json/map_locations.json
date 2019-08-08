@@ -4,7 +4,7 @@
             "id": "loc1",
             "x": 42.5,
             "y": 46.3,
-            "mapEnemies": ["noEnemy","scavanger","noEnemy","scavanger","noEnemy","scavanger"],
+            "mapEnemies": ["noEnemy","cultist","noEnemy","scavanger","noEnemy","tech_priest"],
             "available": true
         },{
             "id": "loc2",
