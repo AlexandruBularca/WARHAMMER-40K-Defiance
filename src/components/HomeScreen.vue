@@ -42,7 +42,7 @@ export default {
 }
 
 h1 {
-    font-family: FelinaT26Gothic;
+    font-family: 'Lacquer', sans-serif;
     font-size:4.5em;
     text-shadow: 4px 4px grey,5px 5px rgb(54, 53, 53);  
     text-align: center;
@@ -52,7 +52,7 @@ h1 {
    position:absolute;
     left:17%;
     font-size:40px;
-    font-family: FelinaT26Gothic;
+    font-family: 'Lacquer', sans-serif;
     width:50%;
     border-radius:25px;
     box-shadow:2px 2px 2px 2px #3d3533;
