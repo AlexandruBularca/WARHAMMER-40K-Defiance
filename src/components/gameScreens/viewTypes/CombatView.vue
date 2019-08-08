@@ -1,53 +1,301 @@
 <template>
-    <div class="combatHolder">
-        <div class="inner">
-                <progress class="enemyPoz" 
-                :value="this.$store.state.enemy1.hp"
-                :max="this.$store.state.enemy1.maxhp" >
-                </progress>
-
-            <div class="AvatarHeroCombat" >
-                <img class="SizeHero"  src="./../../../assets/img/inqqq.jpg">
+    <div class="combatHolder disable-selection">
+        <div class="enemyStatsHolder">
+            <div class="firstRowEnemyStatus">
+                <div class="holderEnemyStatus col1" v-if="isAvailableEnemy5">
+                    <div class="enemyStatusStyle" tabindex="1" v-on:click="selected_enemy='enemy1'">
+                        <div class="progressBarOutlineStr">
+                            <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy1.hp/this.enemies.enemy1.max_hp)*100 + '%' }" />
+                        </div>
+                        <div class="holderAvatarStatusEnemy">
+                            <img class="keepCharacterRatio statusEnemyImage"  src="./../../../assets/img/enemy_holder_default_status.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="holderEnemyStatus col2" v-if="isAvailableEnemy3">
+                    <div class="enemyStatusStyle" tabindex="1" v-on:click="selected_enemy='enemy2'">
+                        <div class="progressBarOutlineStr">
+                            <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy2.hp/this.enemies.enemy2.max_hp)*100 + '%' }" />
+                        </div>
+                        <div class="holderAvatarStatusEnemy">
+                            <img class="keepCharacterRatio statusEnemyImage"  src="./../../../assets/img/enemy_holder_default_status.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="holderEnemyStatus col3" v-if="isAvailableEnemy1">
+                    <div class="enemyStatusStyle" tabindex="1" v-on:click="selected_enemy='enemy3'">
+                        <div class="progressBarOutlineStr">
+                            <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy3.hp/this.enemies.enemy3.max_hp)*100 + '%' }" />
+                        </div>
+                        <div class="holderAvatarStatusEnemy">
+                            <img class="keepCharacterRatio statusEnemyImage"  src="./../../../assets/img/enemy_holder_default_status.png">
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="AvatarEnemyCombat">
-                <img class="SizeEnemy"  src="./../../../assets/img/ChaosCultistPlaceholder.jpg">
+            <div class="secondRowEnemyStatus">
+                <div class="holderEnemyStatus col1" v-if="isAvailableEnemy6">
+                    <div class="enemyStatusStyle" tabindex="1" v-on:click="selected_enemy='enemy4'">
+                        <div class="progressBarOutlineStr">
+                            <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy4.hp/this.enemies.enemy4.max_hp)*100 + '%' }" />
+                        </div>
+                        <div class="holderAvatarStatusEnemy">
+                            <img class="keepCharacterRatio statusEnemyImage"  src="./../../../assets/img/enemy_holder_default_status.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="holderEnemyStatus col2" v-if="isAvailableEnemy4">
+                    <div class="enemyStatusStyle" tabindex="1" v-on:click="selected_enemy='enemy5'">
+                        <div class="progressBarOutlineStr">
+                            <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy5.hp/this.enemies.enemy5.max_hp)*100 + '%' }" />
+                        </div>
+                        <div class="holderAvatarStatusEnemy">
+                            <img class="keepCharacterRatio statusEnemyImage"  src="./../../../assets/img/enemy_holder_default_status.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="holderEnemyStatus col3" v-if="isAvailableEnemy2">
+                    <div class="enemyStatusStyle" tabindex="1" v-on:click="selected_enemy='enemy6'">
+                        <div class="progressBarOutlineStr">
+                            <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy6.hp/this.enemies.enemy6.max_hp)*100 + '%' }" />
+                        </div>
+                        <div class="holderAvatarStatusEnemy">
+                            <img class="keepCharacterRatio statusEnemyImage"  src="./../../../assets/img/enemy_holder_default_status.png">
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="buttonsblock">
-                <button class=knifeAttack @click="heroKnifeAttack">Knife Attack</button>
-                <button class=swordAttack @click="heroSwordAttack">Sword Attack</button>
-                <button class=gunAttack @click="heroGunAttack">Gun Attack</button> 
-            </div>        
+        </div>
+        <div class="charactersHolder">
+            <div class="myCharacterHolder">
+                <div class="myCharacterAvatar" >
+                    <img class="keepCharacterRatio"  src="./../../../assets/img/character_avatar.png">
+                </div>
+            </div>
+            <div class="enemiesCharacterHolder">
+                <div class="enemyCharacterAvatar row1 enemy1" v-if="isAvailableEnemy1">
+                    <img class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
+                </div>
+                <div class="enemyCharacterAvatar row1 enemy2" v-if="isAvailableEnemy2">
+                    <img class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
+                </div>
+                <div class="enemyCharacterAvatar row1 enemy3" v-if="isAvailableEnemy3">
+                    <img class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
+                </div>
+                <div class="enemyCharacterAvatar enemy4" v-if="isAvailableEnemy4">
+                    <img class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
+                </div>
+                <div class="enemyCharacterAvatar enemy5" v-if="isAvailableEnemy5">
+                    <img class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
+                </div>
+                <div class="enemyCharacterAvatar enemy6" v-if="isAvailableEnemy6">
+                    <img class="keepCharacterRatio"  src="./../../../assets/img/enemy_holder_default.png">
+                </div>
+            </div>
+        </div>
+        <div class="buttonsHolder">
+            <div class="firstRowButtons">
+                <div class="button btnCol1 knifeBtn" v-on:click="heroKnifeAttack()">
+                    <div class="buttonText">
+                        Knife Attack
+                    </div>
+                </div>
+                <div class="button btnCol2 swordBtn" v-on:click="heroSwordAttack()">
+                    <div class="buttonText">
+                        Sword Attack
+                    </div>
+                </div>
+            </div>
+            <div class="secondRowButtons">
+                <div class="button btnCol1 gunBtn" v-on:click="heroGunAttack()">
+                    <div class="buttonText">
+                        Gun Attack
+                    </div>
+                </div>
+                <div class="button btnCol2 retreatBtn" v-on:click="actionRetreat()">
+                    <div class="buttonText">
+                        Retreat!
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
 </template>
 
 <script>
-//import { METHODS } from 'http';
+import { METHODS } from 'http';
+import enemy_list from "../../../assets/json/enemy_list.json"
 export default {
     name: 'Combat',
+    data() {
+        return {
+            ENEMY_LIST:enemy_list,
+            selected_enemy:"enemy1",
+            Combat: {
+                enemy1: true,
+                enemy2: true,
+                enemy3: true,
+                enemy4: true,
+                enemy5: true,
+                enemy6: true,
+            },
+            enemies:{
+                enemy1:{
+                    max_hp:null,
+                    hp:null,
+                    attack:null
+                },
+                enemy2:{
+                    max_hp:null,
+                    hp:null,
+                    attack:null
+                },
+                enemy3:{
+                    max_hp:null,
+                    hp:null,
+                    attack:null
+                },
+                enemy4:{
+                    max_hp:null,
+                    hp:null,
+                    attack:null
+                },
+                enemy5:{
+                    max_hp:null,
+                    hp:null,
+                    attack:null
+                },
+                enemy6:{
+                    max_hp:null,
+                    hp:null,
+                    attack:null
+                },
+            }
+            //Enemy
+            // enemy1: {
+            // maxhp: 50,
+            // hp: 50,
+            // attack: 10
+            // },
+
+            // enemy2: {
+            // hp: 50,
+            // maxhp: 50,
+            // attack: 10
+            // },
+
+            // enemy3: {
+            // hp: 50,
+            // maxhp: 50,
+            // attack: 10
+            // },
+            
+            // enemy4: {
+            // hp: 50,
+            // maxhp: 50,
+            // attack: 10
+            // },
+
+            // enemy5: {
+            // hp: 50,
+            // maxhp: 50,
+            // attack: 10
+            // },
+
+            // enemy6: {
+            // hp: 50,
+            // maxhp: 50,
+            // attack: 10
+            // },
+        };
+    },
     methods: {
-    enemy1Attackhero () {
-        this.$store.commit("enemy1Attackhero");
+        actionRetreat() {
+            this.$store.commit('showMap')
+        },
+
+        //made by Ionel and Sebi
+        
+        heroKnifeAttack() {
+            console.log(this.enemies[this.selected_enemy].hp - this.$store.state.Hero.knifeAttack);
+            this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - this.$store.state.Hero.knifeAttack;
+            if(this.enemies[this.selected_enemy].hp < 0) {
+                this.enemies[this.selected_enemy].hp = 0;
+            }
+            console.log(this.enemies[this.selected_enemy].hp);
+         },
+      
+         heroSwordAttack() {
+            this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - this.$store.state.Hero.swordAttack;
+            if(this.enemies[this.selected_enemy].hp < 0) {
+                this.enemies[this.selected_enemy].hp = 0;
+            }
+            console.log(this.enemies.enemy1.hp);
+         },
+
+         heroGunAttack() {
+            this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - this.$store.state.Hero.gunAttack;
+            if(this.enemies[this.selected_enemy].hp < 0) {
+                this.enemies[this.selected_enemy].hp = 0;
+            }
+            console.log(this.enemies.enemy1.hp);
+          },
+
+         enemy1Attackhero () {
+           this.$store.state.Hero.hp = this.$store.state.Hero.hp -this.enemies[this.selected_enemy].attack;
+          },
+
+          get_curr_enemies(){
+            for (var enemy in this.$store.state.curr_enemies){
+                // var i=this.$store.state.curr_enemies.indexOf(enemy)+1;
+                var enemy_change="enemy"+(parseInt(enemy)+1);
+                // console.log(enemy_change);
+                // console.log(this.enemies["enemy1"]);
+                // console.log(this.enemies[enemy_change]);
+                this.enemies[enemy_change].max_hp = this.ENEMY_LIST[this.$store.state.curr_enemies[enemy]].max_hp;
+                this.enemies[enemy_change].hp = this.ENEMY_LIST[this.$store.state.curr_enemies[enemy]].max_hp;
+                this.enemies[enemy_change].attack = this.ENEMY_LIST[this.$store.state.curr_enemies[enemy]].attack_power;
+            }
+          },
+        change_enemy(){
+            this.selected_enemy="enemy2";
+            console.log("aadada");
+        }
     },
-    heroKnifeAttack () {
-        this.$store.commit("heroKnifeAttack")
+    computed: {  
+        isAvailableEnemy1() {
+            return this.Combat.enemy1;
+        },
+        isAvailableEnemy2() {
+            return this.Combat.enemy2;
+        },
+        isAvailableEnemy3() {
+            return this.Combat.enemy3;
+        },
+        isAvailableEnemy4() {
+            return this.Combat.enemy4;
+        },
+        isAvailableEnemy5() {
+            return this.Combat.enemy5;
+        },
+        isAvailableEnemy6() {
+            return this.Combat.enemy6;
+        },
     },
-    heroSwordAttack() {
-        this.$store.commit("heroSwordAttack")
-    },
-    heroGunAttack() {
-        this.$store.commit("heroGunAttack")
+    mounted(){
+        this.get_curr_enemies();
     }
-}
 };
 </script>
 
 <style scoped>
 
+@import url("https://fonts.googleapis.com/css?family=Righteous&display=swap");
+
 .combatHolder {
     background-image: url("./../../../assets/img/combackground2.jpg");
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.247);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     height: 97vh;
@@ -57,6 +305,330 @@ export default {
     border-style: solid;
     margin-left: 26vw;
 }
+
+.enemyStatsHolder {
+    width: 100%;
+    height: 20%;
+    position: relative;
+}
+
+.holderEnemyStatus {
+    width: 30%;
+    height: 80%;
+    position: relative;
+    top: 50%;
+    transform: translate(0%, -50%);
+    float: left;
+}
+
+.enemyStatusStyle {
+    width: 90%;
+    height: 70%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+}
+
+.enemyStatusStyle:hover {
+    width: 90%;
+    height: 70%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.493);
+    border: 6px solid rgba(0, 0, 0, 0.575);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.671),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.holderAvatarStatusEnemy {
+    width: 15%;
+    height: 70%; 
+    background-color: rgba(255, 255, 255, 0.534);
+    position: relative;
+    top: 50%;
+    right: 5%;
+    transform: translate(0%, -50%);
+    float: right;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.671),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.statusEnemyImage {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.progressBarOutlineStr {
+    width: 70%;
+    height: 50%;
+    background-color: rgba(255, 0, 0, 0.329);
+    position: relative;
+    top: 50%;
+    left: 5%;
+    transform: translate(0%, -50%);
+    border-radius: 10px;
+    float: left;
+    border: 2px solid rgb(255, 0, 0);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.671),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.progressBarStr {
+    border-radius: 5px;
+    background-color: rgb(255, 0, 0);
+    height: 100%;
+    width: 100%;
+}
+
+.firstRowEnemyStatus {
+    width: 100%;
+    height: 50%;
+}
+
+.secondRowEnemyStatus {
+    width: 100%;
+    height: 50%;
+}
+
+.col1 {
+    left: 1%;
+}
+
+.col2 {
+    left: 5%;
+}
+
+.col3 {
+    left: 9%;
+}
+
+.charactersHolder {
+    width: 100%;
+    height: 58%;
+    position: relative;
+}
+
+.myCharacterHolder {
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+
+.myCharacterAvatar {
+    height: 30%;
+    width: 20%;
+    position: relative;
+    top: 50%;
+    left: 5%;
+    float: left;
+}
+
+.enemyCharacterAvatar {
+    height: 30%;
+    width: 20%;
+    position: relative;
+}
+
+.row1 {
+    top: -40%;
+}
+
+.enemy6 {
+    left: 65%;
+    top: -110%;
+}
+
+.enemy5 {
+    left: 75%;  
+    top: -80%;
+}
+
+.enemy4 {
+    left: 85%;
+    top: -60%;    
+}
+
+.enemy3 {
+    left: 70%;    
+}
+
+.enemy2 {
+    left: 80%;    
+}
+
+.enemy1 {
+    left: 90%;    
+}
+
+.enemiesCharacterHolder {
+    width: 100%;
+    height: 100%;
+}
+
+.buttonsHolder {
+    width: 100%;
+    height: 22%;
+    position: relative;
+}
+
+.firstRowButtons {
+    width: 100%;
+    height: 50%;
+}
+
+.secondRowButtons {
+    width: 100%;
+    height: 50%;
+}
+
+.button {
+    width: 20%;
+    height: 50%;
+    border-radius: 20px;
+    background-color: rgba(206, 20, 20, 0.493);
+    border: 6px solid rgba(107, 3, 3, 0.199);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.671),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    font-size: 24px;
+}
+
+.knifeBtn {
+    color: rgba(255, 255, 255, 0.767);
+    background-color: rgba(199, 241, 11, 0.774);
+    border: 6px solid rgba(96, 117, 2, 0.199);
+    box-shadow: 0 4px 8px 0 rgba(71, 122, 13, 0.671),
+        0 6px 20px 0 rgba(139, 223, 43, 0.19);
+}
+
+.swordBtn {
+    color: rgba(255, 255, 255, 0.767);
+    background-color: rgba(199, 241, 11, 0.774);
+    border: 6px solid rgba(96, 117, 2, 0.199);
+    box-shadow: 0 4px 8px 0 rgba(71, 122, 13, 0.671),
+        0 6px 20px 0 rgba(139, 223, 43, 0.19);
+}
+
+.gunBtn {
+    color: rgba(255, 255, 255, 0.767);
+    background-color: rgba(199, 241, 11, 0.774);
+    border: 6px solid rgba(96, 117, 2, 0.199);
+    box-shadow: 0 4px 8px 0 rgba(71, 122, 13, 0.671),
+        0 6px 20px 0 rgba(139, 223, 43, 0.19);
+}
+
+.retreatBtn {
+    color: rgba(255, 255, 255, 0.767);
+    background-color: rgba(241, 11, 11, 0.774);
+    border: 6px solid rgba(117, 2, 2, 0.199);
+    box-shadow: 0 4px 8px 0 rgba(122, 13, 13, 0.671),
+        0 6px 20px 0 rgba(223, 43, 43, 0.19);
+}
+
+.button:hover {
+    width: 22%;
+    height: 55%;
+    background-color: rgba(0, 0, 0, 0.144);
+    font-size: 26px;
+    cursor: pointer;
+}
+
+.knifeBtn:hover {
+    border: 6px solid rgba(127, 231, 9, 0.664);
+    color: rgba(127, 231, 9, 0.829);
+}
+
+.knifeBtn:active {
+    background-color: rgba(127, 231, 9, 0.664);
+    color: rgba(255, 255, 255, 0.767);
+    position: relative;
+    left: 30%;
+    transform: translate(-25%, -70%);
+}
+
+.swordBtn:hover {
+    border: 6px solid rgba(127, 231, 9, 0.664);
+    color: rgba(127, 231, 9, 0.829);
+}
+
+.swordBtn:active {
+    background-color: rgba(127, 231, 9, 0.664);
+    color: rgba(255, 255, 255, 0.767);
+    position: relative;
+    right: 30%;
+    transform: translate(25%, -70%);
+}
+
+.gunBtn:hover {
+    border: 6px solid rgba(127, 231, 9, 0.664);
+    color: rgba(127, 231, 9, 0.829);
+}
+
+.gunBtn:active {
+    background-color: rgba(127, 231, 9, 0.664);
+    color: rgba(255, 255, 255, 0.767);
+    position: relative;
+    left: 30%;
+    transform: translate(-25%, -70%);
+}
+
+.retreatBtn:hover {
+    border: 6px solid rgba(231, 9, 9, 0.664);
+    color: rgba(231, 9, 9, 0.829);
+}
+
+.retreatBtn:active {
+    background-color: rgba(231, 9, 9, 0.664);
+    color: rgba(255, 255, 255, 0.767);
+    position: relative;
+    right: 30%;
+    transform: translate(25%, -70%);
+}
+
+.buttonText {
+    width: 90%;
+    height: 100%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -35%);
+    text-transform: uppercase;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: "Righteous", cursive;
+}
+
+.btnCol1 {
+    float: left;
+    position: relative;
+    top: 50%;
+    left: 30%;
+    transform: translate(-25%, -50%);
+}
+
+.btnCol2 {
+    float: right;
+    position: relative;
+    top: 50%;
+    right: 30%;
+    transform: translate(25%, -50%);
+}
+
+.disable-selection {
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer */
+  -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+  -webkit-user-select: none; /* Chrome, Safari, and Opera */
+  -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+}
+
 
 .knifeAttack
 {
@@ -83,76 +655,11 @@ export default {
     color:rgb(134, 12, 12);
 }
 
-.swordAttack {
-    color: yellow;
-    height: 9vh;
-    width: 15vw;
-    float: bottom;
-    background-color: rgb(134, 12, 12);
-    border: 0; 
-    margin: 1vw;
-    font-size: 17px;
+.keepCharacterRatio {
+    max-width:100%;
+    max-height:100%;
+    width: auto;
+    height: auto;
 }
 
-.gunAttack {
-    color: yellow;
-    height: 9vh;
-    width: 15vw;
-    float: bottom;
-    background-color: rgb(134, 12, 12);
-    border: 0; 
-    margin: 1vw;
-    font-size: 17px;
-}
-
-.buttonsblock {
-    height: 31vh;
-    float:bottom; 
-}
-
-.inner {
-    padding-top: 45%;
-}
-
-.AvatarHeroCombat
-{
-    float: left;
-    float: top;
-    height: 28%;
-    width: 10%;
-    position:absolute;
-    top:50%;
-    left:33%;
-    transform:translate(-35%,-50%);
-
-}
-
-.SizeHero {
-    height: 100%;
-    width: 100%;
-}
-
-.AvatarEnemyCombat{
-    float: right;
-    float: top;
-    height: 28%;
-    width: 10%;
-    position:absolute;
-    top:50%;
-    right:3%;
-    transform:translate(-35%,-50%);
-}
-
-.SizeEnemy {
-    height: 100%;
-    width: 100%;
-}
-
-.enemyPoz {
-    float: right;
-    float: top;
-    bottom: 70%;
-    right: 7%;
-    position: absolute;
-}
 </style>

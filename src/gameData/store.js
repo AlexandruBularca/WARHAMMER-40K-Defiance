@@ -13,6 +13,9 @@ const data = new Vuex.Store({
 
     terminal_send_show:"",
 
+
+    curr_enemies:["cultist","cultist","cultist","scavanger","cultist","scavanger"],
+
     // Hero Stats
     Hero: {
       hp: 100,
@@ -22,6 +25,9 @@ const data = new Vuex.Store({
       knife: 'kn1',
       sword: 'sw1',
       gun: 'gu1',
+      knifeAttack: 25,
+      swordAttack: 50,
+      gunAttack: 50
     },
 
     //Ammo
@@ -47,12 +53,7 @@ const data = new Vuex.Store({
         y: 50.0,
       },
     },
-    //Enemy
-    enemy1: {
-      hp: 50,
-      maxhp: 50,
-      attack: 30
-    },
+
 
     knife: {
       selectedKnife: 'kn1',
