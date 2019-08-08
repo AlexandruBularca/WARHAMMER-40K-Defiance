@@ -20,12 +20,13 @@ export default {
           while(id !== mapLocationsJson.locations[i].id) {
             i++;
           }
+          this.$store.state.terminal_send_show = "";
           this.$store.state.mapLocationClicked = i;
-          this.$store.commit('combatMode')
+          this.$store.commit('combatMode');
         },
         showCombatView() {
             this.$store.state.terminal_send_show = "";
-            this.$store.commit('combatMode')
+            this.$store.commit('combatMode');
         },
         locateTheUser(x, y, available) {
             var bg_color, bg_shadow;
