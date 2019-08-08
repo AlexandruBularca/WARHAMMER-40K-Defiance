@@ -21,7 +21,7 @@ export default {
         return {
             text_present:"",
             text_to_be_showed: this.$store.state.terminal_send_show,
-            textToBeAdded: this.$store.state.textToBeAdded,
+            text_to_be_added: this.$store.state.textToBeAdded,
             terminalTutorialItem: this.$store.state.terminalTutorialItem,
             scroll_speed:40,
             rec:0,
@@ -131,32 +131,26 @@ export default {
             i=0;
             // clearTimeout(this.rec);
             this.reset_timer();
-            var oldTxtSize = this.text_present.length;
-            var newTxtSize = this.text_to_be_showed.length - oldTxtSize;
-            //console.log('oldTxtSize', oldTxtSize, 'newTxtSize', newTxtSize);
-            //console.log(this.text_to_be_showed.substr(this.text_present.length).length);
-            console.log(this.text_to_be_showed.substr(this.text_present.length));
-            //console.log(this.text_to_be_showed.length);
             if(!this.$store.state.addTerminalType) {
                 temp_text_present=[];
             }
             this.showtext();
         },
-        textToBeAdded:function(){
-            console.log('new');
+        text_to_be_added:function(){
+            console.log(this.text_to_be_added + "2");
             i=0;
             this.reset_timer();
             if(!this.$store.state.addTerminalType) {
                 temp_text_present=[];
             }
-            this.addText(textToBeAdded);
+            this.addText();
         },
         send_to_store:function(){
             this.function_send_to_storage();
         },
         terminal_show:function(){
-            this.text_to_be_showed=this.terminal_show;
-            //this.textToBeAdded=this.terminal_show;
+            this.text_to_be_showed = this.terminal_show;
+            this.text_to_be_added = this.terminal_show;
         }
     },
     computed:{
