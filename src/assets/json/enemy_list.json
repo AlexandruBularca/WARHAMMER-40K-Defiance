@@ -2,11 +2,13 @@
     "cultist":{
         "max_hp":1900,
         "attack_power":50,
-        "sprite":"https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/combined_stats_with_combat/src/assets/img/enemy_combatant_cultist.png"
+        "sprite":"https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/combined_stats_with_combat/src/assets/img/enemy_combatant_cultist.png",
+        "spriteStat":"https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/combined_stats_with_combat/src/assets/img/enemy_combatant_cultist.png"
     },
     "scavanger":{
         "max_hp":1200,
         "attack_power":60,
-        "sprite":"https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/combined_stats_with_combat/src/assets/img/enemy_combatant_scavanger.png"
+        "sprite":"https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/combined_stats_with_combat/src/assets/img/enemy_combatant_scavanger.png",
+        "spriteStat":"https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/combined_stats_with_combat/src/assets/img/enemy_combatant_scavanger.png"
     }
 }
