@@ -130,6 +130,7 @@ export default {
     name: 'Combat',
     data() {
         return {
+            turn: 1,
             messageBattleWon: "It looks like you won this battle!\n\nLet's return home and gear up with new items from the inventory!\n\nPress the inquisitor picture from the top-left of the screen in order to access the inventory!",
             ENEMY_LIST:enemy_list,
             selected_enemy:"enemy1",
@@ -271,17 +272,26 @@ export default {
             }
 
         },
-        heroAttacked(heroPower) {
+        heroAttacked(heroPower, weapon) {
             if (this.$store.state.terminalTutorialItem > 4){
                 this.$store.state.addTerminalType = true;
-                this.$store.state.textToBeAdded = "Inquisitor took " + heroPower + "dmg\n";
+                var weaponUsed;
+                if (weapon === 0) {
+                    weaponUsed = 'knife';
+                } else if (weapon === 1) {
+                    weaponUsed = 'sword';
+                } else if (weapon === 2) {
+                    weaponUsed = 'gun';
+                }
+                this.$store.state.textToBeAdded = "Inquisitor turn: " + this.turn + "\n - weapon used: " + weaponUsed +"\n - total damage: " + heroPower + "\n\n";
+                this.turn++;
             }
         },     
         heroKnifeAttack() {
             var atkHero = this.$store.state.Hero.str + this.$store.state.chestplate.str + this.$store.state.legplate.str +
                 this.$store.state.knife.str;
             this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - atkHero;
-            this.heroAttacked(atkHero);
+            this.heroAttacked(atkHero, 0);
             if(this.enemies[this.selected_enemy].hp < 0) {
                 this.enemyKilled();
             }
@@ -291,7 +301,7 @@ export default {
             var atkHero = this.$store.state.Hero.str + this.$store.state.chestplate.str + this.$store.state.legplate.str +
                 this.$store.state.sword.str;
             this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - atkHero;
-            this.heroAttacked(atkHero);
+            this.heroAttacked(atkHero, 1);
             if(this.enemies[this.selected_enemy].hp < 0) {
                 this.enemyKilled();
             }
@@ -301,7 +311,7 @@ export default {
             var atkHero = this.$store.state.Hero.str + this.$store.state.chestplate.str + this.$store.state.legplate.str +
                 this.$store.state.gun.str;
             this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - atkHero;
-            this.heroAttacked(atkHero);
+            this.heroAttacked(atkHero, 2);
             if(this.enemies[this.selected_enemy].hp < 0) {
                 this.enemyKilled();
             }
