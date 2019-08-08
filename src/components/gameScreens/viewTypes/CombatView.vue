@@ -304,6 +304,8 @@ export default {
                 this.enemies[enemy_change].attack = enemy_list[mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies[enemy]].attack_power;
                 var elAddImg = document.getElementById("enemySrc"+(parseInt(enemy)+1));
                 elAddImg.src = enemy_list[mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies[enemy]].sprite;
+                var elAddImgStats = document.getElementById("enemyImgStat"+(parseInt(enemy)+1));
+                elAddImgStats.src = enemy_list[mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies[enemy]].spriteStat;
             }
           },
         change_enemy(){
