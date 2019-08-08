@@ -231,8 +231,8 @@ export default {
                 this.$store.state.terminal_send_show = this.messageBattleWon;
                 this.$store.state.tutorialBattleWon = true;
                 mapLocationsJson.locations[2].available = true;
-                mapLocationsJson.locations[3].available = true;
                 mapLocationsJson.locations[4].available = true;
+                mapLocationsJson.locations[8].available = true;
             }
 
         },
