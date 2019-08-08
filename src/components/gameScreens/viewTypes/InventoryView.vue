@@ -33,7 +33,8 @@
           <div class="item-decoration" />
           <div class="itemsChanger">
             <div class="templateItem disable-selection" v-for="item of itemsToBeRenderd"
-            v-on:click="itemRenderClicked(item.selected, item.title, item.model, item.id)" v-bind:key="item.id">
+            v-on:click="itemRenderClicked(item.selected, item.title, item.model, item.id,
+              item.str, item.dex, item.con)" v-bind:key="item.id">
                 <div class="itemHolderView" v-if="item.selected !== 'true'">
                     {{item.title}}
                 </div>
@@ -55,21 +56,21 @@
         <div class="pbHolder">
           <div class="titlePBItem disable-selection">STR</div>
           <div class="progressBarOutlineStr">
-            <div class="progressBarStr" />
+            <div class="progressBarStr" v-bind:style="calculateStrBar" />
           </div>
         </div>
 
         <div class="pbHolder">
           <div class="titlePBItem disable-selection">DEX</div>
           <div class="progressBarOutlineDex">
-            <div class="progressBarDex" />
+            <div class="progressBarDex" v-bind:style="calculateDexBar" />
           </div>
         </div>
 
         <div class="pbHolder">
           <div class="titlePBItem disable-selection">CON</div>
           <div class="progressBarOutlineCon">
-            <div class="progressBarCon" />
+            <div class="progressBarCon" v-bind:style="calculateConBar" />
           </div>
         </div>
       </div>
@@ -109,6 +110,9 @@ export default {
           model: null,
           id: null,
           jsonFiles: itemsJson,
+          str: 0,
+          dex: 0,
+          con: 0,
       },
     };
   },
@@ -145,12 +149,15 @@ export default {
       this.itemToBeChanged = "legplates";
       this.itemsTypeToBeRendered = 'legplates';
     },
-    itemRenderClicked(isSelected, title, model, id) {
+    itemRenderClicked(isSelected, title, model, id, str, dex, con) {
       this.itemClicked.isSelected = isSelected;
       this.itemClicked.title = title;
       this.itemClicked.types = this.itemsTypeToBeRendered;
       this.itemClicked.model = model;
       this.itemClicked.id = id;
+      this.itemClicked.str = str;
+      this.itemClicked.dex = dex;
+      this.itemClicked.con = con;
       this.$store.commit('itemFromInventoryClicked', this.itemClicked);
       if (this.itemClicked.types === 'knives') {
         for(let i=0; i<itemsJson.knife.length; i++) {
@@ -196,6 +203,42 @@ export default {
     }
   },
   computed: {
+    currentStr() {
+      return this.$store.state.Hero.str + this.$store.state.chestplate.str + this.$store.state.legplate.str +
+        this.$store.state.knife.str
+    },
+    maxStr() {
+      return this.$store.state.stats.str
+    },
+    calculateStrBar() {
+      return {
+        width: (this.currentStr/this.maxStr)*100 + '%'
+      }
+    },
+    currentDex() {
+      return this.$store.state.Hero.dex + this.$store.state.chestplate.dex + this.$store.state.legplate.dex +
+        this.$store.state.knife.dex
+    },
+    maxDex() {
+      return this.$store.state.stats.dex
+    },
+    calculateDexBar() {
+      return {
+        width: (this.currentDex/this.maxDex)*100 + '%'
+      }
+    },
+    currentCon() {
+      return this.$store.state.Hero.con + this.$store.state.chestplate.con + this.$store.state.legplate.con +
+        this.$store.state.knife.con
+    },
+    maxCon() {
+      return this.$store.state.stats.con
+    },
+    calculateConBar() {
+      return {
+        width: (this.currentCon/this.maxCon)*100 + '%'
+      }
+    },
     itemsToBeRenderd() {
         if (this.itemsTypeToBeRendered === 'knives') {
             return this.knivesAvailable
