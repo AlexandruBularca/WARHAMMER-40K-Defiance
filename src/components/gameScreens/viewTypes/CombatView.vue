@@ -130,7 +130,7 @@ export default {
     name: 'Combat',
     data() {
         return {
-            messageBattleWon: "It looks like you won this battle!\nLet's return home and gear up with new items from the inventory!",
+            messageBattleWon: "It looks like you won this battle!\n\nLet's return home and gear up with new items from the inventory!\n\nPress the inquisitor picture from the top-left of the screen in order to access the inventory!",
             ENEMY_LIST:enemy_list,
             selected_enemy:"enemy1",
             Combat: {
