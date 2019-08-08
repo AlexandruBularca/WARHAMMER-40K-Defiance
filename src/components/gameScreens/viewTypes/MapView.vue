@@ -2,7 +2,7 @@
   <div class="mapHolder" v-bind:style="overlay(canShowLocations)">
     <div v-if="canShowLocations === 2">
       <div class="currentUserLocation" v-bind:style="locateTheUser(item.x, item.y, item.available)" v-for="item of mapLocations"
-          v-bind:key="item.id"/>
+          v-bind:key="item.id" v-on:click="pinLocationSelected(item.x, item.y)"/>
     </div>
     <div v-if="canShowLocations === 2" class="buttonsHolder">
       <button class="btnAttack" v-on:click="showCombatView()">Search</button>
@@ -15,6 +15,9 @@ import mapLocationsJson from "./../../../assets/json/map_locations.json";
 export default {
     name: 'Map', 
     methods: {
+        pinLocationSelected(x, y) {
+          console.log(x, y);
+        },
         showCombatView() {
             this.$store.state.terminal_send_show = "";
             this.$store.commit('combatMode')
