@@ -95,19 +95,19 @@
         </div>
         <div class="buttonsHolder" v-bind:style="touchable(initialCombatMessage)">
             <div class="firstRowButtons">
-                <div class="button btnCol1 knifeBtn" v-on:click="heroKnifeAttack()">
+                <div class="button btnCol1 knifeBtn" v-bind:style="newTurn(actionTurn)" v-on:click="heroKnifeAttack()">
                     <div class="buttonText">
                         Knife Attack
                     </div>
                 </div>
-                <div class="button btnCol2 swordBtn" v-on:click="heroSwordAttack()">
+                <div class="button btnCol2 swordBtn" v-bind:style="newTurn(actionTurn)" v-on:click="heroSwordAttack()">
                     <div class="buttonText">
                         Sword Attack
                     </div>
                 </div>
             </div>
             <div class="secondRowButtons">
-                <div class="button btnCol1 gunBtn" v-on:click="heroGunAttack()">
+                <div class="button btnCol1 gunBtn" v-bind:style="newTurn(actionTurn)" v-on:click="heroGunAttack()">
                     <div class="buttonText">
                         Gun Attack
                     </div>
@@ -178,6 +178,18 @@ export default {
         };
     },
     methods: {
+        newTurn(turnNo) {
+            if(turnNo % 2 === 1) {
+                return {
+                    'opacity': '1',
+                }
+            } else {
+                return {
+                    'opacity': '0.4',
+                    'pointer-events': 'none',
+                }
+            }
+        },
         touchable(shouldShow) {
             if (shouldShow !== 2) {
               return {
@@ -343,9 +355,12 @@ export default {
           },
         change_enemy(){
             this.selected_enemy="enemy2";
-        }
+        },
     },
     computed: {
+        actionTurn() {
+            return this.turn;
+        },
         initialCombatMessage() {
             return this.$store.state.tutorialMessages.initialCombatViewMessage
         },
