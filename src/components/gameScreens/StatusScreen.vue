@@ -90,7 +90,8 @@ export default {
                 this.$store.state.inventorySelectedItems.sword = this.$store.state.sword.selectedSwordImg;
                 this.$store.state.inventorySelectedItems.chestplate = this.$store.state.chestplate.selectedChestplateImg;
                 this.$store.state.inventorySelectedItems.legplate = this.$store.state.legplate.selectedLegplateImg;
-                this.$store.commit('inventoryInteraction')
+                this.$store.commit('inventoryInteraction');
+                this.$store.state.terminal_send_show = "";
             }
         },
     } 
