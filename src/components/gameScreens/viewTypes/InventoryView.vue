@@ -94,8 +94,8 @@ export default {
       showArmorUpPanel: false,
       userPosX: this.$store.state.Map.locationMiniMap.x,
       userPosY: this.$store.state.Map.locationMiniMap.y,
-      transX: 78.2,
-      transY: 104.1,
+      transX: 14,
+      transY: 26,
       knivesAvailable: itemsJson.knife,
       gunsAvailable: itemsJson.gun,
       swordsAvailable: itemsJson.sword,
@@ -301,7 +301,7 @@ export default {
     asyncMiniMap: function() {
       return {
         transform:
-          "translate(" + this.userPosX + "%, " + this.userPosY + "%) scale(4)"
+          "translate(" + 14 + "%, " + 26 + "%) scale(4)"
       };
     },
     showSelectedChestplate() {
@@ -412,11 +412,11 @@ export default {
 }
 
 .currentUserLocation {
-  height: 20px;
-  width: 20px;
-  background-color: #e910108f;
+  height: 35px;
+  width: 35px;
+  background-color: #42a500ce;
   border-radius: 50%;
-  box-shadow: 0 0 0 5px #fd843e85;
+  box-shadow: 0 0 0 10px #70d12185;
   position: relative;
   top: 50%;
   left: 50%;
