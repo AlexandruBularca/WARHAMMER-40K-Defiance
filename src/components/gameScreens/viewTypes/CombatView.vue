@@ -236,6 +236,7 @@ export default {
             } else if(i === mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies.length) { 
                 this.$store.state.terminal_send_show = "Battle Won!";
                 this.$store.commit('showMap')
+                this.$store.state.addTerminalType = false;
             }
 
         },
@@ -270,7 +271,8 @@ export default {
         },
         heroAttacked() {
             if (this.$store.state.terminalTutorialItem > 4){
-                this.$store.state.terminal_send_show = this.$store.state.terminal_send_show + "hero attacked\n";
+                this.$store.state.addTerminalType = true;
+                this.$store.state.terminal_send_show = this.$store.state.terminal_send_show + "\nhero attacked";
             }
         },     
         heroKnifeAttack() {
