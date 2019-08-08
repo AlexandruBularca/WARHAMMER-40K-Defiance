@@ -4,23 +4,28 @@
             "id": "loc1",
             "x": 42.5,
             "y": 46.3,
+            "mapEnemies": ["scavanger","scavanger","scavanger","scavanger","cultist","scavanger"],
             "available": true
         },{
             "id": "loc2",
             "x": 36.5,
-            "y": 29.3
+            "y": 29.3,
+            "available": false
         },{
             "id": "loc3",
             "x": 51.5,
-            "y": 40.3
+            "y": 40.3,
+            "available": false
         },{
             "id": "loc4",
             "x": 45.5,
-            "y": 52.3
+            "y": 52.3,
+            "available": false
         },{
             "id": "loc5",
             "x": 35.5,
-            "y": 60.3
+            "y": 60.3,
+            "available": false
         }
     ],
 
