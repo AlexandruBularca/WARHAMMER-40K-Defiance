@@ -302,6 +302,7 @@ export default {
           get_curr_enemies(){
             for (var enemy in mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies){
                 var enemy_change="enemy"+(parseInt(enemy)+1);
+                console.log(enemy_change);
                 this.enemies[enemy_change].max_hp = enemy_list[mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies[enemy]].max_hp;
                 this.enemies[enemy_change].hp = enemy_list[mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies[enemy]].max_hp;
                 this.enemies[enemy_change].attack = enemy_list[mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies[enemy]].attack_power;
