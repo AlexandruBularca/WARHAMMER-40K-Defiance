@@ -34,7 +34,7 @@
           <div class="itemsChanger">
             <div class="templateItem disable-selection" v-for="item of itemsToBeRenderd"
             v-on:click="itemRenderClicked(item.selected, item.title, item.model, item.id)" v-bind:key="item.id">
-                <div class="itemHolderView" v-if="!item.selected">
+                <div class="itemHolderView" v-if="item.selected !== 'true'">
                     {{item.title}}
                 </div>
                 <div class="itemHolderViewSelected" v-else-if="item.selected">
@@ -83,6 +83,8 @@
 </template>
 
 <script>
+import itemsJson from "./../../../assets/json/items.json"
+
 export default {
   name: "Inventory",
   data() {
@@ -93,11 +95,11 @@ export default {
       userPosY: this.$store.state.Map.locationMiniMap.y,
       transX: 78.2,
       transY: 104.1,
-      knivesAvailable: this.$store.state.knife.knives,
-      gunsAvailable: this.$store.state.gun.guns,
-      swordsAvailable: this.$store.state.sword.swords,
-      chestplatesAvailable: this.$store.state.chestplate.chestplates,
-      legplatesAvailable: this.$store.state.legplate.legplates,
+      knivesAvailable: itemsJson.knife,
+      gunsAvailable: itemsJson.gun,
+      swordsAvailable: itemsJson.sword,
+      chestplatesAvailable: itemsJson.chestplate,
+      legplatesAvailable: itemsJson.legplate,
       itemsTypeToBeRendered: 'chestplates',
       itemClicked: {
           isSelected: null,
@@ -105,6 +107,7 @@ export default {
           types: null,
           model: null,
           id: null,
+          jsonFiles: itemsJson,
       },
     };
   },
@@ -148,6 +151,47 @@ export default {
       this.itemClicked.model = model;
       this.itemClicked.id = id;
       this.$store.commit('itemFromInventoryClicked', this.itemClicked);
+      if (this.itemClicked.types === 'knives') {
+        for(let i=0; i<itemsJson.knife.length; i++) {
+          if(itemsJson.knife[i].id === id) {
+            itemsJson.knife[i].selected = "true";
+          } else {
+            itemsJson.knife[i].selected = "false";
+          }
+        }
+      } else if (this.itemClicked.types === 'guns') {
+        for(let i=0; i<itemsJson.gun.length; i++) {
+          if(itemsJson.gun[i].id === id) {
+            itemsJson.gun[i].selected = "true";
+          } else {
+            itemsJson.gun[i].selected = "false";
+          }
+        }
+      } else if (this.itemClicked.types === 'swords') {
+        for(let i=0; i<itemsJson.sword.length; i++) {
+          if(itemsJson.sword[i].id === id) {
+            itemsJson.sword[i].selected = "true";
+          } else {
+            itemsJson.sword[i].selected = "false";
+          }
+        }
+      } else if (this.itemClicked.types === 'chestplates') {
+        for(let i=0; i<itemsJson.chestplate.length; i++) {
+          if(itemsJson.chestplate[i].id === id) {
+            itemsJson.chestplate[i].selected = "true";
+          } else {
+            itemsJson.chestplate[i].selected = "false";
+          }
+        }
+      } else if (this.itemClicked.types === 'legplates') {
+        for(let i=0; i<itemsJson.legplate.length; i++) {
+          if(itemsJson.legplate[i].id === id) {
+            itemsJson.legplate[i].selected = "true";
+          } else {
+            itemsJson.legplate[i].selected = "false";
+          }
+        }
+      }
     }
   },
   computed: {
