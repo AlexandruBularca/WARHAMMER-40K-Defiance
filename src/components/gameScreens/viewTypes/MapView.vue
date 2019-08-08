@@ -2,7 +2,7 @@
   <div class="mapHolder" v-bind:style="overlay(canShowLocations)">
     <div v-if="canShowLocations === 2">
       <div class="currentUserLocation" v-bind:style="locateTheUser(item.x, item.y, item.available)" v-for="item of mapLocations"
-          v-bind:key="item.id" v-on:click="pinLocationSelected(item.x, item.y)"/>
+          v-bind:key="item.id" v-on:click="pinLocationSelected(item.x, item.y)" id="item" + item.id/>
     </div>
     <div v-if="canShowLocations === 2" class="buttonsHolder">
       <button class="btnAttack" v-on:click="showCombatView()">Search</button>
@@ -16,7 +16,11 @@ export default {
     name: 'Map', 
     methods: {
         pinLocationSelected(x, y) {
+          var elEnemySelectedAvatar = document.getElementById('loc2');
+          if(elEnemySelectedAvatar) {
           console.log(x, y);
+              elEnemySelectedAvatar.className = 'enemySelectedAvatar keepCharacterRatio';
+          }
         },
         showCombatView() {
             this.$store.state.terminal_send_show = "";
