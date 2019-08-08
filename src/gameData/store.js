@@ -22,9 +22,6 @@ const data = new Vuex.Store({
       initialInventoryMessage: 0,
       messageNewLocations: 0,
     },
-    welcomeMessageShowed: false,
-    tutorialGearUpItemsInventoryShowed: false,
-    tutorialBattleWon: false,
 
 
     curr_enemies:["cultist","cultist","cultist","scavanger","cultist","scavanger"],
