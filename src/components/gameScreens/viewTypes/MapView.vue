@@ -93,6 +93,7 @@ export default {
   border-radius: 50%;
   box-shadow: 0 0 0 5px #fd843e85;
   position: absolute;
+  cursor: pointer;
 }
 
 .buttonsHolder {
