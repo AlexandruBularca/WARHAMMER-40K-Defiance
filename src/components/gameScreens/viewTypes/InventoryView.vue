@@ -176,27 +176,27 @@ export default {
     },
     showSelectedChestplate() {
         return {
-          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/selectable_invenotry/src/assets/img/' + this.$store.state.chestplate.selectedChestplateImg + '.png")'
+          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/primary/src/assets/img/' + this.$store.state.chestplate.selectedChestplateImg + '.png")'
         };
     },
     showSelectedLegplate() {
         return {
-          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/selectable_invenotry/src/assets/img/' + this.$store.state.legplate.selectedLegplateImg + '.png")'
+          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/primary/src/assets/img/' + this.$store.state.legplate.selectedLegplateImg + '.png")'
         };
     },
     showSelectedKnife() {
         return {
-          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/selectable_invenotry/src/assets/img/' + this.$store.state.knife.selectedKnifeImg + '.png")'
+          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/primary/src/assets/img/' + this.$store.state.knife.selectedKnifeImg + '.png")'
         };
     },
     showSelectedSword() {
         return {
-          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/selectable_invenotry/src/assets/img/' + this.$store.state.sword.selectedSwordImg + '.png")'
+          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/primary/src/assets/img/' + this.$store.state.sword.selectedSwordImg + '.png")'
         };
     },
     showSelectedGun() {
         return {
-          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/selectable_invenotry/src/assets/img/' + this.$store.state.gun.selectedGunImg + '.png")'
+          'background-image': 'url("https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/primary/src/assets/img/' + this.$store.state.gun.selectedGunImg + '.png")'
         };
     }
   },
