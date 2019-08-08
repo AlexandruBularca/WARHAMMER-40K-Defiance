@@ -233,6 +233,9 @@ export default {
                 mapLocationsJson.locations[2].available = true;
                 mapLocationsJson.locations[4].available = true;
                 mapLocationsJson.locations[8].available = true;
+            } else if(i === mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies.length) { 
+                this.$store.state.terminal_send_show = "Battle Won!";
+                this.$store.commit('showMap')
             }
 
         },
