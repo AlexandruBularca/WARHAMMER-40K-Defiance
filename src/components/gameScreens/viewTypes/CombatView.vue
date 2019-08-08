@@ -95,19 +95,19 @@
         </div>
         <div class="buttonsHolder" v-bind:style="touchable(initialCombatMessage)">
             <div class="firstRowButtons">
-                <div class="button btnCol1 knifeBtn" v-bind:style="newTurnFind(actionTurn)" id="btnKnifeAtk" v-on:click="heroKnifeAttack()">
+                <div class="button btnCol1 knifeBtn" v-bind:style="newTurnFind(actionTurn)" v-on:click="heroKnifeAttack()">
                     <div class="buttonText">
                         Knife Attack
                     </div>
                 </div>
-                <div class="button btnCol2 swordBtn" v-bind:style="newTurn(actionTurn)" id="btnSwordAtk" v-on:click="heroSwordAttack()">
+                <div class="button btnCol2 swordBtn" v-bind:style="newTurn(actionTurn)" v-on:click="heroSwordAttack()">
                     <div class="buttonText">
                         Sword Attack
                     </div>
                 </div>
             </div>
             <div class="secondRowButtons">
-                <div class="button btnCol1 gunBtn" v-bind:style="newTurn(actionTurn)" id="btnGunAtk" v-on:click="heroGunAttack()">
+                <div class="button btnCol1 gunBtn" v-bind:style="newTurn(actionTurn)" v-on:click="heroGunAttack()">
                     <div class="buttonText">
                         Gun Attack
                     </div>
@@ -256,6 +256,9 @@ export default {
             }
 
             if(i === mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies.length && this.$store.state.tutorialMessages.initialBattleWonMessage === 0) {
+var elBtnKnifeAtk = document.getElementById('btnKnifeAtk');elBtnKnifeAtk.style.pointerEvents = "none";elBtnKnifeAtk.style.opacity = 0.4;
+var elBtnSwordAtk = document.getElementById('btnSwordAtk');elBtnSwordAtk.style.pointerEvents = "none";elBtnSwordAtk.style.opacity = 0.4;
+var elBtnGunAtk = document.getElementById('btnGunAtk');elBtnGunAtk.style.pointerEvents = "none";elBtnGunAtk.style.opacity = 0.4;
                 this.$store.state.tutorialMessages.initialBattleWonMessage = 1;
                 this.$store.state.terminal_send_show = this.messageBattleWon;
                 this.$store.state.tutorialBattleWon = true;
