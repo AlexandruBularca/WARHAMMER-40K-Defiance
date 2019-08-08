@@ -130,6 +130,7 @@ export default {
     name: 'Combat',
     data() {
         return {
+            messageBattleWon: "It looks like you won this battle!\nLet's return home and gear up with new items from the inventory!",
             ENEMY_LIST:enemy_list,
             selected_enemy:"enemy1",
             Combat: {
@@ -229,6 +230,10 @@ export default {
                         i++;
                     }
                 }
+
+                if(i === this.$store.state.curr_enemies.length) {
+                    this.$store.state.terminal_send_show = this.messageBattleWon;
+                }
             }
          },
       
@@ -268,6 +273,10 @@ export default {
                         i++;
                     }
                 }
+
+                if(i === this.$store.state.curr_enemies.length) {
+                    this.$store.state.terminal_send_show = this.messageBattleWon;
+                }
             }
          },
 
@@ -306,6 +315,10 @@ export default {
                     } else {
                         i++;
                     }
+                }
+
+                if(i === this.$store.state.curr_enemies.length) {
+                    this.$store.state.terminal_send_show = this.messageBattleWon;
                 }
             }
           },
