@@ -14,6 +14,7 @@ const data = new Vuex.Store({
     terminal_send_show:"",
 
     welcomeMessageShowed: false,
+    tutorialGearUpItemsInventoryShowed: false,
 
 
     curr_enemies:["cultist","cultist","cultist","scavanger","cultist","scavanger"],
