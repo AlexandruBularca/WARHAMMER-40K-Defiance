@@ -10,7 +10,7 @@
             "id": "loc2",
             "x": 36.5,
             "y": 29.3,
-            "mapEnemies": ["cultist","cultist","cultist","cultist","cultist","cultist"],
+            "mapEnemies": ["tech_priest","tech_priest","tech_priest","tech_priest","tech_priest","cultist"],
             "available": false
         },{
             "id": "loc3",
@@ -22,7 +22,7 @@
             "id": "loc4",
             "x": 45.5,
             "y": 59.2,
-            "mapEnemies": ["cultist","scavanger","scavanger","scavanger","scavanger","cultist"],
+            "mapEnemies": ["noEnemy","scavanger","tech_priest","noEnemy","scavanger","cultist"],
             "available": false
         },{
             "id": "loc5",
@@ -34,31 +34,31 @@
             "id": "loc6",
             "x": 71.6,
             "y": 41.9,
-            "mapEnemies": ["scavanger","cultist","cultist","cultist","scavanger","scavanger"],
+            "mapEnemies": ["noEnemy","noEnemy","tech_priest","cultist","scavanger","scavanger"],
             "available": false
         },{
             "id": "loc7",
             "x": 66.4,
             "y": 64.0,
-            "mapEnemies": ["scavanger","cultist","cultist","cultist","cultist","scavanger"],
+            "mapEnemies": ["scavanger","tech_priest","cultist","noEnemy","tech_priest","scavanger"],
             "available": false
         },{
             "id": "loc8",
             "x": 61.1,
             "y": 21.3,
-            "mapEnemies": ["scavanger","scavanger","cultist","cultist","cultist","scavanger"],
+            "mapEnemies": ["scavanger","scavanger","noEnemy","tech_priest","cultist","scavanger"],
             "available": false
         },{
             "id": "loc9",
             "x": 31.8,
             "y": 52.3,
-            "mapEnemies": ["cultist","noEnemy","cultist","cultist","cultist","scavanger"],
+            "mapEnemies": ["cultist","noEnemy","cultist","noEnemy","cultist","scavanger"],
             "available": false
         },{
             "id": "loc10",
             "x": 52.7,
             "y": 61.5,
-            "mapEnemies": ["cultist","cultist","scavanger","noEnemy","scavanger","scavanger"],
+            "mapEnemies": ["noEnemy","tech_priest","scavanger","noEnemy","scavanger","scavanger"],
             "available": false
         }
     ],
