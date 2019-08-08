@@ -311,7 +311,7 @@ export default {
                     var elAddImgStats = document.getElementById("enemyImgStat"+(parseInt(enemy)+1));
                     elAddImgStats.src = enemy_list[mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies[enemy]].spriteStat;
                 } else {
-                    var elAddImg = document.getElementById("enemy"+(parseInt(enemy)+1));
+                    elAddImg = document.getElementById("enemy"+(parseInt(enemy)+1));
                     elAddImg.style.opacity = 0;
                     elAddImg.style.pointerEvents = "none";
                 //'opacity': '0.4',
