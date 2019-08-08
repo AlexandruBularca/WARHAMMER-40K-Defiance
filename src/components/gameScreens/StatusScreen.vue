@@ -76,7 +76,7 @@ export default {
                 this.$store.commit('inventoryInteraction')
                 if(!this.$store.state.tutorialGearUpItemsInventoryShowed) {
                     this.$store.state.tutorialGearUpItemsInventoryShowed = true;
-                    this.$store.state.terminal_send_show = "On the right side you can see the stats panel.\n\nIt indicates the overall strength, dexterity and constitution.";
+                    this.$store.state.terminal_send_show = "On the right side you can see the statistics panel.\n\nIt indicates the overall strength, dexterity and constitution.\n\nYou can choose the items which you think that will help you in the battles!\nEvery item has his own statistics.";
                 }
             }
         },
