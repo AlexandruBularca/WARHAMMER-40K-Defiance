@@ -218,28 +218,30 @@ export default {
         //made by Ionel and Sebi
         
         heroKnifeAttack() {
-            console.log(this.enemies[this.selected_enemy].hp - this.$store.state.Hero.knifeAttack);
-            this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - this.$store.state.Hero.knifeAttack;
+            var atkHero = this.$store.state.Hero.str + this.$store.state.chestplate.str + this.$store.state.legplate.str +
+                this.$store.state.knife.str;
+            this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - atkHero;
             if(this.enemies[this.selected_enemy].hp < 0) {
                 this.enemies[this.selected_enemy].hp = 0;
             }
-            console.log(this.enemies[this.selected_enemy].hp);
          },
       
          heroSwordAttack() {
-            this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - this.$store.state.Hero.swordAttack;
+            var atkHero = this.$store.state.Hero.str + this.$store.state.chestplate.str + this.$store.state.legplate.str +
+                this.$store.state.sword.str;
+            this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - atkHero;
             if(this.enemies[this.selected_enemy].hp < 0) {
                 this.enemies[this.selected_enemy].hp = 0;
             }
-            console.log(this.enemies.enemy1.hp);
          },
 
          heroGunAttack() {
-            this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - this.$store.state.Hero.gunAttack;
+            var atkHero = this.$store.state.Hero.str + this.$store.state.chestplate.str + this.$store.state.legplate.str +
+                this.$store.state.gun.str;
+            this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - atkHero;
             if(this.enemies[this.selected_enemy].hp < 0) {
                 this.enemies[this.selected_enemy].hp = 0;
             }
-            console.log(this.enemies.enemy1.hp);
           },
 
          enemy1Attackhero () {
