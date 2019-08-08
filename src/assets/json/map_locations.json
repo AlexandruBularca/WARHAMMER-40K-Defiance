@@ -58,8 +58,8 @@
             "id": "loc10",
             "x": 52.7,
             "y": 61.5,
-            "mapEnemies": ["cultist","cultist","scavanger","cultist","scavanger"],
-            "available": true
+            "mapEnemies": ["cultist","cultist","scavanger","scavanger","scavanger","scavanger"],
+            "available": false
         }
     ],
 
