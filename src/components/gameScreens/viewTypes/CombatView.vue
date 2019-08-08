@@ -207,7 +207,7 @@ export default {
                 elDeadEnemyAvatar.className = 'hideEnemyAvatar enemyCharacterAvatar';
             }
 
-            while(i<mapLocationsJson.locations[0].mapEnemies.length && !found) {
+            while(i<mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies.length && !found) {
                 var enemy_change="enemy"+(parseInt(i)+1);
 
                 if(this.enemies[enemy_change].hp !== 0) {
@@ -226,7 +226,7 @@ export default {
                 }
             }
 
-            if(i === mapLocationsJson.locations[0].mapEnemies.length && this.$store.state.tutorialMessages.initialBattleWonMessage === 0) {
+            if(i === mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies.length && this.$store.state.tutorialMessages.initialBattleWonMessage === 0) {
                 this.$store.state.tutorialMessages.initialBattleWonMessage = 1;
                 this.$store.state.terminal_send_show = this.messageBattleWon;
                 this.$store.state.tutorialBattleWon = true;
@@ -297,13 +297,13 @@ export default {
           },
 
           get_curr_enemies(){
-            for (var enemy in mapLocationsJson.locations[0].mapEnemies){
+            for (var enemy in mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies){
                 var enemy_change="enemy"+(parseInt(enemy)+1);
-                this.enemies[enemy_change].max_hp = enemy_list[mapLocationsJson.locations[0].mapEnemies[enemy]].max_hp;
-                this.enemies[enemy_change].hp = enemy_list[mapLocationsJson.locations[0].mapEnemies[enemy]].max_hp;
-                this.enemies[enemy_change].attack = enemy_list[mapLocationsJson.locations[0].mapEnemies[enemy]].attack_power;
+                this.enemies[enemy_change].max_hp = enemy_list[mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies[enemy]].max_hp;
+                this.enemies[enemy_change].hp = enemy_list[mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies[enemy]].max_hp;
+                this.enemies[enemy_change].attack = enemy_list[mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies[enemy]].attack_power;
                 var elAddImg = document.getElementById("enemySrc"+(parseInt(enemy)+1));
-                elAddImg.src = enemy_list[mapLocationsJson.locations[0].mapEnemies[enemy]].sprite;
+                elAddImg.src = enemy_list[mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies[enemy]].sprite;
             }
           },
         change_enemy(){
