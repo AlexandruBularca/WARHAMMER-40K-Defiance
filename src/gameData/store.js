@@ -23,6 +23,8 @@ const data = new Vuex.Store({
       messageNewLocations: 0,
     },
 
+    mapLocationClicked: 0,
+
 
     curr_enemies:["cultist","cultist","cultist","scavanger","cultist","scavanger"],
 
