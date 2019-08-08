@@ -57,23 +57,18 @@ export default {
                 if (this.currentTutorialNumber === 0) {
                     this.$store.state.tutorialMessages.initialMapMessage = 2;
                     this.$store.state.terminalTutorialItem = 1;
-                    console.log('initial message map ended');
                 } else if (this.currentTutorialNumber === 1) {
                     this.$store.state.tutorialMessages.initialCombatViewMessage = 2;
                     this.$store.state.terminalTutorialItem = 2;
-                    console.log('initial message combat view ended');
                 } else if (this.currentTutorialNumber === 2) {
                     this.$store.state.tutorialMessages.initialBattleWonMessage = 2;
                     this.$store.state.terminalTutorialItem = 3;
-                    console.log('initial message combat won ended');
                 } else if (this.currentTutorialNumber === 3) {
                     this.$store.state.tutorialMessages.initialInventoryMessage = 2;
                     this.$store.state.terminalTutorialItem = 4;
-                    console.log('initial message inventory gear-up ended');
                 } else if (this.currentTutorialNumber === 4) {
                     this.$store.state.tutorialMessages.messageNewLocations = 2;
                     this.$store.state.terminalTutorialItem = 5;
-                    console.log('initial message inventory gear-up ended');
                 }
                 this.reset_timer();
             }
