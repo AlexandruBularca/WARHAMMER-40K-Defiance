@@ -80,6 +80,8 @@ export default {
             if(this.textToBeAddedToCMD.length){
                 if(i !== this.textToBeAddedToCMD.length) {
                     this.addText();
+                    var elem = document.getElementById('trmHolder');
+                    elem.scrollTop = elem.scrollHeight;
                 } else {
                     //elem.scrollTop = elem.scrollHeight;
                 }
