@@ -3,7 +3,7 @@
         <div class="enemyStatsHolder">
             <div class="firstRowEnemyStatus">
                 <div class="holderEnemyStatus col1" v-if="isAvailableEnemy5">
-                    <div class="enemyStatusStyle" tabindex="1" v-on:click="selected_enemy='enemy1'">
+                    <div id="enemy1" class="enemyStatusStyle enemySelected" tabindex="1" v-on:click="selected_enemy='enemy1'">
                         <div class="progressBarOutlineStr">
                             <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy1.hp/this.enemies.enemy1.max_hp)*100 + '%' }" />
                         </div>
@@ -13,7 +13,7 @@
                     </div>
                 </div>
                 <div class="holderEnemyStatus col2" v-if="isAvailableEnemy3">
-                    <div class="enemyStatusStyle" tabindex="1" v-on:click="selected_enemy='enemy2'">
+                    <div id="enemy2" class="enemyStatusStyle" tabindex="1" v-on:click="selected_enemy='enemy2'">
                         <div class="progressBarOutlineStr">
                             <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy2.hp/this.enemies.enemy2.max_hp)*100 + '%' }" />
                         </div>
@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="holderEnemyStatus col3" v-if="isAvailableEnemy1">
-                    <div class="enemyStatusStyle" tabindex="1" v-on:click="selected_enemy='enemy3'">
+                    <div id="enemy3" class="enemyStatusStyle" tabindex="1" v-on:click="selected_enemy='enemy3'">
                         <div class="progressBarOutlineStr">
                             <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy3.hp/this.enemies.enemy3.max_hp)*100 + '%' }" />
                         </div>
@@ -35,7 +35,7 @@
             </div>
             <div class="secondRowEnemyStatus">
                 <div class="holderEnemyStatus col1" v-if="isAvailableEnemy6">
-                    <div class="enemyStatusStyle" tabindex="1" v-on:click="selected_enemy='enemy4'">
+                    <div id="enemy4" class="enemyStatusStyle" tabindex="1" v-on:click="selected_enemy='enemy4'">
                         <div class="progressBarOutlineStr">
                             <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy4.hp/this.enemies.enemy4.max_hp)*100 + '%' }" />
                         </div>
@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="holderEnemyStatus col2" v-if="isAvailableEnemy4">
-                    <div class="enemyStatusStyle" tabindex="1" v-on:click="selected_enemy='enemy5'">
+                    <div id="enemy5" class="enemyStatusStyle" tabindex="1" v-on:click="selected_enemy='enemy5'">
                         <div class="progressBarOutlineStr">
                             <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy5.hp/this.enemies.enemy5.max_hp)*100 + '%' }" />
                         </div>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="holderEnemyStatus col3" v-if="isAvailableEnemy2">
-                    <div class="enemyStatusStyle" tabindex="1" v-on:click="selected_enemy='enemy6'">
+                    <div id="enemy6" class="enemyStatusStyle" tabindex="1" v-on:click="selected_enemy='enemy6'">
                         <div class="progressBarOutlineStr">
                             <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy6.hp/this.enemies.enemy6.max_hp)*100 + '%' }" />
                         </div>
@@ -182,12 +182,36 @@ export default {
         //made by Ionel and Sebi
         
         heroKnifeAttack() {
-            //console.log(this.enemies[this.selected_enemy].hp);
             var atkHero = this.$store.state.Hero.str + this.$store.state.chestplate.str + this.$store.state.legplate.str +
                 this.$store.state.knife.str;
             this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - atkHero;
             if(this.enemies[this.selected_enemy].hp < 0) {
                 this.enemies[this.selected_enemy].hp = 0;
+                var i = 0;
+                var found = false;
+                
+                var el = document.getElementById(this.selected_enemy);
+                if(el) {
+                    el.className = 'enemyStatusStyle';
+                }
+
+                while(i<this.$store.state.curr_enemies.length && !found) {
+                    var enemy_change="enemy"+(parseInt(i)+1);
+
+                    if(this.enemies[enemy_change].hp !== 0) {
+                        found = true;
+                        
+                        this.selected_enemy = enemy_change;
+
+                        var el = document.getElementById(enemy_change);
+                        if(el) {
+                            el.className = 'enemyStatusStyle enemySelected';
+                        }
+
+                    } else {
+                        i++;
+                    }
+                }
             }
          },
       
@@ -197,6 +221,17 @@ export default {
             this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - atkHero;
             if(this.enemies[this.selected_enemy].hp < 0) {
                 this.enemies[this.selected_enemy].hp = 0;
+                var i = 0;
+                var found = false;
+                while(i<this.$store.state.curr_enemies.length && !found) {
+                    var enemy_change="enemy"+(parseInt(i)+1);
+                    if(this.enemies[enemy_change].hp !== 0) {
+                        this.selected_enemy = enemy_change;
+                        found = true;
+                    } else {
+                        i++;
+                    }
+                }
             }
          },
 
@@ -206,6 +241,17 @@ export default {
             this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - atkHero;
             if(this.enemies[this.selected_enemy].hp < 0) {
                 this.enemies[this.selected_enemy].hp = 0;
+                var i = 0;
+                var found = false;
+                while(i<this.$store.state.curr_enemies.length && !found) {
+                    var enemy_change="enemy"+(parseInt(i)+1);
+                    if(this.enemies[enemy_change].hp !== 0) {
+                        this.selected_enemy = enemy_change;
+                        found = true;
+                    } else {
+                        i++;
+                    }
+                }
             }
           },
 
@@ -215,7 +261,7 @@ export default {
 
           get_curr_enemies(){
             for (var enemy in this.$store.state.curr_enemies){
-                 var i=this.$store.state.curr_enemies.indexOf(enemy)+1;
+                //var i=this.$store.state.curr_enemies.indexOf(enemy)+1;
                 var enemy_change="enemy"+(parseInt(enemy)+1);
                 //console.log(enemy_change);
                 //console.log(this.enemies[enemy_change]);
@@ -387,10 +433,10 @@ export default {
 }
 
 .myCharacterAvatar {
-    height: 30%;
-    width: 20%;
+    height: 50%;
+    width: 40%;
     position: relative;
-    top: 50%;
+    top: 40%;
     left: 5%;
     float: left;
 }
@@ -503,6 +549,20 @@ export default {
     background-color: rgba(0, 0, 0, 0.144);
     font-size: 26px;
     cursor: pointer;
+}
+
+.enemySelected {
+    width: 90%;
+    height: 70%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.493);
+    border: 6px solid rgba(0, 0, 0, 0.575);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.671),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .knifeBtn:hover {
