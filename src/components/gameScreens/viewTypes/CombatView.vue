@@ -131,6 +131,7 @@ export default {
     data() {
         return {
             turn: 1,
+            inqTurn: 1,
             messageBattleWon: "It looks like you won this battle!\n\nLet's return home and gear up with new items from the inventory!\n\nPress the inquisitor picture from the top-left of the screen in order to access the inventory!",
             ENEMY_LIST:enemy_list,
             selected_enemy:"enemy1",
@@ -283,7 +284,8 @@ export default {
                 } else if (weapon === 2) {
                     weaponUsed = 'gun';
                 }
-                this.$store.state.textToBeAdded = "Inquisitor turn: " + this.turn + "\n - weapon used: " + weaponUsed +"\n - total damage: " + heroPower + "\n\n";
+                this.$store.state.textToBeAdded = "Inquisitor turn: " + this.inqTurn + "\n - weapon used: " + weaponUsed +"\n - damage taken: " + heroPower + "\n\n";
+                this.inqTurn++;
                 this.turn++;
             }
         },     
