@@ -27,7 +27,7 @@
             "selected": "true",
             "str": 20,
             "dex": 75,
-            "con": 100
+            "con": 0
         },
         {
             "id": "lg2",
@@ -36,7 +36,7 @@
             "selected": "false",
             "str": 40,
             "dex": 120,
-            "con": 150
+            "con": 0
         }
     ],
     "knife": [
@@ -47,7 +47,7 @@
             "selected": "true",
             "str": 100,
             "dex": 40,
-            "con": 30
+            "con": 0
         },
         {
             "id": "kn2",
@@ -56,7 +56,7 @@
             "selected": "false",
             "str": 135,
             "dex": 67,
-            "con": 36
+            "con": 0
         },
         {
             "id": "kn3",
@@ -65,7 +65,7 @@
             "selected": "false",
             "str": 184,
             "dex": 82,
-            "con": 42
+            "con": 0
         },
         {
             "id": "kn4",
@@ -74,7 +74,7 @@
             "selected": "false",
             "str": 201,
             "dex": 98,
-            "con": 49
+            "con": 0
         }
     ],
     "sword": [
@@ -85,7 +85,7 @@
             "selected": "true",
             "str": 179,
             "dex": 21,
-            "con": 19
+            "con": 0
         },
         {
             "id": "sw2",
@@ -94,7 +94,7 @@
             "selected": "false",
             "str": 231,
             "dex": 30,
-            "con": 25
+            "con": 0
         },
         {
             "id": "sw3",
@@ -103,7 +103,7 @@
             "selected": "false",
             "str": 280,
             "dex": 36,
-            "con": 31
+            "con": 0
         }
     ],
     "gun": [
@@ -114,7 +114,7 @@
             "selected": "true",
             "str": 100,
             "dex": 52,
-            "con": 21
+            "con": 0
         },
         {
             "id": "gu2",
@@ -123,7 +123,7 @@
             "selected": "false",
             "str": 121,
             "dex": 57,
-            "con": 25
+            "con": 0
         },
         {
             "id": "gu3",
@@ -132,7 +132,7 @@
             "selected": "false",
             "str": 146,
             "dex": 63,
-            "con": 28
+            "con": 0
         },
         {
             "id": "gu4",
