@@ -12,6 +12,7 @@ export default {
     name: 'Map', 
     methods: {
         showCombatView() {
+            this.$store.state.terminal_send_show = "";
             this.$store.commit('combatMode')
         },
     },

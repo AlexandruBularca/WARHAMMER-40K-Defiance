@@ -66,15 +66,18 @@ export default {
     },
     methods: {
         inventoryInteraction() {
-            this.$store.state.terminal_send_show = "";
-            this.$store.state.inventorySelectedItems.knife = this.$store.state.knife.selectedKnifeImg;
-            this.$store.state.inventorySelectedItems.gun = this.$store.state.gun.selectedGunImg;
-            this.$store.state.inventorySelectedItems.sword = this.$store.state.sword.selectedSwordImg;
-            this.$store.state.inventorySelectedItems.chestplate = this.$store.state.chestplate.selectedChestplateImg;
-            this.$store.state.inventorySelectedItems.legplate = this.$store.state.legplate.selectedLegplateImg;
-            this.$store.commit('inventoryInteraction')
-            if(this.$store.state.tutorialGearUpItemsInventoryShowed) {
-                this.$store.state.tutorialGearUpItemsInventoryShowed = true;
+            if(this.$store.state.tutorialBattleWon) {
+                this.$store.state.terminal_send_show = "";
+                this.$store.state.inventorySelectedItems.knife = this.$store.state.knife.selectedKnifeImg;
+                this.$store.state.inventorySelectedItems.gun = this.$store.state.gun.selectedGunImg;
+                this.$store.state.inventorySelectedItems.sword = this.$store.state.sword.selectedSwordImg;
+                this.$store.state.inventorySelectedItems.chestplate = this.$store.state.chestplate.selectedChestplateImg;
+                this.$store.state.inventorySelectedItems.legplate = this.$store.state.legplate.selectedLegplateImg;
+                this.$store.commit('inventoryInteraction')
+                if(!this.$store.state.tutorialGearUpItemsInventoryShowed) {
+                    this.$store.state.tutorialGearUpItemsInventoryShowed = true;
+                    this.$store.state.terminal_send_show = "On the right side you can see the stats panel.\n\nIt indicates the overall strength, dexterity and constitution.";
+                }
             }
         },
     } 
