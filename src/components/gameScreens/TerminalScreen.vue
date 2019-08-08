@@ -93,7 +93,7 @@ export default {
             this.text_present = temp_text_present.join("") + unders;
             i++;
             if(this.textToBeAddedToCMD.length){
-                console.log(this.text_present.length, this.textToBeAddedToCMD.length);
+                console.log(i, this.textToBeAddedToCMD.length);
                 this.addText()
             }
         },this.scroll_speed_add);
