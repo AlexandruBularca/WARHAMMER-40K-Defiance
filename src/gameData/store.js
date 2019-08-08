@@ -13,10 +13,16 @@ const data = new Vuex.Store({
 
     terminal_send_show:"",
 
+
+    curr_enemies:["cultist","cultist","cultist","scavanger","cultist","scavanger"],
+
     // Hero Stats
     Hero: {
       hp: 100,
-      maxHp: 100
+      maxHp: 100,
+      knifeAttack: 25,
+      swordAttack: 50,
+      gunAttack: 50
     },
 
     //Ammo
@@ -43,22 +49,6 @@ const data = new Vuex.Store({
       },
     },
 
-    //Enemies from combat
-    Combat: {
-      enemy1: true,
-      enemy2: true,
-      enemy3: true,
-      enemy4: true,
-      enemy5: true,
-      enemy6: true,
-    },
-
-    //Enemy
-    enemy1: {
-      hp: 50,
-      maxhp: 50,
-      attack: 30
-    },
 
     knife: {
       selectedKnife: 'knife_lvl1',
@@ -179,25 +169,8 @@ const data = new Vuex.Store({
     change_terminal_send_show(state,text_to_change){
       return state.terminal_send_show= text_to_change
     },
-
-    heroKnifeAttack() {
-      this.state.enemy1.hp = this.state.enemy1.hp - this.state.hero.knifeAttack;
-      this.commit('enemy1Attackhero');
-      },
-      
-    heroSwordAttack() {
-      this.state.enemy1.hp = this.state.enemy1.hp - this.state.hero.swordAttack;
-      this.commit('enemy1Attackhero');
-    },
-
-    heroGunAttack() {
-      this.state.enemy1.hp = this.state.enemy1.hp - this.state.hero.gunAttack;
-      this.commit('enemy1Attackhero');
-    },
-
-    enemy1Attackhero () {
-      this.state.hero.hp = this.state.hero.hp -this.state.enemy.attack;
-    }
+    
+    
   }
 })
 
