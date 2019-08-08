@@ -125,6 +125,7 @@
 
 <script>
 import enemy_list from "./../../../assets/json/enemy_list.json"
+import mapLocationsJson from "./../../../assets/json/map_locations.json";
 export default {
     name: 'Combat',
     data() {
@@ -175,11 +176,48 @@ export default {
         };
     },
     methods: {
+        enemyKilled() {
+            this.enemies[this.selected_enemy].hp = 0;
+            var i = 0;
+            var found = false;
+            var elDeadEnemy = document.getElementById(this.selected_enemy);
+            if(elDeadEnemy) {
+                elDeadEnemy.className = 'enemyStatusStyle';
+            }
+            var elDeadEnemyAvatar = document.getElementById(this.selected_enemy + 'Avatar');
+            if(elDeadEnemyAvatar) {
+                elDeadEnemyAvatar.className = 'hideEnemyAvatar enemyCharacterAvatar';
+            }
+
+            while(i<this.$store.state.curr_enemies.length && !found) {
+                var enemy_change="enemy"+(parseInt(i)+1);
+
+                if(this.enemies[enemy_change].hp !== 0) {
+                    found = true;
+
+                    this.selected_enemy = enemy_change;
+
+                    var el = document.getElementById(enemy_change);
+                    if(el) {
+                        el.className = 'enemyStatusStyle enemySelected';
+                    }
+
+                } else {
+                    i++;
+                }
+            }
+
+            if(i === this.$store.state.curr_enemies.length && !this.$store.state.tutorialBattleWon) {
+                this.$store.state.terminal_send_show = this.messageBattleWon;
+                this.$store.state.tutorialBattleWon = true;
+                mapLocationsJson.locations[2].available = true;
+            }
+
+        },
         actionRetreat() {
             this.$store.commit('showMap')
         },
         onEnemeySelected(newEnemySelected) {
-
             var elDeadEnemy = document.getElementById(this.selected_enemy);
             if(elDeadEnemy) {
                 elDeadEnemy.className = 'enemyStatusStyle';
@@ -189,51 +227,13 @@ export default {
             if(elDeadEnemy) {
                 elDeadEnemy.className = 'enemyStatusStyle enemySelected';
             }
-        },
-
-        //made by Ionel and Sebi
-        
+        },        
         heroKnifeAttack() {
             var atkHero = this.$store.state.Hero.str + this.$store.state.chestplate.str + this.$store.state.legplate.str +
                 this.$store.state.knife.str;
             this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - atkHero;
             if(this.enemies[this.selected_enemy].hp < 0) {
-                this.enemies[this.selected_enemy].hp = 0;
-                var i = 0;
-                var found = false;
-
-                var elDeadEnemy = document.getElementById(this.selected_enemy);
-                if(elDeadEnemy) {
-                    elDeadEnemy.className = 'enemyStatusStyle';
-                }
-
-                var elDeadEnemyAvatar = document.getElementById(this.selected_enemy + 'Avatar');
-                if(elDeadEnemyAvatar) {
-                    elDeadEnemyAvatar.className = 'hideEnemyAvatar enemyCharacterAvatar';
-                }
-
-                while(i<this.$store.state.curr_enemies.length && !found) {
-                    var enemy_change="enemy"+(parseInt(i)+1);
-
-                    if(this.enemies[enemy_change].hp !== 0) {
-                        found = true;
-
-                        this.selected_enemy = enemy_change;
-
-                        var el = document.getElementById(enemy_change);
-                        if(el) {
-                            el.className = 'enemyStatusStyle enemySelected';
-                        }
-
-                    } else {
-                        i++;
-                    }
-                }
-
-                if(i === this.$store.state.curr_enemies.length) {
-                    this.$store.state.terminal_send_show = this.messageBattleWon;
-                    this.$store.state.tutorialBattleWon = true;
-                }
+                this.enemyKilled();
             }
          },
       
@@ -242,42 +242,7 @@ export default {
                 this.$store.state.sword.str;
             this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - atkHero;
             if(this.enemies[this.selected_enemy].hp < 0) {
-                this.enemies[this.selected_enemy].hp = 0;
-                var i = 0;
-                var found = false;
-
-                var elDeadEnemy = document.getElementById(this.selected_enemy);
-                if(elDeadEnemy) {
-                    elDeadEnemy.className = 'enemyStatusStyle';
-                }
-
-                var elDeadEnemyAvatar = document.getElementById(this.selected_enemy + 'Avatar');
-                if(elDeadEnemyAvatar) {
-                    elDeadEnemyAvatar.className = 'hideEnemyAvatar enemyCharacterAvatar';
-                }
-
-                while(i<this.$store.state.curr_enemies.length && !found) {
-                    var enemy_change="enemy"+(parseInt(i)+1);
-
-                    if(this.enemies[enemy_change].hp !== 0) {
-                        found = true;
-
-                        this.selected_enemy = enemy_change;
-
-                        var el = document.getElementById(enemy_change);
-                        if(el) {
-                            el.className = 'enemyStatusStyle enemySelected';
-                        }
-
-                    } else {
-                        i++;
-                    }
-                }
-
-                if(i === this.$store.state.curr_enemies.length) {
-                    this.$store.state.terminal_send_show = this.messageBattleWon;
-                    this.$store.state.tutorialBattleWon = true;
-                }
+                this.enemyKilled();
             }
          },
 
@@ -286,42 +251,7 @@ export default {
                 this.$store.state.gun.str;
             this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - atkHero;
             if(this.enemies[this.selected_enemy].hp < 0) {
-                this.enemies[this.selected_enemy].hp = 0;
-                var i = 0;
-                var found = false;
-
-                var elDeadEnemy = document.getElementById(this.selected_enemy);
-                if(elDeadEnemy) {
-                    elDeadEnemy.className = 'enemyStatusStyle';
-                }
-
-                var elDeadEnemyAvatar = document.getElementById(this.selected_enemy + 'Avatar');
-                if(elDeadEnemyAvatar) {
-                    elDeadEnemyAvatar.className = 'hideEnemyAvatar enemyCharacterAvatar';
-                }
-
-                while(i<this.$store.state.curr_enemies.length && !found) {
-                    var enemy_change="enemy"+(parseInt(i)+1);
-
-                    if(this.enemies[enemy_change].hp !== 0) {
-                        found = true;
-
-                        this.selected_enemy = enemy_change;
-
-                        var el = document.getElementById(enemy_change);
-                        if(el) {
-                            el.className = 'enemyStatusStyle enemySelected';
-                        }
-
-                    } else {
-                        i++;
-                    }
-                }
-
-                if(i === this.$store.state.curr_enemies.length) {
-                    this.$store.state.terminal_send_show = this.messageBattleWon;
-                    this.$store.state.tutorialBattleWon = true;
-                }
+                this.enemyKilled();
             }
           },
 
@@ -331,15 +261,12 @@ export default {
 
           get_curr_enemies(){
             for (var enemy in this.$store.state.curr_enemies){
-                //var i=this.$store.state.curr_enemies.indexOf(enemy)+1;
                 var enemy_change="enemy"+(parseInt(enemy)+1);
-                //console.log(enemy_change);
-                //console.log(this.enemies[enemy_change]);
-                this.enemies[enemy_change].max_hp = enemy_list[this.$store.state.curr_enemies[enemy]].max_hp;
-                this.enemies[enemy_change].hp = enemy_list[this.$store.state.curr_enemies[enemy]].max_hp;
-                this.enemies[enemy_change].attack = enemy_list[this.$store.state.curr_enemies[enemy]].attack_power;
+                this.enemies[enemy_change].max_hp = enemy_list[mapLocationsJson.locations[0].mapEnemies[enemy]].max_hp;
+                this.enemies[enemy_change].hp = enemy_list[mapLocationsJson.locations[0].mapEnemies[enemy]].max_hp;
+                this.enemies[enemy_change].attack = enemy_list[mapLocationsJson.locations[0].mapEnemies[enemy]].attack_power;
                 var elAddImg = document.getElementById("enemySrc"+(parseInt(enemy)+1));
-                elAddImg.src = enemy_list[this.$store.state.curr_enemies[enemy]].sprite;
+                elAddImg.src = enemy_list[mapLocationsJson.locations[0].mapEnemies[enemy]].sprite;
             }
           },
         change_enemy(){
