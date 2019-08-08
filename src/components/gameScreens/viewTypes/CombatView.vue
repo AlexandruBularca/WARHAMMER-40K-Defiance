@@ -8,7 +8,7 @@
                             <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy1.hp/this.enemies.enemy1.max_hp)*100 + '%' }" />
                         </div>
                         <div class="holderAvatarStatusEnemy">
-                            <img class="keepCharacterRatio statusEnemyImage"  src="./../../../assets/img/enemy_holder_default_status.png">
+                            <img class="keepCharacterRatio statusEnemyImage" id="enemyImgStat1" src="./../../../assets/img/enemy_holder_default_status.png">
                         </div>
                     </div>
                 </div>
@@ -18,7 +18,7 @@
                             <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy2.hp/this.enemies.enemy2.max_hp)*100 + '%' }" />
                         </div>
                         <div class="holderAvatarStatusEnemy">
-                            <img class="keepCharacterRatio statusEnemyImage"  src="./../../../assets/img/enemy_holder_default_status.png">
+                            <img class="keepCharacterRatio statusEnemyImage" id="enemyImgStat2" src="./../../../assets/img/enemy_holder_default_status.png">
                         </div>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                             <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy3.hp/this.enemies.enemy3.max_hp)*100 + '%' }" />
                         </div>
                         <div class="holderAvatarStatusEnemy">
-                            <img class="keepCharacterRatio statusEnemyImage"  src="./../../../assets/img/enemy_holder_default_status.png">
+                            <img class="keepCharacterRatio statusEnemyImage" id="enemyImgStat3" src="./../../../assets/img/enemy_holder_default_status.png">
                         </div>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                             <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy4.hp/this.enemies.enemy4.max_hp)*100 + '%' }" />
                         </div>
                         <div class="holderAvatarStatusEnemy">
-                            <img class="keepCharacterRatio statusEnemyImage"  src="./../../../assets/img/enemy_holder_default_status.png">
+                            <img class="keepCharacterRatio statusEnemyImage" id="enemyImgStat4" src="./../../../assets/img/enemy_holder_default_status.png">
                         </div>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                             <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy5.hp/this.enemies.enemy5.max_hp)*100 + '%' }" />
                         </div>
                         <div class="holderAvatarStatusEnemy">
-                            <img class="keepCharacterRatio statusEnemyImage"  src="./../../../assets/img/enemy_holder_default_status.png">
+                            <img class="keepCharacterRatio statusEnemyImage" id="enemyImgStat5" src="./../../../assets/img/enemy_holder_default_status.png">
                         </div>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
                             <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy6.hp/this.enemies.enemy6.max_hp)*100 + '%' }" />
                         </div>
                         <div class="holderAvatarStatusEnemy">
-                            <img class="keepCharacterRatio statusEnemyImage"  src="./../../../assets/img/enemy_holder_default_status.png">
+                            <img class="keepCharacterRatio statusEnemyImage" id="enemyImgStat6" src="./../../../assets/img/enemy_holder_default_status.png">
                         </div>
                     </div>
                 </div>
