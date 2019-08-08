@@ -125,7 +125,7 @@
 
 <script>
 import { METHODS } from 'http';
-import enemy_list from "../../../assets/json/enemy_list.json"
+import enemy_list from "./../../../assets/json/enemy_list.json"
 export default {
     name: 'Combat',
     data() {
@@ -172,42 +172,6 @@ export default {
                     attack:null
                 },
             }
-            //Enemy
-            // enemy1: {
-            // maxhp: 50,
-            // hp: 50,
-            // attack: 10
-            // },
-
-            // enemy2: {
-            // hp: 50,
-            // maxhp: 50,
-            // attack: 10
-            // },
-
-            // enemy3: {
-            // hp: 50,
-            // maxhp: 50,
-            // attack: 10
-            // },
-            
-            // enemy4: {
-            // hp: 50,
-            // maxhp: 50,
-            // attack: 10
-            // },
-
-            // enemy5: {
-            // hp: 50,
-            // maxhp: 50,
-            // attack: 10
-            // },
-
-            // enemy6: {
-            // hp: 50,
-            // maxhp: 50,
-            // attack: 10
-            // },
         };
     },
     methods: {
@@ -218,6 +182,7 @@ export default {
         //made by Ionel and Sebi
         
         heroKnifeAttack() {
+            //console.log(this.enemies[this.selected_enemy].hp);
             var atkHero = this.$store.state.Hero.str + this.$store.state.chestplate.str + this.$store.state.legplate.str +
                 this.$store.state.knife.str;
             this.enemies[this.selected_enemy].hp = this.enemies[this.selected_enemy].hp - atkHero;
@@ -251,13 +216,14 @@ export default {
           get_curr_enemies(){
             for (var enemy in this.$store.state.curr_enemies){
                 // var i=this.$store.state.curr_enemies.indexOf(enemy)+1;
-                var enemy_change="enemy"+(parseInt(enemy)+1);
-                // console.log(enemy_change);
-                // console.log(this.enemies["enemy1"]);
-                // console.log(this.enemies[enemy_change]);
-                this.enemies[enemy_change].max_hp = this.ENEMY_LIST[this.$store.state.curr_enemies[enemy]].max_hp;
-                this.enemies[enemy_change].hp = this.ENEMY_LIST[this.$store.state.curr_enemies[enemy]].max_hp;
-                this.enemies[enemy_change].attack = this.ENEMY_LIST[this.$store.state.curr_enemies[enemy]].attack_power;
+                //var enemy_change="enemy"+(parseInt(enemy)+1);
+                //console.log(enemy_change);
+                //console.log(this.enemies[enemy_change]);
+                //this.enemies[enemy_change].max_hp = this.ENEMY_LIST[this.$store.state.curr_enemies[enemy]].max_hp;
+                //this.enemies[enemy_change].hp = enemy_list['cultist'].max_hp;
+                //this.enemies[enemy_change].attack = this.ENEMY_LIST[this.$store.state.curr_enemies[enemy]].attack_power;
+                //console.log(this.enemies["enemy1"]);
+                console.log(enemy_list);
             }
           },
         change_enemy(){
