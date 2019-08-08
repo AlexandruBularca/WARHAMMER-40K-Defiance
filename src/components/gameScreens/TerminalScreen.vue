@@ -106,6 +106,7 @@ export default {
     padding:10px;
     padding-top:0px;
     font-family:"Roboto Mono";
+    white-space: pre-line;
     /* font-family: "FelinaT26Gothic" */
 }
 /* @font-face{
