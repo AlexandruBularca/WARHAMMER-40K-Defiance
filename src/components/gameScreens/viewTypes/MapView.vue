@@ -19,27 +19,33 @@ export default {
         },
         locateTheUser(x, y, available) {
             var bg_color, bg_shadow;
+            var pin_size, pin_margins;
             if (available) {
-                bg_color = "#34c70e";
-                bg_shadow = "#85dd6e";
+              bg_color = "#34c70e";
+              bg_shadow = "#85dd6e";
+              pin_size = 14;
+              pin_margins = 3;
             } else {
-                bg_color = "#f40808"
-                bg_shadow = "#f75252";
+              bg_color = "#f40808"
+              bg_shadow = "#f75252";
+              pin_size = 6;
+              pin_margins = 7;
             }
             return {
                 'box-shadow': '0 0 0 5px ' + bg_shadow,
                 'background-color': bg_color,
+                'width': pin_size + 'px',
+                'height': pin_size + 'px',
+                'margin': pin_margins + 'px',
                 top: x + "%",
                 left: y + "%"
             }
         },
     },
     data() {
-        return {
-        userPosX: mapLocationsJson.location_1.location.x,
-        userPosY: mapLocationsJson.location_1.location.y,
+      return {
         mapLocations: mapLocationsJson.locations,
-        };
+      };
     }
 };
 </script>
@@ -60,8 +66,8 @@ export default {
 }
 
 .currentUserLocation {
-  height: 20px;
-  width: 20px;
+  height: 6px;
+  width: 6px;
   background-color: #e910108f;
   border-radius: 50%;
   box-shadow: 0 0 0 5px #fd843e85;
