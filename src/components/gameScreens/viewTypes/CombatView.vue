@@ -183,13 +183,17 @@ export default {
             let actionThis = this;
             if(this.enemies !== null && this.$store.state.gameScreen === 'combatScreen') {
                 this.$store.state.Hero.hp -= this.enemies[this.selected_enemy].attack;
+                this.$store.state.textToBeAdded = "Enemy turn: \n - damage taken: " + this.enemies[this.selected_enemy].attack + "\n\n";
                 if(this.$store.state.Hero.hp < 0) {
                     this.$store.state.Hero.hp = 0;
+                    setTimeout(function () {
+                        
+                    }, 700);
+                } else {
+                    setTimeout(function () {
+                        actionThis.turn++;
+                    }, 700);
                 }
-                this.$store.state.textToBeAdded = "Enemy turn: \n - damage taken: " + this.enemies[this.selected_enemy].attack + "\n\n";
-                setTimeout(function () {
-                    actionThis.turn++;
-                }, 700);
             }
         },
         findEnemyToAtk() {
