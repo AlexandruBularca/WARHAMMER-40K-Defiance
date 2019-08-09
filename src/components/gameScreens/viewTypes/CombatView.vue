@@ -182,6 +182,7 @@ export default {
         enemyTurnNo() {
             let actionThis = this;
             if(this.enemies !== null) {
+                this.$store.state.Hero.hp -= this.enemies[this.selected_enemy].attack;
                 this.$store.state.textToBeAdded = "Enemy turn: \n - damage taken: " + this.enemies[this.selected_enemy].attack + "\n\n";
                 setTimeout(function () {
                     actionThis.turn++;
@@ -314,6 +315,7 @@ export default {
             this.$store.commit('showMap');
             this.$store.state.addTerminalType = false;
             this.$store.state.terminal_send_show = "Retreated from battle";
+            this.$store.state.Hero.hp = this.$store.state.Hero.con + this.$store.state.chestplate.con + this.$store.state.legplate.con;
         },
         onEnemeySelected(newEnemySelected) {
 
@@ -394,7 +396,7 @@ export default {
           },
 
           get_curr_enemies(){
-              var initialEnemySelected = false;
+            var initialEnemySelected = false;
             for (var enemy in mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies){
                 if (mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies[enemy] !== 'noEnemy') {
                     var enemy_change="enemy"+(parseInt(enemy)+1);
@@ -468,6 +470,9 @@ export default {
             elAddImg.style.pointerEvents = "none";
             elAddImg.style.opacity = 0.4;
         }
+
+        this.$store.state.Hero.hp = this.$store.state.Hero.con + this.$store.state.chestplate.con + this.$store.state.legplate.con;
+        this.$store.state.Hero.maxHp = this.$store.state.Hero.con + this.$store.state.chestplate.con + this.$store.state.legplate.con;
                 
     }
 };
