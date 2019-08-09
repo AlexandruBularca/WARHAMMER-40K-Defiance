@@ -1,5 +1,5 @@
 <template>
-    <div class="combatHolder disable-selection">
+    <div class="combatHolder disable-selection" v-bind:style="bgImage">
         <div class="enemyStatsHolder" v-bind:style="touchable(initialCombatMessage)">
             <div class="firstRowEnemyStatus">
                 <div class="holderEnemyStatus col1" v-if="isAvailableEnemy5">
@@ -424,6 +424,11 @@ export default {
         },
     },
     computed: {
+        bgImage() {
+            return {
+                'background-image': 'url("' + mapLocationsJson.locations[this.$store.state.mapLocationClicked].background + '")'
+            }
+        },
         actionTurn() {
             return this.turn;
         },
@@ -473,7 +478,6 @@ export default {
 @import url("https://fonts.googleapis.com/css?family=Righteous&display=swap");
 
 .combatHolder {
-    background-image: url("./../../../assets/img/combackground2.jpg");
     box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.247);
     background-repeat: no-repeat;
     background-size: 100% 100%;
