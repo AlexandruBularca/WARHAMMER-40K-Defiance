@@ -107,7 +107,7 @@
                 </div>
             </div>
             <div class="secondRowButtons">
-                <div class="button btnCol1 gunBtn" id="btnGunAtk" v-bind:style="newTurn(actionTurn)" v-on:click="heroGunAttack()">
+                <div class="button btnCol1 gunBtn" id="btnGunAtk" v-bind:style="newTurnGun(actionTurn)" v-on:click="heroGunAttack()">
                     <div class="buttonText">
                         Gun Attack
                     </div>
@@ -232,6 +232,27 @@ export default {
                     'pointer-events': 'none',
                 }
             }
+        },
+        newTurnGun(turnNo) {
+            if(this.$store.state.Hero.ammo > 0) {
+            if(turnNo % 2 === 1) {
+                return {
+                    'opacity': '1',
+                }
+            } else {
+                return {
+                    'opacity': '0.4',
+                    'pointer-events': 'none',
+                }
+            }
+            width: (this.$store.Ammo.ammo/this.$store.Ammo.maxAmmo)*100 + '%';
+            } else {
+                return {
+                    'opacity': '0.4',
+                    'pointer-events': 'none',
+                }
+            }
+
         },
         newTurn(turnNo) {
             if(turnNo % 2 === 1) {
@@ -399,9 +420,8 @@ export default {
                 this.enemyKilled();
             }
             this.$store.state.Hero.ammo--;
-            console.log(this.$store.state.Hero.ammo);
-            if(this.$store.state.Hero.ammo <= 0)
-            {
+            if(this.$store.state.Hero.ammo <= 0) {
+                this.$store.state.Hero.ammo = 0;
                 var elBtnGunAtk = document.getElementById('btnGunAtk');
                 elBtnGunAtk.style.pointerEvents = "none";
                 elBtnGunAtk.style.opacity = 0.4;                
