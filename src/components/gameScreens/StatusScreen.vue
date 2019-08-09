@@ -98,10 +98,10 @@ export default {
     },
     mounted: function() {
         var thisActivity = this;
-        var intervalID = window.setInterval(myCallback, 500);
+        window.setInterval(myCallback, 500);
         function myCallback() {
             if (thisActivity.$store.state.terminalTutorialItem > 4) {
-                thisActivity.$store.state.Threat.threat += 0.05;
+                thisActivity.$store.state.Threat.threat += 0.00005;
             }
         }
     }
