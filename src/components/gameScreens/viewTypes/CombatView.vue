@@ -178,16 +178,21 @@ export default {
         };
     },
     methods: {
+        enemyTimeToAtk() {
+            let actionThis = this;
+            if(actionThis.turn % 2 === 0) {
+                setTimeout(function () {
+                    actionThis.turn++;
+                }, 1750);
+            }
+        },
         newTurnFind(turnNo) {
+            this.enemyTimeToAtk();
             if(turnNo % 2 === 1) {
                 return {
                     'opacity': '1',
                 }
             } else {
-                setTimeout(function () {
-                    console.log('your turn');
-                    this.turn++;
-                }, 1000);
                 return {
                     'opacity': '0.4',
                     'pointer-events': 'none',
