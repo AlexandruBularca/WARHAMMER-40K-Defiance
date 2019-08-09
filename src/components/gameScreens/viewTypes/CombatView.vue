@@ -185,7 +185,7 @@ export default {
                 this.$store.state.textToBeAdded = "Enemy turn: \n - damage taken: " + this.enemies[this.selected_enemy].attack + "\n\n";
                 setTimeout(function () {
                     actionThis.turn++;
-                }, 1000);
+                }, 700);
             }
         },
         findEnemyToAtk() {
@@ -209,7 +209,7 @@ export default {
             if(actionThis.turn % 2 === 0) {
                 setTimeout(function () {
                     actionThis.findEnemyToAtk();
-                }, 1750);
+                }, 1500);
             }
         },
         newTurnFind(turnNo) {
