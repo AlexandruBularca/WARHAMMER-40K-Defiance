@@ -321,7 +321,7 @@ export default {
             var enemyNoOld = this.selected_enemy[this.selected_enemy.length-1];
             var enemyNoNew = newEnemySelected[newEnemySelected.length-1];
 
-            //if(this.enemies[enemyNoNew].hp !== 0) {
+            if(this.enemies['enemy' + enemyNoNew].hp !== 0) {
                 this.selected_enemy = 'enemy' + enemyNoNew;
 
                 var elEnemySelected = document.getElementById('enemy' + enemyNoOld);
@@ -341,7 +341,7 @@ export default {
                 if(elEnemySelectedAvatar) {
                     elEnemySelectedAvatar.className = 'enemySelectedAvatar keepCharacterRatio';
                 }
-            //}            
+            }            
 
         },
         heroAttacked(heroPower, weapon) {
