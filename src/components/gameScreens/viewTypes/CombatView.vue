@@ -132,6 +132,7 @@ export default {
         return {
             turn: 1,
             inqTurn: 1,
+            enemyTurn: 1,
             messageBattleWon: "It looks like you won this battle!\n\nLet's return home and gear up with new items from the inventory!\n\nPress the inquisitor picture from the top-left of the screen in order to access the inventory!",
             ENEMY_LIST:enemy_list,
             selected_enemy:"",
@@ -178,11 +179,37 @@ export default {
         };
     },
     methods: {
+        enemyTurnNo(enemyNo) {
+            let actionThis = this;
+            if(this.enemies !== null) {
+                var enemy_change="enemy"+(parseInt(enemyNo)+1);
+                this.$store.state.textToBeAdded = "Enemy turn: \n - damage taken: " + this.enemies[enemy_change].attack + "\n\n";
+                setTimeout(function () {
+                    actionThis.turn++;
+                }, 1000);
+            }
+        },
+        findEnemyToAtk() {
+            var i = 0;
+            var found = false;
+            while(i<mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies.length && !found) {
+                var enemy_change="enemy"+(parseInt(i)+1);
+
+                if(this.enemies[enemy_change].hp !== 0 && this.enemies[enemy_change].hp !== null) {
+                    
+                    found = true;
+                    this.enemyTurnNo(i);
+
+                } else {
+                    i++;
+                }
+            }
+        },
         enemyTimeToAtk() {
             let actionThis = this;
             if(actionThis.turn % 2 === 0) {
                 setTimeout(function () {
-                    actionThis.turn++;
+                    actionThis.findEnemyToAtk();
                 }, 1750);
             }
         },
@@ -231,8 +258,6 @@ export default {
         },
         enemyKilled() {
             this.enemies[this.selected_enemy].hp = 0;
-            var i = 0;
-            var found = false;
             var elDeadEnemy = document.getElementById(this.selected_enemy);
             if(elDeadEnemy) {
                 elDeadEnemy.className = 'enemyStatusStyle';
@@ -242,6 +267,8 @@ export default {
                 elDeadEnemyAvatar.className = 'hideEnemyAvatar enemyCharacterAvatar';
             }
 
+            var i = 0;
+            var found = false;
             while(i<mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies.length && !found) {
                 var enemy_change="enemy"+(parseInt(i)+1);
 
