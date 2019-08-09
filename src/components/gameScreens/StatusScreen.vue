@@ -154,7 +154,7 @@ export default {
 
 .healthBar {
     background-color: rgb(231, 35, 35);
-    height: 4vh;
+    height: 100%;
     width: 100%;
     clip-path: polygon(5% 0%, 0% 0%, 100% 0, 100% 100%, 0% 100%);
 }
@@ -174,8 +174,8 @@ export default {
 
 .ammoBar {
     background-color: rgb(165, 102, 8);
-    height: 4vh;
-    width: 90%;
+    height: 100%;
+    width: 100%;
     clip-path: polygon(5% 0%, 0% 0%, 100% 0, 100% 100%, 0% 100%);
 }
 
@@ -194,7 +194,7 @@ export default {
 
 .threatLvl {
     background-color: rgb(35, 104, 231);
-    height: 4vh;
+    height: 100%;
     width: 0%;
     clip-path: polygon(5% 0%, 0% 0%, 100% 0, 100% 100%, 0% 100%);
 }
@@ -202,6 +202,100 @@ export default {
 @media (max-width: 1000px) {
     .leftMenu {
         border-width: 2px;
+    }
+    .healthBarOutline {
+        background-color: rgba(231, 35, 35, 0.384);
+        width: 60%;
+        height: 22%;
+        clip-path: polygon(5% 0%, 0% 0%, 100% 0, 100% 100%, 0% 100%);
+        border-top: 2px solid rgb(255, 2, 2);
+        border-right: 2px solid rgb(255, 0, 0);
+        border-bottom: 2px solid rgb(255, 0, 0);
+        left: 9.4vw;
+        top: 7%;
+        position: relative;
+    }
+    .ammoBarOutline {
+        background-color: rgba(165, 102, 8, 0.205);
+        width: 15.9vw;
+        height: 22%;
+        clip-path: polygon(5% 0%, 0% 0%, 100% 0, 100% 100%, 0% 100%);
+        border-top: 2px solid rgb(165, 102, 8);
+        border-right: 2px solid rgb(165, 102, 8);
+        border-bottom: 2px solid rgb(165, 102, 8);
+        left: 8.5vw;
+        top: 13%;
+        position: relative;
+    }
+    .threatLvlOutline {
+        background-color: rgba(35, 104, 231, 0.171);
+        width: 16.8vw;
+        height: 22%;
+        clip-path: polygon(5% 0%, 0% 0%, 100% 0, 100% 100%, 0% 100%);
+        border-top: 2px solid rgb(35, 104, 231);
+        border-right: 2px solid rgb(35, 104, 231);
+        border-bottom: 2px solid rgb(35, 104, 231);
+        left: 7.6vw;
+        top: 18%;
+        position: relative;
+    }
+    .imgAvatarHolder {
+        width: 36%;
+        height: 88%;
+        background-color: aqua;
+        clip-path: polygon(0% 0%, 0% 0%, 100% 0, 72% 100%, 0% 100%);
+        margin: 1.2vh;
+        float: left;
+    }
+}
+
+@media (max-width: 800px) {
+    .leftMenu {
+        border-width: 2px;
+    }
+    .healthBarOutline {
+        background-color: rgba(231, 35, 35, 0.384);
+        width: 60%;
+        height: 20%;
+        clip-path: polygon(5% 0%, 0% 0%, 100% 0, 100% 100%, 0% 100%);
+        border-top: 2px solid rgb(255, 2, 2);
+        border-right: 2px solid rgb(255, 0, 0);
+        border-bottom: 2px solid rgb(255, 0, 0);
+        left: 9.4vw;
+        top: 7%;
+        position: relative;
+    }
+    .ammoBarOutline {
+        background-color: rgba(165, 102, 8, 0.205);
+        width: 15.9vw;
+        height: 20%;
+        clip-path: polygon(5% 0%, 0% 0%, 100% 0, 100% 100%, 0% 100%);
+        border-top: 2px solid rgb(165, 102, 8);
+        border-right: 2px solid rgb(165, 102, 8);
+        border-bottom: 2px solid rgb(165, 102, 8);
+        left: 8.5vw;
+        top: 13%;
+        position: relative;
+    }
+    .threatLvlOutline {
+        background-color: rgba(35, 104, 231, 0.171);
+        width: 16.8vw;
+        height: 20%;
+        clip-path: polygon(5% 0%, 0% 0%, 100% 0, 100% 100%, 0% 100%);
+        border-top: 2px solid rgb(35, 104, 231);
+        border-right: 2px solid rgb(35, 104, 231);
+        border-bottom: 2px solid rgb(35, 104, 231);
+        left: 7.6vw;
+        top: 18%;
+        position: relative;
+    }
+    .imgAvatarHolder {
+        width: 36%;
+        height: 88%;
+        background-color: aqua;
+        clip-path: polygon(0% 0%, 0% 0%, 100% 0, 72% 100%, 0% 100%);
+        margin: 1.2vh;
+        float: left;
     }
 }
 
