@@ -507,7 +507,7 @@ export default {
             elAddImg.style.pointerEvents = "none";
             elAddImg.style.opacity = 0.4;
         }
-        this.$store.state.Hero.ammo = 5;
+        this.$store.state.Hero.ammo = this.$store.state.Hero.maxAmmo;
         this.$store.state.Hero.hp = this.$store.state.Hero.con + this.$store.state.chestplate.con + this.$store.state.legplate.con;
         this.$store.state.Hero.maxHp = this.$store.state.Hero.con + this.$store.state.chestplate.con + this.$store.state.legplate.con;
                 
