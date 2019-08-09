@@ -80,6 +80,7 @@ export default {
 </script>
 
 <style scoped>
+
 .mapHolder {
   background-color: rgb(18, 233, 108);
   background-image: url("./../../../assets/img/map.jpg");
@@ -92,6 +93,12 @@ export default {
   border-style: solid;
   margin-left: 26vw;
   position: relative;
+}
+
+@media (max-width: 1000px) {
+  .mapHolder {
+    border-width: 2px;
+  }
 }
 
 .currentUserLocation {
