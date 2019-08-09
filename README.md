@@ -10,5 +10,5 @@ FOR THE EMPEROR!
 ## [PLAY HERE](https://thelegendweeb.github.io/WARHAMMER-40K-Defiance/)
 
 
-##DEV  
+## DEV  
 Clone the repo and use the command "npm install" to install the node modules  
