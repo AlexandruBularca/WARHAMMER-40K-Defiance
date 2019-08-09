@@ -134,7 +134,7 @@ export default {
             inqTurn: 1,
             messageBattleWon: "It looks like you won this battle!\n\nLet's return home and gear up with new items from the inventory!\n\nPress the inquisitor picture from the top-left of the screen in order to access the inventory!",
             ENEMY_LIST:enemy_list,
-            selected_enemy:"enemy1",
+            selected_enemy:"",
             Combat: {
                 enemy1: true,
                 enemy2: true,
@@ -185,6 +185,7 @@ export default {
                 }
             } else {
                 setTimeout(function () {
+                    console.log('your turn');
                     this.turn++;
                 }, 1000);
                 return {
@@ -372,6 +373,7 @@ export default {
                     var elAddImg = document.getElementById("enemySrc"+(parseInt(enemy)+1));
                     elAddImg.src = enemy_list[mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies[enemy]].sprite;
                     if(!initialEnemySelected) {
+                        this.selected_enemy = 'enemy' + (parseInt(enemy)+1);
                         var elEnemySelected = document.getElementById('enemy' + (parseInt(enemy)+1));
                         elEnemySelected.className = 'enemyStatusStyle enemySelected';
                         elAddImg.className = 'enemySelectedAvatar keepCharacterRatio';
