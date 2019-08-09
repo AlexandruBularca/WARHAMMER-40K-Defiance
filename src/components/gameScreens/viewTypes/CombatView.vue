@@ -400,6 +400,12 @@ export default {
             }
             this.$store.state.Hero.ammo--;
             console.log(this.$store.state.Hero.ammo);
+            if(this.$store.state.Hero.ammo <= 0)
+            {
+                var elBtnGunAtk = document.getElementById('btnGunAtk');
+                elBtnGunAtk.style.pointerEvents = "none";
+                elBtnGunAtk.style.opacity = 0.4;                
+            }
           },
 
          enemy1Attackhero () {
