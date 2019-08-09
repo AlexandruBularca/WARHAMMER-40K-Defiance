@@ -768,6 +768,41 @@ export default {
         0 6px 20px 0 rgba(223, 43, 43, 0.19);
 }
 
+@media (max-width: 1000px) {
+    .button {
+        font-size: 12px;
+    }
+    .knifeBtn {
+        color: rgba(255, 255, 255, 0.767);
+        background-color: rgba(199, 241, 11, 0.774);
+        border: 2px solid rgba(96, 117, 2, 0.199);
+        box-shadow: 0 2px 4px 0 rgba(71, 122, 13, 0.671),
+            0 3px 10px 0 rgba(139, 223, 43, 0.19);
+    }
+    .swordBtn {
+        color: rgba(255, 255, 255, 0.767);
+        background-color: rgba(199, 241, 11, 0.774);
+        border: 2px solid rgba(96, 117, 2, 0.199);
+        box-shadow: 0 2px 4px 0 rgba(71, 122, 13, 0.671),
+            0 3px 10px 0 rgba(139, 223, 43, 0.19);
+    }
+    .gunBtn {
+        color: rgba(255, 255, 255, 0.767);
+        background-color: rgba(199, 241, 11, 0.774);
+        border: 2px solid rgba(96, 117, 2, 0.199);
+        box-shadow: 0 2px 4px 0 rgba(71, 122, 13, 0.671),
+            0 3px 10px 0 rgba(139, 223, 43, 0.19);
+    }
+    .retreatBtn {
+        color: rgba(255, 255, 255, 0.767);
+        background-color: rgba(241, 11, 11, 0.774);
+        border: 2px solid rgba(117, 2, 2, 0.199);
+        box-shadow: 0 2px 4px 0 rgba(122, 13, 13, 0.671),
+            0 3px 10px 0 rgba(223, 43, 43, 0.19);
+        content: "Joe's Task:";
+    }
+}
+
 .button:hover {
     width: 22%;
     height: 55%;
