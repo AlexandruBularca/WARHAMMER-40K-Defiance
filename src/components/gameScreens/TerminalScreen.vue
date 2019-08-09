@@ -183,4 +183,24 @@ export default {
     font-family:"FelinaT26Gothic";
     src:url("../../assets/fonts/FelinaT26_Gothic_Regular.woff") format("woff");
 }*/
+::-webkit-scrollbar {
+  width: 15px;
+  border: 5px
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(85, 85, 85); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f3f; 
+}
 </style>
