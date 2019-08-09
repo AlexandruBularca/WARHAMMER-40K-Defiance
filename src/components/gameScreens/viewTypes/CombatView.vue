@@ -256,9 +256,15 @@ export default {
             }
 
             if(i === mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies.length && this.$store.state.tutorialMessages.initialBattleWonMessage === 0) {
-var elBtnKnifeAtk = document.getElementById('btnKnifeAtk');elBtnKnifeAtk.style.pointerEvents = "none";elBtnKnifeAtk.style.opacity = 0.4;
-var elBtnSwordAtk = document.getElementById('btnSwordAtk');elBtnSwordAtk.style.pointerEvents = "none";elBtnSwordAtk.style.opacity = 0.4;
-var elBtnGunAtk = document.getElementById('btnGunAtk');elBtnGunAtk.style.pointerEvents = "none";elBtnGunAtk.style.opacity = 0.4;
+                var elBtnKnifeAtk = document.getElementById('btnKnifeAtk');
+                elBtnKnifeAtk.style.pointerEvents = "none";
+                elBtnKnifeAtk.style.opacity = 0.4;
+                var elBtnSwordAtk = document.getElementById('btnSwordAtk');
+                elBtnSwordAtk.style.pointerEvents = "none";
+                elBtnSwordAtk.style.opacity = 0.4;
+                var elBtnGunAtk = document.getElementById('btnGunAtk');
+                elBtnGunAtk.style.pointerEvents = "none";
+                elBtnGunAtk.style.opacity = 0.4;
                 this.$store.state.tutorialMessages.initialBattleWonMessage = 1;
                 this.$store.state.terminal_send_show = this.messageBattleWon;
                 this.$store.state.tutorialBattleWon = true;
@@ -356,6 +362,7 @@ var elBtnGunAtk = document.getElementById('btnGunAtk');elBtnGunAtk.style.pointer
           },
 
           get_curr_enemies(){
+              var initialEnemySelected = false;
             for (var enemy in mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies){
                 if (mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies[enemy] !== 'noEnemy') {
                     var enemy_change="enemy"+(parseInt(enemy)+1);
@@ -364,8 +371,12 @@ var elBtnGunAtk = document.getElementById('btnGunAtk');elBtnGunAtk.style.pointer
                     this.enemies[enemy_change].attack = enemy_list[mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies[enemy]].attack_power;
                     var elAddImg = document.getElementById("enemySrc"+(parseInt(enemy)+1));
                     elAddImg.src = enemy_list[mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies[enemy]].sprite;
+                    if(!initialEnemySelected) {
+                        elAddImg.className = 'enemySelectedAvatar keepCharacterRatio';
+                    }
                     var elAddImgStats = document.getElementById("enemyImgStat"+(parseInt(enemy)+1));
                     elAddImgStats.src = enemy_list[mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies[enemy]].spriteStat;
+                    initialEnemySelected = true;
                 } else {
                     elAddImg = document.getElementById("enemy"+(parseInt(enemy)+1));
                     elAddImg.style.opacity = 0;
