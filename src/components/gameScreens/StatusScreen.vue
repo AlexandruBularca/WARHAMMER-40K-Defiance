@@ -74,7 +74,7 @@ export default {
                 this.$store.state.inventorySelectedItems.legplate = this.$store.state.legplate.selectedLegplateImg;
                 this.$store.commit('inventoryInteraction')
                 this.$store.state.tutorialMessages.initialInventoryMessage = 1;
-                this.$store.state.terminal_send_show = "On the right side you can see the statistics panel.\n\nIt indicates the overall strength, dexterity and constitution.\n\nYou can choose the items which you think that will help you in the battles!\nEvery item has his own statistics.";
+                this.$store.state.terminal_send_show = "On the right side you can see the statistics panel.\n\nIt indicates the overall strength, dexterity and constitution.\n\nYou can choose between the items that you think will help you the most in battle!\nEvery item has his own statistics.";
             } else if(this.$store.state.terminalTutorialItem === 4 && this.$store.state.tutorialMessages.messageNewLocations === 0) {
                 this.$store.state.inventorySelectedItems.knife = this.$store.state.knife.selectedKnifeImg;
                 this.$store.state.inventorySelectedItems.gun = this.$store.state.gun.selectedGunImg;
@@ -83,7 +83,7 @@ export default {
                 this.$store.state.inventorySelectedItems.legplate = this.$store.state.legplate.selectedLegplateImg;
                 this.$store.commit('inventoryInteraction')
                 this.$store.state.tutorialMessages.messageNewLocations = 1;
-                this.$store.state.terminal_send_show = "It looks like you have unlocked new locations!\nChoose the location where do you want to fight!\n\nKeep in mind that the green locations are unlocked and the red ones will be unlocked while you keep progressing.";
+                this.$store.state.terminal_send_show = "It looks like you have unlocked new locations!\nYou can now choose the location where you want to fight!\n\nKeep in mind that the green locations are unlocked and the red ones will be unlocked while you keep progressing.";
             } else if (this.$store.state.terminalTutorialItem > 4) {
                 this.$store.state.inventorySelectedItems.knife = this.$store.state.knife.selectedKnifeImg;
                 this.$store.state.inventorySelectedItems.gun = this.$store.state.gun.selectedGunImg;
