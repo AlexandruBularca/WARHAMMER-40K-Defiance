@@ -47,15 +47,11 @@
       </div>
     </div>
     <div class="infoPanel">
-      <!--
-      <p class="miniMapText disable-selection">MINIMAP</p>
-      -->
       
       <div class="stats">
         <div class="titleHolder disable-selection">
           <h1 class="statsH1">Stats</h1>
         </div>
-        <!--
 
         <div class="pbHolder">
           <div class="titlePBItem disable-selection">STR</div>
@@ -77,7 +73,11 @@
             <div class="progressBarCon" v-bind:style="calculateConBar" />
           </div>
         </div>
-        -->
+
+        <div class="pbHolder">
+          <p class="miniMapText disable-selection">MINIMAP</p>
+        </div>
+
       </div>
       
       <div class="mapHolder" v-on:click="showMap()">
@@ -385,7 +385,6 @@ export default {
 @media (max-width: 1000px) {
   .stats {
     position: relative;
-    background-color: antiquewhite;
     top: 0%;
     height: 60%;
     width: 100%;
@@ -393,32 +392,54 @@ export default {
 }
 
 .statsH1 {
-  font-size: 3em;
-  float: left;
+  position: relative;
+  left: 50%;
+  font-size: 50px;
+  transform: translate(-50%, 0%);
 }
 
 @media (max-width: 1000px) {
   .statsH1 {
+    font-size: 24px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -30%);
+  }
+}
+
+
+@media (min-width: 1000px) {
+  .miniMapText {
+    font-family: "Bangers", cursive;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.74);
+    -webkit-text-stroke-width: 0.2px;
+    -webkit-text-stroke-color: rgb(51, 51, 51);
+    text-shadow: 0 0 10px rgb(75, 27, 0);
+    font-size:50px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+}
+
+@media (max-width: 1000px) {
+  .miniMapText {
+    font-family: "Bangers", cursive;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.74);
+    -webkit-text-stroke-width: 0.2px;
+    -webkit-text-stroke-color: rgb(51, 51, 51);
+    text-shadow: 0 0 2px rgb(75, 27, 0);
+    font-size:20px;
+    width: 100%;
+    text-align: center;
     position: relative;
     left: 50%;
     transform: translate(-50%, -50%);
   }
-}
-
-.miniMapText {
-  float: left;
-  position: relative;
-  top:55%;
-  left:50%;
-  transform:translate(-50%,-55%);
-  font-family: "Bangers", cursive;
-  font-weight: bold;
-  color: rgba(255, 255, 255, 0.74);
-  -webkit-text-stroke-width: 0.8px;
-  -webkit-text-stroke-color: rgb(51, 51, 51);
-  text-shadow: 0 0 20px rgb(75, 27, 0);
-  font-size:2.5em;
-  margin:0;
 }
 
 .mapHolder {
@@ -501,24 +522,54 @@ export default {
   }
 }
 
-.titlePBItem {
-  float: left;
-  font-size: 24px;
-  position: relative;
-  top: 50%;
-  left: 10%;
-  transform: translate(-10%, -50%);
-  color: rgb(136, 50, 1);
-  font-family: "Permanent Marker", cursive;
-  -webkit-text-stroke-width: 3px;
-  -webkit-text-stroke-color: rgb(75, 27, 0);
-  text-shadow: 0 0 20px rgb(75, 27, 0);
+@media (min-width: 1000px) {
+  .titlePBItem {
+    float: left;
+    font-size: 24px;
+    position: relative;
+    top: 50%;
+    left: 10%;
+    transform: translate(-10%, -50%);
+    color: rgb(136, 50, 1);
+    font-family: "Permanent Marker", cursive;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: rgb(75, 27, 0);
+    text-shadow: 0 0 20px rgb(75, 27, 0);
+  }
+}
+
+@media (max-width: 1000px) {
+  .titlePBItem {
+    float: left;
+    font-size: 14px;
+    position: relative;
+    top: 50%;
+    left: 5%;
+    transform: translate(-10%, -65%);
+    color: rgb(136, 50, 1);
+    font-family: "Permanent Marker", cursive;
+    text-shadow: 0 0 4px rgb(75, 27, 0);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(75, 27, 0);
+  }
 }
 
 .pbHolder {
   width: 94%;
   height: 10%;
   padding: 10px;
+}
+
+@media (max-width: 1000px) {
+  .pbHolder {
+    position: relative;
+    top: -55px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 94%;
+    height: 10%;
+    padding: 10px;
+  }
 }
 
 .progressBarOutlineStr {
@@ -541,6 +592,28 @@ export default {
   width: 90%;
 }
 
+@media (max-width: 1000px) {
+  .progressBarOutlineStr {
+    width: 70%;
+    height: 75%;
+    background-color: rgba(105, 42, 0, 0.329);
+    position: relative;
+    top: 0px;
+    float: right;
+    border: 1px solid rgb(90, 34, 1);
+    padding: 0.1px;
+    outline: solid 1px rgb(75, 27, 0);
+    box-shadow: 0 2px 4px 0 rgba(90, 34, 1, 0.671),
+      0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .progressBarStr {
+    background-color: rgb(105, 42, 0);
+    height: 100%;
+    width: 90%;
+  }
+}
+
 .progressBarOutlineDex {
   width: 70%;
   height: 75%;
@@ -561,6 +634,28 @@ export default {
   width: 90%;
 }
 
+@media (max-width: 1000px) {
+  .progressBarOutlineDex {
+    width: 70%;
+    height: 75%;
+    background-color: rgba(105, 42, 0, 0.329);
+    position: relative;
+    top: 0px;
+    float: right;
+    border: 1px solid rgb(90, 34, 1);
+    padding: 0px;
+    outline: solid 1px rgb(75, 27, 0);
+    box-shadow: 0 2px 4px 0 rgba(90, 34, 1, 0.671),
+      0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .progressBarDex {
+    background-color: rgb(105, 42, 0);
+    height: 100%;
+    width: 90%;
+  }
+}
+
 .progressBarOutlineCon {
   width: 70%;
   height: 75%;
@@ -579,6 +674,28 @@ export default {
   background-color: rgb(105, 42, 0);
   height: 100%;
   width: 90%;
+}
+
+@media (max-width: 1000px) {
+  .progressBarOutlineCon {
+    width: 70%;
+    height: 75%;
+    background-color: rgba(105, 42, 0, 0.329);
+    position: relative;
+    top: 0px;
+    float: right;
+    border: 1px solid rgb(90, 34, 1);
+    padding: 0px;
+    outline: solid 1px rgb(75, 27, 0);
+    box-shadow: 0 2px 4px 0 rgba(90, 34, 1, 0.671),
+      0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .progressBarCon {
+    background-color: rgb(105, 42, 0);
+    height: 100%;
+    width: 90%;
+  }
 }
 
 .map {
