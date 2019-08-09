@@ -183,7 +183,7 @@ export default {
             let actionThis = this;
             if(this.enemies !== null) {
                 var enemy_change="enemy"+(parseInt(enemyNo)+1);
-                this.$store.state.textToBeAdded = "Enemy turn: \n - damage taken: " + this.enemies[enemy_change].attack + "\n\n";
+                this.$store.state.textToBeAdded = "Enemy turn: \n - damage taken: " + this.enemies[this.selected_enemy].attack + "\n\n";
                 setTimeout(function () {
                     actionThis.turn++;
                 }, 1000);
