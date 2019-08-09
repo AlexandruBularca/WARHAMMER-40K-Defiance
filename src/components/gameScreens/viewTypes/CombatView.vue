@@ -236,6 +236,8 @@ export default {
                     'pointer-events': 'none',
                 }
             }
+            width: (this.$store.Ammo.ammo/this.$store.Ammo.maxAmmo)*100 + '%';
+
         },
         touchable(shouldShow) {
             if (shouldShow !== 2) {
@@ -387,6 +389,8 @@ export default {
             if(this.enemies[this.selected_enemy].hp < 0) {
                 this.enemyKilled();
             }
+            this.$store.state.Hero.ammo--;
+            console.log(this.$store.state.Hero.ammo);
           },
 
          enemy1Attackhero () {
@@ -468,6 +472,7 @@ export default {
             elAddImg.style.pointerEvents = "none";
             elAddImg.style.opacity = 0.4;
         }
+        this.$store.state.Hero.ammo = 5;
                 
     }
 };
