@@ -23,7 +23,7 @@ export default {
             text_to_be_showed: this.$store.state.terminal_send_show,
             textToBeAdded: this.$store.state.textToBeAdded,
             terminalTutorialItem: this.$store.state.terminalTutorialItem,
-            scroll_speed:40,
+            scroll_speed:30,
             scroll_speed_add:10,
             rec:0,
             // reset:0
@@ -89,7 +89,7 @@ export default {
         },this.scroll_speed_add);
       },
       reset_timer(){
-          this.scroll_speed = 40;
+          this.scroll_speed = 30;
           clearTimeout(this.rec);
       },
       reset_timer_add(){
