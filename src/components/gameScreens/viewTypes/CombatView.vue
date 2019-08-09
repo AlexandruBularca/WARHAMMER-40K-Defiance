@@ -365,7 +365,7 @@ export default {
                 } else if (weapon === 2) {
                     weaponUsed = 'gun';
                 }
-                this.$store.state.textToBeAdded = "Inquisitor turn: " + this.inqTurn + "\n - weapon used: " + weaponUsed +"\n - damage taken: " + heroPower + "\n\n";
+                this.$store.state.textToBeAdded = "Inquisitor turn: " + this.inqTurn + "\n - weapon used: " + weaponUsed +"\n - damage done: " + heroPower + "\n\n";
                 this.inqTurn++;
                 this.turn++;
             }
@@ -400,6 +400,12 @@ export default {
             }
             this.$store.state.Hero.ammo--;
             console.log(this.$store.state.Hero.ammo);
+            if(this.$store.state.Hero.ammo <= 0)
+            {
+                var elBtnGunAtk = document.getElementById('btnGunAtk');
+                elBtnGunAtk.style.pointerEvents = "none";
+                elBtnGunAtk.style.opacity = 0.4;                
+            }
           },
 
          enemy1Attackhero () {
@@ -472,7 +478,7 @@ export default {
         this.$nextTick(function () {
             if(this.$store.state.tutorialMessages.initialCombatViewMessage === 0) {
                 this.$store.state.tutorialMessages.initialCombatViewMessage = 1;
-                this.$store.state.terminal_send_show = "Inquisitor: The condition of the planet is even worse than I feared. According to the logs the local PDF divisions have been fully killed three days ago - surprising they lasted that long.\n\nCultists: Blood for the Blood! Skulls for the Skull Throne! \n\n Inquisitor: Chaos filth...";
+                this.$store.state.terminal_send_show = "Inquisitor: The condition of the planet is even worse than I feared. According to the logs, the local PDF divisions have been fully killed three days ago - surprising they lasted that long.\n\nCultists: Blood for the Blood! Skulls for the Skull Throne! \n\n Inquisitor: Chaos filth...";
             }
         })
         
