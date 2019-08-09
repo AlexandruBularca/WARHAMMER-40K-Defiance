@@ -154,6 +154,7 @@ export default {
   -webkit-user-select: none; /* Chrome, Safari, and Opera */
   -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
 }
+
 .vue-typer .custom.char.typed {
   color: #ffffff;
 }
@@ -203,4 +204,19 @@ export default {
 ::-webkit-scrollbar-thumb:hover {
   background: #3f3f3f; 
 }
+
+@media (max-width: 1000px) {
+  .terminalHolder {
+    border-width: 2px;
+  }
+  .terminal_text {
+    padding: 4px;
+    font-size: 8px;
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+    border: 5px
+  }
+}
+
 </style>
