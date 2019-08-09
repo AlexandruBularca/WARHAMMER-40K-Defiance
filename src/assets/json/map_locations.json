@@ -12,63 +12,63 @@
             "x": 36.5,
             "y": 29.3,
             "mapEnemies": ["tech_priest","tech_priest","tech_priest","tech_priest","tech_priest","cultist"],
-            "available": false,
+            "available": true,
             "background": "https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game_vbeta/src/assets/img/combatbackground1.png"
         },{
             "id": "loc3",
             "x": 51.5,
             "y": 40.3,
             "mapEnemies": ["cultist","cultist","cultist","cultist","cultist","cultist"],
-            "available": false,
+            "available": true,
             "background": "https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game_vbeta/src/assets/img/combackground2.jpg"
         },{
             "id": "loc4",
             "x": 45.5,
             "y": 59.2,
             "mapEnemies": ["noEnemy","scavanger","tech_priest","noEnemy","scavanger","cultist"],
-            "available": false,
+            "available": true,
             "background": "https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game_vbeta/src/assets/img/bk3.jpg"
         },{
             "id": "loc5",
             "x": 32.2,
             "y": 67.3,
             "mapEnemies": ["cultist","scavanger","scavanger","cultist","scavanger","cultist"],
-            "available": false,
+            "available": true,
             "background": "https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game_vbeta/src/assets/img/bk4.jpg"
         },{
             "id": "loc6",
             "x": 71.6,
             "y": 41.9,
             "mapEnemies": ["noEnemy","noEnemy","tech_priest","cultist","scavanger","scavanger"],
-            "available": false,
+            "available": true,
             "background": "https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game_vbeta/src/assets/img/bk5.jpg"
         },{
             "id": "loc7",
             "x": 66.4,
             "y": 64.0,
             "mapEnemies": ["scavanger","tech_priest","cultist","noEnemy","tech_priest","scavanger"],
-            "available": false,
+            "available": true,
             "background": "https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game_vbeta/src/assets/img/combackground2.jpg"
         },{
             "id": "loc8",
             "x": 61.1,
             "y": 21.3,
             "mapEnemies": ["scavanger","scavanger","noEnemy","tech_priest","cultist","scavanger"],
-            "available": false,
+            "available": true,
             "background":"https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game_vbeta/src/assets/img/combatbackground1.png"
         },{
             "id": "loc9",
             "x": 31.8,
             "y": 52.3,
             "mapEnemies": ["noEnemy","cultist","cultist","noEnemy","cultist","scavanger"],
-            "available": false,
+            "available": true,
             "background":"https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game_vbeta/src/assets/img/bk4.jpg"
         },{
             "id": "loc10",
             "x": 52.7,
             "y": 61.5,
             "mapEnemies": ["noEnemy","tech_priest","scavanger","noEnemy","scavanger","scavanger"],
-            "available": false,
+            "available": true,
             "background":"https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game_vbeta/src/assets/img/bk5.jpg"
         }
     ],
