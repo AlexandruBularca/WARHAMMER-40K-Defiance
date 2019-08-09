@@ -1,23 +1,20 @@
 <template>
-        <div class="leftMenu">
-
-            <div class="imgAvatarHolder" v-on:click="inventoryInteraction()">
-                <div class="imgAvatar"/>
-            </div>
-
-            <div class="healthBarOutline">
-                <div class="healthBar" v-bind:style="calculateHealthBar"/>
-            </div>
-
-            <div class="ammoBarOutline">
-                <div class="ammoBar" v-bind:style="calculateAmmoBar"/>
-            </div>
-
-            <div class="threatLvlOutline">
-                <div class="threatLvl" v-bind:style="calculateThreatBar"/>
-            </div>
-
+    <div class="leftMenu">
+        <div class="imgAvatarHolder" v-on:click="inventoryInteraction()">
+            <div class="imgAvatar"/>
         </div>
+        <div class="healthBarOutline">
+            <div class="healthBar" v-bind:style="calculateHealthBar"/>
+        </div>
+        <div class="ammoBarOutline">
+            <div class="ammoBar" v-bind:style="calculateAmmoBar"/>
+        </div>
+        <div class="threatLvlOutline">
+            <div class="threatLvl" v-bind:style="calculateThreatBar"/>
+        </div>
+        <!--
+        -->
+    </div>
 </template>
 
 <script>
@@ -203,23 +200,9 @@ export default {
 }
 
 @media (max-width: 1000px) {
-  h1 {
-    text-shadow: 1px 1px grey, 2px 2px rgb(54, 53, 53);
-    position: relative;
-    left: 50%;
-    transform: translate(-50%, 50%);
-    font-size: 2em;
-  }
-  .button {
-    box-shadow: 1px 1px 1px 1px #3d3533;
-    position: absolute;
-    border-radius: 10px;
-    font-size: 20px;
-    width: 100px;
-    left: 50%;
-    top: 60%;
-    transform: translate(-50%, 0%);
-  }
+    .leftMenu {
+        border-width: 2px;
+    }
 }
 
 </style>
