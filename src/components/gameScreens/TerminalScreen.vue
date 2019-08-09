@@ -139,7 +139,7 @@ export default {
         this.$nextTick(function () {
             if(this.$store.state.tutorialMessages.initialMapMessage === 0) {
                 this.$store.state.tutorialMessages.initialMapMessage = 1;
-                this.$store.state.terminal_send_show = "Inquisitor's Log:\n\n    You have been summoned to this Forge World because it has fallen to chaotic coruption 16 days ago.\n    Your mission is to find the source of its downfall so that our holy Chamber Militant can purge it within the very hearth of it's corruption. As of now they are transitioning through the Warp.\n   If the corruption of the planet goes too far then our Order will be forced to employ the final solution, Exterminatus.\n    The location of the Exterminatus Fleet is currently classified until further notice.\n\n    For the Emperor!\n\n<<press 'SEARCH' to find an enemy>>";
+                this.$store.state.terminal_send_show = "Inquisitor's Log:\n\n    You have been summoned to this Forge World because it has fallen to chaotic coruption 16 days ago.\n    Your mission is to find the source of its downfall so that our holy Chamber Militant can purge it within the very hearth of it's corruption. As of now they are transitioning through the Warp.\n   If the corruption of the planet goes too far then our Order will be forced to employ the final solution, Exterminatus.\n    The location of the Exterminatus Fleet is classified until further notice.\n\n    For the Emperor!\n\n<<press 'SEARCH' to find an enemy>>";
             }
         })
     }
