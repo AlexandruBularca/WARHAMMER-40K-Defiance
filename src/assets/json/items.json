@@ -45,7 +45,7 @@
             "model": "knife_lvl1",
             "title": "knife lvl 1",
             "selected": "true",
-            "str": 200,
+            "str": 225,
             "dex": 40,
             "con": 0
         },
@@ -54,8 +54,8 @@
             "model": "knife_lvl2",
             "title": "knife lvl 2",
             "selected": "false",
-            "str": 235,
-            "dex": 67,
+            "str": 180,
+            "dex": 80,
             "con": 0
         },
         {
@@ -92,8 +92,8 @@
             "model": "sword_lvl2",
             "title": "sword lvl 2",
             "selected": "false",
-            "str": 381,
-            "dex": 30,
+            "str": 200,
+            "dex": 50,
             "con": 0
         },
         {
