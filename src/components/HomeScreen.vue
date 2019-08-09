@@ -42,7 +42,7 @@ export default {
 }
 
 h1 {
-    font-family: 'Lacquer', sans-serif;
+    font-family: FelinaT26Gothic;
     font-size:4.5em;
     text-shadow: 4px 4px grey,5px 5px rgb(54, 53, 53);  
     text-align: center;
@@ -52,7 +52,7 @@ h1 {
    position:absolute;
     left:17%;
     font-size:40px;
-    font-family: 'Lacquer', sans-serif;
+    font-family: FelinaT26Gothic;
     width:50%;
     border-radius:25px;
     box-shadow:2px 2px 2px 2px #3d3533;
@@ -86,4 +86,5 @@ h1:hover{
   font-family:"FelinaT26Gothic";
   src:url("../assets/fonts/FelinaT26_Gothic_Regular.woff") format("woff");
 }
+
 </style>
