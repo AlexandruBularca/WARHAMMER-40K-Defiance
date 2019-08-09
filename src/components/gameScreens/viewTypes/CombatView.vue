@@ -239,16 +239,21 @@ export default {
         },
         newTurnGun(turnNo) {
             if(this.$store.state.Hero.ammo > 0) {
-            if(turnNo % 2 === 1) {
-                return {
-                    'opacity': '1',
+                if(turnNo % 2 === 1) {
+                    return {
+                        'opacity': '1',
+                    }
+                } else {
+                    return {
+                        'opacity': '0.4',
+                        'pointer-events': 'none',
+                    }
                 }
             } else {
                 return {
                     'opacity': '0.4',
                     'pointer-events': 'none',
                 }
-            }
             }
 
         },
@@ -342,6 +347,7 @@ export default {
             this.$store.commit('showMap');
             this.$store.state.addTerminalType = false;
             this.$store.state.terminal_send_show = "Retreated from battle";
+            this.$store.state.Hero.ammo = this.$store.state.Hero.maxAmmo;
             this.$store.state.Hero.hp = this.$store.state.Hero.con + this.$store.state.chestplate.con + this.$store.state.legplate.con;
         },
         onEnemeySelected(newEnemySelected) {
