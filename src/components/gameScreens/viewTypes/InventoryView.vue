@@ -186,7 +186,10 @@ export default {
           for(let i=0; i<itemsJson.gun.length; i++) {
             if(itemsJson.gun[i].id === id) {
               itemsJson.gun[i].selected = "true";
-              console.log(this.itemClicked.ammo);
+              if(itemsJson.gun[i].ammo > 0) {
+                this.$store.state.Hero.ammo = itemsJson.gun[i].ammo;
+                this.$store.state.Hero.maxAmmo = itemsJson.gun[i].ammo;
+              }
             } else {
               itemsJson.gun[i].selected = "false";
             }
