@@ -133,7 +133,7 @@ export default {
             turn: 1,
             inqTurn: 1,
             enemyTurn: 1,
-            messageBattleWon: "It looks like you won this battle!\n\nLet's return home and gear up with new items from the inventory!\n\nPress the inquisitor picture from the top-left of the screen in order to access the inventory!",
+            messageBattleWon: "You have achieved yet another victory for the Imperium!\n\nThe time has come to look in your inventory and asess the items at your disposal.\n\nPress the Inquisitor's profile picture on the top-left hand side of the screen in order to access the inventory!",
             ENEMY_LIST:enemy_list,
             selected_enemy:"",
             Combat: {
@@ -182,10 +182,10 @@ export default {
         enemyTurnNo() {
             let actionThis = this;
             if(this.enemies !== null && this.$store.state.gameScreen === 'combatScreen') {
-                var evasion=0 + (this.$store.state.Hero.dex-0)*(1-0)/(300-0);
+                var evasion=0 + (this.$store.state.Hero.dex-0)*(1-0)/(225-0);
                 var random=Math.random();
                 var variation=(random-0)*(0.1+0.1)/(1-0);
-                console.log(evasion+variation);
+                // console.log(evasion+variation);
                 this.$store.state.Hero.hp -= Math.ceil(this.enemies[this.selected_enemy].attack*(evasion+variation));
                 this.$store.state.textToBeAdded = "Enemy turn: \n - damage taken: " + Math.ceil(this.enemies[this.selected_enemy].attack*(evasion+variation) )+  "\n\n";
                 if(this.$store.state.Hero.hp < 0) {
@@ -239,16 +239,21 @@ export default {
         },
         newTurnGun(turnNo) {
             if(this.$store.state.Hero.ammo > 0) {
-            if(turnNo % 2 === 1) {
-                return {
-                    'opacity': '1',
+                if(turnNo % 2 === 1) {
+                    return {
+                        'opacity': '1',
+                    }
+                } else {
+                    return {
+                        'opacity': '0.4',
+                        'pointer-events': 'none',
+                    }
                 }
             } else {
                 return {
                     'opacity': '0.4',
                     'pointer-events': 'none',
                 }
-            }
             }
 
         },
@@ -342,6 +347,7 @@ export default {
             this.$store.commit('showMap');
             this.$store.state.addTerminalType = false;
             this.$store.state.terminal_send_show = "Retreated from battle";
+            this.$store.state.Hero.ammo = this.$store.state.Hero.maxAmmo;
             this.$store.state.Hero.hp = this.$store.state.Hero.con + this.$store.state.chestplate.con + this.$store.state.legplate.con;
         },
         onEnemeySelected(newEnemySelected) {
