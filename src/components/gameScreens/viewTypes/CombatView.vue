@@ -773,33 +773,32 @@ export default {
         font-size: 12px;
     }
     .knifeBtn {
-        color: rgba(255, 255, 255, 0.767);
+        color: rgb(255, 255, 255);
         background-color: rgba(199, 241, 11, 0.774);
         border: 2px solid rgba(96, 117, 2, 0.199);
         box-shadow: 0 2px 4px 0 rgba(71, 122, 13, 0.671),
             0 3px 10px 0 rgba(139, 223, 43, 0.19);
     }
     .swordBtn {
-        color: rgba(255, 255, 255, 0.767);
+        color: rgb(255, 255, 255);
         background-color: rgba(199, 241, 11, 0.774);
         border: 2px solid rgba(96, 117, 2, 0.199);
         box-shadow: 0 2px 4px 0 rgba(71, 122, 13, 0.671),
             0 3px 10px 0 rgba(139, 223, 43, 0.19);
     }
     .gunBtn {
-        color: rgba(255, 255, 255, 0.767);
+        color: rgb(255, 255, 255);
         background-color: rgba(199, 241, 11, 0.774);
         border: 2px solid rgba(96, 117, 2, 0.199);
         box-shadow: 0 2px 4px 0 rgba(71, 122, 13, 0.671),
             0 3px 10px 0 rgba(139, 223, 43, 0.19);
     }
     .retreatBtn {
-        color: rgba(255, 255, 255, 0.767);
+        color: rgb(255, 255, 255);
         background-color: rgba(241, 11, 11, 0.774);
         border: 2px solid rgba(117, 2, 2, 0.199);
         box-shadow: 0 2px 4px 0 rgba(122, 13, 13, 0.671),
             0 3px 10px 0 rgba(223, 43, 43, 0.19);
-        content: "Joe's Task:";
     }
 }
 
@@ -809,6 +808,16 @@ export default {
     background-color: rgba(0, 0, 0, 0.144);
     font-size: 26px;
     cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+    .button:hover {
+        width: 22%;
+        height: 55%;
+        background-color: rgba(0, 0, 0, 0.144);
+        font-size: 14px;
+        cursor: pointer;
+    }
 }
 
 .enemySelected {
@@ -838,6 +847,22 @@ export default {
     transform: translate(-25%, -70%);
 }
 
+@media (max-width: 1000px) {
+    .knifeBtn:hover {
+        border: 3px solid rgba(127, 231, 9, 0.664);
+        color: rgba(127, 231, 9, 0.829);
+        padding-top: 2px;
+    }
+    .knifeBtn:active {
+        background-color: rgba(127, 231, 9, 0.664);
+        padding-top: 2px;
+        color: rgba(255, 255, 255, 0.767);
+        position: relative;
+        left: 30%;
+        transform: translate(-25%, -50%);
+    }
+}
+
 .swordBtn:hover {
     border: 6px solid rgba(127, 231, 9, 0.664);
     color: rgba(127, 231, 9, 0.829);
@@ -849,6 +874,22 @@ export default {
     position: relative;
     right: 30%;
     transform: translate(25%, -70%);
+}
+
+@media (max-width: 1000px) {
+    .swordBtn:hover {
+        border: 3px solid rgba(127, 231, 9, 0.664);
+        color: rgba(127, 231, 9, 0.829);
+        padding-top: 2px;
+    }
+    .swordBtn:active {
+        background-color: rgba(127, 231, 9, 0.664);
+        padding-top: 2px;
+        color: rgba(255, 255, 255, 0.767);
+        position: relative;
+        right: 30%;
+        transform: translate(25%, -50%);
+    }
 }
 
 .gunBtn:hover {
@@ -864,6 +905,22 @@ export default {
     transform: translate(-25%, -70%);
 }
 
+@media (max-width: 1000px) {
+    .gunBtn:hover {
+        border: 3px solid rgba(127, 231, 9, 0.664);
+        color: rgba(127, 231, 9, 0.829);
+        padding-top: 2px;
+    }
+    .gunBtn:active {
+        background-color: rgba(127, 231, 9, 0.664);
+        padding-top: 2px;
+        color: rgba(255, 255, 255, 0.767);
+        position: relative;
+        left: 30%;
+        transform: translate(-25%, -50%);
+    }
+}
+
 .retreatBtn:hover {
     border: 6px solid rgba(231, 9, 9, 0.664);
     color: rgba(231, 9, 9, 0.829);
@@ -877,6 +934,22 @@ export default {
     transform: translate(25%, -70%);
 }
 
+@media (max-width: 1000px) {
+    .retreatBtn:hover {
+        border: 3px solid rgba(231, 9, 9, 0.664);
+        color: rgba(231, 9, 9, 0.829);
+        padding-top: 2px;
+    }
+    .retreatBtn:active {
+        background-color: rgba(231, 9, 9, 0.664);
+        padding-top: 2px;
+        color: rgba(255, 255, 255, 0.767);
+        position: relative;
+        right: 30%;
+        transform: translate(25%, -50%);
+    }
+}
+
 .buttonText {
     width: 90%;
     height: 100%;
@@ -888,6 +961,22 @@ export default {
     overflow: hidden;
     white-space: nowrap;
     font-family: "Righteous", cursive;
+}
+
+@media (max-width: 1000px) {
+    .buttonText {
+        width: 90%;
+        height: 100%;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -35%);
+        text-transform: uppercase;
+        overflow: hidden;
+        white-space: nowrap;
+        font-family: "Righteous", cursive;
+        font-size: 10px;
+    }
 }
 
 .btnCol1 {
