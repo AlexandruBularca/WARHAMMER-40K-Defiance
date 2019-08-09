@@ -210,6 +210,7 @@ export default {
     border-width: 2px;
   }
   .terminal_text {
+    margin-top: 0px;
     padding: 4px;
     font-size: 8px;
   }
