@@ -40,6 +40,7 @@ const data = new Vuex.Store({
       sword: 'sw1',
       gun: 'gu1',
       ammo: 5,
+      maxAmmo: 5,
       knifeAttack: 25,
       swordAttack: 50,
       gunAttack: 50,
