@@ -32,7 +32,7 @@ export default {
             return this.$store.state.Hero.hp
         },
         maxHealth() {
-            return this.$store.state.Hero.maxHp
+            return this.$store.state.Hero.con + this.$store.state.chestplate.con + this.$store.state.legplate.con
         },
         calculateHealthBar() {
             return {
@@ -92,6 +92,7 @@ export default {
                 this.$store.state.inventorySelectedItems.legplate = this.$store.state.legplate.selectedLegplateImg;
                 this.$store.commit('inventoryInteraction');
                 this.$store.state.terminal_send_show = "";
+                this.$store.state.Hero.hp = this.$store.state.Hero.con + this.$store.state.chestplate.con + this.$store.state.legplate.con;
             }
         },
     } 
