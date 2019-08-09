@@ -83,7 +83,7 @@ export default {
                 this.$store.state.inventorySelectedItems.legplate = this.$store.state.legplate.selectedLegplateImg;
                 this.$store.commit('inventoryInteraction')
                 this.$store.state.tutorialMessages.messageNewLocations = 1;
-                this.$store.state.terminal_send_show = "It looks like you have unlocked new locations!\nChoose the location where do you want to fight!\n\nKeep in mind that the green locations are unlocked and the red ones will be unlocked while you keep progressing.";
+                this.$store.state.terminal_send_show = "It looks like you have unlocked new locations!\nYou can now choose the location where you want to fight!\n\nKeep in mind that the green locations are unlocked and the red ones will be unlocked while you keep progressing.";
             } else if (this.$store.state.terminalTutorialItem > 4) {
                 this.$store.state.inventorySelectedItems.knife = this.$store.state.knife.selectedKnifeImg;
                 this.$store.state.inventorySelectedItems.gun = this.$store.state.gun.selectedGunImg;
