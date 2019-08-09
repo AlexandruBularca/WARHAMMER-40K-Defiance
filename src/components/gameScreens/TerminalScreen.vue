@@ -24,7 +24,7 @@ export default {
             textToBeAdded: this.$store.state.textToBeAdded,
             terminalTutorialItem: this.$store.state.terminalTutorialItem,
             scroll_speed:40,
-            scroll_speed_add:20,
+            scroll_speed_add:10,
             rec:0,
             // reset:0
             // send_to_store:null
@@ -93,7 +93,7 @@ export default {
           clearTimeout(this.rec);
       },
       reset_timer_add(){
-          this.scroll_speed_add = 20;
+          this.scroll_speed_add = 10;
           clearTimeout(this.rec);
       },
     //   function_send_to_storage(){
