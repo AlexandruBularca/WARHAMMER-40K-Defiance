@@ -16,7 +16,7 @@ export default {
     name: 'Map', 
     methods: {
         pinLocationSelected(item) {
-          if(item.available) {
+          //if(item.available) {
             var i = 0;
             while(item.id !== mapLocationsJson.locations[i].id) {
               i++;
@@ -24,7 +24,7 @@ export default {
             this.$store.state.terminal_send_show = "";
             this.$store.state.mapLocationClicked = i;
             this.$store.commit('combatMode');
-          }
+          //}
         },
         showCombatView() {
             this.$store.state.terminal_send_show = "";
