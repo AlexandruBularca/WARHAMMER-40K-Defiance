@@ -44,7 +44,7 @@ export default {
             return this.$store.state.Hero.ammo
         },
         maxAmmo() {
-            return 5
+            return this.$store.state.Hero.maxAmmo
         },
         calculateAmmoBar() {
             return {

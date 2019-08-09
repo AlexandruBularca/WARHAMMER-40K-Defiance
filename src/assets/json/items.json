@@ -114,7 +114,8 @@
             "selected": "true",
             "str": 100,
             "dex": 52,
-            "con": 0
+            "con": 0,
+            "ammo": 5
         },
         {
             "id": "gu2",
@@ -123,7 +124,8 @@
             "selected": "false",
             "str": 121,
             "dex": 57,
-            "con": 0
+            "con": 0,
+            "ammo": 7
         },
         {
             "id": "gu3",
@@ -132,7 +134,8 @@
             "selected": "false",
             "str": 146,
             "dex": 63,
-            "con": 0
+            "con": 0,
+            "ammo": 10
         },
         {
             "id": "gu4",
