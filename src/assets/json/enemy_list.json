@@ -13,7 +13,7 @@
     },
     "tech_priest":{
         "max_hp":900,
-        "attack_power":100,
+        "attack_power":80,
         "sprite":"https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game_vbeta/src/assets/img/enemy_combatant_tech_priest.png",
         "spriteStat":"https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game_vbeta/src/assets/img/enemy_combatant_tech_priest_stats.png"
     },
