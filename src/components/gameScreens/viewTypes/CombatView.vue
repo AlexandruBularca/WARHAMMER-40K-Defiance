@@ -95,19 +95,19 @@
         </div>
         <div class="buttonsHolder" v-bind:style="touchable(initialCombatMessage)">
             <div class="firstRowButtons">
-                <div class="button btnCol1 knifeBtn" v-bind:style="newTurnFind(actionTurn)" v-on:click="heroKnifeAttack()">
+                <div class="button btnCol1 knifeBtn" id="btnKnifeAtk" v-bind:style="newTurnFind(actionTurn)" v-on:click="heroKnifeAttack()">
                     <div class="buttonText">
                         Knife Attack
                     </div>
                 </div>
-                <div class="button btnCol2 swordBtn" v-bind:style="newTurn(actionTurn)" v-on:click="heroSwordAttack()">
+                <div class="button btnCol2 swordBtn" id="btnSwordAtk" v-bind:style="newTurn(actionTurn)" v-on:click="heroSwordAttack()">
                     <div class="buttonText">
                         Sword Attack
                     </div>
                 </div>
             </div>
             <div class="secondRowButtons">
-                <div class="button btnCol1 gunBtn" v-bind:style="newTurn(actionTurn)" v-on:click="heroGunAttack()">
+                <div class="button btnCol1 gunBtn" id="btnGunAtk" v-bind:style="newTurn(actionTurn)" v-on:click="heroGunAttack()">
                     <div class="buttonText">
                         Gun Attack
                     </div>
