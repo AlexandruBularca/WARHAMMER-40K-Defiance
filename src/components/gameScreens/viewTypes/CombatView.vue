@@ -1,5 +1,5 @@
 <template>
-    <div class="combatHolder disable-selection">
+    <div class="combatHolder disable-selection" v-bind:style="bgImage">
         <div class="enemyStatsHolder" v-bind:style="touchable(initialCombatMessage)">
             <div class="firstRowEnemyStatus">
                 <div class="holderEnemyStatus col1" v-if="isAvailableEnemy5">
@@ -179,14 +179,13 @@ export default {
         };
     },
     methods: {
-        enemyTurnNo(enemyNo) {
+        enemyTurnNo() {
             let actionThis = this;
             if(this.enemies !== null) {
-                var enemy_change="enemy"+(parseInt(enemyNo)+1);
                 this.$store.state.textToBeAdded = "Enemy turn: \n - damage taken: " + this.enemies[this.selected_enemy].attack + "\n\n";
                 setTimeout(function () {
                     actionThis.turn++;
-                }, 1000);
+                }, 700);
             }
         },
         findEnemyToAtk() {
@@ -198,7 +197,7 @@ export default {
                 if(this.enemies[enemy_change].hp !== 0 && this.enemies[enemy_change].hp !== null) {
                     
                     found = true;
-                    this.enemyTurnNo(i);
+                    this.enemyTurnNo();
 
                 } else {
                     i++;
@@ -210,7 +209,7 @@ export default {
             if(actionThis.turn % 2 === 0) {
                 setTimeout(function () {
                     actionThis.findEnemyToAtk();
-                }, 1750);
+                }, 1500);
             }
         },
         newTurnFind(turnNo) {
@@ -321,7 +320,7 @@ export default {
             var enemyNoOld = this.selected_enemy[this.selected_enemy.length-1];
             var enemyNoNew = newEnemySelected[newEnemySelected.length-1];
 
-            //if(this.enemies[enemyNoNew].hp !== 0) {
+            if(this.enemies['enemy' + enemyNoNew].hp !== 0) {
                 this.selected_enemy = 'enemy' + enemyNoNew;
 
                 var elEnemySelected = document.getElementById('enemy' + enemyNoOld);
@@ -341,7 +340,7 @@ export default {
                 if(elEnemySelectedAvatar) {
                     elEnemySelectedAvatar.className = 'enemySelectedAvatar keepCharacterRatio';
                 }
-            //}            
+            }            
 
         },
         heroAttacked(heroPower, weapon) {
@@ -425,6 +424,11 @@ export default {
         },
     },
     computed: {
+        bgImage() {
+            return {
+                'background-image': 'url("' + mapLocationsJson.locations[this.$store.state.mapLocationClicked].background + '")'
+            }
+        },
         actionTurn() {
             return this.turn;
         },
@@ -474,7 +478,6 @@ export default {
 @import url("https://fonts.googleapis.com/css?family=Righteous&display=swap");
 
 .combatHolder {
-    background-image: url("./../../../assets/img/combackground2.jpg");
     box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.247);
     background-repeat: no-repeat;
     background-size: 100% 100%;
