@@ -47,13 +47,15 @@
       </div>
     </div>
     <div class="infoPanel">
-      <p class="miniMapText disable-selection">MINIMAP</p>
-      
       <!--
+      <p class="miniMapText disable-selection">MINIMAP</p>
+      -->
+      
       <div class="stats">
         <div class="titleHolder disable-selection">
           <h1 class="statsH1">Stats</h1>
         </div>
+        <!--
 
         <div class="pbHolder">
           <div class="titlePBItem disable-selection">STR</div>
@@ -75,8 +77,8 @@
             <div class="progressBarCon" v-bind:style="calculateConBar" />
           </div>
         </div>
+        -->
       </div>
-      -->
       
       <div class="mapHolder" v-on:click="showMap()">
         <div class="miniMap" v-bind:style="asyncMiniMap" />
@@ -380,9 +382,27 @@ export default {
   width: 100%;
 }
 
+@media (max-width: 1000px) {
+  .stats {
+    position: relative;
+    background-color: antiquewhite;
+    top: 0%;
+    height: 60%;
+    width: 100%;
+  }
+}
+
 .statsH1 {
   font-size: 3em;
   float: left;
+}
+
+@media (max-width: 1000px) {
+  .statsH1 {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .miniMapText {
@@ -408,6 +428,19 @@ export default {
   border-left: 4px solid rgb(184, 184, 184);
   display: inline-block; /* change the default display type to inline-block */
   overflow: hidden;
+}
+
+@media (max-width: 1000px) {
+  .mapHolder {
+    position: relative;
+    top: 60%;
+    height: 39.6%;
+    width: 99%;
+    border-top: 2px solid rgb(184, 184, 184);
+    border-left: 2px solid rgb(184, 184, 184);
+    display: inline-block; /* change the default display type to inline-block */
+    overflow: hidden;
+  }
 }
 
 .mapHolder:hover {
@@ -454,13 +487,16 @@ export default {
     width: 100%;
     height: 10%;
     padding: 5px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
     text-align: center;
     font-family: "Bangers", cursive;
     font-weight: bold;
     color: rgba(255, 255, 255, 0.74);
     -webkit-text-stroke-width: 0.8px;
     -webkit-text-stroke-color: rgb(51, 51, 51);
-    text-shadow: 0 0 10px rgb(75, 27, 0);
+    text-shadow: 0 0 6px rgb(75, 27, 0);
     font-size: 8px;
   }
 }
