@@ -133,7 +133,7 @@ export default {
             turn: 1,
             inqTurn: 1,
             enemyTurn: 1,
-            messageBattleWon: "It looks like you won this battle!\n\nLet's return home and gear up with new items from the inventory!\n\nPress the inquisitor picture from the top-left of the screen in order to access the inventory!",
+            messageBattleWon: "You have achieved yet another victory for the Imperium!\n\nThe time has come to look in your inventory and asess the items at your disposal.\n\nPress the Inquisitor's profile picture on the top-left hand side of the screen in order to access the inventory!",
             ENEMY_LIST:enemy_list,
             selected_enemy:"",
             Combat: {
