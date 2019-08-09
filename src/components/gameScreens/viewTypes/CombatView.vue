@@ -472,7 +472,7 @@ export default {
         this.$nextTick(function () {
             if(this.$store.state.tutorialMessages.initialCombatViewMessage === 0) {
                 this.$store.state.tutorialMessages.initialCombatViewMessage = 1;
-                this.$store.state.terminal_send_show = "Inquisitor: The condition of the planet is even worse than I feared. According to the logs the local PDF divisions have been fully killed three days ago - surprising they lasted that long.\n\nCultists: Blood for the Blood! Skulls for the Skull Throne! \n\n Inquisitor: Chaos filth...";
+                this.$store.state.terminal_send_show = "Inquisitor: The condition of the planet is even worse than I feared. According to the logs, the local PDF divisions have been fully killed three days ago - surprising they lasted that long.\n\nCultists: Blood for the Blood! Skulls for the Skull Throne! \n\n Inquisitor: Chaos filth...";
             }
         })
         
