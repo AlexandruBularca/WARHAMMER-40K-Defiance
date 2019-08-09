@@ -53,20 +53,4 @@ export default {
     float: left;
 }
 
-.statusWindow {
-    position: relative;
-    height: 20vh;
-}
-
-.holderUserData {
-    height: 20vh;
-    width: 47vw;
-    top: -5px;
-    position: relative;
-    margin-left: 13vh;
-}
-
-
-
-
 </style>
