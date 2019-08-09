@@ -45,7 +45,7 @@
             "model": "knife_lvl1",
             "title": "knife lvl 1",
             "selected": "true",
-            "str": 100,
+            "str": 200,
             "dex": 40,
             "con": 0
         },
@@ -54,7 +54,7 @@
             "model": "knife_lvl2",
             "title": "knife lvl 2",
             "selected": "false",
-            "str": 135,
+            "str": 235,
             "dex": 67,
             "con": 0
         },
@@ -63,7 +63,7 @@
             "model": "coming_soon",
             "title": "knife lvl 3",
             "selected": "false",
-            "str": 184,
+            "str": 304,
             "dex": 82,
             "con": 0
         },
@@ -72,7 +72,7 @@
             "model": "coming_soon",
             "title": "knife lvl 4",
             "selected": "false",
-            "str": 201,
+            "str": 451,
             "dex": 98,
             "con": 0
         }
@@ -83,7 +83,7 @@
             "model": "sword_lvl1",
             "title": "sword lvl 1",
             "selected": "true",
-            "str": 179,
+            "str": 279,
             "dex": 21,
             "con": 0
         },
@@ -92,7 +92,7 @@
             "model": "sword_lvl2",
             "title": "sword lvl 2",
             "selected": "false",
-            "str": 231,
+            "str": 381,
             "dex": 30,
             "con": 0
         },
@@ -101,7 +101,7 @@
             "model": "sword_lvl3",
             "title": "sword lvl 3",
             "selected": "false",
-            "str": 280,
+            "str": 580,
             "dex": 36,
             "con": 0
         }
@@ -112,30 +112,30 @@
             "model": "gun_lvl1",
             "title": "gun lvl 1",
             "selected": "true",
-            "str": 100,
+            "str": 300,
             "dex": 52,
             "con": 0,
-            "ammo": 5
+            "ammo": 2
         },
         {
             "id": "gu2",
             "model": "gun_lvl2",
             "title": "gun lvl 2",
             "selected": "false",
-            "str": 121,
+            "str": 520,
             "dex": 57,
             "con": 0,
-            "ammo": 7
+            "ammo": 3
         },
         {
             "id": "gu3",
             "model": "gun_lvl3",
             "title": "gun lvl 3",
             "selected": "false",
-            "str": 146,
+            "str": 700,
             "dex": 63,
             "con": 0,
-            "ammo": 10
+            "ammo": 4
         },
         {
             "id": "gu4",

@@ -50,9 +50,9 @@ const data = new Vuex.Store({
     },
 
     stats: {
-      str: 1000,
-      dex: 1000,
-      con: 1000,
+      str: 1500,
+      dex: 1500,
+      con: 1500,
     },
 
     //Ammo
