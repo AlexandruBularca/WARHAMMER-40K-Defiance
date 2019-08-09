@@ -95,7 +95,16 @@ export default {
                 this.$store.state.Hero.hp = this.$store.state.Hero.con + this.$store.state.chestplate.con + this.$store.state.legplate.con;
             }
         },
-    } 
+    },
+    mounted: function() {
+        var thisActivity = this;
+        var intervalID = window.setInterval(myCallback, 500);
+        function myCallback() {
+            if (thisActivity.$store.state.terminalTutorialItem > 4) {
+                thisActivity.$store.state.Threat.threat += 0.05;
+            }
+        }
+    }
 }
 </script>
 
