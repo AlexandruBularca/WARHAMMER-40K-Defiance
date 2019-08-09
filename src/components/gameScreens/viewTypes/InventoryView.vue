@@ -47,7 +47,9 @@
       </div>
     </div>
     <div class="infoPanel">
-        <p class="miniMapText disable-selection">MINIMAP</p>
+      <p class="miniMapText disable-selection">MINIMAP</p>
+      
+      <!--
       <div class="stats">
         <div class="titleHolder disable-selection">
           <h1 class="statsH1">Stats</h1>
@@ -74,7 +76,8 @@
           </div>
         </div>
       </div>
-
+      -->
+      
       <div class="mapHolder" v-on:click="showMap()">
         <div class="miniMap" v-bind:style="asyncMiniMap" />
         <div class="currentUserLocation" />
@@ -446,6 +449,22 @@ export default {
   margin-bottom: 60px;
 }
 
+@media (max-width: 1000px) {
+  .titleHolder {
+    width: 100%;
+    height: 10%;
+    padding: 5px;
+    text-align: center;
+    font-family: "Bangers", cursive;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.74);
+    -webkit-text-stroke-width: 0.8px;
+    -webkit-text-stroke-color: rgb(51, 51, 51);
+    text-shadow: 0 0 10px rgb(75, 27, 0);
+    font-size: 8px;
+  }
+}
+
 .titlePBItem {
   float: left;
   font-size: 24px;
@@ -557,6 +576,21 @@ export default {
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+@media (max-width: 1000px) {
+  .inventoryChgHolder {
+    width: 90%;
+    height: 90%;
+    position: relative;
+    background-color: rgb(75, 27, 0);
+    top: 50%;
+    transform: translate(0%, -50%);
+    border: 3px solid rgb(90, 34, 1);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(90, 34, 1, 0.671),
+      0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
 .itemChangerTitle {
   text-align: center;
   padding-top: 5%;
@@ -564,6 +598,17 @@ export default {
   font-size: 26px;
   text-transform: uppercase;
   font-family: "Righteous", cursive;
+}
+
+@media (max-width: 1000px) {
+  .itemChangerTitle {
+    text-align: center;
+    padding-top: 5%;
+    color: rgba(255, 255, 255, 0.74);
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: "Righteous", cursive;
+  }
 }
 
 .item-decoration {
@@ -576,6 +621,20 @@ export default {
   left: 50%;
   top: 1%;
   transform: translate(-50%, 50%);
+}
+
+@media (max-width: 1000px) {
+  .item-decoration {
+    width: 80%;
+    height: 0%;
+    background-color: rgb(75, 27, 0);
+    border: 1.5px solid rgb(90, 34, 1);
+    border-radius: 5px;
+    position: relative;
+    left: 50%;
+    top: 1%;
+    transform: translate(-50%, 50%);
+  }
 }
 
 .armorHolder {
@@ -595,6 +654,22 @@ export default {
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(90, 34, 1, 0.671),
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media (max-width: 1000px) {
+  .armor {
+    width: 80%;
+    height: 80%;
+    position: relative;
+    background-color: rgb(75, 27, 0);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid rgb(90, 34, 1);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(90, 34, 1, 0.671),
+      0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  }
 }
 
 .armor:hover {
@@ -617,12 +692,33 @@ export default {
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+@media (max-width: 1000px) {
+  .armorUpgrade {
+    width: 30%;
+    height: 30%;
+    background-color: rgb(75, 27, 0);
+    border: 3px solid rgb(90, 34, 1);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(90, 34, 1, 0.671),
+      0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
 .armorUpgrade:hover {
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.493);
   border: 6px solid rgba(255, 255, 255, 0.199);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.671),
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media (max-width: 1000px) {
+  .armorUpgrade:hover {
+    background-color: rgba(255, 255, 255, 0.493);
+    border: 3px solid rgba(255, 255, 255, 0.199);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.671),
+      0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  }
 }
 
 .item1 {
@@ -672,6 +768,17 @@ export default {
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+@media (max-width: 1000px) {
+  .weaponSlot {
+    width: 16vh;
+    height: 16vh;
+    background-color: rgb(75, 27, 0);
+    border: 3px solid rgb(90, 34, 1);
+    box-shadow: 0 2px 4px 0 rgba(90, 34, 1, 0.671),
+      0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
 .weaponSlot:hover {
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.493);
@@ -679,6 +786,16 @@ export default {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.671),
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+@media (max-width: 1000px) {
+  .weaponSlot:hover {
+    background-color: rgba(255, 255, 255, 0.493);
+    border: 3px solid rgba(255, 255, 255, 0.199);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.671),
+      0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
 
 .leftSlot {
   position: relative;
@@ -750,6 +867,17 @@ export default {
   transform:translate(-50%,-25%);
 }
 
+@media (max-width: 1000px) {
+  .itemsChanger {
+    width: 95%;
+    height: 83%;
+    position: relative;
+    top:21%;
+    left:50%;
+    transform:translate(-50%,-25%);
+  }
+}
+
 .templateItem {
     height: 40px;
     width: 90%;
@@ -768,6 +896,25 @@ export default {
     cursor: pointer;
 }
 
+@media (max-width: 1000px) {
+  .templateItem {
+    height: 25px;
+    width: 90%;
+    background-color: rgb(75, 27, 0);
+    border: 3px solid rgb(90, 34, 1);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(90, 34, 1, 0.671),
+        0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
+    top:0%;
+    left:50%;
+    transform:translate(-50%,0%);
+    margin-top: 10px;
+    text-align: center;
+    vertical-align: middle;
+  }
+}
+
 .templateItem:hover {
   height: 40px;
   width: 90%;
@@ -775,6 +922,17 @@ export default {
   border: 6px solid rgba(255, 255, 255, 0.199);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.671),
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media (max-width: 1000px) {
+  .templateItem:hover {
+    height: 25px;
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.226);
+    border: 3px solid rgba(255, 255, 255, 0.199);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.671),
+      0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  }
 }
 
 .itemHolderView {
@@ -789,6 +947,21 @@ export default {
     text-transform: uppercase;
 }
 
+@media (max-width: 1000px) {
+  .itemHolderView {
+    height: 90%;
+    width: 90%;
+    position: relative;
+    top:70%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-family: "Righteous", cursive;
+    color: rgba(255, 255, 255, 0.74);
+    text-transform: uppercase;
+    font-size: 10px;
+  }
+}
+
 .itemHolderViewSelected {
     height: 90%;
     width: 90%;
@@ -799,6 +972,21 @@ export default {
     font-family: "Righteous", cursive;
     color: rgba(209, 230, 19, 0.712);
     text-transform: uppercase;
+}
+
+@media (max-width: 1000px) {
+  .itemHolderViewSelected {
+    height: 90%;
+    width: 90%;
+    position: relative;
+    top:70%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-family: "Righteous", cursive;
+    color: rgba(127, 238, 214, 0.884);
+    text-transform: uppercase;
+    font-size: 10px;
+  }
 }
 
 .disable-selection {
