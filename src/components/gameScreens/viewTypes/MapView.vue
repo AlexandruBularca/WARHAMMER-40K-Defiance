@@ -5,7 +5,7 @@
           v-bind:key="item.id" v-on:click="pinLocationSelected(item)"/>
     </div>
     <div v-if="canShowLocations === 2" class="buttonsHolder">
-      <button class="btnAttack" v-on:click="showCombatView()">Search</button>
+      <button class="btnAttack disable-selection" v-on:click="showCombatView()">Search</button>
     </div>
   </div>
 </template>
@@ -102,8 +102,6 @@ export default {
 }
 
 .currentUserLocation {
-  height: 6px;
-  width: 6px;
   background-color: #e910108f;
   border-radius: 50%;
   box-shadow: 0 0 0 5px #fd843e85;
@@ -118,34 +116,6 @@ export default {
   top: 87%;
   left: 50%;
   transform: translate(-50%, 0%);
-}
-
-.btnSearch {
-  width: 160px;
-  height: 45px;
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 2.5px;
-  font-weight: 500;
-  color: #000;
-  background-color: #fff;
-  border: none;
-  border-radius: 45px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  outline: none;
-  position: relative;
-  left: 50%;
-  transform: translate(-50%, 0%);
-}
-
-.btnSearch:hover {
-  background-color: rgb(0, 0, 0);
-  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
-  color: #fff;
-  transform: translate(-50%, -20%);
 }
 
 .btnAttack {
@@ -175,4 +145,42 @@ export default {
   color: #fff;
   transform: translate(-50%, -20%);
 }
+
+.disable-selection {
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer */
+  -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+  -webkit-user-select: none; /* Chrome, Safari, and Opera */
+  -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+}
+
+@media (max-width: 1000px) {
+  .btnAttack {
+    width: 100px;
+    height: 30px;
+    font-family: "Roboto", sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+  .btnAttack:hover {
+    background-color: rgb(0, 0, 0);
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+    color: #fff;
+    transform: translate(-50%, -10%);
+  }
+}
+
 </style>
