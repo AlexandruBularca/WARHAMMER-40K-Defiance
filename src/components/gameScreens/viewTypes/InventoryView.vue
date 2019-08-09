@@ -47,7 +47,7 @@
       </div>
     </div>
     <div class="infoPanel">
-        <p class="miniMapText disable-selection">MINIMAP</p>
+      
       <div class="stats">
         <div class="titleHolder disable-selection">
           <h1 class="statsH1">Stats</h1>
@@ -73,8 +73,13 @@
             <div class="progressBarCon" v-bind:style="calculateConBar" />
           </div>
         </div>
-      </div>
 
+        <div class="pbHolder">
+          <p class="miniMapText disable-selection">MINIMAP</p>
+        </div>
+
+      </div>
+      
       <div class="mapHolder" v-on:click="showMap()">
         <div class="miniMap" v-bind:style="asyncMiniMap" />
         <div class="currentUserLocation" />
@@ -352,7 +357,12 @@ export default {
   border-style: solid;
   margin-left: 26vw;
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.37);
-  
+}
+
+@media (max-width: 1000px) {
+  .inventoryHolder {
+    border-width: 2px;
+  }
 }
 
 .inventory {
@@ -372,25 +382,64 @@ export default {
   width: 100%;
 }
 
-.statsH1 {
-  font-size: 3em;
-  float: left;
+@media (max-width: 1000px) {
+  .stats {
+    position: relative;
+    top: 0%;
+    height: 60%;
+    width: 100%;
+  }
 }
 
-.miniMapText {
-  float: left;
+.statsH1 {
   position: relative;
-  top:55%;
-  left:50%;
-  transform:translate(-50%,-55%);
-  font-family: "Bangers", cursive;
-  font-weight: bold;
-  color: rgba(255, 255, 255, 0.74);
-  -webkit-text-stroke-width: 0.8px;
-  -webkit-text-stroke-color: rgb(51, 51, 51);
-  text-shadow: 0 0 20px rgb(75, 27, 0);
-  font-size:2.5em;
-  margin:0;
+  left: 50%;
+  font-size: 50px;
+  transform: translate(-50%, 0%);
+}
+
+@media (max-width: 1000px) {
+  .statsH1 {
+    font-size: 24px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -30%);
+  }
+}
+
+
+@media (min-width: 1000px) {
+  .miniMapText {
+    font-family: "Bangers", cursive;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.74);
+    -webkit-text-stroke-width: 0.2px;
+    -webkit-text-stroke-color: rgb(51, 51, 51);
+    text-shadow: 0 0 10px rgb(75, 27, 0);
+    font-size:50px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+}
+
+@media (max-width: 1000px) {
+  .miniMapText {
+    font-family: "Bangers", cursive;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.74);
+    -webkit-text-stroke-width: 0.2px;
+    -webkit-text-stroke-color: rgb(51, 51, 51);
+    text-shadow: 0 0 2px rgb(75, 27, 0);
+    font-size:20px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .mapHolder {
@@ -400,6 +449,19 @@ export default {
   border-left: 4px solid rgb(184, 184, 184);
   display: inline-block; /* change the default display type to inline-block */
   overflow: hidden;
+}
+
+@media (max-width: 1000px) {
+  .mapHolder {
+    position: relative;
+    top: 60%;
+    height: 39.6%;
+    width: 99%;
+    border-top: 2px solid rgb(184, 184, 184);
+    border-left: 2px solid rgb(184, 184, 184);
+    display: inline-block; /* change the default display type to inline-block */
+    overflow: hidden;
+  }
 }
 
 .mapHolder:hover {
@@ -441,24 +503,73 @@ export default {
   margin-bottom: 60px;
 }
 
-.titlePBItem {
-  float: left;
-  font-size: 24px;
-  position: relative;
-  top: 50%;
-  left: 10%;
-  transform: translate(-10%, -50%);
-  color: rgb(136, 50, 1);
-  font-family: "Permanent Marker", cursive;
-  -webkit-text-stroke-width: 3px;
-  -webkit-text-stroke-color: rgb(75, 27, 0);
-  text-shadow: 0 0 20px rgb(75, 27, 0);
+@media (max-width: 1000px) {
+  .titleHolder {
+    width: 100%;
+    height: 10%;
+    padding: 5px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    text-align: center;
+    font-family: "Bangers", cursive;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.74);
+    -webkit-text-stroke-width: 0.8px;
+    -webkit-text-stroke-color: rgb(51, 51, 51);
+    text-shadow: 0 0 6px rgb(75, 27, 0);
+    font-size: 8px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .titlePBItem {
+    float: left;
+    font-size: 24px;
+    position: relative;
+    top: 50%;
+    left: 10%;
+    transform: translate(-10%, -50%);
+    color: rgb(136, 50, 1);
+    font-family: "Permanent Marker", cursive;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: rgb(75, 27, 0);
+    text-shadow: 0 0 20px rgb(75, 27, 0);
+  }
+}
+
+@media (max-width: 1000px) {
+  .titlePBItem {
+    float: left;
+    font-size: 14px;
+    position: relative;
+    top: 50%;
+    left: 5%;
+    transform: translate(-10%, -65%);
+    color: rgb(136, 50, 1);
+    font-family: "Permanent Marker", cursive;
+    text-shadow: 0 0 4px rgb(75, 27, 0);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(75, 27, 0);
+  }
 }
 
 .pbHolder {
   width: 94%;
   height: 10%;
   padding: 10px;
+}
+
+@media (max-width: 1000px) {
+  .pbHolder {
+    position: relative;
+    top: -55px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 94%;
+    height: 10%;
+    padding: 10px;
+  }
 }
 
 .progressBarOutlineStr {
@@ -481,6 +592,28 @@ export default {
   width: 90%;
 }
 
+@media (max-width: 1000px) {
+  .progressBarOutlineStr {
+    width: 70%;
+    height: 75%;
+    background-color: rgba(105, 42, 0, 0.329);
+    position: relative;
+    top: 0px;
+    float: right;
+    border: 1px solid rgb(90, 34, 1);
+    padding: 0.1px;
+    outline: solid 1px rgb(75, 27, 0);
+    box-shadow: 0 2px 4px 0 rgba(90, 34, 1, 0.671),
+      0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .progressBarStr {
+    background-color: rgb(105, 42, 0);
+    height: 100%;
+    width: 90%;
+  }
+}
+
 .progressBarOutlineDex {
   width: 70%;
   height: 75%;
@@ -501,6 +634,28 @@ export default {
   width: 90%;
 }
 
+@media (max-width: 1000px) {
+  .progressBarOutlineDex {
+    width: 70%;
+    height: 75%;
+    background-color: rgba(105, 42, 0, 0.329);
+    position: relative;
+    top: 0px;
+    float: right;
+    border: 1px solid rgb(90, 34, 1);
+    padding: 0px;
+    outline: solid 1px rgb(75, 27, 0);
+    box-shadow: 0 2px 4px 0 rgba(90, 34, 1, 0.671),
+      0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .progressBarDex {
+    background-color: rgb(105, 42, 0);
+    height: 100%;
+    width: 90%;
+  }
+}
+
 .progressBarOutlineCon {
   width: 70%;
   height: 75%;
@@ -519,6 +674,28 @@ export default {
   background-color: rgb(105, 42, 0);
   height: 100%;
   width: 90%;
+}
+
+@media (max-width: 1000px) {
+  .progressBarOutlineCon {
+    width: 70%;
+    height: 75%;
+    background-color: rgba(105, 42, 0, 0.329);
+    position: relative;
+    top: 0px;
+    float: right;
+    border: 1px solid rgb(90, 34, 1);
+    padding: 0px;
+    outline: solid 1px rgb(75, 27, 0);
+    box-shadow: 0 2px 4px 0 rgba(90, 34, 1, 0.671),
+      0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .progressBarCon {
+    background-color: rgb(105, 42, 0);
+    height: 100%;
+    width: 90%;
+  }
 }
 
 .map {
@@ -552,6 +729,21 @@ export default {
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+@media (max-width: 1000px) {
+  .inventoryChgHolder {
+    width: 90%;
+    height: 90%;
+    position: relative;
+    background-color: rgb(75, 27, 0);
+    top: 50%;
+    transform: translate(0%, -50%);
+    border: 3px solid rgb(90, 34, 1);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(90, 34, 1, 0.671),
+      0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
 .itemChangerTitle {
   text-align: center;
   padding-top: 5%;
@@ -559,6 +751,17 @@ export default {
   font-size: 26px;
   text-transform: uppercase;
   font-family: "Righteous", cursive;
+}
+
+@media (max-width: 1000px) {
+  .itemChangerTitle {
+    text-align: center;
+    padding-top: 5%;
+    color: rgba(255, 255, 255, 0.74);
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: "Righteous", cursive;
+  }
 }
 
 .item-decoration {
@@ -571,6 +774,20 @@ export default {
   left: 50%;
   top: 1%;
   transform: translate(-50%, 50%);
+}
+
+@media (max-width: 1000px) {
+  .item-decoration {
+    width: 80%;
+    height: 0%;
+    background-color: rgb(75, 27, 0);
+    border: 1.5px solid rgb(90, 34, 1);
+    border-radius: 5px;
+    position: relative;
+    left: 50%;
+    top: 1%;
+    transform: translate(-50%, 50%);
+  }
 }
 
 .armorHolder {
@@ -590,6 +807,22 @@ export default {
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(90, 34, 1, 0.671),
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media (max-width: 1000px) {
+  .armor {
+    width: 80%;
+    height: 80%;
+    position: relative;
+    background-color: rgb(75, 27, 0);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid rgb(90, 34, 1);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(90, 34, 1, 0.671),
+      0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  }
 }
 
 .armor:hover {
@@ -612,12 +845,33 @@ export default {
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+@media (max-width: 1000px) {
+  .armorUpgrade {
+    width: 30%;
+    height: 30%;
+    background-color: rgb(75, 27, 0);
+    border: 3px solid rgb(90, 34, 1);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(90, 34, 1, 0.671),
+      0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
 .armorUpgrade:hover {
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.493);
   border: 6px solid rgba(255, 255, 255, 0.199);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.671),
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media (max-width: 1000px) {
+  .armorUpgrade:hover {
+    background-color: rgba(255, 255, 255, 0.493);
+    border: 3px solid rgba(255, 255, 255, 0.199);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.671),
+      0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  }
 }
 
 .item1 {
@@ -667,6 +921,17 @@ export default {
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+@media (max-width: 1000px) {
+  .weaponSlot {
+    width: 16vh;
+    height: 16vh;
+    background-color: rgb(75, 27, 0);
+    border: 3px solid rgb(90, 34, 1);
+    box-shadow: 0 2px 4px 0 rgba(90, 34, 1, 0.671),
+      0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
 .weaponSlot:hover {
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.493);
@@ -674,6 +939,16 @@ export default {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.671),
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+@media (max-width: 1000px) {
+  .weaponSlot:hover {
+    background-color: rgba(255, 255, 255, 0.493);
+    border: 3px solid rgba(255, 255, 255, 0.199);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.671),
+      0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
 
 .leftSlot {
   position: relative;
@@ -745,6 +1020,17 @@ export default {
   transform:translate(-50%,-25%);
 }
 
+@media (max-width: 1000px) {
+  .itemsChanger {
+    width: 95%;
+    height: 83%;
+    position: relative;
+    top:21%;
+    left:50%;
+    transform:translate(-50%,-25%);
+  }
+}
+
 .templateItem {
     height: 40px;
     width: 90%;
@@ -763,6 +1049,25 @@ export default {
     cursor: pointer;
 }
 
+@media (max-width: 1000px) {
+  .templateItem {
+    height: 25px;
+    width: 90%;
+    background-color: rgb(75, 27, 0);
+    border: 3px solid rgb(90, 34, 1);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(90, 34, 1, 0.671),
+        0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
+    top:0%;
+    left:50%;
+    transform:translate(-50%,0%);
+    margin-top: 10px;
+    text-align: center;
+    vertical-align: middle;
+  }
+}
+
 .templateItem:hover {
   height: 40px;
   width: 90%;
@@ -770,6 +1075,17 @@ export default {
   border: 6px solid rgba(255, 255, 255, 0.199);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.671),
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media (max-width: 1000px) {
+  .templateItem:hover {
+    height: 25px;
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.226);
+    border: 3px solid rgba(255, 255, 255, 0.199);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.671),
+      0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  }
 }
 
 .itemHolderView {
@@ -784,6 +1100,21 @@ export default {
     text-transform: uppercase;
 }
 
+@media (max-width: 1000px) {
+  .itemHolderView {
+    height: 90%;
+    width: 90%;
+    position: relative;
+    top:70%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-family: "Righteous", cursive;
+    color: rgba(255, 255, 255, 0.74);
+    text-transform: uppercase;
+    font-size: 10px;
+  }
+}
+
 .itemHolderViewSelected {
     height: 90%;
     width: 90%;
@@ -794,6 +1125,21 @@ export default {
     font-family: "Righteous", cursive;
     color: rgba(209, 230, 19, 0.712);
     text-transform: uppercase;
+}
+
+@media (max-width: 1000px) {
+  .itemHolderViewSelected {
+    height: 90%;
+    width: 90%;
+    position: relative;
+    top:70%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-family: "Righteous", cursive;
+    color: rgba(127, 238, 214, 0.884);
+    text-transform: uppercase;
+    font-size: 10px;
+  }
 }
 
 .disable-selection {

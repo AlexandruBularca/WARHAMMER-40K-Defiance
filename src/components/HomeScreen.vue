@@ -48,14 +48,19 @@ h1 {
   font-size: 4.5em;
   text-shadow: 4px 4px grey, 5px 5px rgb(54, 53, 53);
   text-align: center;
+  top: 15%;
+  position: relative;
 }
 
 .button {
-  position: absolute;
-  left: 17%;
-  font-size: 40px;
-  font-family: "Lacquer", sans-serif;
+  position: relative;
+  left: 50%;
+  -webkit-transform: translate(0%, 0%);
+  transform: translate(-50%, 0%);
   width: 50%;
+  font-size: 40px;
+  top: 30%;
+  font-family: "Lacquer", sans-serif;
   border-radius: 25px;
   box-shadow: 2px 2px 2px 2px #3d3533;
   background-color: #b35900;
@@ -69,22 +74,47 @@ h1 {
   color: rgb(211, 106, 8);
 }
 
-h1:hover {
-  color: rgb(105, 81, 63);
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
-}
-
 .intro {
   position: absolute;
   width: auto;
-  height: auto;
+  height: 80vh;
   left: 50%;
-  top: 40%;
-  transform: translate(-50%, -40%);
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
+
 @font-face {
   font-family: "FelinaT26Gothic";
   src: url("../assets/fonts/FelinaT26_Gothic_Regular.woff") format("woff");
 }
+
+@media (min-width: 1000px) {
+  h1:hover {
+    color: rgb(105, 81, 63);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+  }
+}
+
+@media (max-width: 1000px) {
+  h1 {
+    text-shadow: 1px 1px grey, 2px 2px rgb(54, 53, 53);
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 10%);
+    font-size: 2em;
+  }
+  .button {
+    box-shadow: 1px 1px 1px 1px #3d3533;
+    position: absolute;
+    border-radius: 10px;
+    font-size: 20px;
+    width: 100px;
+    height: 26px;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, 0%);
+  }
+}
+
 </style>
