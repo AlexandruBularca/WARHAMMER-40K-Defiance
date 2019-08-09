@@ -72,7 +72,7 @@
             "model": "coming_soon",
             "title": "knife lvl 4",
             "selected": "false",
-            "str": 451,
+            "str": 351,
             "dex": 98,
             "con": 0
         }
@@ -92,7 +92,7 @@
             "model": "sword_lvl2",
             "title": "sword lvl 2",
             "selected": "false",
-            "str": 200,
+            "str": 300,
             "dex": 50,
             "con": 0
         },
