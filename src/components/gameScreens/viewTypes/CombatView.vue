@@ -534,6 +534,12 @@ export default {
     margin-left: 26vw;
 }
 
+@media (max-width: 1000px) {
+  .combatHolder {
+    border-width: 2px;
+  }
+}
+
 .enemyStatsHolder {
     width: 100%;
     height: 20%;
