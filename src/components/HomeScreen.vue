@@ -94,13 +94,16 @@ h1 {
 
 @media (max-width: 1000px) {
   h1 {
+    text-shadow: 1px 1px grey, 2px 2px rgb(54, 53, 53);
     position: relative;
     left: 50%;
     transform: translate(-50%, 50%);
     font-size: 2em;
   }
   .button {
+    box-shadow: 1px 1px 1px 1px #3d3533;
     position: absolute;
+    border-radius: 10px;
     font-size: 20px;
     width: 100px;
     left: 50%;
