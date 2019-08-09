@@ -187,7 +187,7 @@ export default {
                 if(this.$store.state.Hero.hp < 0) {
                     this.$store.state.Hero.hp = 0;
                     setTimeout(function () {
-                        
+                        actionThis.$store.state.textToBeAdded = "You died";
                     }, 700);
                 } else {
                     setTimeout(function () {
