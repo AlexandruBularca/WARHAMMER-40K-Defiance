@@ -249,12 +249,6 @@ export default {
                     'pointer-events': 'none',
                 }
             }
-            width: (this.$store.Ammo.ammo/this.$store.Ammo.maxAmmo)*100 + '%';
-            } else {
-                return {
-                    'opacity': '0.4',
-                    'pointer-events': 'none',
-                }
             }
 
         },
@@ -269,7 +263,6 @@ export default {
                     'pointer-events': 'none',
                 }
             }
-            width: (this.$store.Ammo.ammo/this.$store.Ammo.maxAmmo)*100 + '%';
 
         },
         touchable(shouldShow) {
