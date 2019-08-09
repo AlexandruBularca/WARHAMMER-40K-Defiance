@@ -179,7 +179,7 @@ export default {
         };
     },
     methods: {
-        enemyTurnNo(enemyNo) {
+        enemyTurnNo() {
             let actionThis = this;
             if(this.enemies !== null) {
                 this.$store.state.textToBeAdded = "Enemy turn: \n - damage taken: " + this.enemies[this.selected_enemy].attack + "\n\n";
@@ -197,7 +197,7 @@ export default {
                 if(this.enemies[enemy_change].hp !== 0 && this.enemies[enemy_change].hp !== null) {
                     
                     found = true;
-                    this.enemyTurnNo(i);
+                    this.enemyTurnNo();
 
                 } else {
                     i++;
