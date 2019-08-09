@@ -3,7 +3,7 @@
         <div class="enemyStatsHolder" v-bind:style="touchable(initialCombatMessage)">
             <div class="firstRowEnemyStatus">
                 <div class="holderEnemyStatus col1" v-if="isAvailableEnemy5">
-                    <div id="enemy1" class="enemyStatusStyle enemySelected" tabindex="1" v-on:click="onEnemeySelected('enemy1')">
+                    <div id="enemy1" class="enemyStatusStyle" tabindex="1" v-on:click="onEnemeySelected('enemy1')">
                         <div class="progressBarOutlineStr">
                             <div class="progressBarStr" v-bind:style="{ width: (this.enemies.enemy1.hp/this.enemies.enemy1.max_hp)*100 + '%' }" />
                         </div>
@@ -89,7 +89,7 @@
                     <img id="enemySrc2" class="keepCharacterRatio">
                 </div>
                 <div id="enemy1Avatar" class="enemyCharacterAvatar enemy6" v-if="isAvailableEnemy6">
-                    <img id="enemySrc1" class="enemySelectedAvatar keepCharacterRatio">
+                    <img id="enemySrc1" class="keepCharacterRatio">
                 </div>
             </div>
         </div>
@@ -372,6 +372,8 @@ export default {
                     var elAddImg = document.getElementById("enemySrc"+(parseInt(enemy)+1));
                     elAddImg.src = enemy_list[mapLocationsJson.locations[this.$store.state.mapLocationClicked].mapEnemies[enemy]].sprite;
                     if(!initialEnemySelected) {
+                        var elEnemySelected = document.getElementById('enemy' + (parseInt(enemy)+1));
+                        elEnemySelected.className = 'enemyStatusStyle enemySelected';
                         elAddImg.className = 'enemySelectedAvatar keepCharacterRatio';
                     }
                     var elAddImgStats = document.getElementById("enemyImgStat"+(parseInt(enemy)+1));
