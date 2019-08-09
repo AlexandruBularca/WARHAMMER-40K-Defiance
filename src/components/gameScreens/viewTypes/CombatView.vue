@@ -185,7 +185,7 @@ export default {
                 var evasion=0 + (this.$store.state.Hero.dex-0)*(1-0)/(300-0);
                 var random=Math.random();
                 var variation=(random-0)*(0.1+0.1)/(1-0);
-                console.log(evasion+variation);
+                // console.log(evasion+variation);
                 this.$store.state.Hero.hp -= Math.ceil(this.enemies[this.selected_enemy].attack*(evasion+variation));
                 this.$store.state.textToBeAdded = "Enemy turn: \n - damage taken: " + Math.ceil(this.enemies[this.selected_enemy].attack*(evasion+variation) )+  "\n\n";
                 if(this.$store.state.Hero.hp < 0) {
