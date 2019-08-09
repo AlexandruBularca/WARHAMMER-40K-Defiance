@@ -125,9 +125,6 @@ export default {
     height: 15.3vh;
     background-color: aqua;
     clip-path: polygon(0% 0%, 0% 0%, 100% 0, 72% 100%, 0% 100%);
-    /**border-top: 2px solid rgb(255, 255, 255);
-    border-left: 2px solid rgb(255, 255, 255);
-    border-bottom: 2px solid rgb(255, 255, 255);*/
     margin: 1.2vh;
     float: left;
 }
@@ -203,6 +200,26 @@ export default {
     height: 4vh;
     width: 0%;
     clip-path: polygon(5% 0%, 0% 0%, 100% 0, 100% 100%, 0% 100%);
+}
+
+@media (max-width: 1000px) {
+  h1 {
+    text-shadow: 1px 1px grey, 2px 2px rgb(54, 53, 53);
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    font-size: 2em;
+  }
+  .button {
+    box-shadow: 1px 1px 1px 1px #3d3533;
+    position: absolute;
+    border-radius: 10px;
+    font-size: 20px;
+    width: 100px;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, 0%);
+  }
 }
 
 </style>
