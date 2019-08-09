@@ -60,7 +60,7 @@
             "id": "loc9",
             "x": 31.8,
             "y": 52.3,
-            "mapEnemies": ["cultist","noEnemy","cultist","noEnemy","cultist","scavanger"],
+            "mapEnemies": ["noEnemy","cultist","cultist","noEnemy","cultist","scavanger"],
             "available": false,
             "background":"https://raw.githubusercontent.com/TheLegendWeeb/WARHAMMER-40K-Defiance/game_vbeta/src/assets/img/bk4.jpg"
         },{
