@@ -365,7 +365,7 @@ export default {
                 } else if (weapon === 2) {
                     weaponUsed = 'gun';
                 }
-                this.$store.state.textToBeAdded = "Inquisitor turn: " + this.inqTurn + "\n - weapon used: " + weaponUsed +"\n - damage taken: " + heroPower + "\n\n";
+                this.$store.state.textToBeAdded = "Inquisitor turn: " + this.inqTurn + "\n - weapon used: " + weaponUsed +"\n - damage done: " + heroPower + "\n\n";
                 this.inqTurn++;
                 this.turn++;
             }
