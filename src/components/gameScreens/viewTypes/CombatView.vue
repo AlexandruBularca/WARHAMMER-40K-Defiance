@@ -182,7 +182,7 @@ export default {
         enemyTurnNo() {
             let actionThis = this;
             if(this.enemies !== null && this.$store.state.gameScreen === 'combatScreen') {
-                var evasion=0 + (this.$store.state.Hero.dex-0)*(1-0)/(300-0);
+                var evasion=0 + (this.$store.state.Hero.dex-0)*(1-0)/(225-0);
                 var random=Math.random();
                 var variation=(random-0)*(0.1+0.1)/(1-0);
                 // console.log(evasion+variation);
